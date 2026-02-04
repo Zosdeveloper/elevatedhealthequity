@@ -141,7 +141,7 @@ p{line-height:1.7}
 .workshops-grid{display:grid;grid-template-columns:1fr;gap:2rem}
 @media(min-width:768px){.workshops-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.workshops-grid{grid-template-columns:repeat(3,1fr)}}
-.workshop-card{background:var(--card);border-radius:1rem;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);border:1px solid rgba(210,220,230,.5);transition:all .3s}
+.workshop-card{background:var(--card);border-radius:1rem;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);border:1px solid rgba(210,220,230,.5);transition:all .3s;position:relative;cursor:pointer}
 .workshop-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.08);border-color:rgba(212,168,67,.3)}
 .workshop-card-img{position:relative;height:14rem;overflow:hidden;border-radius:.75rem .75rem 0 0}
 .workshop-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
@@ -151,19 +151,47 @@ p{line-height:1.7}
 .workshop-card:hover .workshop-card-body h3{color:var(--gold)}
 .workshop-card-body p{color:var(--muted-fg);font-size:.875rem;line-height:1.7;margin-bottom:1.25rem}
 .workshop-card-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;transition:gap .3s}
+.workshop-card-link::after{content:'';position:absolute;inset:0;z-index:1}
 .workshop-card-link:hover{gap:.75rem}
 .workshop-card-link svg{width:.875rem;height:.875rem;flex-shrink:0;transition:transform .3s}
 .workshop-card-link:hover svg{transform:translateX(4px)}
 
 /* ============================================================
-   CTA
+   FORM SECTION — SPLIT LAYOUT WITH BG IMAGE
    ============================================================ */
-.cta-section{background:var(--teal-cta)}
-.cta-inner{text-align:center;max-width:48rem;margin:0 auto}
-.cta-inner h2{font-size:1.875rem;font-weight:700;color:var(--primary-fg);margin-bottom:1.5rem}
-@media(min-width:768px){.cta-inner h2{font-size:2.25rem}}
-@media(min-width:1024px){.cta-inner h2{font-size:3rem}}
-.cta-inner p{color:var(--primary-fg);opacity:.7;font-size:1.125rem;margin-bottom:2.5rem;line-height:1.7}
+.workshop-form{position:relative;overflow:hidden}
+.workshop-form .form-bg{position:absolute;inset:0;z-index:0}
+.workshop-form .form-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.workshop-form .form-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,28,42,.92) 0%,rgba(23,42,55,.88) 50%,rgba(13,28,42,.85) 100%)}
+.workshop-form .form-layout{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+@media(min-width:1024px){.workshop-form .form-layout{grid-template-columns:1fr 1fr;gap:4rem}}
+.form-info{color:var(--primary-fg)}
+.form-info h2{font-size:1.75rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.04em;line-height:1.15;margin-bottom:2.5rem}
+@media(min-width:768px){.form-info h2{font-size:2.25rem}}
+@media(min-width:1024px){.form-info h2{font-size:2.75rem}}
+.form-steps{position:relative;padding-left:3.5rem}
+.form-steps::before{content:'';position:absolute;left:1.0625rem;top:.75rem;bottom:.75rem;width:2px;background:linear-gradient(180deg,var(--gold),var(--gold-light),var(--gold));border-radius:1px}
+.form-step{position:relative;padding:0 0 2rem}
+.form-step:last-child{padding-bottom:0}
+.form-step-num{position:absolute;left:-3.5rem;top:0;width:2.125rem;height:2.125rem;border-radius:50%;background:var(--gold);color:var(--navy);font-size:.8125rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(212,168,67,.3);z-index:1}
+.form-step h3{font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:.375rem}
+.form-step p{color:rgba(255,255,255,.7);font-size:.9375rem;line-height:1.7}
+.form-card{background:#fff;border-radius:.75rem;padding:2rem;box-shadow:0 12px 40px rgba(0,0,0,.2)}
+@media(min-width:768px){.form-card{padding:2.5rem}}
+.form-card-heading{margin-bottom:1.75rem}
+.form-card-heading h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:.625rem}
+.form-card-heading .heading-bar{width:2.5rem;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px}
+.form-card .form-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:600px){.form-card .form-grid{grid-template-columns:1fr 1fr}}
+.form-card .full-width{grid-column:1/-1}
+.form-card label{display:block;font-size:.8125rem;font-weight:600;color:var(--navy);margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.03em}
+.form-card label .required{color:#e53e3e;margin-left:2px}
+.form-card input,.form-card select,.form-card textarea{width:100%;padding:.75rem .875rem;border:1px solid var(--border);border-radius:.375rem;background:var(--bg);font-size:.875rem;font-family:inherit;color:var(--fg);transition:border-color .3s,box-shadow .3s}
+.form-card input:focus,.form-card select:focus,.form-card textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,168,67,.12);background:#fff}
+.form-card textarea{min-height:100px;resize:vertical}
+.form-card select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
+.form-card .form-submit{text-align:center;margin-top:1.5rem}
+.form-card .form-submit .btn{width:100%;height:3.5rem;font-size:1rem}
 
 /* ============================================================
    FOOTER
@@ -387,17 +415,94 @@ p{line-height:1.7}
 </section>
 
 <!-- ============================================================
-     CTA
+     CONTACT FORM — SPLIT LAYOUT
      ============================================================ -->
-<section class="cta-section section-padding" id="cta">
+<section class="workshop-form section-padding" id="contact-form">
+  <div class="form-bg">
+    <img src="images/workshop-corporate.jpg" alt="">
+  </div>
   <div class="container-wide">
-    <div class="cta-inner reveal">
-      <h2>Elevate Your Organization's <span class="text-script text-gold">Potential</span></h2>
-      <p>Ready to transform your healthcare team's capabilities? Let's discuss how our workshops can help your organization build the skills and culture needed for equitable, excellent care.</p>
-      <a href="/contact.html" class="btn btn-gold btn-gold-lg" style="height:3.5rem;padding:0 2.5rem;font-size:1rem">
-        Start the Conversation
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
+    <div class="form-layout">
+      <div class="form-info reveal">
+        <h2>Elevate Your Organization's <span class="text-script text-gold" style="text-transform:none;letter-spacing:0">Potential</span></h2>
+        <div class="form-steps">
+          <div class="form-step">
+            <div class="form-step-num">1</div>
+            <h3>Share Your Story</h3>
+            <p>We begin with a simple form to understand your organization's basic needs and challenges.</p>
+          </div>
+          <div class="form-step">
+            <div class="form-step-num">2</div>
+            <h3>Let's Connect</h3>
+            <p>Connect with an Elevated representative for a personalized 30-minute conversation to discuss your specific goals.</p>
+          </div>
+          <div class="form-step">
+            <div class="form-step-num">3</div>
+            <h3>Your Custom Roadmap</h3>
+            <p>Receive a tailored solution based on your organization's unique objectives and our comprehensive understanding of your needs.</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-card reveal delay-1">
+        <div class="form-card-heading">
+          <h3>Request a Workshop</h3>
+          <div class="heading-bar"></div>
+        </div>
+        <form onsubmit="return false;">
+          <div class="form-grid">
+            <div>
+              <label for="firstName">First Name <span class="required">*</span></label>
+              <input type="text" id="firstName" name="firstName" required placeholder="Your First Name">
+            </div>
+            <div>
+              <label for="lastName">Last Name <span class="required">*</span></label>
+              <input type="text" id="lastName" name="lastName" required placeholder="Your Last Name">
+            </div>
+            <div class="full-width">
+              <label for="email">Business Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="Your Business Email">
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Your Phone">
+            </div>
+            <div>
+              <label for="state">State/Region</label>
+              <input type="text" id="state" name="state" placeholder="State or Region">
+            </div>
+            <div>
+              <label for="jobTitle">Job Title</label>
+              <input type="text" id="jobTitle" name="jobTitle" placeholder="Job Title">
+            </div>
+            <div>
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" placeholder="Company Name">
+            </div>
+            <div>
+              <label for="interest">I'm Interested In</label>
+              <select id="interest" name="interest">
+                <option value="" disabled selected>Please Select</option>
+                <option value="Accelerator Program">Accelerator Program</option>
+                <option value="Workshops &amp; Training">Workshops &amp; Training</option>
+                <option value="Consulting Services">Consulting Services</option>
+                <option value="Health Equity Solutions">Health Equity Solutions</option>
+                <option value="Leadership Development">Leadership Development</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="full-width">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your team, goals, or any specific needs..."></textarea>
+            </div>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-gold btn-gold-lg">
+              Start the Conversation
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </section>

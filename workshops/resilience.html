@@ -285,6 +285,7 @@ p{line-height:1.7}
 @media(min-width:600px){.form-card .form-grid{grid-template-columns:1fr 1fr}}
 .form-card .full-width{grid-column:1/-1}
 .form-card label{display:block;font-size:.8125rem;font-weight:600;color:var(--navy);margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.03em}
+.form-card label .required{color:#e53e3e;margin-left:2px}
 .form-card input,.form-card select,.form-card textarea{width:100%;padding:.75rem .875rem;border:1px solid var(--border);border-radius:.375rem;background:var(--bg);font-size:.875rem;font-family:inherit;color:var(--fg);transition:border-color .3s,box-shadow .3s}
 .form-card input:focus,.form-card select:focus,.form-card textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,168,67,.12);background:#fff}
 .form-card textarea{min-height:100px;resize:vertical}
@@ -568,43 +569,49 @@ p{line-height:1.7}
           <div class="heading-bar"></div>
         </div>
         <form onsubmit="return false;">
-          <input type="hidden" name="workshopName" value="Cultivating Resilience: Navigating Change with Confidence and Agility">
           <div class="form-grid">
             <div>
-              <label for="firstName">First Name</label>
-              <input type="text" id="firstName" name="firstName" required>
+              <label for="firstName">First Name <span class="required">*</span></label>
+              <input type="text" id="firstName" name="firstName" required placeholder="Your First Name">
             </div>
             <div>
-              <label for="lastName">Last Name</label>
-              <input type="text" id="lastName" name="lastName" required>
-            </div>
-            <div>
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div>
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone">
-            </div>
-            <div>
-              <label for="org">Organization</label>
-              <input type="text" id="org" name="org">
-            </div>
-            <div>
-              <label for="role">Your Role</label>
-              <input type="text" id="role" name="role">
+              <label for="lastName">Last Name <span class="required">*</span></label>
+              <input type="text" id="lastName" name="lastName" required placeholder="Your Last Name">
             </div>
             <div class="full-width">
-              <label for="format">Preferred Format</label>
-              <select id="format" name="format">
-                <option value="">Select a format</option>
-                <option value="90-minutes">90-Minute Session</option>
-                <option value="half-day">Half-Day Workshop</option>
-                <option value="full-day">Full-Day Workshop</option>
+              <label for="email">Business Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="Your Business Email">
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="Your Phone">
+            </div>
+            <div>
+              <label for="state">State/Region</label>
+              <input type="text" id="state" name="state" placeholder="State or Region">
+            </div>
+            <div>
+              <label for="jobTitle">Job Title</label>
+              <input type="text" id="jobTitle" name="jobTitle" placeholder="Job Title">
+            </div>
+            <div>
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" placeholder="Company Name">
+            </div>
+            <div>
+              <label for="interest">I'm Interested In</label>
+              <select id="interest" name="interest">
+                <option value="" disabled selected>Please Select</option>
+                <option value="Accelerator Program">Accelerator Program</option>
+                <option value="Workshops &amp; Training">Workshops &amp; Training</option>
+                <option value="Consulting Services">Consulting Services</option>
+                <option value="Health Equity Solutions">Health Equity Solutions</option>
+                <option value="Leadership Development">Leadership Development</option>
+                <option value="Other">Other</option>
               </select>
             </div>
             <div class="full-width">
-              <label for="message">Additional Details</label>
+              <label for="message">Message</label>
               <textarea id="message" name="message" placeholder="Tell us about your team, goals, or any specific needs..."></textarea>
             </div>
           </div>

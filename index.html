@@ -251,12 +251,14 @@ p{line-height:1.7}
 /* ============================================================
    CTA
    ============================================================ */
-.cta-section{background:var(--teal-cta)}
-.cta-inner{text-align:center;max-width:48rem;margin:0 auto}
+.cta-section{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-dark) 60%,hsl(210 55% 10%) 100%);position:relative;overflow:hidden;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold)}
+.cta-section::before{content:'';position:absolute;top:-40%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,67,.08) 0%,transparent 70%);pointer-events:none}
+.cta-section::after{content:'';position:absolute;bottom:-30%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(212,168,67,.05) 0%,transparent 70%);pointer-events:none}
+.cta-inner{text-align:center;max-width:48rem;margin:0 auto;position:relative;z-index:1}
 .cta-inner h2{font-size:1.875rem;font-weight:700;color:var(--primary-fg);margin-bottom:1.5rem}
 @media(min-width:768px){.cta-inner h2{font-size:2.25rem}}
 @media(min-width:1024px){.cta-inner h2{font-size:3rem}}
-.cta-inner p{color:var(--primary-fg);opacity:.7;font-size:1.125rem;margin-bottom:2.5rem;line-height:1.7}
+.cta-inner p{color:var(--primary-fg);opacity:.8;font-size:1.125rem;margin-bottom:2.5rem;line-height:1.7}
 
 /* ============================================================
    FOOTER
@@ -644,6 +646,14 @@ p{line-height:1.7}
      CTA
      ============================================================ -->
 <section class="cta-section section-padding" id="cta">
+  <!-- Healthcare Decorations -->
+  <div class="healthcare-deco">
+    <svg style="top:2rem;right:0;width:350px;height:80px;opacity:.15" viewBox="0 0 400 80" fill="none"><path d="M0 40 L60 40 L80 40 L100 40 L110 20 L120 60 L130 10 L140 70 L150 35 L160 45 L170 40 L400 40" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg style="bottom:3rem;left:0;width:300px;height:80px;opacity:.12" viewBox="0 0 400 80" fill="none"><path d="M0 40 L60 40 L80 40 L100 40 L110 20 L120 60 L130 10 L140 70 L150 35 L160 45 L170 40 L400 40" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg style="top:40%;left:8%;width:2rem;height:2rem;opacity:.18" viewBox="0 0 24 24" fill="none"><path d="M12 4V20M4 12H20" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+    <svg style="bottom:25%;right:10%;width:2.5rem;height:2.5rem;opacity:.15" viewBox="0 0 24 24" fill="none"><path d="M12 4V20M4 12H20" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+  </div>
+
   <div class="container-wide">
     <div class="cta-inner reveal">
       <h2>Ready to Transform <span class="text-script text-gold">Healthcare Equity</span>?</h2>
