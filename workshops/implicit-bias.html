@@ -69,6 +69,7 @@ p{line-height:1.7}
 .delay-1{transition-delay:.15s}
 .delay-2{transition-delay:.3s}
 .delay-3{transition-delay:.45s}
+.delay-4{transition-delay:.6s}
 
 /* ============================================================
    TYPOGRAPHY HELPERS
@@ -142,72 +143,157 @@ p{line-height:1.7}
 .footer-bottom p{font-size:.875rem;color:var(--primary-fg);opacity:.4}
 
 /* ============================================================
-   WORKSHOP-SPECIFIC STYLES
+   BACK TO WORKSHOPS — STICKY
    ============================================================ */
-.workshop-hero{position:relative;min-height:60vh;display:flex;align-items:center;overflow:hidden}
+.back-to-workshops{position:fixed;bottom:2rem;left:2rem;z-index:40;display:flex;align-items:center;gap:.5rem;background:var(--navy);color:var(--primary-fg);font-size:.8125rem;font-weight:600;padding:.625rem 1.25rem;border-radius:9999px;box-shadow:0 4px 20px rgba(0,0,0,.2);opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s;pointer-events:none;text-transform:uppercase;letter-spacing:.04em}
+.back-to-workshops.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.back-to-workshops:hover{background:var(--navy-light);box-shadow:0 6px 28px rgba(0,0,0,.25)}
+.back-to-workshops svg{width:.875rem;height:.875rem;flex-shrink:0;transition:transform .3s}
+.back-to-workshops:hover svg{transform:translateX(-3px)}
+
+/* ============================================================
+   WORKSHOP HERO — ENHANCED
+   ============================================================ */
+.workshop-hero{position:relative;min-height:65vh;display:flex;align-items:center;overflow:hidden}
 .workshop-hero .hero-bg{position:absolute;inset:0;z-index:0}
 .workshop-hero .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
-.workshop-hero .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(23,42,55,.9),rgba(23,42,55,.75),rgba(23,42,55,.5))}
+.workshop-hero .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,28,42,.95) 0%,rgba(23,42,55,.88) 40%,rgba(23,106,137,.6) 100%)}
 .workshop-hero .hero-content{position:relative;z-index:1;padding:5rem 1.5rem}
 @media(min-width:768px){.workshop-hero .hero-content{padding:5rem 2rem}}
 @media(min-width:1024px){.workshop-hero .hero-content{padding:5rem 3rem}}
 @media(min-width:1280px){.workshop-hero .hero-content{padding:5rem 4rem}}
 .workshop-hero .inner{max-width:48rem;text-align:left}
+
+/* Breadcrumb */
+.breadcrumb{display:flex;align-items:center;gap:.5rem;margin-bottom:2rem;font-size:.8125rem;font-weight:500}
+.breadcrumb a{color:rgba(255,255,255,.55);transition:color .3s}
+.breadcrumb a:hover{color:var(--gold)}
+.breadcrumb .sep{color:rgba(255,255,255,.3);font-size:.625rem}
+.breadcrumb .current{color:var(--gold)}
+
+/* Gold accent line above h1 */
+.workshop-hero .gold-accent{width:3.5rem;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin-bottom:1.25rem}
+
 .workshop-hero h1{font-size:1.5rem;font-weight:700;color:var(--primary-fg);line-height:1.1;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
 @media(min-width:768px){.workshop-hero h1{font-size:1.875rem}}
-@media(min-width:1024px){.workshop-hero h1{font-size:2.25rem}}
+@media(min-width:1024px){.workshop-hero h1{font-size:2.5rem}}
 .workshop-hero .subtitle{font-size:1.125rem;color:var(--gold);font-weight:500;margin-bottom:1.5rem}
 @media(min-width:768px){.workshop-hero .subtitle{font-size:1.25rem}}
 .workshop-hero .desc{color:var(--primary-fg);opacity:.9;font-size:1rem;line-height:1.7;margin-bottom:2rem;max-width:48rem}
 @media(min-width:768px){.workshop-hero .desc{font-size:1.125rem}}
+
+/* ============================================================
+   SECTION HEADINGS — REFINED
+   ============================================================ */
+.section-heading{text-align:center;margin-bottom:3.5rem}
+.section-heading h2{font-size:1.5rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem}
+@media(min-width:768px){.section-heading h2{font-size:1.875rem}}
+.section-heading .heading-bar{width:3rem;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:0 auto}
+
+/* ============================================================
+   HIGHLIGHTS — ICON CARDS WITH TOP BORDER
+   ============================================================ */
 .highlights-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
 @media(min-width:768px){.highlights-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.highlights-grid{grid-template-columns:repeat(4,1fr)}}
-.highlight-card{background:#fff;border-radius:.5rem;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,.04);border-left:4px solid var(--gold)}
-.highlight-card h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:.75rem}
+.highlight-card{background:#fff;border-radius:.75rem;padding:2rem 1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.04);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.highlight-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.highlight-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.highlight-card .card-icon{width:2.75rem;height:2.75rem;border-radius:.625rem;background:rgba(212,168,67,.12);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.highlight-card .card-icon svg{width:1.375rem;height:1.375rem;stroke:var(--gold-dark);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.highlight-card h3{font-size:1.0625rem;font-weight:700;color:var(--navy);margin-bottom:.75rem;line-height:1.3}
 .highlight-card p{color:var(--muted-fg);font-size:.875rem;line-height:1.7}
-.outcomes-list{display:flex;flex-direction:column;gap:0}
-.outcome-row{border-bottom:1px solid #e5e7eb;padding:1.5rem 0}
-.outcome-row:last-child{border-bottom:none}
-.outcome-row h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
-@media(min-width:768px){.outcome-row h3{font-size:1.25rem}}
-.outcome-row p{color:var(--muted-fg);font-size:1rem;line-height:1.7}
+
+/* ============================================================
+   LEARNING OUTCOMES — NUMBERED TIMELINE
+   ============================================================ */
+.outcomes-timeline{max-width:56rem;margin:0 auto;position:relative;padding-left:3.5rem}
+@media(min-width:768px){.outcomes-timeline{padding-left:4.5rem}}
+/* Vertical connector line */
+.outcomes-timeline::before{content:'';position:absolute;left:1.125rem;top:1.25rem;bottom:1.25rem;width:2px;background:linear-gradient(180deg,var(--gold),var(--gold-light),var(--gold));border-radius:1px}
+@media(min-width:768px){.outcomes-timeline::before{left:1.625rem}}
+.outcome-item{position:relative;padding:1.25rem 0 2rem}
+.outcome-item:last-child{padding-bottom:0}
+.outcome-num{position:absolute;left:-3.5rem;top:1.25rem;width:2.25rem;height:2.25rem;border-radius:50%;background:var(--gold);color:var(--navy);font-size:.875rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(212,168,67,.3);z-index:1}
+@media(min-width:768px){.outcome-num{left:-4.5rem;width:3.25rem;height:3.25rem;font-size:1rem}}
+.outcome-item h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+@media(min-width:768px){.outcome-item h3{font-size:1.25rem}}
+.outcome-item p{color:var(--muted-fg);font-size:1rem;line-height:1.7}
+
+/* ============================================================
+   INFO CARDS — WITH ICONS & TOP ACCENT
+   ============================================================ */
 .info-cards{display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:56rem;margin:0 auto}
 @media(min-width:768px){.info-cards{grid-template-columns:1fr 1fr}}
-.info-card{background:#fff;border-radius:.5rem;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.info-card h3{font-size:1rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem}
-.info-card li{display:flex;align-items:flex-start;gap:.75rem;font-size:.875rem;color:var(--fg);margin-bottom:.5rem}
-.info-card .dot{width:6px;height:6px;background:var(--navy);border-radius:50%;flex-shrink:0;margin-top:.5rem}
-.impact-section{background:var(--navy)}
-.impact-heading{text-align:center;max-width:48rem;margin:0 auto 3rem}
-.impact-heading h2{font-size:1.5rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem}
+.info-card{background:#fff;border-radius:.75rem;padding:2rem 1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.04);position:relative;overflow:hidden}
+.info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.info-card .card-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem}
+.info-card .card-header-icon{width:2.5rem;height:2.5rem;border-radius:.5rem;background:rgba(212,168,67,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.info-card .card-header-icon svg{width:1.25rem;height:1.25rem;stroke:var(--gold-dark);fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.info-card .card-header h3{font-size:1rem;font-weight:700;color:var(--gold-dark);text-transform:uppercase;letter-spacing:.05em}
+.info-card li{display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;color:var(--fg);margin-bottom:.625rem;font-weight:500}
+.info-card .dot{width:6px;height:6px;background:var(--navy);border-radius:50%;flex-shrink:0;margin-top:.55rem}
+
+/* ============================================================
+   IMPACT / TESTIMONIALS — ENHANCED
+   ============================================================ */
+.impact-section{background:var(--navy);position:relative;overflow:hidden}
+.impact-section::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:radial-gradient(ellipse at 80% 20%,rgba(23,106,137,.25) 0%,transparent 70%);pointer-events:none}
+.impact-heading{text-align:center;max-width:48rem;margin:0 auto 3rem;position:relative}
+.impact-heading h2{font-size:1.5rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem}
 @media(min-width:768px){.impact-heading h2{font-size:1.875rem}}
+.impact-heading .heading-bar-light{width:3rem;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:0 auto .75rem}
 .impact-heading p{color:rgba(255,255,255,.8);font-size:1rem;line-height:1.7}
 @media(min-width:768px){.impact-heading p{font-size:1.125rem}}
-.impact-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+.impact-grid{display:grid;grid-template-columns:1fr;gap:2rem;position:relative}
 @media(min-width:768px){.impact-grid{grid-template-columns:repeat(3,1fr)}}
-.impact-card{background:#0D3A5C;border-radius:.5rem;padding:2rem;position:relative}
-.impact-card .qi{color:var(--gold);margin-bottom:1rem}
-.impact-card .qi svg{width:2rem;height:2rem;stroke:var(--gold);fill:none;stroke-width:1.5}
-.impact-card blockquote{color:rgba(255,255,255,.9);font-size:.875rem;line-height:1.7;margin-bottom:1.5rem}
+.impact-card{background:linear-gradient(180deg,rgba(23,106,137,.18) 0%,rgba(13,58,92,1) 100%);border-radius:.75rem;padding:2rem;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.06);transition:transform .3s,box-shadow .3s}
+.impact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.impact-card:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.impact-card .qi{margin-bottom:1rem}
+.impact-card .qi svg{width:2rem;height:2rem;fill:var(--gold);opacity:.35;stroke:none}
+.impact-card blockquote{color:rgba(255,255,255,.9);font-size:.875rem;line-height:1.8;margin-bottom:1.5rem;font-style:italic}
 .impact-card .author{font-weight:600;color:#fff;font-size:.875rem}
-.impact-card .org{font-size:.75rem;color:var(--gold)}
-.workshop-form{background:var(--teal-cta)}
-.workshop-form .form-container{max-width:56rem;margin:0 auto}
-.workshop-form .form-heading{text-align:center;margin-bottom:2.5rem}
-.workshop-form .form-heading h2{font-size:1.5rem;font-weight:700;color:var(--primary-fg);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem}
-@media(min-width:768px){.workshop-form .form-heading h2{font-size:1.875rem}}
-.workshop-form .form-heading p{color:var(--primary-fg);opacity:.8;font-size:1.125rem}
-.workshop-form form{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:.75rem;padding:1.5rem}
-@media(min-width:768px){.workshop-form form{padding:2.5rem}}
-.workshop-form .form-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
-@media(min-width:768px){.workshop-form .form-grid{grid-template-columns:1fr 1fr}}
-.workshop-form .full-width{grid-column:1/-1}
-.workshop-form label{display:block;font-size:.875rem;font-weight:600;color:var(--primary-fg);margin-bottom:.5rem}
-.workshop-form input,.workshop-form select,.workshop-form textarea{width:100%;padding:.75rem 1rem;border:none;border-radius:.375rem;background:rgba(255,255,255,.9);font-size:.875rem;font-family:inherit;color:var(--fg)}
-.workshop-form input:focus,.workshop-form select:focus,.workshop-form textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
-.workshop-form textarea{min-height:120px;resize:vertical}
-.workshop-form .form-submit{text-align:center;margin-top:2rem}
+.impact-card .org{font-size:.75rem;color:var(--gold);margin-top:.125rem}
+
+/* ============================================================
+   FORM SECTION — SPLIT LAYOUT WITH BG IMAGE
+   ============================================================ */
+.workshop-form{position:relative;overflow:hidden}
+.workshop-form .form-bg{position:absolute;inset:0;z-index:0}
+.workshop-form .form-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.workshop-form .form-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,28,42,.92) 0%,rgba(23,42,55,.88) 50%,rgba(13,28,42,.85) 100%)}
+.workshop-form .form-layout{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+@media(min-width:1024px){.workshop-form .form-layout{grid-template-columns:1fr 1fr;gap:4rem}}
+.form-info{color:var(--primary-fg)}
+.form-info h2{font-size:1.75rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.04em;line-height:1.15;margin-bottom:2.5rem}
+@media(min-width:768px){.form-info h2{font-size:2.25rem}}
+@media(min-width:1024px){.form-info h2{font-size:2.75rem}}
+.form-steps{position:relative;padding-left:3.5rem}
+.form-steps::before{content:'';position:absolute;left:1.0625rem;top:.75rem;bottom:.75rem;width:2px;background:linear-gradient(180deg,var(--gold),var(--gold-light),var(--gold));border-radius:1px}
+.form-step{position:relative;padding:0 0 2rem}
+.form-step:last-child{padding-bottom:0}
+.form-step-num{position:absolute;left:-3.5rem;top:0;width:2.125rem;height:2.125rem;border-radius:50%;background:var(--gold);color:var(--navy);font-size:.8125rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(212,168,67,.3);z-index:1}
+.form-step h3{font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:.375rem}
+.form-step p{color:rgba(255,255,255,.7);font-size:.9375rem;line-height:1.7}
+.form-card{background:#fff;border-radius:.75rem;padding:2rem;box-shadow:0 12px 40px rgba(0,0,0,.2)}
+@media(min-width:768px){.form-card{padding:2.5rem}}
+.form-card-heading{margin-bottom:1.75rem}
+.form-card-heading h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:.625rem}
+.form-card-heading .heading-bar{width:2.5rem;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px}
+.form-card .form-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:600px){.form-card .form-grid{grid-template-columns:1fr 1fr}}
+.form-card .full-width{grid-column:1/-1}
+.form-card label{display:block;font-size:.8125rem;font-weight:600;color:var(--navy);margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.03em}
+.form-card input,.form-card select,.form-card textarea{width:100%;padding:.75rem .875rem;border:1px solid var(--border);border-radius:.375rem;background:var(--bg);font-size:.875rem;font-family:inherit;color:var(--fg);transition:border-color .3s,box-shadow .3s}
+.form-card input:focus,.form-card select:focus,.form-card textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,168,67,.12);background:#fff}
+.form-card textarea{min-height:100px;resize:vertical}
+.form-card .form-submit{text-align:center;margin-top:1.5rem}
+
+/* ============================================================
+   SECTION DIVIDERS
+   ============================================================ */
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);max-width:48rem;margin:0 auto}
 </style>
 </head>
 <body>
@@ -218,16 +304,16 @@ p{line-height:1.7}
 <header class="site-header" id="siteHeader">
   <div class="container-wide">
     <div class="header-inner">
-      <a href="/" class="header-logo">
+      <a href="/index.html" class="header-logo">
         <img src="../images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
       </a>
 
       <nav class="desktop-nav">
-        <a href="/">Home</a>
-        <a href="/workshops" class="active">Workshops</a>
-        <a href="/accelerator">Accelerator Program</a>
-        <a href="/about">About Us</a>
-        <a href="/contact" class="btn btn-gold">Contact Us</a>
+        <a href="/index.html">Home</a>
+        <a href="/workshops.html" class="active">Workshops</a>
+        <a href="/accelerator.html">Accelerator Program</a>
+        <a href="/about.html">About Us</a>
+        <a href="/contact.html" class="btn btn-gold">Contact Us</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -238,14 +324,20 @@ p{line-height:1.7}
 
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
-      <a href="/">Home</a>
-      <a href="/workshops">Workshops</a>
-      <a href="/accelerator">Accelerator Program</a>
-      <a href="/about">About Us</a>
-      <a href="/contact" class="btn btn-gold">Contact Us</a>
+      <a href="/index.html">Home</a>
+      <a href="/workshops.html">Workshops</a>
+      <a href="/accelerator.html">Accelerator Program</a>
+      <a href="/about.html">About Us</a>
+      <a href="/contact.html" class="btn btn-gold">Contact Us</a>
     </div>
   </div>
 </header>
+
+<!-- Back to Workshops — sticky -->
+<a href="/workshops.html" class="back-to-workshops" id="backToWorkshops">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  All Workshops
+</a>
 
 <main style="padding-top:var(--header-h)">
 
@@ -254,13 +346,23 @@ p{line-height:1.7}
      ============================================================ -->
 <section class="workshop-hero">
   <div class="hero-bg">
-    <img src="../images/workshop-disability-new.jpeg" alt="Beyond Awareness: Addressing Implicit Bias in the Workplace" onerror="this.onerror=null;this.src='../images/workshop-disability.jpg';">
+    <img src="../images/workshop-disability-new.jpeg"
+         alt="Addressing Implicit Bias workshop"
+         onerror="this.onerror=null;this.src='../images/workshop-disability.jpg';">
   </div>
   <div class="hero-content">
     <div class="inner reveal">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/index.html">Home</a>
+        <span class="sep" aria-hidden="true">&#9656;</span>
+        <a href="/workshops.html">Workshops</a>
+        <span class="sep" aria-hidden="true">&#9656;</span>
+        <span class="current">Overcoming Implicit Bias</span>
+      </nav>
+      <div class="gold-accent"></div>
       <h1>Beyond Awareness</h1>
       <p class="subtitle">Addressing Implicit Bias in the Workplace</p>
-      <p class="desc">Implicit biases shape our decisions and interactions, often without our awareness, impacting workplace dynamics and culture. This workshop provides practical strategies to recognize and mitigate hidden biases. Learn to identify various types of implicit bias, understand their effects, and develop techniques to foster more inclusive and equitable environments in personal and professional settings.</p>
+      <p class="desc">Implicit biases shape our decisions and interactions, often without our awareness, affecting workplace dynamics. This workshop teaches participants to identify hidden biases and develop techniques for creating more inclusive environments.</p>
       <a href="#workshop-form" class="btn btn-gold btn-gold-lg">
         Request This Workshop
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
@@ -274,54 +376,81 @@ p{line-height:1.7}
      ============================================================ -->
 <section class="section-padding" style="background:var(--bg)">
   <div class="container-wide">
-    <h2 style="font-size:1.5rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;text-align:center;margin-bottom:3rem" class="reveal">Workshop Highlights</h2>
+    <div class="section-heading reveal">
+      <h2>Workshop Highlights</h2>
+      <div class="heading-bar"></div>
+    </div>
     <div class="highlights-grid">
       <div class="highlight-card reveal">
+        <div class="card-icon">
+          <!-- Eye / awareness icon -->
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
         <h3>Understanding Implicit Bias</h3>
-        <p>Explore the concept of implicit bias, its origins, and how it influences decision-making and behavior in personal and professional contexts.</p>
+        <p>Explores the concept's origins and how it influences decision-making in professional contexts.</p>
       </div>
       <div class="highlight-card reveal delay-1">
+        <div class="card-icon">
+          <!-- Layers / types icon -->
+          <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
         <h3>Identifying Various Types of Bias</h3>
-        <p>Learn to recognize various forms of unconscious bias, including affinity bias, confirmation bias, and stereotype threat, and their impact on workplace dynamics.</p>
+        <p>Teaches recognition of affinity bias, confirmation bias, and stereotype threat impacts on workplace dynamics.</p>
       </div>
       <div class="highlight-card reveal delay-2">
+        <div class="card-icon">
+          <!-- Scale / balance icon -->
+          <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M3 9l3-6 3 6"/><path d="M3 9h6"/><path d="M15 9l3-6 3 6"/><path d="M15 9h6"/><path d="M6 3h12"/></svg>
+        </div>
         <h3>Mitigating Bias in Decision-Making</h3>
-        <p>Discover practical techniques to reduce the influence of implicit bias in critical processes such as hiring, performance evaluations, and team collaborations.</p>
+        <p>Provides techniques to reduce implicit bias influence in hiring, evaluations, and collaborations.</p>
       </div>
       <div class="highlight-card reveal delay-3">
+        <div class="card-icon">
+          <!-- Heart-handshake / inclusive icon -->
+          <svg viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M12 5 9.04 7.96a2.17 2.17 0 0 0 0 3.08v0c.82.82 2.13.85 3 .07l2.07-1.9a2.82 2.82 0 0 1 3.79 0l2.96 2.66"/><path d="m18 15-2-2"/><path d="m15 18-2-2"/></svg>
+        </div>
         <h3>Fostering Inclusive Environments</h3>
-        <p>Develop strategies to create more inclusive and equitable workplace cultures that value diversity and promote fair treatment for all.</p>
+        <p>Develops strategies to create workplace cultures valuing diversity and promoting fair treatment.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     LEARNING OUTCOMES
+     LEARNING OUTCOMES — NUMBERED TIMELINE
      ============================================================ -->
 <section class="section-padding" style="background:var(--cream)">
   <div class="container-wide">
-    <h2 style="font-size:1.5rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;text-align:center;margin-bottom:3rem" class="reveal">Learning Outcomes</h2>
-    <div class="outcomes-list" style="max-width:56rem;margin:0 auto">
-      <div class="outcome-row reveal">
+    <div class="section-heading reveal">
+      <h2>Learning Outcomes</h2>
+      <div class="heading-bar"></div>
+    </div>
+    <div class="outcomes-timeline">
+      <div class="outcome-item reveal">
+        <div class="outcome-num">1</div>
         <h3>Recognize and Understand Implicit Biases</h3>
-        <p>Identify various types of unconscious biases and understand how they affect personal and professional interactions.</p>
+        <p>Identify unconscious biases and their effects on workplace interactions and decision-making.</p>
       </div>
-      <div class="outcome-row reveal">
+      <div class="outcome-item reveal">
+        <div class="outcome-num">2</div>
         <h3>Mitigate Bias in Decision-Making Processes</h3>
-        <p>Reduce the impact of implicit biases in critical decisions, such as hiring, promotions, and performance evaluations.</p>
+        <p>Reduce bias impact in hiring, promotions, and performance evaluations.</p>
       </div>
-      <div class="outcome-row reveal">
+      <div class="outcome-item reveal">
+        <div class="outcome-num">3</div>
         <h3>Develop Inclusive Communication Skills</h3>
-        <p>Communicate effectively and inclusively, avoiding language and behaviors that may perpetuate biases.</p>
+        <p>Communicate effectively while avoiding bias-perpetuating language and behaviors.</p>
       </div>
-      <div class="outcome-row reveal">
+      <div class="outcome-item reveal">
+        <div class="outcome-num">4</div>
         <h3>Foster a Culture of Inclusion and Equity</h3>
-        <p>Create a workplace culture that values diversity, promotes fairness, and encourages open dialogue about biases.</p>
+        <p>Create workplace cultures that promote fairness, open dialogue, and mutual respect.</p>
       </div>
-      <div class="outcome-row reveal">
+      <div class="outcome-item reveal">
+        <div class="outcome-num">5</div>
         <h3>Implement Personal and Organizational Change</h3>
-        <p>Integrate bias awareness into daily practices and contribute to broader organizational efforts to address and overcome unconscious biases.</p>
+        <p>Integrate bias awareness into daily practices and organizational policies for lasting transformation.</p>
       </div>
     </div>
   </div>
@@ -334,13 +463,25 @@ p{line-height:1.7}
   <div class="container-wide">
     <div class="info-cards reveal">
       <div class="info-card">
-        <h3>Who Should Attend</h3>
+        <div class="card-header">
+          <div class="card-header-icon">
+            <!-- People icon -->
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Who Should Attend</h3>
+        </div>
         <ul>
           <li><span class="dot"></span> All Team Members</li>
         </ul>
       </div>
       <div class="info-card">
-        <h3>Suggested Format</h3>
+        <div class="card-header">
+          <div class="card-header-icon">
+            <!-- Clock icon -->
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Suggested Format</h3>
+        </div>
         <ul>
           <li><span class="dot"></span> 90-minutes, Half-Day, or Full-Day</li>
           <li><span class="dot"></span> Onsite or Virtual</li>
@@ -363,6 +504,7 @@ p{line-height:1.7}
   <div class="container-wide">
     <div class="impact-heading reveal">
       <h2>Elevated <span class="text-script">Impact</span></h2>
+      <div class="heading-bar-light"></div>
       <p>Hear from organizations that have partnered with Elevated Health Equity to transform their teams and culture.</p>
     </div>
     <div class="impact-grid">
@@ -398,59 +540,85 @@ p{line-height:1.7}
      WORKSHOP CONTACT FORM
      ============================================================ -->
 <section class="workshop-form section-padding" id="workshop-form">
+  <div class="form-bg">
+    <img src="../images/workshop-disability-new.jpeg" alt="">
+  </div>
   <div class="container-wide">
-    <div class="form-container">
-      <div class="form-heading reveal">
-        <h2>Request This Workshop</h2>
-        <p>Fill out the form below and we will be in touch to discuss your needs.</p>
+    <div class="form-layout">
+      <div class="form-info reveal">
+        <h2>Elevate Your Organization's Potential</h2>
+        <div class="form-steps">
+          <div class="form-step">
+            <div class="form-step-num">1</div>
+            <h3>Share Your Story</h3>
+            <p>We begin with a simple form to understand your organization's basic needs and challenges.</p>
+          </div>
+          <div class="form-step">
+            <div class="form-step-num">2</div>
+            <h3>Let's Connect</h3>
+            <p>Connect with an Elevated representative for a personalized 30-minute conversation to discuss your specific goals.</p>
+          </div>
+          <div class="form-step">
+            <div class="form-step-num">3</div>
+            <h3>Your Custom Roadmap</h3>
+            <p>Receive a tailored solution based on your organization's unique objectives and our comprehensive understanding of your needs.</p>
+          </div>
+        </div>
       </div>
-      <form class="reveal" onsubmit="return false;">
-        <div class="form-grid">
-          <div>
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" required>
-          </div>
-          <div>
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" required>
-          </div>
-          <div>
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div>
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone">
-          </div>
-          <div>
-            <label for="org">Organization</label>
-            <input type="text" id="org" name="org">
-          </div>
-          <div>
-            <label for="role">Your Role</label>
-            <input type="text" id="role" name="role">
-          </div>
-          <div class="full-width">
-            <label for="format">Preferred Format</label>
-            <select id="format" name="format">
-              <option value="">Select a format</option>
-              <option value="90-minutes">90-Minute Session</option>
-              <option value="half-day">Half-Day Workshop</option>
-              <option value="full-day">Full-Day Workshop</option>
-            </select>
-          </div>
-          <div class="full-width">
-            <label for="message">Additional Details</label>
-            <textarea id="message" name="message" placeholder="Tell us about your team, goals, or any specific needs..."></textarea>
-          </div>
+      <div class="form-card reveal delay-1">
+        <div class="form-card-heading">
+          <h3>Request This Workshop</h3>
+          <div class="heading-bar"></div>
         </div>
-        <div class="form-submit">
-          <button type="submit" class="btn btn-gold btn-gold-lg">
-            Submit Request
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </button>
-        </div>
-      </form>
+        <form onsubmit="return false;">
+          <input type="hidden" name="workshopName" value="Beyond Awareness: Addressing Implicit Bias in the Workplace">
+          <div class="form-grid">
+            <div>
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div>
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div>
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone">
+            </div>
+            <div>
+              <label for="org">Organization</label>
+              <input type="text" id="org" name="org">
+            </div>
+            <div>
+              <label for="role">Your Role</label>
+              <input type="text" id="role" name="role">
+            </div>
+            <div class="full-width">
+              <label for="format">Preferred Format</label>
+              <select id="format" name="format">
+                <option value="">Select a format</option>
+                <option value="90-minutes">90-Minute Session</option>
+                <option value="half-day">Half-Day Workshop</option>
+                <option value="full-day">Full-Day Workshop</option>
+              </select>
+            </div>
+            <div class="full-width">
+              <label for="message">Additional Details</label>
+              <textarea id="message" name="message" placeholder="Tell us about your team, goals, or any specific needs..."></textarea>
+            </div>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-gold btn-gold-lg">
+              Start the Conversation
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </section>
@@ -475,18 +643,18 @@ p{line-height:1.7}
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/workshops">Workshops</a></li>
-            <li><a href="/accelerator">Accelerator Program</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/workshops.html">Workshops</a></li>
+            <li><a href="/accelerator.html">Accelerator Program</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <p class="contact-text">Ready to make equity the engine of excellence?</p>
-          <a href="/contact" class="contact-link">Contact Us &rarr;</a>
+          <a href="/contact.html" class="contact-link">Contact Us &rarr;</a>
         </div>
       </div>
 
@@ -541,6 +709,22 @@ p{line-height:1.7}
     reveals.forEach(function(el){ obs.observe(el); });
   } else {
     reveals.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  /* BACK TO WORKSHOPS — SHOW ON SCROLL */
+  var backBtn = document.getElementById('backToWorkshops');
+  var heroSection = document.querySelector('.workshop-hero');
+  if(backBtn && heroSection){
+    var heroObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          backBtn.classList.remove('show');
+        } else {
+          backBtn.classList.add('show');
+        }
+      });
+    },{threshold:0});
+    heroObs.observe(heroSection);
   }
 
 })();

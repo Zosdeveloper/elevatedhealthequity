@@ -184,7 +184,8 @@ p{line-height:1.7}
 @media(min-width:768px){.team-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.team-grid{grid-template-columns:repeat(4,1fr)}}
 .team-member{text-align:center}
-.team-avatar{width:8rem;height:8rem;border-radius:50%;background:rgba(23,42,66,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem}
+.team-avatar{width:10rem;height:10rem;border-radius:50%;background:rgba(23,42,66,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;overflow:hidden}
+.team-avatar img{width:100%;height:100%;object-fit:cover}
 .team-avatar svg{width:3rem;height:3rem;stroke:var(--navy);opacity:.4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .team-member h3{font-size:1.25rem;font-weight:600;color:var(--fg);margin-bottom:.25rem}
 .team-member .role{color:var(--gold);font-size:.875rem;font-weight:500;margin-bottom:.75rem}
@@ -235,16 +236,16 @@ p{line-height:1.7}
 <header class="site-header" id="siteHeader">
   <div class="container-wide">
     <div class="header-inner">
-      <a href="/" class="header-logo">
+      <a href="/index.html" class="header-logo">
         <img src="images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
       </a>
 
       <nav class="desktop-nav">
-        <a href="/">Home</a>
-        <a href="/workshops">Workshops</a>
-        <a href="/accelerator">Accelerator Program</a>
-        <a href="/about" class="active">About Us</a>
-        <a href="/contact" class="btn btn-gold">Contact Us</a>
+        <a href="/index.html">Home</a>
+        <a href="/workshops.html">Workshops</a>
+        <a href="/accelerator.html">Accelerator Program</a>
+        <a href="/about.html" class="active">About Us</a>
+        <a href="/contact.html" class="btn btn-gold">Contact Us</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -255,11 +256,11 @@ p{line-height:1.7}
 
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
-      <a href="/">Home</a>
-      <a href="/workshops">Workshops</a>
-      <a href="/accelerator">Accelerator Program</a>
-      <a href="/about">About Us</a>
-      <a href="/contact" class="btn btn-gold">Contact Us</a>
+      <a href="/index.html">Home</a>
+      <a href="/workshops.html">Workshops</a>
+      <a href="/accelerator.html">Accelerator Program</a>
+      <a href="/about.html">About Us</a>
+      <a href="/contact.html" class="btn btn-gold">Contact Us</a>
     </div>
   </div>
 </header>
@@ -362,36 +363,35 @@ p{line-height:1.7}
     <div class="team-grid">
       <div class="team-member reveal">
         <div class="team-avatar">
-          <!-- Users icon -->
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <img src="images/team/pamela-abner.png" alt="Pamela Abner">
         </div>
-        <h3>Team Member</h3>
-        <p class="role">Chief Executive Officer</p>
-        <p class="bio">Healthcare equity expert with 20+ years of experience in health policy and organizational transformation.</p>
+        <h3>Pamela Abner</h3>
+        <p class="role">Co-Founder & Chief Health Equity Officer</p>
+        <p class="bio">National health equity leader driving system-level change through data, policy, and action.</p>
       </div>
       <div class="team-member reveal delay-1">
         <div class="team-avatar">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <img src="images/team/rhonda-moret.png" alt="Rhonda Moret">
         </div>
-        <h3>Team Member</h3>
-        <p class="role">Director of Programs</p>
-        <p class="bio">Specializes in capacity building and workshop facilitation with a focus on culturally responsive care.</p>
+        <h3>Rhonda Moret</h3>
+        <p class="role">Co-Founder & Chief Executive Officer</p>
+        <p class="bio">Leadership strategist with 20+ years helping organizations turn awareness into action.</p>
       </div>
       <div class="team-member reveal delay-2">
         <div class="team-avatar">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <img src="images/team/doran-ricks.jpeg" alt="Doran Ricks">
         </div>
-        <h3>Team Member</h3>
-        <p class="role">Senior Consultant</p>
-        <p class="bio">Data analytics expert who translates complex health equity data into actionable strategies.</p>
+        <h3>Doran Ricks</h3>
+        <p class="role">Chief Data & Analytics Officer</p>
+        <p class="bio">Healthcare data and analytics leader with 20+ years bridging clinical care and data strategy.</p>
       </div>
       <div class="team-member reveal delay-3">
         <div class="team-avatar">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <img src="images/team/brenna-gauchat.png" alt="Brenna Gauchat">
         </div>
-        <h3>Team Member</h3>
-        <p class="role">Community Engagement Lead</p>
-        <p class="bio">Builds bridges between healthcare organizations and the communities they serve.</p>
+        <h3>Brenna Gauchat</h3>
+        <p class="role">Research Analyst</p>
+        <p class="bio">Research and editorial specialist translating complex equity research into clear, actionable insights.</p>
       </div>
     </div>
   </div>
@@ -405,7 +405,7 @@ p{line-height:1.7}
     <div class="cta-inner reveal">
       <h2>Let's Build Equity <span class="text-script text-gold">Together</span></h2>
       <p>We're here to partner with organizations committed to creating healthcare systems that work for everyone.</p>
-      <a href="/contact" class="btn btn-gold btn-gold-lg" style="height:3.5rem;padding:0 2.5rem;font-size:1rem">
+      <a href="/contact.html" class="btn btn-gold btn-gold-lg" style="height:3.5rem;padding:0 2.5rem;font-size:1rem">
         Contact Us
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
@@ -433,18 +433,18 @@ p{line-height:1.7}
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/workshops">Workshops</a></li>
-            <li><a href="/accelerator">Accelerator Program</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/workshops.html">Workshops</a></li>
+            <li><a href="/accelerator.html">Accelerator Program</a></li>
+            <li><a href="/about.html">About Us</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <p class="contact-text">Ready to make equity the engine of excellence?</p>
-          <a href="/contact" class="contact-link">Contact Us &rarr;</a>
+          <a href="/contact.html" class="contact-link">Contact Us &rarr;</a>
         </div>
       </div>
 
