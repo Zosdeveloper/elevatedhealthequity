@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Elevated Health Equity</title>
+<meta name="description" content="Learn about Elevated Health Equity — our mission, vision, values, and the team dedicated to transforming healthcare through equity-centered leadership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:hsl(210 40% 15%);line-height:1.6;background:hsl(210 25% 97%);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,textarea{font-family:inherit;font-size:inherit;border:none;outline:none}
+h1,h2,h3,h4,h5,h6{font-family:'Montserrat',system-ui,sans-serif;font-weight:600;letter-spacing:-0.025em;line-height:1.2}
+p{line-height:1.7}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --navy:hsl(210 50% 18%);
+  --navy-light:hsl(210 45% 25%);
+  --navy-dark:hsl(210 55% 12%);
+  --gold:hsl(42 90% 55%);
+  --gold-light:hsl(45 100% 70%);
+  --gold-dark:hsl(38 85% 45%);
+  --cream:hsl(203 47% 93%);
+  --cream-dark:hsl(203 40% 88%);
+  --bg:hsl(210 25% 97%);
+  --fg:hsl(210 40% 15%);
+  --muted-fg:hsl(210 15% 45%);
+  --card:hsl(0 0% 100%);
+  --border:hsl(210 20% 88%);
+  --primary-fg:hsl(45 100% 96%);
+  --teal-cta:#176a89;
+  --logo-blue:hsl(203 60% 45%);
+  --radius:0.5rem;
+  --header-h:72px;
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.container-wide{max-width:80rem;margin:0 auto;padding:0 1.5rem}
+@media(min-width:768px){.container-wide{padding:0 2rem}}
+@media(min-width:1024px){.container-wide{padding:0 3rem}}
+.section-padding{padding:5rem 0}
+@media(min-width:768px){.section-padding{padding:7rem 0}}
+@media(min-width:1024px){.section-padding{padding:8rem 0}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:.15s}
+.delay-2{transition-delay:.3s}
+.delay-3{transition-delay:.45s}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+.text-script{font-style:italic;font-weight:500}
+.text-gold{color:var(--gold)}
+.text-navy{color:var(--navy)}
+.text-muted{color:var(--muted-fg)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;white-space:nowrap;border-radius:9999px;font-size:.875rem;font-weight:600;transition:all .3s;cursor:pointer;text-align:center;line-height:1}
+.btn-gold{background:var(--gold);color:var(--navy);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold:hover{background:var(--gold-light);box-shadow:0 8px 24px rgba(212,168,67,.2)}
+.btn-gold-lg{height:3.5rem;padding:0 2.5rem;font-size:1rem}
+.btn-gold-outline{background:transparent;color:var(--gold);border:2px solid var(--gold);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold-outline:hover{background:var(--gold);color:var(--navy)}
+.btn svg{width:1rem;height:1rem;flex-shrink:0}
+.btn:hover svg{transform:translateX(4px)}
+.btn svg{transition:transform .3s}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:.375rem 0}
+@media(min-width:768px){.header-inner{padding:.5rem 0}}
+.header-logo img{height:2.5rem;width:auto}
+@media(min-width:768px){.header-logo img{height:3.5rem}}
+@media(min-width:1024px){.header-logo img{height:4.5rem}}
+.desktop-nav{display:none;align-items:center;gap:2rem}
+@media(min-width:1024px){.desktop-nav{display:flex}}
+.desktop-nav a{font-size:1rem;font-weight:600;color:var(--navy);opacity:.8;transition:color .3s,opacity .3s}
+.desktop-nav a:hover,.desktop-nav a.active{opacity:1;color:var(--navy-dark)}
+.desktop-nav a.active{border-bottom:2px solid var(--gold);padding-bottom:2px}
+.hamburger{display:flex;align-items:center;justify-content:center;padding:.5rem;background:none;color:var(--navy);cursor:pointer}
+@media(min-width:1024px){.hamburger{display:none}}
+.hamburger svg{width:1.5rem;height:1.5rem}
+.mobile-nav{display:none;background:#fff;border-top:1px solid #f3f4f6;padding:1.5rem}
+.mobile-nav.open{display:block}
+@media(min-width:1024px){.mobile-nav{display:none!important}}
+.mobile-nav a{display:block;padding:.5rem 0;font-size:1rem;font-weight:500;color:var(--navy);opacity:.8;transition:color .3s}
+.mobile-nav a:hover{color:var(--navy);opacity:1}
+.mobile-nav .btn{width:100%;margin-top:1rem;justify-content:center}
+
+/* ============================================================
+   ABOUT HERO
+   ============================================================ */
+.about-hero{position:relative;min-height:80vh;display:flex;align-items:center;overflow:hidden}
+.about-hero-bg{position:absolute;inset:0;z-index:0}
+.about-hero-bg img{width:100%;height:100%;object-fit:cover}
+.about-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,hsla(210,50%,18%,0.95),hsla(210,50%,18%,0.85),hsla(210,50%,18%,0.60))}
+.about-hero-content{position:relative;z-index:1;padding:5rem 1.5rem 5rem}
+@media(min-width:768px){.about-hero-content{padding:5rem 2rem 5rem}}
+@media(min-width:1024px){.about-hero-content{padding:5rem 3rem 5rem}}
+@media(min-width:1280px){.about-hero-content{padding:5rem 4rem 5rem}}
+.about-hero-content .inner{max-width:48rem;text-align:left}
+.about-hero h1{font-size:1.875rem;font-weight:700;color:var(--primary-fg);line-height:1.15;margin-bottom:1.5rem}
+@media(min-width:768px){.about-hero h1{font-size:2.25rem}}
+@media(min-width:1024px){.about-hero h1{font-size:3rem}}
+@media(min-width:1280px){.about-hero h1{font-size:3.75rem}}
+.about-hero p{color:var(--primary-fg);opacity:.8;font-size:1.125rem;max-width:36rem;line-height:1.7}
+@media(min-width:768px){.about-hero p{font-size:1.25rem}}
+
+/* ============================================================
+   MISSION & VISION
+   ============================================================ */
+.mv-grid{display:grid;grid-template-columns:1fr;gap:3rem}
+@media(min-width:1024px){.mv-grid{grid-template-columns:1fr 1fr;gap:5rem}}
+.mv-card{border-radius:1rem;padding:2.5rem}
+@media(min-width:768px){.mv-card{padding:3rem}}
+.mv-card-navy{background:var(--navy)}
+.mv-card-cream{background:var(--cream)}
+.mv-icon{width:3.5rem;height:3.5rem;border-radius:.75rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:1.5rem}
+.mv-icon svg{width:1.75rem;height:1.75rem;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;fill:none}
+.mv-icon-gold{background:rgba(212,168,67,.2)}
+.mv-icon-gold svg{stroke:var(--gold)}
+.mv-icon-navy{background:rgba(23,42,66,.1)}
+.mv-icon-navy svg{stroke:var(--navy)}
+.mv-card-navy h2{color:var(--primary-fg);font-size:1.5rem;font-weight:700;margin-bottom:1rem}
+.mv-card-navy p{color:var(--primary-fg);opacity:.8;font-size:1.125rem;line-height:1.7}
+.mv-card-cream h2{color:var(--navy);font-size:1.5rem;font-weight:700;margin-bottom:1rem}
+.mv-card-cream p{color:var(--muted-fg);font-size:1.125rem;line-height:1.7}
+
+/* ============================================================
+   WHAT WE BELIEVE
+   ============================================================ */
+.believe-section{background:var(--cream)}
+.believe-heading{text-align:center;max-width:48rem;margin:0 auto 3rem}
+.believe-heading h2{font-size:1.875rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+@media(min-width:768px){.believe-heading h2{font-size:2.25rem}}
+@media(min-width:1024px){.believe-heading h2{font-size:3rem}}
+.believe-heading p{color:var(--muted-fg);font-size:1.125rem;line-height:1.7}
+.believe-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:768px){.believe-grid{grid-template-columns:repeat(2,1fr)}}
+.believe-card{background:var(--card);border-radius:.75rem;padding:2rem;border:1px solid rgba(210,220,230,.5);transition:all .3s}
+.believe-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);border-color:rgba(212,168,67,.3)}
+.believe-icon{width:2.5rem;height:2.5rem;border-radius:.5rem;background:rgba(212,168,67,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:1rem}
+.believe-icon svg{width:1.25rem;height:1.25rem;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.believe-card h3{font-size:1.125rem;font-weight:600;color:var(--fg);margin-bottom:.5rem}
+.believe-card p{color:var(--muted-fg);font-size:.875rem;line-height:1.7}
+
+/* ============================================================
+   OUR TEAM
+   ============================================================ */
+.team-heading{text-align:center;max-width:48rem;margin:0 auto 3rem}
+.team-heading h2{font-size:1.875rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+@media(min-width:768px){.team-heading h2{font-size:2.25rem}}
+@media(min-width:1024px){.team-heading h2{font-size:3rem}}
+.team-heading p{color:var(--muted-fg);font-size:1.125rem;line-height:1.7}
+.team-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+@media(min-width:768px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.team-grid{grid-template-columns:repeat(4,1fr)}}
+.team-member{text-align:center}
+.team-avatar{width:8rem;height:8rem;border-radius:50%;background:rgba(23,42,66,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem}
+.team-avatar svg{width:3rem;height:3rem;stroke:var(--navy);opacity:.4;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.team-member h3{font-size:1.25rem;font-weight:600;color:var(--fg);margin-bottom:.25rem}
+.team-member .role{color:var(--gold);font-size:.875rem;font-weight:500;margin-bottom:.75rem}
+.team-member .bio{color:var(--muted-fg);font-size:.875rem;line-height:1.7}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta-section{background:var(--teal-cta)}
+.cta-inner{text-align:center;max-width:48rem;margin:0 auto}
+.cta-inner h2{font-size:1.875rem;font-weight:700;color:var(--primary-fg);margin-bottom:1.5rem}
+@media(min-width:768px){.cta-inner h2{font-size:2.25rem}}
+@media(min-width:1024px){.cta-inner h2{font-size:3rem}}
+.cta-inner p{color:var(--primary-fg);opacity:.7;font-size:1.125rem;margin-bottom:2.5rem;line-height:1.7}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{background:var(--navy)}
+.footer-inner{padding:5rem 0 1rem}
+@media(min-width:768px){.footer-inner{padding:7rem 0 1rem}}
+@media(min-width:1024px){.footer-inner{padding:8rem 0 1rem}}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem}
+@media(min-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
+.footer-brand{max-width:28rem}
+@media(min-width:1024px){.footer-brand{grid-column:span 1}}
+.footer-brand .brand-name{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
+.footer-brand .brand-name .elevated{font-size:1.5rem;font-weight:700;color:var(--primary-fg);letter-spacing:-.025em}
+.footer-brand .brand-name .he{font-size:1.25rem;color:var(--gold);font-style:italic;font-weight:500}
+.footer-brand p{color:var(--primary-fg);opacity:.7;line-height:1.7;max-width:28rem}
+.footer-col h4{font-size:.875rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.5rem}
+.footer-col ul{display:flex;flex-direction:column;gap:.75rem}
+.footer-col ul a{color:var(--primary-fg);opacity:.7;font-size:.875rem;transition:color .3s}
+.footer-col ul a:hover{color:var(--gold);opacity:1}
+.footer-col .contact-text{color:var(--primary-fg);opacity:.7;font-size:.875rem;margin-bottom:.75rem}
+.footer-col .contact-link{color:var(--gold);font-weight:500;font-size:.875rem;transition:color .3s}
+.footer-col .contact-link:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid var(--navy-light);padding:1rem 0;text-align:center}
+.footer-bottom p{font-size:.875rem;color:var(--primary-fg);opacity:.4}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container-wide">
+    <div class="header-inner">
+      <a href="/" class="header-logo">
+        <img src="images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="/">Home</a>
+        <a href="/workshops">Workshops</a>
+        <a href="/accelerator">Accelerator Program</a>
+        <a href="/about" class="active">About Us</a>
+        <a href="/contact" class="btn btn-gold">Contact Us</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <div class="container-wide">
+      <a href="/">Home</a>
+      <a href="/workshops">Workshops</a>
+      <a href="/accelerator">Accelerator Program</a>
+      <a href="/about">About Us</a>
+      <a href="/contact" class="btn btn-gold">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top:var(--header-h)">
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="about-hero" id="hero">
+  <div class="about-hero-bg">
+    <img src="images/about-hero-new.jpeg" alt="About Elevated Health Equity">
+  </div>
+  <div class="about-hero-content">
+    <div class="inner reveal">
+      <h1>About <span class="text-script text-gold" style="letter-spacing:0">Us</span></h1>
+      <p>We partner with healthcare organizations to build systems where equity is not a project but a foundational operating principle.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MISSION & VISION
+     ============================================================ -->
+<section class="section-padding" id="mission-vision" style="background:var(--bg)">
+  <div class="container-wide">
+    <div class="mv-grid">
+      <div class="mv-card mv-card-navy reveal-left">
+        <div class="mv-icon mv-icon-gold">
+          <!-- Target / Crosshair icon -->
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <h2>Our Mission</h2>
+        <p>To make equity foundational to excellence. We help healthcare organizations address systemic inequities, eliminate disparities, strengthen trust, and build sustainable, equity-centered systems.</p>
+      </div>
+      <div class="mv-card mv-card-cream reveal-right">
+        <div class="mv-icon mv-icon-navy">
+          <!-- Eye icon -->
+          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h2>Our Vision</h2>
+        <p>A healthcare ecosystem where every patient receives equitable, high-quality care&#8202;&#8212;&#8202;where disparities are eliminated and health outcomes are determined by evidence-based treatment, not circumstances of birth or background.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT WE BELIEVE
+     ============================================================ -->
+<section class="believe-section section-padding" id="believe">
+  <div class="container-wide">
+    <div class="believe-heading reveal">
+      <h2>What We <span class="text-script text-gold">Believe</span></h2>
+      <p>Our principles guide every engagement and shape how we partner with organizations to create lasting change.</p>
+    </div>
+    <div class="believe-grid">
+      <div class="believe-card reveal">
+        <div class="believe-icon">
+          <!-- Heart icon -->
+          <svg viewBox="0 0 24 24"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.78.77L12 20.64l7.64-7.64.78-.77a5.4 5.4 0 0 0 0-7.65z"/></svg>
+        </div>
+        <h3>Equity as Foundation</h3>
+        <p>We believe equity must be embedded into every decision, process, and outcome&#8202;&#8212;&#8202;not treated as an add-on or afterthought.</p>
+      </div>
+      <div class="believe-card reveal delay-1">
+        <div class="believe-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.78.77L12 20.64l7.64-7.64.78-.77a5.4 5.4 0 0 0 0-7.65z"/></svg>
+        </div>
+        <h3>Community-Centered</h3>
+        <p>Meaningful change happens when communities are partners in designing solutions, not just recipients of services.</p>
+      </div>
+      <div class="believe-card reveal delay-2">
+        <div class="believe-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.78.77L12 20.64l7.64-7.64.78-.77a5.4 5.4 0 0 0 0-7.65z"/></svg>
+        </div>
+        <h3>Data-Driven Action</h3>
+        <p>We leverage evidence and analytics to identify disparities, measure progress, and drive informed decisions.</p>
+      </div>
+      <div class="believe-card reveal delay-3">
+        <div class="believe-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.78.77L12 20.64l7.64-7.64.78-.77a5.4 5.4 0 0 0 0-7.65z"/></svg>
+        </div>
+        <h3>Sustainable Transformation</h3>
+        <p>Quick fixes don't work. We build capacity for lasting change through skill development and systemic solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OUR TEAM
+     ============================================================ -->
+<section class="section-padding" id="team" style="background:var(--bg)">
+  <div class="container-wide">
+    <div class="team-heading reveal">
+      <h2>Our <span class="text-script text-gold">Team</span></h2>
+      <p>Experienced professionals dedicated to transforming healthcare through equity-centered leadership and expertise.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-member reveal">
+        <div class="team-avatar">
+          <!-- Users icon -->
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Team Member</h3>
+        <p class="role">Chief Executive Officer</p>
+        <p class="bio">Healthcare equity expert with 20+ years of experience in health policy and organizational transformation.</p>
+      </div>
+      <div class="team-member reveal delay-1">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Team Member</h3>
+        <p class="role">Director of Programs</p>
+        <p class="bio">Specializes in capacity building and workshop facilitation with a focus on culturally responsive care.</p>
+      </div>
+      <div class="team-member reveal delay-2">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Team Member</h3>
+        <p class="role">Senior Consultant</p>
+        <p class="bio">Data analytics expert who translates complex health equity data into actionable strategies.</p>
+      </div>
+      <div class="team-member reveal delay-3">
+        <div class="team-avatar">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Team Member</h3>
+        <p class="role">Community Engagement Lead</p>
+        <p class="bio">Builds bridges between healthcare organizations and the communities they serve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="cta-section section-padding" id="cta">
+  <div class="container-wide">
+    <div class="cta-inner reveal">
+      <h2>Let's Build Equity <span class="text-script text-gold">Together</span></h2>
+      <p>We're here to partner with organizations committed to creating healthcare systems that work for everyone.</p>
+      <a href="/contact" class="btn btn-gold btn-gold-lg" style="height:3.5rem;padding:0 2.5rem;font-size:1rem">
+        Contact Us
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" id="footer">
+  <div class="container-wide">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-name">
+            <span class="elevated">ELEVATED</span>
+            <span class="he">Health Equity</span>
+          </div>
+          <p>Empowering healthcare organizations to build equitable, high-quality systems where every patient receives the care they deserve.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/workshops">Workshops</a></li>
+            <li><a href="/accelerator">Accelerator Program</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <p class="contact-text">Ready to make equity the engine of excellence?</p>
+          <a href="/contact" class="contact-link">Contact Us &rarr;</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Elevated Health Equity. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function(){
+  'use strict';
+
+  /* ----------------------------------------------------------
+     MOBILE NAV TOGGLE
+     ---------------------------------------------------------- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  var menuOpen = false;
+
+  hamburger.addEventListener('click', function(){
+    menuOpen = !menuOpen;
+    mobileNav.classList.toggle('open', menuOpen);
+    if(menuOpen){
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    } else {
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    }
+  });
+
+  // Close mobile nav on link click
+  mobileNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      menuOpen = false;
+      mobileNav.classList.remove('open');
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    });
+  });
+
+  /* ----------------------------------------------------------
+     INTERSECTION OBSERVER — REVEAL ON SCROLL
+     ---------------------------------------------------------- */
+  var reveals = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.12});
+    reveals.forEach(function(el){ obs.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshops | Elevated Health Equity</title>
+<meta name="description" content="Explore our leadership and professional development workshops designed specifically for the healthcare sector. Build skills in cultural competency, health equity, resilience, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:hsl(210 40% 15%);line-height:1.6;background:hsl(210 25% 97%);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,textarea{font-family:inherit;font-size:inherit;border:none;outline:none}
+h1,h2,h3,h4,h5,h6{font-family:'Montserrat',system-ui,sans-serif;font-weight:600;letter-spacing:-0.025em;line-height:1.2}
+p{line-height:1.7}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --navy:hsl(210 50% 18%);
+  --navy-light:hsl(210 45% 25%);
+  --navy-dark:hsl(210 55% 12%);
+  --gold:hsl(42 90% 55%);
+  --gold-light:hsl(45 100% 70%);
+  --gold-dark:hsl(38 85% 45%);
+  --cream:hsl(203 47% 93%);
+  --cream-dark:hsl(203 40% 88%);
+  --bg:hsl(210 25% 97%);
+  --fg:hsl(210 40% 15%);
+  --muted-fg:hsl(210 15% 45%);
+  --card:hsl(0 0% 100%);
+  --border:hsl(210 20% 88%);
+  --primary-fg:hsl(45 100% 96%);
+  --teal-cta:#176a89;
+  --logo-blue:hsl(203 60% 45%);
+  --radius:0.5rem;
+  --header-h:72px;
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.container-wide{max-width:80rem;margin:0 auto;padding:0 1.5rem}
+@media(min-width:768px){.container-wide{padding:0 2rem}}
+@media(min-width:1024px){.container-wide{padding:0 3rem}}
+.section-padding{padding:5rem 0}
+@media(min-width:768px){.section-padding{padding:7rem 0}}
+@media(min-width:1024px){.section-padding{padding:8rem 0}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:.15s}
+.delay-2{transition-delay:.3s}
+.delay-3{transition-delay:.45s}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+.text-script{font-style:italic;font-weight:500}
+.text-gold{color:var(--gold)}
+.text-navy{color:var(--navy)}
+.text-muted{color:var(--muted-fg)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;white-space:nowrap;border-radius:9999px;font-size:.875rem;font-weight:600;transition:all .3s;cursor:pointer;text-align:center;line-height:1}
+.btn-gold{background:var(--gold);color:var(--navy);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold:hover{background:var(--gold-light);box-shadow:0 8px 24px rgba(212,168,67,.2)}
+.btn-gold-lg{height:3.5rem;padding:0 2.5rem;font-size:1rem}
+.btn-gold-outline{background:transparent;color:var(--gold);border:2px solid var(--gold);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold-outline:hover{background:var(--gold);color:var(--navy)}
+.btn svg{width:1rem;height:1rem;flex-shrink:0}
+.btn:hover svg{transform:translateX(4px)}
+.btn svg{transition:transform .3s}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:.375rem 0}
+@media(min-width:768px){.header-inner{padding:.5rem 0}}
+.header-logo img{height:2.5rem;width:auto}
+@media(min-width:768px){.header-logo img{height:3.5rem}}
+@media(min-width:1024px){.header-logo img{height:4.5rem}}
+.desktop-nav{display:none;align-items:center;gap:2rem}
+@media(min-width:1024px){.desktop-nav{display:flex}}
+.desktop-nav a{font-size:1rem;font-weight:600;color:var(--navy);opacity:.8;transition:color .3s,opacity .3s}
+.desktop-nav a:hover,.desktop-nav a.active{opacity:1;color:var(--navy-dark)}
+.desktop-nav a.active{border-bottom:2px solid var(--gold);padding-bottom:2px}
+.hamburger{display:flex;align-items:center;justify-content:center;padding:.5rem;background:none;color:var(--navy);cursor:pointer}
+@media(min-width:1024px){.hamburger{display:none}}
+.hamburger svg{width:1.5rem;height:1.5rem}
+.mobile-nav{display:none;background:#fff;border-top:1px solid #f3f4f6;padding:1.5rem}
+.mobile-nav.open{display:block}
+@media(min-width:1024px){.mobile-nav{display:none!important}}
+.mobile-nav a{display:block;padding:.5rem 0;font-size:1rem;font-weight:500;color:var(--navy);opacity:.8;transition:color .3s}
+.mobile-nav a:hover{color:var(--navy);opacity:1}
+.mobile-nav .btn{width:100%;margin-top:1rem;justify-content:center}
+
+/* ============================================================
+   HERO (Workshops)
+   ============================================================ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,hsla(210,50%,18%,0.9),hsla(210,50%,18%,0.75),hsla(210,50%,18%,0.5))}
+.hero-content{position:relative;z-index:1;padding:5rem 1.5rem 5rem}
+@media(min-width:768px){.hero-content{padding:5rem 2rem 5rem}}
+@media(min-width:1024px){.hero-content{padding:5rem 3rem 5rem}}
+@media(min-width:1280px){.hero-content{padding:5rem 4rem 5rem}}
+.hero-content .inner{max-width:48rem;text-align:left}
+.hero h1{font-size:1.5rem;font-weight:700;color:var(--primary-fg);line-height:1.15;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.05em}
+@media(min-width:768px){.hero h1{font-size:1.875rem}}
+@media(min-width:1024px){.hero h1{font-size:2.25rem}}
+@media(min-width:1280px){.hero h1{font-size:3rem}}
+.hero p{color:var(--primary-fg);opacity:.9;font-size:1rem;max-width:36rem;margin-bottom:2rem;line-height:1.7}
+@media(min-width:768px){.hero p{font-size:1.125rem}}
+
+/* ============================================================
+   WORKSHOPS GRID
+   ============================================================ */
+.workshops-section{background:var(--bg)}
+.workshops-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+@media(min-width:768px){.workshops-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.workshops-grid{grid-template-columns:repeat(3,1fr)}}
+.workshop-card{background:var(--card);border-radius:1rem;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04);border:1px solid rgba(210,220,230,.5);transition:all .3s}
+.workshop-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.08);border-color:rgba(212,168,67,.3)}
+.workshop-card-img{position:relative;height:14rem;overflow:hidden;border-radius:.75rem .75rem 0 0}
+.workshop-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.workshop-card:hover .workshop-card-img img{transform:scale(1.05)}
+.workshop-card-body{padding:1.5rem}
+.workshop-card-body h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin-bottom:.75rem;transition:color .3s;line-height:1.3}
+.workshop-card:hover .workshop-card-body h3{color:var(--gold)}
+.workshop-card-body p{color:var(--muted-fg);font-size:.875rem;line-height:1.7;margin-bottom:1.25rem}
+.workshop-card-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;transition:gap .3s}
+.workshop-card-link:hover{gap:.75rem}
+.workshop-card-link svg{width:.875rem;height:.875rem;flex-shrink:0;transition:transform .3s}
+.workshop-card-link:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta-section{background:var(--teal-cta)}
+.cta-inner{text-align:center;max-width:48rem;margin:0 auto}
+.cta-inner h2{font-size:1.875rem;font-weight:700;color:var(--primary-fg);margin-bottom:1.5rem}
+@media(min-width:768px){.cta-inner h2{font-size:2.25rem}}
+@media(min-width:1024px){.cta-inner h2{font-size:3rem}}
+.cta-inner p{color:var(--primary-fg);opacity:.7;font-size:1.125rem;margin-bottom:2.5rem;line-height:1.7}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{background:var(--navy)}
+.footer-inner{padding:5rem 0 1rem}
+@media(min-width:768px){.footer-inner{padding:7rem 0 1rem}}
+@media(min-width:1024px){.footer-inner{padding:8rem 0 1rem}}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem}
+@media(min-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
+.footer-brand{max-width:28rem}
+@media(min-width:1024px){.footer-brand{grid-column:span 1}}
+.footer-brand .brand-name{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
+.footer-brand .brand-name .elevated{font-size:1.5rem;font-weight:700;color:var(--primary-fg);letter-spacing:-.025em}
+.footer-brand .brand-name .he{font-size:1.25rem;color:var(--gold);font-style:italic;font-weight:500}
+.footer-brand p{color:var(--primary-fg);opacity:.7;line-height:1.7;max-width:28rem}
+.footer-col h4{font-size:.875rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.5rem}
+.footer-col ul{display:flex;flex-direction:column;gap:.75rem}
+.footer-col ul a{color:var(--primary-fg);opacity:.7;font-size:.875rem;transition:color .3s}
+.footer-col ul a:hover{color:var(--gold);opacity:1}
+.footer-col .contact-text{color:var(--primary-fg);opacity:.7;font-size:.875rem;margin-bottom:.75rem}
+.footer-col .contact-link{color:var(--gold);font-weight:500;font-size:.875rem;transition:color .3s}
+.footer-col .contact-link:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid var(--navy-light);padding:1rem 0;text-align:center}
+.footer-bottom p{font-size:.875rem;color:var(--primary-fg);opacity:.4}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container-wide">
+    <div class="header-inner">
+      <a href="/" class="header-logo">
+        <img src="images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="/">Home</a>
+        <a href="/workshops" class="active">Workshops</a>
+        <a href="/accelerator">Accelerator Program</a>
+        <a href="/about">About Us</a>
+        <a href="/contact" class="btn btn-gold">Contact Us</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <div class="container-wide">
+      <a href="/">Home</a>
+      <a href="/workshops">Workshops</a>
+      <a href="/accelerator">Accelerator Program</a>
+      <a href="/about">About Us</a>
+      <a href="/contact" class="btn btn-gold">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top:var(--header-h)">
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img src="images/workshop-hero-new2.jpg" alt="Healthcare team in a training workshop">
+  </div>
+  <div class="hero-content">
+    <div class="inner reveal">
+      <h1>
+        Healthcare Teams<br>
+        Perform <span class="text-script text-gold" style="text-transform:none;letter-spacing:0">better</span><br>
+        With <span class="text-gold">Elevated</span> Training
+      </h1>
+      <p>Our leadership and professional development programs&mdash;designed specifically for the healthcare sector&mdash;equip everyone from front-line staff to senior leaders with the skills needed to thrive in today&rsquo;s fast-paced, high-stakes environment. Whether it&rsquo;s strengthening communication, navigating conflict, or building leadership capacity, our workshops are practical, engaging, and results-driven.</p>
+      <p style="font-weight:700">Explore our offerings to develop the skills that power people&mdash;and patient&mdash;outcomes.</p>
+      <a href="/contact" class="btn btn-gold btn-gold-lg">
+        Start the Conversation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WORKSHOPS GRID
+     ============================================================ -->
+<section class="workshops-section section-padding" id="workshops">
+  <div class="container-wide">
+    <div class="workshops-grid">
+
+      <!-- Workshop 1 -->
+      <div class="workshop-card reveal">
+        <div class="workshop-card-img">
+          <img src="images/workshop-cultural-new.jpeg" alt="Cultural Competency and Humility in Healthcare">
+        </div>
+        <div class="workshop-card-body">
+          <h3>Navigating with Care: Cultural Competency and Humility in Healthcare</h3>
+          <p>Cultural competency and cultural humility play a critical role in shaping effective healthcare interactions and driving equitable outcomes. This workshop provides tools to understand and address the factors influencing cross-cultural communication.</p>
+          <a href="/workshops/cultural-competency" class="workshop-card-link">
+            Explore More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Workshop 2 -->
+      <div class="workshop-card reveal delay-1">
+        <div class="workshop-card-img">
+          <img src="images/workshop-health-equity.jpg" alt="Health Equity Fundamentals">
+        </div>
+        <div class="workshop-card-body">
+          <h3>Health Equity Fundamentals</h3>
+          <p>Health equity is essential for ensuring fair access to health and well-being across all communities. This workshop introduces foundational concepts of health equity, exploring its root causes, the impact of social determinants, and strategies to address disparities.</p>
+          <a href="/workshops/health-equity" class="workshop-card-link">
+            Explore More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Workshop 3 -->
+      <div class="workshop-card reveal delay-2">
+        <div class="workshop-card-img">
+          <img src="images/workshop-sdoh-new.jpeg" alt="Social Determinants of Health">
+        </div>
+        <div class="workshop-card-body">
+          <h3>Social Determinants of Health (SDOH)</h3>
+          <p>Social determinants of health play a critical role in shaping health outcomes and driving disparities. This workshop provides tools to understand and address the factors influencing health equity, including economic stability, education, healthcare access, and social environments.</p>
+          <a href="/workshops/sdoh" class="workshop-card-link">
+            Explore More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Workshop 4 -->
+      <div class="workshop-card reveal">
+        <div class="workshop-card-img">
+          <img src="images/workshop-resilience-new.jpeg" alt="Building Resilience in Healthcare Organizations">
+        </div>
+        <div class="workshop-card-body">
+          <h3>Building Resilience in Healthcare Organizations</h3>
+          <p>In today&rsquo;s rapidly evolving world, change and uncertainty are constants. This workshop equips individuals with practical strategies to build resilience and thrive amidst volatility.</p>
+          <a href="/workshops/resilience" class="workshop-card-link">
+            Explore More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Workshop 5 -->
+      <div class="workshop-card reveal delay-1">
+        <div class="workshop-card-img">
+          <img src="images/workshop-conversations-new.jpeg" alt="Managing Difficult Conversations in Healthcare">
+        </div>
+        <div class="workshop-card-body">
+          <h3>Managing Difficult Conversations in Healthcare</h3>
+          <p>Navigating difficult conversations can feel overwhelming and stressful. This workshop provides practical strategies to approach these situations with confidence and empathy.</p>
+          <a href="/workshops/difficult-conversations" class="workshop-card-link">
+            Explore More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Workshop 6 -->
+      <div class="workshop-card reveal delay-2">
+        <div class="workshop-card-img">
+          <img src="images/workshop-communication.jpg" alt="Workplace Communication Skills for Healthcare Teams">
+        </div>
+        <div class="workshop-card-body">
+          <h3>Workplace Communication Skills for Healthcare Teams</h3>
+          <p>Managing conflicts can feel overwhelming and stressful. This workshop provides practical strategies to approach these situations with confidence and constructive communication.</p>
+          <a href="/workshops/communication" class="workshop-card-link">
+            Explore More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Workshop 7 -->
+      <div class="workshop-card reveal">
+        <div class="workshop-card-img">
+          <img src="images/workshop-leadership-new.jpeg" alt="Inclusive Leadership in Healthcare Organizations">
+        </div>
+        <div class="workshop-card-body">
+          <h3>Inclusive Leadership in Healthcare Organizations</h3>
+          <p>Inclusive leadership is crucial for organizational success, yet many struggle to implement it effectively. This workshop equips leaders with practical strategies to foster an environment where all team members feel valued, respected, and heard.</p>
+          <a href="/workshops/inclusive-leadership" class="workshop-card-link">
+            Explore More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Workshop 8 -->
+      <div class="workshop-card reveal delay-1">
+        <div class="workshop-card-img">
+          <img src="images/workshop-disability-new.jpeg" alt="Overcoming Implicit Bias in Healthcare">
+        </div>
+        <div class="workshop-card-body">
+          <h3>Overcoming Implicit Bias in Healthcare</h3>
+          <p>Implicit biases can shape our decisions and interactions, often without our awareness, impacting workplace dynamics and culture. This workshop provides practical strategies to recognize and mitigate hidden biases.</p>
+          <a href="/workshops/implicit-bias" class="workshop-card-link">
+            Explore More
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="cta-section section-padding" id="cta">
+  <div class="container-wide">
+    <div class="cta-inner reveal">
+      <h2>Elevate Your Organization's <span class="text-script text-gold">Potential</span></h2>
+      <p>Ready to transform your healthcare team's capabilities? Let's discuss how our workshops can help your organization build the skills and culture needed for equitable, excellent care.</p>
+      <a href="/contact" class="btn btn-gold btn-gold-lg" style="height:3.5rem;padding:0 2.5rem;font-size:1rem">
+        Start the Conversation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" id="footer">
+  <div class="container-wide">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-name">
+            <span class="elevated">ELEVATED</span>
+            <span class="he">Health Equity</span>
+          </div>
+          <p>Empowering healthcare organizations to build equitable, high-quality systems where every patient receives the care they deserve.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/workshops">Workshops</a></li>
+            <li><a href="/accelerator">Accelerator Program</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <p class="contact-text">Ready to make equity the engine of excellence?</p>
+          <a href="/contact" class="contact-link">Contact Us &rarr;</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Elevated Health Equity. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function(){
+  'use strict';
+
+  /* ----------------------------------------------------------
+     MOBILE NAV TOGGLE
+     ---------------------------------------------------------- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  var menuOpen = false;
+
+  hamburger.addEventListener('click', function(){
+    menuOpen = !menuOpen;
+    mobileNav.classList.toggle('open', menuOpen);
+    if(menuOpen){
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    } else {
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    }
+  });
+
+  // Close mobile nav on link click
+  mobileNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      menuOpen = false;
+      mobileNav.classList.remove('open');
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    });
+  });
+
+  /* ----------------------------------------------------------
+     INTERSECTION OBSERVER — REVEAL ON SCROLL
+     ---------------------------------------------------------- */
+  var reveals = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.12});
+    reveals.forEach(function(el){ obs.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+})();
+</script>
+</body>
+</html>

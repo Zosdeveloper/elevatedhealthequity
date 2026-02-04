@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inclusive Leadership | Elevated Health Equity</title>
+<meta name="description" content="Inclusive leadership is crucial for organizational success. This workshop equips leaders with practical strategies to foster an environment where all team members feel valued, respected, and heard.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:hsl(210 40% 15%);line-height:1.6;background:hsl(210 25% 97%);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,textarea{font-family:inherit;font-size:inherit;border:none;outline:none}
+h1,h2,h3,h4,h5,h6{font-family:'Montserrat',system-ui,sans-serif;font-weight:600;letter-spacing:-0.025em;line-height:1.2}
+p{line-height:1.7}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --navy:hsl(210 50% 18%);
+  --navy-light:hsl(210 45% 25%);
+  --navy-dark:hsl(210 55% 12%);
+  --gold:hsl(42 90% 55%);
+  --gold-light:hsl(45 100% 70%);
+  --gold-dark:hsl(38 85% 45%);
+  --cream:hsl(203 47% 93%);
+  --cream-dark:hsl(203 40% 88%);
+  --bg:hsl(210 25% 97%);
+  --fg:hsl(210 40% 15%);
+  --muted-fg:hsl(210 15% 45%);
+  --card:hsl(0 0% 100%);
+  --border:hsl(210 20% 88%);
+  --primary-fg:hsl(45 100% 96%);
+  --teal-cta:#176a89;
+  --logo-blue:hsl(203 60% 45%);
+  --radius:0.5rem;
+  --header-h:72px;
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.container-wide{max-width:80rem;margin:0 auto;padding:0 1.5rem}
+@media(min-width:768px){.container-wide{padding:0 2rem}}
+@media(min-width:1024px){.container-wide{padding:0 3rem}}
+.section-padding{padding:5rem 0}
+@media(min-width:768px){.section-padding{padding:7rem 0}}
+@media(min-width:1024px){.section-padding{padding:8rem 0}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:.15s}
+.delay-2{transition-delay:.3s}
+.delay-3{transition-delay:.45s}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+.text-script{font-style:italic;font-weight:500}
+.text-gold{color:var(--gold)}
+.text-navy{color:var(--navy)}
+.text-muted{color:var(--muted-fg)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;white-space:nowrap;border-radius:9999px;font-size:.875rem;font-weight:600;transition:all .3s;cursor:pointer;text-align:center;line-height:1}
+.btn-gold{background:var(--gold);color:var(--navy);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold:hover{background:var(--gold-light);box-shadow:0 8px 24px rgba(212,168,67,.2)}
+.btn-gold-lg{height:3.5rem;padding:0 2.5rem;font-size:1rem}
+.btn-gold-outline{background:transparent;color:var(--gold);border:2px solid var(--gold);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold-outline:hover{background:var(--gold);color:var(--navy)}
+.btn svg{width:1rem;height:1rem;flex-shrink:0}
+.btn:hover svg{transform:translateX(4px)}
+.btn svg{transition:transform .3s}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:.375rem 0}
+@media(min-width:768px){.header-inner{padding:.5rem 0}}
+.header-logo img{height:2.5rem;width:auto}
+@media(min-width:768px){.header-logo img{height:3.5rem}}
+@media(min-width:1024px){.header-logo img{height:4.5rem}}
+.desktop-nav{display:none;align-items:center;gap:2rem}
+@media(min-width:1024px){.desktop-nav{display:flex}}
+.desktop-nav a{font-size:1rem;font-weight:600;color:var(--navy);opacity:.8;transition:color .3s,opacity .3s}
+.desktop-nav a:hover,.desktop-nav a.active{opacity:1;color:var(--navy-dark)}
+.desktop-nav a.active{border-bottom:2px solid var(--gold);padding-bottom:2px}
+.hamburger{display:flex;align-items:center;justify-content:center;padding:.5rem;background:none;color:var(--navy);cursor:pointer}
+@media(min-width:1024px){.hamburger{display:none}}
+.hamburger svg{width:1.5rem;height:1.5rem}
+.mobile-nav{display:none;background:#fff;border-top:1px solid #f3f4f6;padding:1.5rem}
+.mobile-nav.open{display:block}
+@media(min-width:1024px){.mobile-nav{display:none!important}}
+.mobile-nav a{display:block;padding:.5rem 0;font-size:1rem;font-weight:500;color:var(--navy);opacity:.8;transition:color .3s}
+.mobile-nav a:hover{color:var(--navy);opacity:1}
+.mobile-nav .btn{width:100%;margin-top:1rem;justify-content:center}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{background:var(--navy)}
+.footer-inner{padding:5rem 0 1rem}
+@media(min-width:768px){.footer-inner{padding:7rem 0 1rem}}
+@media(min-width:1024px){.footer-inner{padding:8rem 0 1rem}}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem}
+@media(min-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
+.footer-brand{max-width:28rem}
+@media(min-width:1024px){.footer-brand{grid-column:span 1}}
+.footer-brand .brand-name{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
+.footer-brand .brand-name .elevated{font-size:1.5rem;font-weight:700;color:var(--primary-fg);letter-spacing:-.025em}
+.footer-brand .brand-name .he{font-size:1.25rem;color:var(--gold);font-style:italic;font-weight:500}
+.footer-brand p{color:var(--primary-fg);opacity:.7;line-height:1.7;max-width:28rem}
+.footer-col h4{font-size:.875rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.5rem}
+.footer-col ul{display:flex;flex-direction:column;gap:.75rem}
+.footer-col ul a{color:var(--primary-fg);opacity:.7;font-size:.875rem;transition:color .3s}
+.footer-col ul a:hover{color:var(--gold);opacity:1}
+.footer-col .contact-text{color:var(--primary-fg);opacity:.7;font-size:.875rem;margin-bottom:.75rem}
+.footer-col .contact-link{color:var(--gold);font-weight:500;font-size:.875rem;transition:color .3s}
+.footer-col .contact-link:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid var(--navy-light);padding:1rem 0;text-align:center}
+.footer-bottom p{font-size:.875rem;color:var(--primary-fg);opacity:.4}
+
+/* ============================================================
+   WORKSHOP-SPECIFIC STYLES
+   ============================================================ */
+.workshop-hero{position:relative;min-height:60vh;display:flex;align-items:center;overflow:hidden}
+.workshop-hero .hero-bg{position:absolute;inset:0;z-index:0}
+.workshop-hero .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.workshop-hero .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(23,42,55,.9),rgba(23,42,55,.75),rgba(23,42,55,.5))}
+.workshop-hero .hero-content{position:relative;z-index:1;padding:5rem 1.5rem}
+@media(min-width:768px){.workshop-hero .hero-content{padding:5rem 2rem}}
+@media(min-width:1024px){.workshop-hero .hero-content{padding:5rem 3rem}}
+@media(min-width:1280px){.workshop-hero .hero-content{padding:5rem 4rem}}
+.workshop-hero .inner{max-width:48rem;text-align:left}
+.workshop-hero h1{font-size:1.5rem;font-weight:700;color:var(--primary-fg);line-height:1.1;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
+@media(min-width:768px){.workshop-hero h1{font-size:1.875rem}}
+@media(min-width:1024px){.workshop-hero h1{font-size:2.25rem}}
+.workshop-hero .subtitle{font-size:1.125rem;color:var(--gold);font-weight:500;margin-bottom:1.5rem}
+@media(min-width:768px){.workshop-hero .subtitle{font-size:1.25rem}}
+.workshop-hero .desc{color:var(--primary-fg);opacity:.9;font-size:1rem;line-height:1.7;margin-bottom:2rem;max-width:48rem}
+@media(min-width:768px){.workshop-hero .desc{font-size:1.125rem}}
+.highlights-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:768px){.highlights-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.highlights-grid{grid-template-columns:repeat(4,1fr)}}
+.highlight-card{background:#fff;border-radius:.5rem;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,.04);border-left:4px solid var(--gold)}
+.highlight-card h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:.75rem}
+.highlight-card p{color:var(--muted-fg);font-size:.875rem;line-height:1.7}
+.outcomes-list{display:flex;flex-direction:column;gap:0}
+.outcome-row{border-bottom:1px solid #e5e7eb;padding:1.5rem 0}
+.outcome-row:last-child{border-bottom:none}
+.outcome-row h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+@media(min-width:768px){.outcome-row h3{font-size:1.25rem}}
+.outcome-row p{color:var(--muted-fg);font-size:1rem;line-height:1.7}
+.info-cards{display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:56rem;margin:0 auto}
+@media(min-width:768px){.info-cards{grid-template-columns:1fr 1fr}}
+.info-card{background:#fff;border-radius:.5rem;padding:1.5rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.info-card h3{font-size:1rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem}
+.info-card li{display:flex;align-items:flex-start;gap:.75rem;font-size:.875rem;color:var(--fg);margin-bottom:.5rem}
+.info-card .dot{width:6px;height:6px;background:var(--navy);border-radius:50%;flex-shrink:0;margin-top:.5rem}
+.impact-section{background:var(--navy)}
+.impact-heading{text-align:center;max-width:48rem;margin:0 auto 3rem}
+.impact-heading h2{font-size:1.5rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem}
+@media(min-width:768px){.impact-heading h2{font-size:1.875rem}}
+.impact-heading p{color:rgba(255,255,255,.8);font-size:1rem;line-height:1.7}
+@media(min-width:768px){.impact-heading p{font-size:1.125rem}}
+.impact-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+@media(min-width:768px){.impact-grid{grid-template-columns:repeat(3,1fr)}}
+.impact-card{background:#0D3A5C;border-radius:.5rem;padding:2rem;position:relative}
+.impact-card .qi{color:var(--gold);margin-bottom:1rem}
+.impact-card .qi svg{width:2rem;height:2rem;stroke:var(--gold);fill:none;stroke-width:1.5}
+.impact-card blockquote{color:rgba(255,255,255,.9);font-size:.875rem;line-height:1.7;margin-bottom:1.5rem}
+.impact-card .author{font-weight:600;color:#fff;font-size:.875rem}
+.impact-card .org{font-size:.75rem;color:var(--gold)}
+.workshop-form{background:var(--teal-cta)}
+.workshop-form .form-container{max-width:56rem;margin:0 auto}
+.workshop-form .form-heading{text-align:center;margin-bottom:2.5rem}
+.workshop-form .form-heading h2{font-size:1.5rem;font-weight:700;color:var(--primary-fg);text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem}
+@media(min-width:768px){.workshop-form .form-heading h2{font-size:1.875rem}}
+.workshop-form .form-heading p{color:var(--primary-fg);opacity:.8;font-size:1.125rem}
+.workshop-form form{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border-radius:.75rem;padding:1.5rem}
+@media(min-width:768px){.workshop-form form{padding:2.5rem}}
+.workshop-form .form-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:768px){.workshop-form .form-grid{grid-template-columns:1fr 1fr}}
+.workshop-form .full-width{grid-column:1/-1}
+.workshop-form label{display:block;font-size:.875rem;font-weight:600;color:var(--primary-fg);margin-bottom:.5rem}
+.workshop-form input,.workshop-form select,.workshop-form textarea{width:100%;padding:.75rem 1rem;border:none;border-radius:.375rem;background:rgba(255,255,255,.9);font-size:.875rem;font-family:inherit;color:var(--fg)}
+.workshop-form input:focus,.workshop-form select:focus,.workshop-form textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.workshop-form textarea{min-height:120px;resize:vertical}
+.workshop-form .form-submit{text-align:center;margin-top:2rem}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container-wide">
+    <div class="header-inner">
+      <a href="/" class="header-logo">
+        <img src="../images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="/">Home</a>
+        <a href="/workshops" class="active">Workshops</a>
+        <a href="/accelerator">Accelerator Program</a>
+        <a href="/about">About Us</a>
+        <a href="/contact" class="btn btn-gold">Contact Us</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <div class="container-wide">
+      <a href="/">Home</a>
+      <a href="/workshops">Workshops</a>
+      <a href="/accelerator">Accelerator Program</a>
+      <a href="/about">About Us</a>
+      <a href="/contact" class="btn btn-gold">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top:var(--header-h)">
+
+<!-- ============================================================
+     WORKSHOP HERO
+     ============================================================ -->
+<section class="workshop-hero">
+  <div class="hero-bg">
+    <img src="../images/workshop-leadership-new.jpeg"
+         alt="Inclusive Leadership workshop"
+         onerror="this.onerror=null;this.src='../images/workshop-leadership.jpg';">
+  </div>
+  <div class="hero-content">
+    <div class="inner reveal">
+      <h1>Inclusive Leadership</h1>
+      <p class="subtitle">Strategies for Success</p>
+      <p class="desc">Inclusive leadership is crucial for organizational success, yet many struggle to implement it effectively. This workshop equips leaders with practical strategies to foster an environment where all team members feel valued, respected, and heard. Learn to leverage diverse perspectives, overcome unconscious biases, and create a culture of belonging that drives innovation, enhances decision-making, and boosts employee engagement.</p>
+      <a href="#workshop-form" class="btn btn-gold btn-gold-lg">
+        Request This Workshop
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WORKSHOP HIGHLIGHTS
+     ============================================================ -->
+<section class="section-padding" style="background:var(--bg)">
+  <div class="container-wide">
+    <h2 style="font-size:1.5rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;text-align:center;margin-bottom:3rem" class="reveal">Workshop Highlights</h2>
+    <div class="highlights-grid">
+      <div class="highlight-card reveal">
+        <h3>Understanding Inclusive Leadership</h3>
+        <p>Explore the core principles of inclusive leadership, its impact on organizational success, and how it differs from traditional leadership approaches.</p>
+      </div>
+      <div class="highlight-card reveal delay-1">
+        <h3>Overcoming Unconscious Bias</h3>
+        <p>Learn to recognize and mitigate personal and organizational biases that hinder inclusivity, developing strategies to make more equitable decisions and foster a fair work environment.</p>
+      </div>
+      <div class="highlight-card reveal delay-2">
+        <h3>Creating a Culture of Belonging and Psychological Safety</h3>
+        <p>Discover practical techniques to build an inclusive culture where all team members feel valued, respected, and empowered, while fostering psychological safety to encourage open communication and risk-taking without fear of judgment.</p>
+      </div>
+      <div class="highlight-card reveal delay-3">
+        <h3>Leveraging Diversity for Innovation</h3>
+        <p>Gain strategies to harness the power of diverse teams, encouraging varied viewpoints to drive innovation, enhance problem-solving, and improve decision-making processes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LEARNING OUTCOMES
+     ============================================================ -->
+<section class="section-padding" style="background:var(--cream)">
+  <div class="container-wide">
+    <h2 style="font-size:1.5rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.05em;text-align:center;margin-bottom:3rem" class="reveal">Learning Outcomes</h2>
+    <div class="outcomes-list" style="max-width:56rem;margin:0 auto">
+      <div class="outcome-row reveal">
+        <h3>Apply Inclusive Leadership Principles</h3>
+        <p>Effectively apply inclusive leadership principles to create a more equitable and productive work environment.</p>
+      </div>
+      <div class="outcome-row reveal">
+        <h3>Mitigate Unconscious Biases</h3>
+        <p>Identify and address unconscious biases in personal and organizational practices, leading to more fair and inclusive decision-making.</p>
+      </div>
+      <div class="outcome-row reveal">
+        <h3>Foster a Culture of Belonging and Psychological Safety</h3>
+        <p>Create an environment where team members feel valued, respected, and safe to express themselves without fear of judgment, enhancing collaboration and innovation.</p>
+      </div>
+      <div class="outcome-row reveal">
+        <h3>Harness the Power of Diversity</h3>
+        <p>Leverage diverse perspectives to drive innovation, improve problem-solving, and enhance decision-making processes within their teams.</p>
+      </div>
+      <div class="outcome-row reveal">
+        <h3>Drive Organizational Success</h3>
+        <p>Implement inclusive leadership strategies that boost employee engagement, enhance collaboration, and contribute to overall organizational success.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHO SHOULD ATTEND + FORMAT
+     ============================================================ -->
+<section class="section-padding" style="background:var(--bg)">
+  <div class="container-wide">
+    <div class="info-cards reveal">
+      <div class="info-card">
+        <h3>Who Should Attend</h3>
+        <ul>
+          <li><span class="dot"></span> Senior Leaders</li>
+          <li><span class="dot"></span> Those in Managerial Roles</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Suggested Format</h3>
+        <ul>
+          <li><span class="dot"></span> 90-minutes, Half-Day, or Full-Day</li>
+          <li><span class="dot"></span> Onsite or Virtual</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem" class="reveal">
+      <a href="#workshop-form" class="btn btn-gold btn-gold-lg">
+        Request This Workshop
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ELEVATED IMPACT
+     ============================================================ -->
+<section class="impact-section section-padding">
+  <div class="container-wide">
+    <div class="impact-heading reveal">
+      <h2>Elevated <span class="text-script">Impact</span></h2>
+      <p>Hear from organizations that have partnered with Elevated Health Equity to transform their teams and culture.</p>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-card reveal">
+        <div class="qi">
+          <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+        </div>
+        <blockquote>"Your thoughtful facilitation techniques, combined with their deep understanding of diversity dynamics, have set us on a path toward transformative and sustainable outcomes."</blockquote>
+        <div class="author">Chief Human Resources</div>
+        <div class="org">Major Healthcare Organization</div>
+      </div>
+      <div class="impact-card reveal delay-1">
+        <div class="qi">
+          <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+        </div>
+        <blockquote>"Our Leadership Development program transformed how we develop talent. 93% of participants reported career impact, 85% credited their advancement to the skills gained, and 98% saw tangible professional growth."</blockquote>
+        <div class="author">Director, Human Resources</div>
+        <div class="org">Healthcare Therapeutics Company</div>
+      </div>
+      <div class="impact-card reveal delay-2">
+        <div class="qi">
+          <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+        </div>
+        <blockquote>"Elevated helped us transform our approach to employee engagement, moving from isolated activities to a strategy that truly connects people to purpose. Their process was thoughtful, data-informed, and grounded in real human insight."</blockquote>
+        <div class="author">Vice President of Marketing</div>
+        <div class="org">Healthcare Services Firm</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WORKSHOP CONTACT FORM
+     ============================================================ -->
+<section class="workshop-form section-padding" id="workshop-form">
+  <div class="container-wide">
+    <div class="form-container">
+      <div class="form-heading reveal">
+        <h2>Request This Workshop</h2>
+        <p>Fill out the form below and we will be in touch to discuss your needs.</p>
+      </div>
+      <form class="reveal" onsubmit="return false;">
+        <input type="hidden" name="workshopName" value="Inclusive Leadership: Strategies for Success">
+        <div class="form-grid">
+          <div>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+          </div>
+          <div>
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+          </div>
+          <div>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          <div>
+            <label for="org">Organization</label>
+            <input type="text" id="org" name="org">
+          </div>
+          <div>
+            <label for="role">Your Role</label>
+            <input type="text" id="role" name="role">
+          </div>
+          <div class="full-width">
+            <label for="format">Preferred Format</label>
+            <select id="format" name="format">
+              <option value="">Select a format</option>
+              <option value="90-minutes">90-Minute Session</option>
+              <option value="half-day">Half-Day Workshop</option>
+              <option value="full-day">Full-Day Workshop</option>
+            </select>
+          </div>
+          <div class="full-width">
+            <label for="message">Additional Details</label>
+            <textarea id="message" name="message" placeholder="Tell us about your team, goals, or any specific needs..."></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-gold btn-gold-lg">
+            Submit Request
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" id="footer">
+  <div class="container-wide">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-name">
+            <span class="elevated">ELEVATED</span>
+            <span class="he">Health Equity</span>
+          </div>
+          <p>Empowering healthcare organizations to build equitable, high-quality systems where every patient receives the care they deserve.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/workshops">Workshops</a></li>
+            <li><a href="/accelerator">Accelerator Program</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <p class="contact-text">Ready to make equity the engine of excellence?</p>
+          <a href="/contact" class="contact-link">Contact Us &rarr;</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Elevated Health Equity. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function(){
+  'use strict';
+
+  /* MOBILE NAV TOGGLE */
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  var menuOpen = false;
+
+  hamburger.addEventListener('click', function(){
+    menuOpen = !menuOpen;
+    mobileNav.classList.toggle('open', menuOpen);
+    if(menuOpen){
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    } else {
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    }
+  });
+
+  mobileNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      menuOpen = false;
+      mobileNav.classList.remove('open');
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    });
+  });
+
+  /* INTERSECTION OBSERVER -- REVEAL ON SCROLL */
+  var reveals = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.12});
+    reveals.forEach(function(el){ obs.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+})();
+</script>
+</body>
+</html>

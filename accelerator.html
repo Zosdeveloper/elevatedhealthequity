@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accelerator Program | Elevated Health Equity</title>
+<meta name="description" content="The Health Equity Resilience Accelerator is a 4-week program for Health Equity practitioners dedicated to meeting the needs of all patients in this unprecedented time in healthcare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:hsl(210 40% 15%);line-height:1.6;background:hsl(210 25% 97%);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none}
+h1,h2,h3,h4,h5,h6{font-family:'Montserrat',system-ui,sans-serif;font-weight:600;letter-spacing:-0.025em;line-height:1.2}
+p{line-height:1.7}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --navy:hsl(210 50% 18%);
+  --navy-light:hsl(210 45% 25%);
+  --navy-dark:hsl(210 55% 12%);
+  --gold:hsl(42 90% 55%);
+  --gold-light:hsl(45 100% 70%);
+  --gold-dark:hsl(38 85% 45%);
+  --cream:hsl(203 47% 93%);
+  --cream-dark:hsl(203 40% 88%);
+  --bg:hsl(210 25% 97%);
+  --fg:hsl(210 40% 15%);
+  --muted-fg:hsl(210 15% 45%);
+  --card:hsl(0 0% 100%);
+  --border:hsl(210 20% 88%);
+  --primary-fg:hsl(45 100% 96%);
+  --teal-cta:#176a89;
+  --logo-blue:hsl(203 60% 45%);
+  --radius:0.5rem;
+  --header-h:72px;
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.container-wide{max-width:80rem;margin:0 auto;padding:0 1.5rem}
+@media(min-width:768px){.container-wide{padding:0 2rem}}
+@media(min-width:1024px){.container-wide{padding:0 3rem}}
+.section-padding{padding:5rem 0}
+@media(min-width:768px){.section-padding{padding:7rem 0}}
+@media(min-width:1024px){.section-padding{padding:8rem 0}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:.15s}
+.delay-2{transition-delay:.3s}
+.delay-3{transition-delay:.45s}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+.text-script{font-style:italic;font-weight:500}
+.text-gold{color:var(--gold)}
+.text-navy{color:var(--navy)}
+.text-muted{color:var(--muted-fg)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;white-space:nowrap;border-radius:9999px;font-size:.875rem;font-weight:600;transition:all .3s;cursor:pointer;text-align:center;line-height:1}
+.btn-gold{background:var(--gold);color:var(--navy);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold:hover{background:var(--gold-light);box-shadow:0 8px 24px rgba(212,168,67,.2)}
+.btn-gold-lg{height:3.5rem;padding:0 2.5rem;font-size:1rem}
+.btn-gold-xl{height:4rem;padding:0 3rem;font-size:1.125rem}
+.btn-gold-outline{background:transparent;color:var(--gold);border:2px solid var(--gold);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold-outline:hover{background:var(--gold);color:var(--navy)}
+.btn svg{width:1rem;height:1rem;flex-shrink:0;transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:.375rem 0}
+@media(min-width:768px){.header-inner{padding:.5rem 0}}
+.header-logo img{height:2.5rem;width:auto}
+@media(min-width:768px){.header-logo img{height:3.5rem}}
+@media(min-width:1024px){.header-logo img{height:4.5rem}}
+.desktop-nav{display:none;align-items:center;gap:2rem}
+@media(min-width:1024px){.desktop-nav{display:flex}}
+.desktop-nav a{font-size:1rem;font-weight:600;color:var(--navy);opacity:.8;transition:color .3s,opacity .3s}
+.desktop-nav a:hover,.desktop-nav a.active{opacity:1;color:var(--navy-dark)}
+.desktop-nav a.active{border-bottom:2px solid var(--gold);padding-bottom:2px}
+.hamburger{display:flex;align-items:center;justify-content:center;padding:.5rem;background:none;color:var(--navy);cursor:pointer}
+@media(min-width:1024px){.hamburger{display:none}}
+.hamburger svg{width:1.5rem;height:1.5rem}
+.mobile-nav{display:none;background:#fff;border-top:1px solid #f3f4f6;padding:1.5rem}
+.mobile-nav.open{display:block}
+@media(min-width:1024px){.mobile-nav{display:none!important}}
+.mobile-nav a{display:block;padding:.5rem 0;font-size:1rem;font-weight:500;color:var(--navy);opacity:.8;transition:color .3s}
+.mobile-nav a:hover{color:var(--navy);opacity:1}
+.mobile-nav .btn{width:100%;margin-top:1rem;justify-content:center}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{background:var(--navy)}
+.footer-inner{padding:5rem 0 1rem}
+@media(min-width:768px){.footer-inner{padding:7rem 0 1rem}}
+@media(min-width:1024px){.footer-inner{padding:8rem 0 1rem}}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem}
+@media(min-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
+.footer-brand{max-width:28rem}
+@media(min-width:1024px){.footer-brand{grid-column:span 1}}
+.footer-brand .brand-name{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
+.footer-brand .brand-name .elevated{font-size:1.5rem;font-weight:700;color:var(--primary-fg);letter-spacing:-.025em}
+.footer-brand .brand-name .he{font-size:1.25rem;color:var(--gold);font-style:italic;font-weight:500}
+.footer-brand p{color:var(--primary-fg);opacity:.7;line-height:1.7;max-width:28rem}
+.footer-col h4{font-size:.875rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.5rem}
+.footer-col ul{display:flex;flex-direction:column;gap:.75rem}
+.footer-col ul a{color:var(--primary-fg);opacity:.7;font-size:.875rem;transition:color .3s}
+.footer-col ul a:hover{color:var(--gold);opacity:1}
+.footer-col .contact-text{color:var(--primary-fg);opacity:.7;font-size:.875rem;margin-bottom:.75rem}
+.footer-col .contact-link{color:var(--gold);font-weight:500;font-size:.875rem;transition:color .3s}
+.footer-col .contact-link:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid var(--navy-light);padding:1rem 0;text-align:center}
+.footer-bottom p{font-size:.875rem;color:var(--primary-fg);opacity:.4}
+
+/* ============================================================
+   ACCELERATOR HERO
+   ============================================================ */
+.accel-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);padding-top:7rem;padding-bottom:4rem}
+@media(min-width:1024px){.accel-hero{padding-bottom:6rem}}
+.accel-hero-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+@media(min-width:1024px){.accel-hero-grid{grid-template-columns:1fr 1fr;gap:4rem}}
+.accel-hero-text h1{font-size:2.25rem;font-weight:700;color:var(--primary-fg);line-height:1.15;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.05em}
+@media(min-width:768px){.accel-hero-text h1{font-size:3rem}}
+@media(min-width:1024px){.accel-hero-text h1{font-size:3.5rem}}
+@media(min-width:1280px){.accel-hero-text h1{font-size:3.75rem}}
+.accel-hero-text p{color:var(--primary-fg);opacity:.8;font-size:1.125rem;line-height:1.7;margin-bottom:1.5rem}
+.accel-hero-text p.highlight{opacity:.9}
+.accel-hero-img img{width:100%;height:auto;border-radius:1rem;box-shadow:0 25px 50px -12px rgba(0,0,0,.4)}
+
+/* ============================================================
+   GOLD ACCENT BAR
+   ============================================================ */
+.gold-bar{height:.5rem;background:var(--gold);width:100%}
+
+/* ============================================================
+   WHAT WE'LL COVER
+   ============================================================ */
+.cover-section{background:var(--bg)}
+.cover-heading{text-align:center;margin-bottom:3rem}
+.cover-heading h2{font-size:1.875rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.05em}
+@media(min-width:768px){.cover-heading h2{font-size:2.25rem}}
+@media(min-width:1024px){.cover-heading h2{font-size:3rem}}
+.cover-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:768px){.cover-grid{grid-template-columns:repeat(2,1fr);gap:2rem}}
+.cover-card{background:var(--cream);border-radius:.75rem;padding:2rem;border:1px solid rgba(210,220,230,.5);transition:all .3s}
+.cover-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06);border-color:rgba(212,168,67,.3)}
+.cover-card h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:.75rem}
+.cover-card p{color:var(--muted-fg);font-size:.9375rem;line-height:1.7}
+
+/* ============================================================
+   PROGRAM OVERVIEW (Navy)
+   ============================================================ */
+.program-overview{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%)}
+.program-overview-heading{text-align:center;margin-bottom:1rem}
+.program-overview-heading h2{font-size:1.875rem;font-weight:700;color:var(--primary-fg);text-transform:uppercase;letter-spacing:.05em}
+@media(min-width:768px){.program-overview-heading h2{font-size:2.25rem}}
+@media(min-width:1024px){.program-overview-heading h2{font-size:3rem}}
+.program-overview-subtitle{text-align:center;color:var(--primary-fg);opacity:.7;font-size:1.125rem;margin-bottom:3rem}
+.program-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:768px){.program-grid{grid-template-columns:repeat(2,1fr);gap:2rem}}
+@media(min-width:1024px){.program-grid{grid-template-columns:repeat(4,1fr);gap:2rem}}
+.program-card{background:rgba(30,60,90,.3);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:.75rem;padding:2rem;text-align:center;transition:all .3s}
+.program-card:hover{background:rgba(30,60,90,.45);border-color:rgba(255,255,255,.2)}
+.program-card-icon{width:3.5rem;height:3.5rem;margin:0 auto 1.25rem;border-radius:.75rem;background:rgba(212,168,67,.2);display:flex;align-items:center;justify-content:center}
+.program-card-icon svg{width:1.75rem;height:1.75rem;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.program-card h3{font-size:1.125rem;font-weight:600;color:var(--primary-fg);margin-bottom:.5rem}
+.program-card p{color:var(--primary-fg);opacity:.7;font-size:.875rem;line-height:1.7}
+.program-cta{text-align:center;margin-top:3rem}
+
+/* ============================================================
+   PROGRAM OUTCOMES
+   ============================================================ */
+.outcomes-section{background:var(--cream)}
+.outcomes-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+@media(min-width:1024px){.outcomes-grid{grid-template-columns:1fr 1fr;gap:4rem}}
+.outcomes-img img{width:100%;height:auto;border-radius:1rem;box-shadow:0 20px 40px rgba(0,0,0,.12)}
+.outcomes-text h2{font-size:1.875rem;font-weight:700;color:var(--navy);margin-bottom:2rem}
+@media(min-width:768px){.outcomes-text h2{font-size:2.25rem}}
+@media(min-width:1024px){.outcomes-text h2{font-size:3rem}}
+.outcome-item{display:flex;gap:1.25rem;margin-bottom:2rem}
+.outcome-item:last-child{margin-bottom:0}
+.outcome-check{width:2.5rem;height:2.5rem;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.outcome-check svg{width:1.25rem;height:1.25rem;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.outcome-item h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.25rem}
+.outcome-item p{color:var(--muted-fg);font-size:.9375rem;line-height:1.7}
+
+/* ============================================================
+   ELEVATE STEPS
+   ============================================================ */
+.steps-section{background:var(--bg)}
+.steps-heading{text-align:center;margin-bottom:3rem}
+.steps-heading h2{font-size:1.875rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.05em}
+@media(min-width:768px){.steps-heading h2{font-size:2.25rem}}
+@media(min-width:1024px){.steps-heading h2{font-size:3rem}}
+.steps-grid{display:grid;grid-template-columns:1fr;gap:2.5rem}
+@media(min-width:768px){.steps-grid{grid-template-columns:repeat(3,1fr);gap:2rem}}
+.step-item{text-align:center}
+.step-number{width:3.5rem;height:3.5rem;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:1.5rem;font-weight:700;color:var(--navy)}
+.step-item h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:.75rem}
+.step-item p{color:var(--muted-fg);font-size:.9375rem;line-height:1.7;max-width:22rem;margin:0 auto}
+
+/* ============================================================
+   FORM SECTION
+   ============================================================ */
+.form-section{background:#176a89}
+.form-wrapper{max-width:48rem;margin:0 auto}
+.form-wrapper h2{color:var(--primary-fg);text-align:center;font-size:1.875rem;font-weight:700;margin-bottom:.75rem}
+@media(min-width:768px){.form-wrapper h2{font-size:2.25rem}}
+.form-wrapper .form-subtitle{color:var(--primary-fg);opacity:.7;text-align:center;font-size:1.125rem;margin-bottom:2rem;line-height:1.7}
+.form-card{background:var(--card);border-radius:1rem;padding:2rem;box-shadow:0 4px 24px rgba(0,0,0,.1);border:1px solid rgba(210,220,230,.5)}
+@media(min-width:768px){.form-card{padding:2.5rem}}
+.form-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:768px){.form-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}}
+.form-group{display:flex;flex-direction:column}
+.form-group.full-width{grid-column:1/-1}
+.form-group label{font-size:.875rem;font-weight:600;color:var(--fg);margin-bottom:.375rem}
+.form-group label .required{color:#e53e3e;margin-left:.125rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.75rem 1rem;border:1px solid var(--border);border-radius:var(--radius);font-size:.9375rem;color:var(--fg);background:var(--card);transition:border-color .2s,box-shadow .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,168,67,.15)}
+.form-group input.error,.form-group select.error,.form-group textarea.error{border-color:#e53e3e}
+.form-group .error-msg{font-size:.75rem;color:#e53e3e;margin-top:.25rem;display:none}
+.form-group textarea{resize:vertical;min-height:6rem}
+.form-group select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
+.form-submit{margin-top:.5rem}
+.form-submit .btn{width:100%;height:3.5rem;font-size:1rem}
+.form-success{display:none;text-align:center;padding:2rem;color:var(--navy)}
+.form-success h3{font-size:1.5rem;font-weight:700;margin-bottom:.5rem}
+.form-success p{color:var(--muted-fg)}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container-wide">
+    <div class="header-inner">
+      <a href="/" class="header-logo">
+        <img src="images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="/">Home</a>
+        <a href="/workshops">Workshops</a>
+        <a href="/accelerator" class="active">Accelerator Program</a>
+        <a href="/about">About Us</a>
+        <a href="/contact" class="btn btn-gold">Contact Us</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <div class="container-wide">
+      <a href="/">Home</a>
+      <a href="/workshops">Workshops</a>
+      <a href="/accelerator">Accelerator Program</a>
+      <a href="/about">About Us</a>
+      <a href="/contact" class="btn btn-gold">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top:var(--header-h)">
+
+<!-- ============================================================
+     1. HERO SECTION
+     ============================================================ -->
+<section class="accel-hero">
+  <div class="container-wide">
+    <div class="accel-hero-grid">
+      <div class="accel-hero-text reveal-left">
+        <h1>Health Equity Resilience Accelerator <span class="text-script text-gold" style="text-transform:none;letter-spacing:0">Program</span></h1>
+        <p>Recent legal challenges, political pressures, and public scrutiny have created a climate where well-intentioned equity initiatives can become lightning rods for controversy. Healthcare organizations find themselves in a delicate balancing act, striving to maintain their commitment to providing equitable care to all while ensuring their approaches are legally sound and defensible.</p>
+        <p class="highlight">This is where the <strong class="text-gold">Health Equity Resilience Accelerator</strong> steps in.</p>
+        <p>This 4-week program is designed for Health Equity practitioners who remain dedicated to meeting the needs of all patients but need guidance on how to do so effectively in this unprecedented time in healthcare.</p>
+      </div>
+      <div class="accel-hero-img reveal-right">
+        <img src="images/accelerator-hero-new.jpeg" alt="Health Equity Resilience Accelerator Program">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     2. GOLD ACCENT BAR
+     ============================================================ -->
+<div class="gold-bar"></div>
+
+<!-- ============================================================
+     3. WHAT WE'LL COVER
+     ============================================================ -->
+<section class="cover-section section-padding">
+  <div class="container-wide">
+    <div class="cover-heading reveal">
+      <h2>What We'll <span class="text-script text-gold" style="text-transform:none;letter-spacing:0">Cover</span></h2>
+    </div>
+    <div class="cover-grid">
+      <div class="cover-card reveal">
+        <h3>Analyze Current Policy Impacts</h3>
+        <p>Understand how recent executive orders, including restrictions on DEI programs, gender-affirming care, and civil rights enforcement.</p>
+      </div>
+      <div class="cover-card reveal delay-1">
+        <h3>Develop Legally Defensible Strategies</h3>
+        <p>Create health equity initiatives that comply with anti-DEI policies while leveraging existing frameworks to protect care access for marginalized populations.</p>
+      </div>
+      <div class="cover-card reveal delay-2">
+        <h3>Strengthen Data Collection Under Constraints</h3>
+        <p>Explore new approaches to collecting and utilizing data strategies that identify disparities while avoiding prohibited DEI terminology.</p>
+      </div>
+      <div class="cover-card reveal delay-3">
+        <h3>Build Coalition-Driven Solutions</h3>
+        <p>Strengthen and mobilize with community partners to advance health equity efforts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. PROGRAM OVERVIEW
+     ============================================================ -->
+<section class="program-overview section-padding">
+  <div class="container-wide">
+    <div class="program-overview-heading reveal">
+      <h2>Program <span class="text-script text-gold" style="text-transform:none;letter-spacing:0">Overview</span></h2>
+    </div>
+    <p class="program-overview-subtitle reveal">This High-Impact Offering Includes:</p>
+    <div class="program-grid">
+      <div class="program-card reveal">
+        <div class="program-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3>Live Workshops</h3>
+        <p>Weekly 90-minute experiential workshops</p>
+      </div>
+      <div class="program-card reveal delay-1">
+        <div class="program-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 12 18.469c-1.006 0-1.97.43-2.648 1.082l-.548-.547z"/></svg>
+        </div>
+        <h3>Self-Directed Learning</h3>
+        <p>Self-paced online courses and suite of microlessons</p>
+      </div>
+      <div class="program-card reveal delay-2">
+        <div class="program-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Coaching</h3>
+        <p>Facilitator-led group coaching sessions and one-to-one coaching</p>
+      </div>
+      <div class="program-card reveal delay-3">
+        <div class="program-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Resources</h3>
+        <p>Access to the Elevated Resource Center with cutting-edge tools and templates</p>
+      </div>
+    </div>
+    <div class="program-cta reveal">
+      <a href="#strategy-form" class="btn btn-gold btn-gold-xl">
+        Book Your Strategy Session
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. PROGRAM OUTCOMES
+     ============================================================ -->
+<section class="outcomes-section section-padding">
+  <div class="container-wide">
+    <div class="outcomes-grid">
+      <div class="outcomes-img reveal-left">
+        <img src="images/accelerator-second.jpeg" alt="Program outcomes">
+      </div>
+      <div class="outcomes-text reveal-right">
+        <h2>Program Outcomes</h2>
+        <div class="outcome-item">
+          <div class="outcome-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>Confident &amp; Empowered:</h3>
+            <p>Equipped with the critical insights, knowledge, and practical tools necessary to navigate the evolving equity landscape.</p>
+          </div>
+        </div>
+        <div class="outcome-item">
+          <div class="outcome-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>Health Equity Leadership Readiness:</h3>
+            <p>Prepared with the expertise needed to guide their organizations in advancing health equity commitments and values.</p>
+          </div>
+        </div>
+        <div class="outcome-item">
+          <div class="outcome-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>Authentic &amp; Courageous:</h3>
+            <p>Courage to lead authentically and embrace your role in moving this work forward.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. ELEVATE STEPS
+     ============================================================ -->
+<section class="steps-section section-padding">
+  <div class="container-wide">
+    <div class="steps-heading reveal">
+      <h2>Elevate Your Organization's <span class="text-script text-gold" style="text-transform:none;letter-spacing:0">Potential</span></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-item reveal">
+        <div class="step-number">1</div>
+        <h3>Share Your Story</h3>
+        <p>We begin with a simple form to understand your organization's basic needs and challenges.</p>
+      </div>
+      <div class="step-item reveal delay-1">
+        <div class="step-number">2</div>
+        <h3>Let's Connect</h3>
+        <p>Connect with an Elevated representative for a personalized 30-minute conversation to discuss your specific goals.</p>
+      </div>
+      <div class="step-item reveal delay-2">
+        <div class="step-number">3</div>
+        <h3>Your Custom Roadmap</h3>
+        <p>Receive a tailored solution based on your organization's unique objectives and our comprehensive understanding of your needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. FORM SECTION
+     ============================================================ -->
+<section class="form-section section-padding" id="strategy-form">
+  <div class="container-wide">
+    <div class="form-wrapper">
+      <h2 class="reveal">Schedule Your Strategy Session</h2>
+      <p class="form-subtitle reveal">Fill out the form below and a member of our team will be in touch within one business day.</p>
+      <div class="form-card reveal">
+        <form id="strategyForm" novalidate>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="firstName">First Name <span class="required">*</span></label>
+              <input type="text" id="firstName" name="firstName" required placeholder="First Name">
+              <span class="error-msg">First name is required.</span>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name <span class="required">*</span></label>
+              <input type="text" id="lastName" name="lastName" required placeholder="Last Name">
+              <span class="error-msg">Last name is required.</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Business Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" required placeholder="you@company.com">
+              <span class="error-msg">A valid email is required.</span>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+            </div>
+            <div class="form-group">
+              <label for="state">State / Region</label>
+              <input type="text" id="state" name="state" placeholder="State or Region">
+            </div>
+            <div class="form-group">
+              <label for="jobTitle">Job Title</label>
+              <input type="text" id="jobTitle" name="jobTitle" placeholder="Job Title">
+            </div>
+            <div class="form-group">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="company" placeholder="Company Name">
+            </div>
+            <div class="form-group">
+              <label for="interest">I'm Interested In</label>
+              <select id="interest" name="interest">
+                <option value="" disabled selected>Select an option</option>
+                <option value="Accelerator Program">Accelerator Program</option>
+                <option value="Workshops & Training">Workshops &amp; Training</option>
+                <option value="Consulting Services">Consulting Services</option>
+                <option value="Health Equity Solutions">Health Equity Solutions</option>
+                <option value="Leadership Development">Leadership Development</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Tell us about your organization's needs..."></textarea>
+            </div>
+            <div class="form-group full-width form-submit">
+              <button type="submit" class="btn btn-gold btn-gold-lg">Submit</button>
+            </div>
+          </div>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <h3>Thank You!</h3>
+          <p>We've received your request and will be in touch within one business day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" id="footer">
+  <div class="container-wide">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-name">
+            <span class="elevated">ELEVATED</span>
+            <span class="he">Health Equity</span>
+          </div>
+          <p>Empowering healthcare organizations to build equitable, high-quality systems where every patient receives the care they deserve.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/workshops">Workshops</a></li>
+            <li><a href="/accelerator">Accelerator Program</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <p class="contact-text">Ready to make equity the engine of excellence?</p>
+          <a href="/contact" class="contact-link">Contact Us &rarr;</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Elevated Health Equity. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function(){
+  'use strict';
+
+  /* ----------------------------------------------------------
+     MOBILE NAV TOGGLE
+     ---------------------------------------------------------- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  var menuOpen = false;
+
+  hamburger.addEventListener('click', function(){
+    menuOpen = !menuOpen;
+    mobileNav.classList.toggle('open', menuOpen);
+    if(menuOpen){
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    } else {
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    }
+  });
+
+  mobileNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      menuOpen = false;
+      mobileNav.classList.remove('open');
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    });
+  });
+
+  /* ----------------------------------------------------------
+     INTERSECTION OBSERVER - REVEAL ON SCROLL
+     ---------------------------------------------------------- */
+  var reveals = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.12});
+    reveals.forEach(function(el){ obs.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  /* ----------------------------------------------------------
+     FORM VALIDATION
+     ---------------------------------------------------------- */
+  var form = document.getElementById('strategyForm');
+  var formSuccess = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var valid = true;
+
+    // Clear previous errors
+    form.querySelectorAll('.error').forEach(function(el){ el.classList.remove('error'); });
+    form.querySelectorAll('.error-msg').forEach(function(el){ el.style.display = 'none'; });
+
+    // First Name
+    var firstName = document.getElementById('firstName');
+    if(!firstName.value.trim()){
+      firstName.classList.add('error');
+      firstName.nextElementSibling.style.display = 'block';
+      valid = false;
+    }
+
+    // Last Name
+    var lastName = document.getElementById('lastName');
+    if(!lastName.value.trim()){
+      lastName.classList.add('error');
+      lastName.nextElementSibling.style.display = 'block';
+      valid = false;
+    }
+
+    // Email
+    var email = document.getElementById('email');
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!email.value.trim() || !emailPattern.test(email.value.trim())){
+      email.classList.add('error');
+      email.nextElementSibling.style.display = 'block';
+      valid = false;
+    }
+
+    if(valid){
+      form.style.display = 'none';
+      formSuccess.style.display = 'block';
+    }
+  });
+
+  // Clear error on input
+  form.querySelectorAll('input, select, textarea').forEach(function(el){
+    el.addEventListener('input', function(){
+      this.classList.remove('error');
+      var errMsg = this.nextElementSibling;
+      if(errMsg && errMsg.classList.contains('error-msg')){
+        errMsg.style.display = 'none';
+      }
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
