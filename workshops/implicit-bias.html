@@ -18,7 +18,7 @@ body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:hsl(210
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
-button,input,textarea{font-family:inherit;font-size:inherit;border:none;outline:none}
+button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none}
 h1,h2,h3,h4,h5,h6{font-family:'Montserrat',system-ui,sans-serif;font-weight:600;letter-spacing:-0.025em;line-height:1.2}
 p{line-height:1.7}
 
@@ -88,9 +88,8 @@ p{line-height:1.7}
 .btn-gold-lg{height:3.5rem;padding:0 2.5rem;font-size:1rem}
 .btn-gold-outline{background:transparent;color:var(--gold);border:2px solid var(--gold);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
 .btn-gold-outline:hover{background:var(--gold);color:var(--navy)}
-.btn svg{width:1rem;height:1rem;flex-shrink:0}
+.btn svg{width:1rem;height:1rem;flex-shrink:0;transition:transform .3s}
 .btn:hover svg{transform:translateX(4px)}
-.btn svg{transition:transform .3s}
 
 /* ============================================================
    HEADER
@@ -270,8 +269,8 @@ p{line-height:1.7}
 @media(min-width:768px){.form-info h2{font-size:2.25rem}}
 @media(min-width:1024px){.form-info h2{font-size:2.75rem}}
 .form-steps{position:relative;padding-left:3.5rem}
-.form-steps::before{content:'';position:absolute;left:1.0625rem;top:.75rem;bottom:.75rem;width:2px;background:linear-gradient(180deg,var(--gold),var(--gold-light),var(--gold));border-radius:1px}
 .form-step{position:relative;padding:0 0 2rem}
+.form-step:not(:last-child)::after{content:'';position:absolute;left:-2.4375rem;top:2.125rem;bottom:0;width:2px;background:linear-gradient(180deg,var(--gold),var(--gold-light));border-radius:1px}
 .form-step:last-child{padding-bottom:0}
 .form-step-num{position:absolute;left:-3.5rem;top:0;width:2.125rem;height:2.125rem;border-radius:50%;background:var(--gold);color:var(--navy);font-size:.8125rem;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(212,168,67,.3);z-index:1}
 .form-step h3{font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:.375rem}
@@ -305,16 +304,16 @@ p{line-height:1.7}
 <header class="site-header" id="siteHeader">
   <div class="container-wide">
     <div class="header-inner">
-      <a href="/index.html" class="header-logo">
+      <a href="../index.html" class="header-logo">
         <img src="../images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
       </a>
 
       <nav class="desktop-nav">
-        <a href="/index.html">Home</a>
-        <a href="/workshops.html" class="active">Workshops</a>
-        <a href="/accelerator.html">Accelerator Program</a>
-        <a href="/about.html">About Us</a>
-        <a href="/contact.html" class="btn btn-gold">Contact Us</a>
+        <a href="../index.html">Home</a>
+        <a href="../workshops.html" class="active">Workshops</a>
+        <a href="../accelerator.html">Accelerator Program</a>
+        <a href="../about.html">About Us</a>
+        <a href="../contact.html" class="btn btn-gold">Contact Us</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -325,17 +324,17 @@ p{line-height:1.7}
 
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
-      <a href="/index.html">Home</a>
-      <a href="/workshops.html">Workshops</a>
-      <a href="/accelerator.html">Accelerator Program</a>
-      <a href="/about.html">About Us</a>
-      <a href="/contact.html" class="btn btn-gold">Contact Us</a>
+      <a href="../index.html">Home</a>
+      <a href="../workshops.html">Workshops</a>
+      <a href="../accelerator.html">Accelerator Program</a>
+      <a href="../about.html">About Us</a>
+      <a href="../contact.html" class="btn btn-gold">Contact Us</a>
     </div>
   </div>
 </header>
 
 <!-- Back to Workshops — sticky -->
-<a href="/workshops.html" class="back-to-workshops" id="backToWorkshops">
+<a href="../workshops.html" class="back-to-workshops" id="backToWorkshops">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
   All Workshops
 </a>
@@ -354,9 +353,9 @@ p{line-height:1.7}
   <div class="hero-content">
     <div class="inner reveal">
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/index.html">Home</a>
+        <a href="../index.html">Home</a>
         <span class="sep" aria-hidden="true">&#9656;</span>
-        <a href="/workshops.html">Workshops</a>
+        <a href="../workshops.html">Workshops</a>
         <span class="sep" aria-hidden="true">&#9656;</span>
         <span class="current">Overcoming Implicit Bias</span>
       </nav>
@@ -571,7 +570,7 @@ p{line-height:1.7}
           <h3>Request This Workshop</h3>
           <div class="heading-bar"></div>
         </div>
-        <form onsubmit="return false;">
+        <form id="pageForm" novalidate>
           <div class="form-grid">
             <div>
               <label for="firstName">First Name <span class="required">*</span></label>
@@ -650,18 +649,18 @@ p{line-height:1.7}
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/workshops.html">Workshops</a></li>
-            <li><a href="/accelerator.html">Accelerator Program</a></li>
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../workshops.html">Workshops</a></li>
+            <li><a href="../accelerator.html">Accelerator Program</a></li>
+            <li><a href="../about.html">About Us</a></li>
+            <li><a href="../contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <p class="contact-text">Ready to make equity the engine of excellence?</p>
-          <a href="/contact.html" class="contact-link">Contact Us &rarr;</a>
+          <a href="../contact.html" class="contact-link">Contact Us &rarr;</a>
         </div>
       </div>
 
@@ -732,6 +731,50 @@ p{line-height:1.7}
       });
     },{threshold:0});
     heroObs.observe(heroSection);
+  }
+
+
+  /* ----------------------------------------------------------
+     FORM VALIDATION & SUBMISSION
+     ---------------------------------------------------------- */
+  var form = document.querySelector('form[id]') || document.querySelector('form');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var valid = true;
+
+      // Clear previous error styles
+      form.querySelectorAll('input,select,textarea').forEach(function(el){
+        el.style.borderColor = '';
+      });
+
+      // First Name
+      var firstName = document.getElementById('firstName');
+      if(firstName && !firstName.value.trim()){
+        firstName.style.borderColor = '#e53e3e';
+        valid = false;
+      }
+
+      // Last Name
+      var lastName = document.getElementById('lastName');
+      if(lastName && !lastName.value.trim()){
+        lastName.style.borderColor = '#e53e3e';
+        valid = false;
+      }
+
+      // Email
+      var email = document.getElementById('email');
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(email && (!email.value.trim() || !emailPattern.test(email.value.trim()))){
+        email.style.borderColor = '#e53e3e';
+        valid = false;
+      }
+
+      if(valid){
+        alert('Thank you for reaching out! Your message has been sent successfully. An Elevated Health Equity representative will be in touch within 1-2 business days.');
+        form.reset();
+      }
+    });
   }
 
 })();

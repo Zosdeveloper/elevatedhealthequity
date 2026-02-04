@@ -18,7 +18,7 @@ body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:hsl(210
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
-button,input,textarea{font-family:inherit;font-size:inherit;border:none;outline:none}
+button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none}
 h1,h2,h3,h4,h5,h6{font-family:'Montserrat',system-ui,sans-serif;font-weight:600;letter-spacing:-0.025em;line-height:1.2}
 p{line-height:1.7}
 
@@ -87,9 +87,8 @@ p{line-height:1.7}
 .btn-gold-lg{height:3.5rem;padding:0 2.5rem;font-size:1rem}
 .btn-gold-outline{background:transparent;color:var(--gold);border:2px solid var(--gold);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
 .btn-gold-outline:hover{background:var(--gold);color:var(--navy)}
-.btn svg{width:1rem;height:1rem;flex-shrink:0}
+.btn svg{width:1rem;height:1rem;flex-shrink:0;transition:transform .3s}
 .btn:hover svg{transform:translateX(4px)}
-.btn svg{transition:transform .3s}
 
 /* ============================================================
    HEADER
@@ -302,16 +301,16 @@ p{line-height:1.7}
 <header class="site-header" id="siteHeader">
   <div class="container-wide">
     <div class="header-inner">
-      <a href="/index.html" class="header-logo">
+      <a href="index.html" class="header-logo">
         <img src="images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
       </a>
 
       <nav class="desktop-nav">
-        <a href="/index.html" class="active">Home</a>
-        <a href="/workshops.html">Workshops</a>
-        <a href="/accelerator.html">Accelerator Program</a>
-        <a href="/about.html">About Us</a>
-        <a href="/contact.html" class="btn btn-gold">Contact Us</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="accelerator.html">Accelerator Program</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html" class="btn btn-gold">Contact Us</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -322,11 +321,11 @@ p{line-height:1.7}
 
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
-      <a href="/index.html">Home</a>
-      <a href="/workshops.html">Workshops</a>
-      <a href="/accelerator.html">Accelerator Program</a>
-      <a href="/about.html">About Us</a>
-      <a href="/contact.html" class="btn btn-gold">Contact Us</a>
+      <a href="index.html">Home</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="accelerator.html">Accelerator Program</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html" class="btn btn-gold">Contact Us</a>
     </div>
   </div>
 </header>
@@ -347,7 +346,7 @@ p{line-height:1.7}
         <span class="text-script text-gold" style="text-transform:none;letter-spacing:0"> Data</span>
       </h1>
       <p>We are dedicated to building healthcare that works for everyone. Our cutting-edge strategies and culturally responsive programs help organizations address systemic inequities and health disparities. Working together, we enhance outcomes and build more equitable healthcare for all.</p>
-      <a href="/contact.html" class="btn btn-gold btn-gold-lg">
+      <a href="contact.html" class="btn btn-gold btn-gold-lg">
         Start the Conversation
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
@@ -404,7 +403,7 @@ p{line-height:1.7}
         <h2>SOLUTIONS TO DRIVE</h2>
         <div class="subtitle"><span class="text-script text-gold">INCLUSION &amp; IMPACT</span></div>
         <p>At Elevated Health Equity, we help organizations create fair, inclusive, and effective health systems that work for everyone. Through strategic consulting and our proprietary framework, we partner with clients to uncover disparities, identify gaps in care, and design targeted, evidence-based solutions.</p>
-        <a href="/contact.html" class="btn btn-gold btn-gold-lg">Book Your Discovery Call</a>
+        <a href="contact.html" class="btn btn-gold btn-gold-lg">Book Your Discovery Call</a>
       </div>
     </div>
 
@@ -462,7 +461,7 @@ p{line-height:1.7}
         <h2>Our Program and <span class="text-script text-gold">Workshops</span></h2>
         <p>We deliver customized capacity-building programs and workshops designed to drive meaningful transformation in organizations. Through expert-led training, interactive sessions, and comprehensive learning experiences, we equip professionals with the knowledge and practical strategies needed to advance equity initiatives and improve outcomes.</p>
         <p>From cutting-edge AI analytics to implementation science, we combine advanced strategies, culturally responsive programming, and evidence-based practices to tackle the root causes of health disparities.</p>
-        <a href="/workshops.html" class="btn btn-gold btn-gold-lg">
+        <a href="workshops.html" class="btn btn-gold btn-gold-lg">
           See Workshops
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
@@ -534,11 +533,11 @@ p{line-height:1.7}
         <h2>Advancing Health Equity <span class="text-script text-gold">Professional Development Program</span></h2>
         <p>This focused 4-month program equips healthcare professionals with essential skills in health equity through expert-led workshops, self-paced learning, and collaborative circles. Participants master key principles in policy development and community engagement while joining a vibrant network of health equity leaders.</p>
         <div class="accel-buttons">
-          <a href="/accelerator.html" class="btn btn-gold btn-gold-lg">
+          <a href="accelerator.html" class="btn btn-gold btn-gold-lg">
             Get Started
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="/contact.html" class="btn btn-gold-outline btn-gold-lg">Schedule a Call</a>
+          <a href="contact.html" class="btn btn-gold-outline btn-gold-lg">Schedule a Call</a>
         </div>
       </div>
 
@@ -658,7 +657,7 @@ p{line-height:1.7}
     <div class="cta-inner reveal">
       <h2>Ready to Transform <span class="text-script text-gold">Healthcare Equity</span>?</h2>
       <p>Partner with us to build healthcare systems where equity drives excellence, trust, and sustainable outcomes for all.</p>
-      <a href="/contact.html" class="btn btn-gold btn-gold-lg" style="height:3.5rem;padding:0 2.5rem;font-size:1rem">
+      <a href="contact.html" class="btn btn-gold btn-gold-lg" style="height:3.5rem;padding:0 2.5rem;font-size:1rem">
         Start the Conversation
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
@@ -686,18 +685,18 @@ p{line-height:1.7}
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/workshops.html">Workshops</a></li>
-            <li><a href="/accelerator.html">Accelerator Program</a></li>
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="accelerator.html">Accelerator Program</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <p class="contact-text">Ready to make equity the engine of excellence?</p>
-          <a href="/contact.html" class="contact-link">Contact Us &rarr;</a>
+          <a href="contact.html" class="contact-link">Contact Us &rarr;</a>
         </div>
       </div>
 

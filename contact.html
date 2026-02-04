@@ -87,9 +87,8 @@ p{line-height:1.7}
 .btn-gold-lg{height:3.5rem;padding:0 2.5rem;font-size:1rem}
 .btn-gold-outline{background:transparent;color:var(--gold);border:2px solid var(--gold);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
 .btn-gold-outline:hover{background:var(--gold);color:var(--navy)}
-.btn svg{width:1rem;height:1rem;flex-shrink:0}
+.btn svg{width:1rem;height:1rem;flex-shrink:0;transition:transform .3s}
 .btn:hover svg{transform:translateX(4px)}
-.btn svg{transition:transform .3s}
 
 /* ============================================================
    HEADER
@@ -137,54 +136,46 @@ p{line-height:1.7}
 .gold-bar{height:.5rem;background:var(--gold);width:100%}
 
 /* ============================================================
-   STEPS SECTION
+   STEPS SECTION — HORIZONTAL TIMELINE
    ============================================================ */
-.steps-section{padding:4rem 0;background:var(--bg)}
-@media(min-width:768px){.steps-section{padding:5rem 0}}
-.steps-grid{display:grid;grid-template-columns:1fr;gap:2rem;text-align:center}
-@media(min-width:768px){.steps-grid{grid-template-columns:repeat(3,1fr);text-align:left}}
-@media(min-width:1024px){.steps-grid{gap:3rem}}
-.step-item{display:flex;flex-direction:column;align-items:center}
-@media(min-width:768px){.step-item{align-items:flex-start}}
-.step-number{width:3.5rem;height:3.5rem;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:1.25rem;flex-shrink:0}
-.step-item h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
-.step-item p{color:var(--muted-fg);font-size:.9375rem;line-height:1.7}
+.steps-section{padding:5rem 0;background:#fff}
+@media(min-width:768px){.steps-section{padding:6rem 0}}
+.steps-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;position:relative}
+@media(min-width:768px){.steps-grid{grid-template-columns:repeat(3,1fr);gap:2rem}}
+/* Horizontal connecting line behind the circles */
+@media(min-width:768px){.steps-grid::before{content:'';position:absolute;top:1.75rem;left:calc(16.666%);right:calc(16.666%);height:2px;background:var(--navy);z-index:0}}
+.step-item{display:flex;flex-direction:column;align-items:center;text-align:center}
+.step-number{width:3.5rem;height:3.5rem;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:#fff;margin-bottom:1.5rem;flex-shrink:0;position:relative;z-index:1}
+.step-item h3{font-size:1.375rem;font-weight:700;color:var(--navy);margin-bottom:.625rem}
+.step-item p{color:var(--muted-fg);font-size:.9375rem;line-height:1.7;max-width:22rem}
 
 /* ============================================================
-   FORM SECTION
+   FORM SECTION — SPLIT LAYOUT WITH BG IMAGE
    ============================================================ */
-.form-section{background:var(--cream)}
-.form-section-inner{max-width:48rem;margin:0 auto}
-.form-section-inner h2{font-size:1.875rem;font-weight:700;color:var(--navy);text-align:center;margin-bottom:1rem}
-@media(min-width:768px){.form-section-inner h2{font-size:2.25rem}}
-.form-section-inner .form-subtitle{color:var(--muted-fg);text-align:center;margin-bottom:2.5rem;font-size:1rem;line-height:1.7}
-.form-card{background:var(--card);border-radius:1rem;padding:2rem;box-shadow:0 1px 3px rgba(0,0,0,.04);border:1px solid var(--border)}
+.contact-form{position:relative;overflow:hidden}
+.contact-form .form-bg{position:absolute;inset:0;z-index:0}
+.contact-form .form-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.contact-form .form-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,28,42,.92) 0%,rgba(23,42,55,.88) 50%,rgba(13,28,42,.85) 100%)}
+.contact-form .form-inner{position:relative;z-index:1;max-width:48rem;margin:0 auto}
+.contact-form .form-inner h2{font-size:1.875rem;font-weight:700;color:#fff;text-align:center;margin-bottom:2.5rem}
+@media(min-width:768px){.contact-form .form-inner h2{font-size:2.25rem}}
+@media(min-width:1024px){.contact-form .form-inner h2{font-size:2.75rem}}
+.form-card{background:#fff;border-radius:.75rem;padding:2rem;box-shadow:0 12px 40px rgba(0,0,0,.2)}
 @media(min-width:768px){.form-card{padding:2.5rem}}
-.form-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
-@media(min-width:640px){.form-grid{grid-template-columns:1fr 1fr}}
-.form-group{display:flex;flex-direction:column}
-.form-group.full-width{grid-column:1/-1}
-.form-group label{font-size:.875rem;font-weight:600;color:var(--fg);margin-bottom:.5rem;display:block}
-.form-group label .required{color:#e53e3e;margin-left:2px}
-.form-group input,
-.form-group select,
-.form-group textarea{height:3rem;padding:0 1rem;border:1px solid var(--border);border-radius:0.375rem;background:#fff;font-size:.875rem;color:var(--fg);width:100%;transition:border-color .2s,box-shadow .2s}
-.form-group textarea{height:auto;min-height:120px;padding:.75rem 1rem;resize:vertical}
-.form-group select{appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px hsla(42,90%,55%,.1)}
-.form-group input::placeholder,
-.form-group textarea::placeholder{color:hsl(210 15% 65%)}
-.form-group input.error,
-.form-group select.error,
-.form-group textarea.error{border-color:#e53e3e;box-shadow:0 0 0 3px rgba(229,62,62,.1)}
-.form-error-msg{font-size:.75rem;color:#e53e3e;margin-top:.25rem;display:none}
-.form-error-msg.show{display:block}
-.form-submit-btn{width:100%;height:3.5rem;background:var(--gold);color:var(--navy);border:none;border-radius:9999px;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;transition:all .3s;margin-top:.5rem}
-.form-submit-btn:hover{background:var(--gold-light);box-shadow:0 8px 24px rgba(212,168,67,.2)}
-.form-submit-btn svg{width:1.125rem;height:1.125rem;transition:transform .3s}
-.form-submit-btn:hover svg{transform:translateX(4px)}
+.form-card-heading{margin-bottom:1.75rem}
+.form-card-heading h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:.625rem}
+.form-card-heading .heading-bar{width:2.5rem;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px}
+.form-card .form-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:600px){.form-card .form-grid{grid-template-columns:1fr 1fr}}
+.form-card .full-width{grid-column:1/-1}
+.form-card label{display:block;font-size:.8125rem;font-weight:600;color:var(--navy);margin-bottom:.375rem;text-transform:uppercase;letter-spacing:.03em}
+.form-card label .required{color:#e53e3e;margin-left:2px}
+.form-card input,.form-card select,.form-card textarea{width:100%;padding:.75rem .875rem;border:1px solid var(--border);border-radius:.375rem;background:var(--bg);font-size:.875rem;font-family:inherit;color:var(--fg);transition:border-color .3s,box-shadow .3s}
+.form-card input:focus,.form-card select:focus,.form-card textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,168,67,.12);background:#fff}
+.form-card textarea{min-height:100px;resize:vertical}
+.form-card select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
+.form-card .form-submit{text-align:center;margin-top:1.5rem}
+.form-card .form-submit .btn{width:100%;height:3.5rem;font-size:1rem}
 
 /* ============================================================
    FOOTER
@@ -221,16 +212,16 @@ p{line-height:1.7}
 <header class="site-header" id="siteHeader">
   <div class="container-wide">
     <div class="header-inner">
-      <a href="/index.html" class="header-logo">
+      <a href="index.html" class="header-logo">
         <img src="images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
       </a>
 
       <nav class="desktop-nav">
-        <a href="/index.html">Home</a>
-        <a href="/workshops.html">Workshops</a>
-        <a href="/accelerator.html">Accelerator Program</a>
-        <a href="/about.html">About Us</a>
-        <a href="/contact.html" class="btn btn-gold">Contact Us</a>
+        <a href="index.html">Home</a>
+        <a href="workshops.html">Workshops</a>
+        <a href="accelerator.html">Accelerator Program</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html" class="btn btn-gold">Contact Us</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -241,11 +232,11 @@ p{line-height:1.7}
 
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
-      <a href="/index.html">Home</a>
-      <a href="/workshops.html">Workshops</a>
-      <a href="/accelerator.html">Accelerator Program</a>
-      <a href="/about.html">About Us</a>
-      <a href="/contact.html" class="btn btn-gold">Contact Us</a>
+      <a href="index.html">Home</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="accelerator.html">Accelerator Program</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html" class="btn btn-gold">Contact Us</a>
     </div>
   </div>
 </header>
@@ -304,77 +295,70 @@ p{line-height:1.7}
 <!-- ============================================================
      FORM SECTION
      ============================================================ -->
-<section class="form-section section-padding">
+<section class="contact-form section-padding" id="contact-form">
+  <div class="form-bg">
+    <img src="images/contact-meeting.jpg" alt="">
+  </div>
   <div class="container-wide">
-    <div class="form-section-inner reveal">
-      <h2>Schedule Your Strategy Session</h2>
-      <p class="form-subtitle">We partner with healthcare organizations committed to building equitable, high-quality systems.</p>
-
+    <div class="form-inner reveal">
+      <h2>Schedule Your <span class="text-script text-gold" style="text-transform:none;letter-spacing:0">Strategy Session</span></h2>
       <div class="form-card">
+        <div class="form-card-heading">
+          <h3>Get in Touch</h3>
+          <div class="heading-bar"></div>
+        </div>
         <form id="contactForm" novalidate>
           <div class="form-grid">
-            <div class="form-group">
+            <div>
               <label for="firstName">First Name <span class="required">*</span></label>
-              <input type="text" id="firstName" name="firstName" placeholder="First name" required>
-              <span class="form-error-msg" id="firstNameError">First name is required.</span>
+              <input type="text" id="firstName" name="firstName" required placeholder="Your First Name">
             </div>
-
-            <div class="form-group">
+            <div>
               <label for="lastName">Last Name <span class="required">*</span></label>
-              <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
-              <span class="form-error-msg" id="lastNameError">Last name is required.</span>
+              <input type="text" id="lastName" name="lastName" required placeholder="Your Last Name">
             </div>
-
-            <div class="form-group">
+            <div class="full-width">
               <label for="email">Business Email <span class="required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="your@email.com" required>
-              <span class="form-error-msg" id="emailError">Please enter a valid email address.</span>
+              <input type="email" id="email" name="email" required placeholder="Your Business Email">
             </div>
-
-            <div class="form-group">
+            <div>
               <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+              <input type="tel" id="phone" name="phone" placeholder="Your Phone">
             </div>
-
-            <div class="form-group">
+            <div>
               <label for="state">State/Region</label>
-              <input type="text" id="state" name="state" placeholder="Your state or region">
+              <input type="text" id="state" name="state" placeholder="State or Region">
             </div>
-
-            <div class="form-group">
+            <div>
               <label for="jobTitle">Job Title</label>
-              <input type="text" id="jobTitle" name="jobTitle" placeholder="Your job title">
+              <input type="text" id="jobTitle" name="jobTitle" placeholder="Job Title">
             </div>
-
-            <div class="form-group">
+            <div>
               <label for="company">Company Name</label>
-              <input type="text" id="company" name="company" placeholder="Your organization">
+              <input type="text" id="company" name="company" placeholder="Company Name">
             </div>
-
-            <div class="form-group">
-              <label for="interest">I'm Interested In:</label>
+            <div>
+              <label for="interest">I'm Interested In</label>
               <select id="interest" name="interest">
-                <option value="" disabled selected>Select an option</option>
-                <option value="workshops">Workshops &amp; Training</option>
-                <option value="accelerator">Accelerator Program</option>
-                <option value="consulting">Consulting Services</option>
-                <option value="health-equity">Health Equity Solutions</option>
-                <option value="leadership">Leadership Development</option>
-                <option value="other">Other</option>
+                <option value="" disabled selected>Please Select</option>
+                <option value="Accelerator Program">Accelerator Program</option>
+                <option value="Workshops &amp; Training">Workshops &amp; Training</option>
+                <option value="Consulting Services">Consulting Services</option>
+                <option value="Health Equity Solutions">Health Equity Solutions</option>
+                <option value="Leadership Development">Leadership Development</option>
+                <option value="Other">Other</option>
               </select>
             </div>
-
-            <div class="form-group full-width">
+            <div class="full-width">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us about your organization and how we can help..." rows="5"></textarea>
+              <textarea id="message" name="message" placeholder="Tell us about your organization and how we can help..."></textarea>
             </div>
-
-            <div class="form-group full-width">
-              <button type="submit" class="form-submit-btn">
-                Send Message
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              </button>
-            </div>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="btn btn-gold btn-gold-lg">
+              Start the Conversation
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
           </div>
         </form>
       </div>
@@ -402,18 +386,18 @@ p{line-height:1.7}
         <div class="footer-col">
           <h4>Navigation</h4>
           <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/workshops.html">Workshops</a></li>
-            <li><a href="/accelerator.html">Accelerator Program</a></li>
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="accelerator.html">Accelerator Program</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <p class="contact-text">Ready to make equity the engine of excellence?</p>
-          <a href="/contact.html" class="contact-link">Contact Us &rarr;</a>
+          <a href="contact.html" class="contact-link">Contact Us &rarr;</a>
         </div>
       </div>
 
@@ -483,23 +467,22 @@ p{line-height:1.7}
     e.preventDefault();
     var valid = true;
 
-    // Clear previous errors
-    form.querySelectorAll('.error').forEach(function(el){ el.classList.remove('error'); });
-    form.querySelectorAll('.form-error-msg').forEach(function(el){ el.classList.remove('show'); });
+    // Clear previous error styles
+    form.querySelectorAll('input,select,textarea').forEach(function(el){
+      el.style.borderColor = '';
+    });
 
     // First Name
     var firstName = document.getElementById('firstName');
     if(!firstName.value.trim()){
-      firstName.classList.add('error');
-      document.getElementById('firstNameError').classList.add('show');
+      firstName.style.borderColor = '#e53e3e';
       valid = false;
     }
 
     // Last Name
     var lastName = document.getElementById('lastName');
     if(!lastName.value.trim()){
-      lastName.classList.add('error');
-      document.getElementById('lastNameError').classList.add('show');
+      lastName.style.borderColor = '#e53e3e';
       valid = false;
     }
 
@@ -507,8 +490,7 @@ p{line-height:1.7}
     var email = document.getElementById('email');
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if(!email.value.trim() || !emailPattern.test(email.value.trim())){
-      email.classList.add('error');
-      document.getElementById('emailError').classList.add('show');
+      email.style.borderColor = '#e53e3e';
       valid = false;
     }
 
