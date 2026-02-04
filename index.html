@@ -221,18 +221,41 @@ p{line-height:1.7}
 /* ============================================================
    TESTIMONIALS
    ============================================================ */
-.testimonials-section{background:var(--bg)}
-.testimonials-heading{text-align:center;max-width:48rem;margin:0 auto 3rem}
-.testimonials-heading h2{font-size:1.875rem;font-weight:700;color:var(--navy);margin-bottom:1.5rem}
-@media(min-width:768px){.testimonials-heading h2{font-size:2.25rem}}
-@media(min-width:1024px){.testimonials-heading h2{font-size:3rem}}
-.testimonials-grid{display:grid;grid-template-columns:1fr;gap:2rem}
-@media(min-width:768px){.testimonials-grid{grid-template-columns:repeat(3,1fr)}}
-.testimonial-card{background:var(--card);border-radius:1rem;padding:2rem;box-shadow:0 1px 3px rgba(0,0,0,.04);border:1px solid rgba(210,220,230,.5);position:relative}
-.testimonial-card .quote-icon{position:absolute;top:1.5rem;right:1.5rem;width:2.5rem;height:2.5rem;color:var(--gold);opacity:.3}
-.testimonial-card blockquote{color:var(--muted-fg);font-size:.875rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic}
-.testimonial-card .author{font-weight:600;color:var(--fg);font-size:.875rem}
-.testimonial-card .org{font-size:.75rem;color:var(--gold)}
+.testimonials-section{background:#fff;overflow:hidden;position:relative;padding:3rem 0}
+@media(min-width:768px){.testimonials-section{padding:3.5rem 0}}
+@media(min-width:1024px){.testimonials-section{padding:4rem 0}}
+.testimonials-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,hsla(210,45%,95%,.6) 0%,transparent 60%),radial-gradient(ellipse at 80% 80%,hsla(42,90%,55%,.04) 0%,transparent 40%);pointer-events:none}
+.testimonials-header{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;margin-bottom:1.75rem;position:relative;z-index:1}
+.testimonials-header h2{font-size:1.5rem;font-weight:700;color:var(--navy);margin:0}
+.testimonials-header h2 .text-gold{color:var(--gold)}
+@media(min-width:768px){.testimonials-header h2{font-size:1.75rem}}
+@media(min-width:1024px){.testimonials-header h2{font-size:2.25rem}}
+.testimonials-nav{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.testimonials-nav button{width:2.5rem;height:2.5rem;border-radius:50%;border:1.5px solid var(--border);background:transparent;color:var(--navy);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.testimonials-nav button:hover{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.testimonials-nav .tc-counter{font-size:.75rem;color:var(--muted-fg);font-weight:500;min-width:3rem;text-align:center;font-variant-numeric:tabular-nums}
+.testimonials-viewport{position:relative;z-index:1;overflow:hidden}
+.testimonials-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.testimonial-slide{flex:0 0 100%;min-width:0;padding:0 .25rem}
+.testimonial-slide-inner{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:center}
+@media(min-width:768px){.testimonial-slide-inner{grid-template-columns:1fr auto;gap:2.5rem}}
+@media(min-width:1024px){.testimonial-slide-inner{gap:4rem}}
+.tc-quote-side{position:relative}
+.tc-quote-side .quote-mark{font-family:Georgia,'Times New Roman',serif;font-size:4.5rem;line-height:1;color:var(--gold);opacity:.25;position:absolute;top:-1.25rem;left:-.25rem;pointer-events:none}
+@media(min-width:768px){.tc-quote-side .quote-mark{font-size:5.5rem;top:-1.5rem;left:-.5rem}}
+.tc-quote-side blockquote{font-size:.95rem;line-height:1.7;color:var(--fg);font-style:italic;font-weight:400;margin:0;padding-top:1.5rem}
+@media(min-width:768px){.tc-quote-side blockquote{font-size:1.05rem;line-height:1.7;padding-top:2rem}}
+@media(min-width:1024px){.tc-quote-side blockquote{font-size:1.125rem}}
+.tc-quote-side .tc-category{display:inline-block;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gold-dark);background:hsla(42,90%,55%,.1);border:none;padding:.25rem .625rem;border-radius:9999px;margin-bottom:1rem}
+.tc-author-side{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;padding:1.25rem 0 0;border-top:1px solid var(--border)}
+@media(min-width:768px){.tc-author-side{border-top:none;border-left:2px solid var(--gold);padding:1.25rem 0 1.25rem 2rem;min-width:14rem;max-width:18rem}}
+.tc-author-side .tc-logo-wrap{width:5.5rem;height:5.5rem;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;border:1px solid var(--border);padding:.35rem}
+.tc-author-side .tc-logo-wrap img{max-width:100%;max-height:100%;object-fit:contain}
+.tc-author-side .author{font-weight:600;color:var(--fg);font-size:.875rem;line-height:1.3}
+.tc-author-side .title{font-size:.7rem;color:var(--muted-fg);line-height:1.4}
+.tc-author-side .org{font-size:.75rem;color:var(--gold-dark);font-weight:600;line-height:1.4;margin-top:.125rem}
+.tc-progress{position:relative;z-index:1;margin-top:1.75rem;height:2px;background:var(--border);border-radius:1px;overflow:hidden}
+.tc-progress-fill{height:100%;background:var(--gold);border-radius:1px;transition:width .6s cubic-bezier(.4,0,.2,1)}
 
 /* ============================================================
    PARTNERS
@@ -579,29 +602,168 @@ p{line-height:1.7}
      ============================================================ -->
 <section class="testimonials-section section-padding" id="testimonials">
   <div class="container-wide">
-    <div class="testimonials-heading reveal">
+    <div class="testimonials-header reveal">
       <h2>What Our <span class="text-script text-gold">Partners Say</span></h2>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <svg class="quote-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-        <blockquote>"Your thoughtful facilitation techniques, combined with their deep understanding of diversity dynamics, have set us on a path toward transformative and sustainable outcomes."</blockquote>
-        <div class="author">Chief Human Resources</div>
-        <div class="org">Major Healthcare Organization</div>
-      </div>
-      <div class="testimonial-card reveal delay-1">
-        <svg class="quote-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-        <blockquote>"Our Leadership Development program transformed how we develop talent. 93% of participants reported career impact, 85% credited their advancement to the skills gained, and 98% saw tangible professional growth."</blockquote>
-        <div class="author">Director, Human Resources</div>
-        <div class="org">Healthcare Therapeutics Company</div>
-      </div>
-      <div class="testimonial-card reveal delay-2">
-        <svg class="quote-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
-        <blockquote>"Elevated helped us transform our approach to employee engagement, moving from isolated activities to a strategy that truly connects people to purpose. Their process was thoughtful, data-informed, and grounded in real human insight."</blockquote>
-        <div class="author">Vice President of Marketing</div>
-        <div class="org">Healthcare Services Firm</div>
+      <div class="testimonials-nav">
+        <button id="tcPrev" aria-label="Previous testimonial">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <span class="tc-counter" id="tcCounter">1 / 8</span>
+        <button id="tcNext" aria-label="Next testimonial">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
       </div>
     </div>
+
+    <div class="testimonials-viewport reveal">
+      <div class="testimonials-track" id="testimonialsTrack">
+
+        <div class="testimonial-slide">
+          <div class="testimonial-slide-inner">
+            <div class="tc-quote-side">
+              <span class="quote-mark">&ldquo;</span>
+              <span class="tc-category">Learning &amp; Facilitation</span>
+              <blockquote>&ldquo;Elevated&rsquo;s thoughtful facilitation techniques, combined with your deep understanding of our dynamics, have undoubtedly set us on a path toward transformative and sustainable outcomes.&rdquo;</blockquote>
+            </div>
+            <div class="tc-author-side">
+              <div class="tc-logo-wrap"><img src="images/partners/cdc-tc.png" alt="CDC"></div>
+              <div>
+                <div class="author">Donovan Granville</div>
+                <div class="title">Sr. Business Consultant, HR Education &amp; Training</div>
+                <div class="org">Centers for Disease Control &amp; Prevention</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-slide-inner">
+            <div class="tc-quote-side">
+              <span class="quote-mark">&ldquo;</span>
+              <span class="tc-category">Health Equity &amp; Community Impact</span>
+              <blockquote>&ldquo;Elevated Collective brought both insight and empathy to our work in improving access and outcomes for the communities we serve. By engaging staff, patients, and community partners early in the process, they helped us co-design a practical roadmap for impact. Their strategic guidance has helped us turn conversations about equity into actionable, measurable improvements in care delivery and community trust.&rdquo;</blockquote>
+            </div>
+            <div class="tc-author-side">
+              <div class="tc-logo-wrap"><img src="images/partners/brattleboro-memorial-tc.png" alt="Brattleboro Memorial Hospital"></div>
+              <div>
+                <div class="author">Imogene A. Drakes, PhD, FACHE</div>
+                <div class="title">Laboratory Director</div>
+                <div class="org">Brattleboro Memorial Hospital</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-slide-inner">
+            <div class="tc-quote-side">
+              <span class="quote-mark">&ldquo;</span>
+              <span class="tc-category">Workshop Design</span>
+              <blockquote>&ldquo;What truly set the experience apart was the caliber and authenticity of Elevated&rsquo;s facilitators and guest speakers. Every session was led by experts who not only brought deep subject-matter expertise but also genuine passion and purpose. It was clear that each workshop was designed with real intention&mdash;to spark reflection, dialogue, and personal growth.&rdquo;</blockquote>
+            </div>
+            <div class="tc-author-side">
+              <div class="tc-logo-wrap"><img src="images/partners/scu-health-tc.png" alt="Southern California University of Health Services"></div>
+              <div>
+                <div class="author">Alex Cruz</div>
+                <div class="title">Sr. Coordinator for Inclusion &amp; Well-being</div>
+                <div class="org">Southern California University of Health Services</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-slide-inner">
+            <div class="tc-quote-side">
+              <span class="quote-mark">&ldquo;</span>
+              <span class="tc-category">Inclusive Leadership</span>
+              <blockquote>&ldquo;Elevated Collective brought both depth and energy to our leadership development efforts, helping our senior team strengthen inclusive leadership behaviors that drive performance and belonging. Their approach blended strategy with practice&mdash;equipping our leaders to communicate more effectively, lead with empathy, and model the behaviors that build trust and accountability across the organization.&rdquo;</blockquote>
+            </div>
+            <div class="tc-author-side">
+              <div class="tc-logo-wrap"><img src="images/partners/spark-therapeutics-tc.png" alt="Spark Therapeutics"></div>
+              <div>
+                <div class="author">Carla Gobantes</div>
+                <div class="title">Director, Human Resources</div>
+                <div class="org">Roche &ndash; Spark Therapeutics</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-slide-inner">
+            <div class="tc-quote-side">
+              <span class="quote-mark">&ldquo;</span>
+              <span class="tc-category">Custom E-Learning</span>
+              <blockquote>&ldquo;Elevated partnered with us to design and deliver a custom online learning series for our workforce of more than 300,000 employees. From concept to launch, their team brought clarity, creativity, and deep expertise&mdash;developing a curriculum that reflected our values and met the unique needs of a diverse, nationwide audience.&rdquo;</blockquote>
+            </div>
+            <div class="tc-author-side">
+              <div class="tc-logo-wrap"><img src="images/partners/cvs-health-tc.png" alt="CVS Pharmacy"></div>
+              <div>
+                <div class="author">Lead Director, Business Operations &amp; Strategy</div>
+                <div class="org">CVS Pharmacy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-slide-inner">
+            <div class="tc-quote-side">
+              <span class="quote-mark">&ldquo;</span>
+              <span class="tc-category">Leadership Development</span>
+              <blockquote>&ldquo;Our 6-month Leadership Development program transformed how we develop talent. 93% of participants reported career impact, 85% credited their advancement to the skills gained, and 98% saw tangible professional growth.&rdquo;</blockquote>
+            </div>
+            <div class="tc-author-side">
+              <div class="tc-logo-wrap"><img src="images/partners/spark-therapeutics-tc.png" alt="Spark Therapeutics"></div>
+              <div>
+                <div class="author">Carla Gobantes</div>
+                <div class="title">Director, Human Resources</div>
+                <div class="org">Roche &ndash; Spark Therapeutics</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-slide-inner">
+            <div class="tc-quote-side">
+              <span class="quote-mark">&ldquo;</span>
+              <span class="tc-category">Employee Engagement</span>
+              <blockquote>&ldquo;Working with Elevated Collective was transformative. Their facilitators encouraged authentic dialogue, strengthened collaboration, and built confidence, resulting in a more connected, motivated workforce aligned around a shared vision.&rdquo;</blockquote>
+            </div>
+            <div class="tc-author-side">
+              <div class="tc-logo-wrap"><img src="images/partners/brattleboro-memorial-tc.png" alt="Brattleboro Memorial Hospital"></div>
+              <div>
+                <div class="author">Imogene A. Drakes, PhD, FACHE</div>
+                <div class="title">Laboratory Director</div>
+                <div class="org">Brattleboro Memorial Hospital</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-slide">
+          <div class="testimonial-slide-inner">
+            <div class="tc-quote-side">
+              <span class="quote-mark">&ldquo;</span>
+              <span class="tc-category">Training &amp; Development</span>
+              <blockquote>&ldquo;We appreciate the professionalism, expertise, and dedication shown by Elevated throughout the project. Your ability to understand our unique challenges and adapt the training content accordingly was truly impressive.&rdquo;</blockquote>
+            </div>
+            <div class="tc-author-side">
+              <div class="tc-logo-wrap"><img src="images/partners/color-health-tc.png" alt="Color Health"></div>
+              <div>
+                <div class="author">Chief People Officer</div>
+                <div class="org">Color Health</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="tc-progress reveal"><div class="tc-progress-fill" id="tcProgress"></div></div>
   </div>
 </section>
 
@@ -756,6 +918,51 @@ p{line-height:1.7}
     reveals.forEach(function(el){ obs.observe(el); });
   } else {
     reveals.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  /* ----------------------------------------------------------
+     TESTIMONIALS SLIDER
+     ---------------------------------------------------------- */
+  var tcTrack = document.getElementById('testimonialsTrack');
+  var tcPrev = document.getElementById('tcPrev');
+  var tcNext = document.getElementById('tcNext');
+  var tcCounter = document.getElementById('tcCounter');
+  var tcProgress = document.getElementById('tcProgress');
+  if(tcTrack){
+    var slides = tcTrack.querySelectorAll('.testimonial-slide');
+    var total = slides.length;
+    var current = 0;
+    var autoTimer = null;
+
+    function goTo(idx){
+      current = ((idx % total) + total) % total;
+      tcTrack.style.transform = 'translateX(-' + (current * 100) + '%)';
+      if(tcCounter) tcCounter.textContent = (current + 1) + ' / ' + total;
+      if(tcProgress) tcProgress.style.width = (((current + 1) / total) * 100) + '%';
+      resetAuto();
+    }
+
+    function resetAuto(){
+      clearInterval(autoTimer);
+      autoTimer = setInterval(function(){ goTo(current + 1); }, 6000);
+    }
+
+    if(tcPrev) tcPrev.addEventListener('click', function(){ goTo(current - 1); });
+    if(tcNext) tcNext.addEventListener('click', function(){ goTo(current + 1); });
+
+    // Touch/swipe support
+    var startX = 0;
+    var isDragging = false;
+    tcTrack.addEventListener('touchstart', function(e){ startX = e.touches[0].clientX; isDragging = true; }, {passive:true});
+    tcTrack.addEventListener('touchmove', function(e){ e.preventDefault(); }, {passive:false});
+    tcTrack.addEventListener('touchend', function(e){
+      if(!isDragging) return;
+      isDragging = false;
+      var diff = startX - e.changedTouches[0].clientX;
+      if(Math.abs(diff) > 50){ goTo(diff > 0 ? current + 1 : current - 1); }
+    });
+
+    goTo(0);
   }
 
 })();
