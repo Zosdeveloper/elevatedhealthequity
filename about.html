@@ -128,21 +128,21 @@ p{line-height:1.7}
 /* ============================================================
    ABOUT HERO
    ============================================================ */
-.about-hero{position:relative;min-height:80vh;display:flex;align-items:center;overflow:hidden}
+.about-hero{position:relative;min-height:85vh;display:flex;align-items:center;overflow:hidden}
 .about-hero-bg{position:absolute;inset:0;z-index:0}
-.about-hero-bg img{width:100%;height:100%;object-fit:cover}
+.about-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:top center}
 .about-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,hsla(210,50%,18%,0.95),hsla(210,50%,18%,0.85),hsla(210,50%,18%,0.60))}
 .about-hero-content{position:relative;z-index:1;padding:5rem 1.5rem 5rem}
 @media(min-width:768px){.about-hero-content{padding:5rem 2rem 5rem}}
 @media(min-width:1024px){.about-hero-content{padding:5rem 3rem 5rem}}
 @media(min-width:1280px){.about-hero-content{padding:5rem 4rem 5rem}}
 .about-hero-content .inner{max-width:48rem;text-align:left}
-.about-hero h1{font-size:1.875rem;font-weight:700;color:var(--primary-fg);line-height:1.15;margin-bottom:1.5rem}
-@media(min-width:768px){.about-hero h1{font-size:2.25rem}}
+.about-hero h1{font-size:2rem;font-weight:700;color:var(--primary-fg);line-height:1.15;margin-bottom:1.5rem}
+@media(min-width:768px){.about-hero h1{font-size:2.5rem}}
 @media(min-width:1024px){.about-hero h1{font-size:3rem}}
-@media(min-width:1280px){.about-hero h1{font-size:3.75rem}}
-.about-hero p{color:var(--primary-fg);opacity:.8;font-size:1.125rem;max-width:36rem;line-height:1.7}
-@media(min-width:768px){.about-hero p{font-size:1.25rem}}
+@media(min-width:1280px){.about-hero h1{font-size:3.5rem}}
+.about-hero p{color:var(--primary-fg);opacity:.85;font-size:1.125rem;max-width:36rem;line-height:1.7}
+.about-hero p strong{color:var(--gold);opacity:1}
 
 /* ============================================================
    MISSION & VISION
@@ -296,7 +296,7 @@ p{line-height:1.7}
           </div>
         </div>
         <a href="about.html" class="active">About Us</a>
-        <a href="contact.html" class="btn btn-gold">Contact Us</a>
+        <a href="contact.html#contact-form" class="btn btn-gold">Contact Us</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -311,7 +311,7 @@ p{line-height:1.7}
       <a href="consulting.html">Consulting</a>
       <a href="workshops.html">Workshops</a>
       <a href="about.html">About Us</a>
-      <a href="contact.html" class="btn btn-gold">Contact Us</a>
+      <a href="contact.html#contact-form" class="btn btn-gold">Contact Us</a>
     </div>
   </div>
 </header>
@@ -328,7 +328,7 @@ p{line-height:1.7}
   <div class="about-hero-content">
     <div class="inner reveal">
       <h1>About <span class="text-script text-gold" style="letter-spacing:0">Us</span></h1>
-      <p>We partner with healthcare organizations to build systems where equity is not a project but a foundational operating principle.</p>
+      <p><strong>Mission-Driven. Evidence-Based. Results-Focused.</strong><br>We partner with healthcare organizations to build systems where equity is not a project but a foundational operating principle.</p>
     </div>
   </div>
 </section>
@@ -568,14 +568,14 @@ p{line-height:1.7}
             <li><a href="consulting.html">Consulting</a></li>
             <li><a href="workshops.html">Workshops</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#contact-form">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <p class="contact-text">Ready to make equity the engine of excellence?</p>
-          <a href="contact.html" class="contact-link">Contact Us &rarr;</a>
+          <a href="contact.html#contact-form" class="contact-link">Contact Us &rarr;</a>
         </div>
       </div>
 

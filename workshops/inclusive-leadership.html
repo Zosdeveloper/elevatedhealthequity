@@ -108,6 +108,17 @@ p{line-height:1.7}
 .hamburger{display:flex;align-items:center;justify-content:center;padding:.5rem;background:none;color:var(--navy);cursor:pointer}
 @media(min-width:1024px){.hamburger{display:none}}
 .hamburger svg{width:1.5rem;height:1.5rem}
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown>a{display:flex;align-items:center;gap:.35rem;padding-bottom:.5rem;margin-bottom:-.5rem;position:relative;z-index:2}
+.nav-dropdown>a span{pointer-events:none}
+.nav-dropdown>a::after{content:'';width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:0;transition:opacity .25s,transform .25s}
+.nav-dropdown:hover>a::after{opacity:1;transform:rotate(180deg)}
+.dropdown-menu{position:absolute;top:calc(100% + .25rem);left:50%;transform:translateX(-50%);min-width:280px;background:#fff;border-radius:.5rem;box-shadow:0 12px 40px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:all .25s cubic-bezier(.4,0,.2,1);padding:.5rem 0;z-index:100;pointer-events:none}
+.dropdown-menu::before{content:'';position:absolute;top:-12px;left:0;right:0;height:12px;background:transparent;pointer-events:none}
+.dropdown-menu::after{content:'';position:absolute;top:-.375rem;left:50%;transform:translateX(-50%);width:12px;height:12px;background:#fff;rotate:45deg;box-shadow:-2px -2px 4px rgba(0,0,0,.04)}
+.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto}
+.dropdown-menu a{display:block;padding:.75rem 1.25rem;font-size:.875rem;font-weight:500;color:var(--navy);opacity:1;transition:all .2s;border-left:3px solid transparent}
+.dropdown-menu a:hover{background:var(--cream);color:var(--navy);border-left-color:var(--gold)}
 .mobile-nav{display:none;background:#fff;border-top:1px solid #f3f4f6;padding:1.5rem}
 .mobile-nav.open{display:block}
 @media(min-width:1024px){.mobile-nav{display:none!important}}
@@ -153,9 +164,9 @@ p{line-height:1.7}
 /* ============================================================
    WORKSHOP HERO — ENHANCED
    ============================================================ */
-.workshop-hero{position:relative;min-height:65vh;display:flex;align-items:center;overflow:hidden}
+.workshop-hero{position:relative;min-height:85vh;display:flex;align-items:center;overflow:hidden}
 .workshop-hero .hero-bg{position:absolute;inset:0;z-index:0}
-.workshop-hero .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.workshop-hero .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:top center}
 .workshop-hero .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,28,42,.95) 0%,rgba(23,42,55,.88) 40%,rgba(23,106,137,.6) 100%)}
 .workshop-hero .hero-content{position:relative;z-index:1;padding:5rem 1.5rem}
 @media(min-width:768px){.workshop-hero .hero-content{padding:5rem 2rem}}
@@ -163,22 +174,16 @@ p{line-height:1.7}
 @media(min-width:1280px){.workshop-hero .hero-content{padding:5rem 4rem}}
 .workshop-hero .inner{max-width:48rem;text-align:left}
 
-/* Breadcrumb */
-.breadcrumb{display:flex;align-items:center;gap:.5rem;margin-bottom:2rem;font-size:.8125rem;font-weight:500}
-.breadcrumb a{color:rgba(255,255,255,.55);transition:color .3s}
-.breadcrumb a:hover{color:var(--gold)}
-.breadcrumb .sep{color:rgba(255,255,255,.3);font-size:.625rem}
-.breadcrumb .current{color:var(--gold)}
-
 /* Gold accent line above h1 */
 .workshop-hero .gold-accent{width:3.5rem;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin-bottom:1.25rem}
 
-.workshop-hero h1{font-size:1.5rem;font-weight:700;color:var(--primary-fg);line-height:1.1;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.05em}
-@media(min-width:768px){.workshop-hero h1{font-size:1.875rem}}
-@media(min-width:1024px){.workshop-hero h1{font-size:2.5rem}}
-.workshop-hero .subtitle{font-size:1.125rem;color:var(--gold);font-weight:500;margin-bottom:1.5rem}
-@media(min-width:768px){.workshop-hero .subtitle{font-size:1.25rem}}
-.workshop-hero .desc{color:var(--primary-fg);opacity:.9;font-size:1rem;line-height:1.7;margin-bottom:2rem;max-width:48rem}
+.workshop-hero h1{font-size:2rem;font-weight:700;color:var(--primary-fg);line-height:1.15;margin-bottom:.75rem}
+@media(min-width:768px){.workshop-hero h1{font-size:2.5rem}}
+@media(min-width:1024px){.workshop-hero h1{font-size:3rem}}
+@media(min-width:1280px){.workshop-hero h1{font-size:3.5rem}}
+.workshop-hero .subtitle{font-size:1rem;color:var(--gold);font-weight:500;margin-bottom:0}
+@media(min-width:768px){.workshop-hero .subtitle{font-size:1.125rem}}
+.workshop-hero .desc{color:var(--primary-fg);opacity:.85;font-size:1rem;line-height:1.7;margin-bottom:2rem;max-width:48rem}
 @media(min-width:768px){.workshop-hero .desc{font-size:1.125rem}}
 
 /* ============================================================
@@ -327,10 +332,22 @@ p{line-height:1.7}
 
       <nav class="desktop-nav">
         <a href="../index.html">Home</a>
-        <a href="../workshops.html" class="active">Workshops</a>
-        <a href="../accelerator.html">Accelerator Program</a>
+        <a href="../consulting.html">Consulting</a>
+        <div class="nav-dropdown">
+          <a href="../workshops.html" class="active">Workshops</a>
+          <div class="dropdown-menu">
+            <a href="cultural-competency.html">Cultural Competency &amp; Humility</a>
+            <a href="health-equity.html">Health Equity Fundamentals</a>
+            <a href="sdoh.html">Social Determinants of Health</a>
+            <a href="resilience.html">Building Resilience</a>
+            <a href="difficult-conversations.html">Difficult Conversations</a>
+            <a href="communication.html">Communication Skills</a>
+            <a href="inclusive-leadership.html">Inclusive Leadership</a>
+            <a href="implicit-bias.html">Overcoming Implicit Bias</a>
+          </div>
+        </div>
         <a href="../about.html">About Us</a>
-        <a href="../contact.html" class="btn btn-gold">Contact Us</a>
+        <a href="../contact.html#contact-form" class="btn btn-gold">Contact Us</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -342,19 +359,13 @@ p{line-height:1.7}
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
       <a href="../index.html">Home</a>
+      <a href="../consulting.html">Consulting</a>
       <a href="../workshops.html">Workshops</a>
-      <a href="../accelerator.html">Accelerator Program</a>
       <a href="../about.html">About Us</a>
-      <a href="../contact.html" class="btn btn-gold">Contact Us</a>
+      <a href="../contact.html#contact-form" class="btn btn-gold">Contact Us</a>
     </div>
   </div>
 </header>
-
-<!-- Back to Workshops — sticky -->
-<a href="../workshops.html" class="back-to-workshops" id="backToWorkshops">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-  All Workshops
-</a>
 
 <main style="padding-top:var(--header-h)">
 
@@ -369,13 +380,6 @@ p{line-height:1.7}
   </div>
   <div class="hero-content">
     <div class="inner reveal">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Home</a>
-        <span class="sep" aria-hidden="true">&#9656;</span>
-        <a href="../workshops.html">Workshops</a>
-        <span class="sep" aria-hidden="true">&#9656;</span>
-        <span class="current">Inclusive Leadership</span>
-      </nav>
       <div class="gold-accent"></div>
       <h1>Inclusive Leadership</h1>
       <p class="subtitle">Strategies for Success</p>
@@ -735,14 +739,14 @@ p{line-height:1.7}
             <li><a href="../workshops.html">Workshops</a></li>
             <li><a href="../accelerator.html">Accelerator Program</a></li>
             <li><a href="../about.html">About Us</a></li>
-            <li><a href="../contact.html">Contact Us</a></li>
+            <li><a href="../contact.html#contact-form">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <p class="contact-text">Ready to make equity the engine of excellence?</p>
-          <a href="../contact.html" class="contact-link">Contact Us &rarr;</a>
+          <a href="../contact.html#contact-form" class="contact-link">Contact Us &rarr;</a>
         </div>
       </div>
 

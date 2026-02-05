@@ -133,21 +133,21 @@ p{line-height:1.7}
 /* ============================================================
    HERO (Workshops)
    ============================================================ */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero{position:relative;min-height:85vh;display:flex;align-items:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:top center}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,hsla(210,50%,18%,0.9),hsla(210,50%,18%,0.75),hsla(210,50%,18%,0.5))}
 .hero-content{position:relative;z-index:1;padding:5rem 1.5rem 5rem}
 @media(min-width:768px){.hero-content{padding:5rem 2rem 5rem}}
 @media(min-width:1024px){.hero-content{padding:5rem 3rem 5rem}}
 @media(min-width:1280px){.hero-content{padding:5rem 4rem 5rem}}
 .hero-content .inner{max-width:48rem;text-align:left}
-.hero h1{font-size:1.5rem;font-weight:700;color:var(--primary-fg);line-height:1.15;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.05em}
-@media(min-width:768px){.hero h1{font-size:1.875rem}}
-@media(min-width:1024px){.hero h1{font-size:2.25rem}}
-@media(min-width:1280px){.hero h1{font-size:3rem}}
-.hero p{color:var(--primary-fg);opacity:.9;font-size:1rem;max-width:36rem;margin-bottom:2rem;line-height:1.7}
-@media(min-width:768px){.hero p{font-size:1.125rem}}
+.hero h1{font-size:2rem;font-weight:700;color:var(--primary-fg);line-height:1.15;margin-bottom:1.5rem}
+@media(min-width:768px){.hero h1{font-size:2.5rem}}
+@media(min-width:1024px){.hero h1{font-size:3rem}}
+@media(min-width:1280px){.hero h1{font-size:3.5rem}}
+.hero p{color:var(--primary-fg);opacity:.85;font-size:1.125rem;max-width:36rem;margin-bottom:2rem;line-height:1.7}
+.hero p strong{color:var(--gold);opacity:1}
 
 /* ============================================================
    WORKSHOPS GRID
@@ -266,7 +266,7 @@ p{line-height:1.7}
           </div>
         </div>
         <a href="about.html">About Us</a>
-        <a href="contact.html" class="btn btn-gold">Contact Us</a>
+        <a href="contact.html#contact-form" class="btn btn-gold">Contact Us</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -293,7 +293,7 @@ p{line-height:1.7}
         </div>
       </div>
       <a href="about.html">About Us</a>
-      <a href="contact.html" class="btn btn-gold">Contact Us</a>
+      <a href="contact.html#contact-form" class="btn btn-gold">Contact Us</a>
     </div>
   </div>
 </header>
@@ -315,7 +315,7 @@ p{line-height:1.7}
         With <span class="text-gold">Elevated</span> Training
       </h1>
       <p><strong>Practical. Engaging. Results-Driven.</strong><br>Professional development designed specifically for healthcare teams.</p>
-      <a href="contact.html" class="btn btn-gold btn-gold-lg">
+      <a href="contact.html#contact-form" class="btn btn-gold btn-gold-lg">
         Start the Conversation
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
@@ -348,7 +348,7 @@ p{line-height:1.7}
       <!-- Workshop 2 -->
       <div class="workshop-card reveal delay-1">
         <div class="workshop-card-img">
-          <a href="workshops/health-equity.html"><img src="images/workshop-health-equity.jpg" alt="Health Equity Fundamentals"></a>
+          <a href="workshops/health-equity.html"><img src="images/workshop-health-equity-new.png" alt="Health Equity Fundamentals"></a>
         </div>
         <div class="workshop-card-body">
           <h3><a href="workshops/health-equity.html">Health Equity Fundamentals</a></h3>
@@ -408,7 +408,7 @@ p{line-height:1.7}
       <!-- Workshop 6 -->
       <div class="workshop-card reveal delay-2">
         <div class="workshop-card-img">
-          <a href="workshops/communication.html"><img src="images/workshop-communication.jpg" alt="Workplace Communication Skills for Healthcare Teams"></a>
+          <a href="workshops/communication.html"><img src="images/workshop-communication-new.png" alt="Workplace Communication Skills for Healthcare Teams"></a>
         </div>
         <div class="workshop-card-body">
           <h3><a href="workshops/communication.html">Workplace Communication Skills for Healthcare Teams</a></h3>
@@ -571,14 +571,14 @@ p{line-height:1.7}
             <li><a href="consulting.html">Consulting</a></li>
             <li><a href="workshops.html">Workshops</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#contact-form">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <p class="contact-text">Ready to make equity the engine of excellence?</p>
-          <a href="contact.html" class="contact-link">Contact Us &rarr;</a>
+          <a href="contact.html#contact-form" class="contact-link">Contact Us &rarr;</a>
         </div>
       </div>
 

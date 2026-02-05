@@ -128,7 +128,7 @@ p{line-height:1.7}
 /* ============================================================
    HERO
    ============================================================ */
-.hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden}
+.hero{position:relative;min-height:85vh;display:flex;align-items:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover}
 .hero-bg::after{content:'';position:absolute;inset:0;background:var(--navy);opacity:.6}
@@ -137,12 +137,12 @@ p{line-height:1.7}
 @media(min-width:1024px){.hero-content{padding:5rem 3rem 5rem}}
 @media(min-width:1280px){.hero-content{padding:5rem 4rem 5rem}}
 .hero-content .inner{max-width:48rem;text-align:left}
-.hero h1{font-size:1.5rem;font-weight:700;color:var(--primary-fg);line-height:1.15;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:.05em}
-@media(min-width:768px){.hero h1{font-size:1.875rem}}
-@media(min-width:1024px){.hero h1{font-size:2.25rem}}
-@media(min-width:1280px){.hero h1{font-size:3rem}}
-.hero p{color:var(--primary-fg);opacity:.9;font-size:1rem;max-width:36rem;margin-bottom:2rem;line-height:1.7}
-@media(min-width:768px){.hero p{font-size:1.125rem}}
+.hero h1{font-size:2rem;font-weight:700;color:var(--primary-fg);line-height:1.15;margin-bottom:1.5rem}
+@media(min-width:768px){.hero h1{font-size:2.5rem}}
+@media(min-width:1024px){.hero h1{font-size:3rem}}
+@media(min-width:1280px){.hero h1{font-size:3.5rem}}
+.hero p{color:var(--primary-fg);opacity:.85;font-size:1.125rem;max-width:36rem;margin-bottom:2rem;line-height:1.7}
+.hero p strong{color:var(--gold);opacity:1}
 
 /* ============================================================
    STATS
@@ -273,14 +273,15 @@ p{line-height:1.7}
 /* ============================================================
    PARTNERS
    ============================================================ */
-.partners-section{padding:2rem 0;background:var(--cream);overflow:hidden;position:relative}
-.partners-heading{text-align:center;font-size:1.5rem;font-weight:700;color:var(--fg);letter-spacing:.05em;margin-bottom:1.5rem}
-@media(min-width:768px){.partners-heading{font-size:1.875rem}}
+.partners-section{padding:3rem 0;background:var(--cream);overflow:hidden;position:relative}
+.partners-heading{text-align:center;font-size:1.875rem;font-weight:700;color:var(--navy);letter-spacing:-.025em;margin-bottom:2rem}
+@media(min-width:768px){.partners-heading{font-size:2.25rem}}
+@media(min-width:1024px){.partners-heading{font-size:2.5rem}}
 .partners-track{display:flex;animation:scroll 25s linear infinite}
-.partners-track .partner-item{flex-shrink:0;padding:0 2rem;display:flex;align-items:center;justify-content:center;height:12rem}
-@media(min-width:768px){.partners-track .partner-item{padding:0 3rem;height:12rem}}
+.partners-track .partner-item{flex-shrink:0;padding:0 2.5rem;display:flex;align-items:center;justify-content:center;height:12rem}
+@media(min-width:768px){.partners-track .partner-item{padding:0 4rem;height:16rem}}
 .partners-track .partner-item img{height:10rem;width:auto;object-fit:contain}
-@media(min-width:768px){.partners-track .partner-item img{height:12rem}}
+@media(min-width:768px){.partners-track .partner-item img{height:14rem}}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ============================================================
@@ -401,7 +402,7 @@ p{line-height:1.7}
           </div>
         </div>
         <a href="about.html">About Us</a>
-        <a href="contact.html" class="btn btn-gold">Contact Us</a>
+        <a href="contact.html#contact-form" class="btn btn-gold">Contact Us</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
@@ -416,7 +417,7 @@ p{line-height:1.7}
       <a href="consulting.html">Consulting</a>
       <a href="workshops.html">Workshops</a>
       <a href="about.html">About Us</a>
-      <a href="contact.html" class="btn btn-gold">Contact Us</a>
+      <a href="contact.html#contact-form" class="btn btn-gold">Contact Us</a>
     </div>
   </div>
 </header>
@@ -437,7 +438,7 @@ p{line-height:1.7}
         <span class="text-script text-gold" style="text-transform:none;letter-spacing:0"> Data</span>
       </h1>
       <p><strong>Elevating Access. Advancing Outcomes. Transforming Care.</strong><br>Health equity strategies designed for today's healthcare systems.</p>
-      <a href="contact.html" class="btn btn-gold btn-gold-lg">
+      <a href="contact.html#contact-form" class="btn btn-gold btn-gold-lg">
         Start the Conversation
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
       </a>
@@ -507,7 +508,7 @@ p{line-height:1.7}
         <h2>SOLUTIONS TO DRIVE</h2>
         <div class="subtitle"><span class="text-script text-gold">INCLUSION &amp; IMPACT</span></div>
         <p>At Elevated Health Equity, we help organizations create fair, inclusive, and effective health systems that work for everyone. Through strategic consulting and our proprietary framework, we partner with clients to uncover disparities, identify gaps in care, and design targeted, evidence-based solutions.</p>
-        <a href="contact.html" class="btn btn-gold btn-gold-lg">Book Your Discovery Call</a>
+        <a href="contact.html#contact-form" class="btn btn-gold btn-gold-lg">Book Your Discovery Call</a>
       </div>
     </div>
 
@@ -566,7 +567,7 @@ p{line-height:1.7}
             Get Started
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="contact.html" class="btn btn-gold-outline btn-gold-lg">Schedule a Call</a>
+          <a href="contact.html#contact-form" class="btn btn-gold-outline btn-gold-lg">Schedule a Call</a>
         </div>
       </div>
 
@@ -877,7 +878,7 @@ p{line-height:1.7}
     <svg style="bottom:1rem;right:8%;width:2.5rem;height:2.5rem;opacity:.05" viewBox="0 0 24 24" fill="none"><path d="M12 4V20M4 12H20" stroke="hsl(190 45% 35%)" stroke-width="2.5" stroke-linecap="round"/></svg>
   </div>
   <div class="container-wide relative-z" style="margin-bottom:1.5rem">
-    <h2 class="partners-heading reveal">Healthcare Organizations we've worked with:</h2>
+    <h2 class="partners-heading reveal">Trusted by Leading Healthcare Organizations</h2>
   </div>
   <div class="relative-z">
     <div class="partners-track">
@@ -920,7 +921,7 @@ p{line-height:1.7}
     <div class="cta-inner reveal">
       <h2>Ready to Transform <span class="text-script text-gold">Healthcare Equity</span>?</h2>
       <p>Partner with us to build healthcare systems where equity drives excellence, trust, and sustainable outcomes for all.</p>
-      <a href="contact.html" class="btn btn-gold btn-gold-lg" style="height:3.5rem;padding:0 2.5rem;font-size:1rem">
+      <a href="contact.html#contact-form" class="btn btn-gold btn-gold-lg" style="height:3.5rem;padding:0 2.5rem;font-size:1rem">
         Start the Conversation
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
@@ -952,14 +953,14 @@ p{line-height:1.7}
             <li><a href="consulting.html">Consulting</a></li>
             <li><a href="workshops.html">Workshops</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="contact.html#contact-form">Contact Us</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Get in Touch</h4>
           <p class="contact-text">Ready to make equity the engine of excellence?</p>
-          <a href="contact.html" class="contact-link">Contact Us &rarr;</a>
+          <a href="contact.html#contact-form" class="contact-link">Contact Us &rarr;</a>
         </div>
       </div>
 
