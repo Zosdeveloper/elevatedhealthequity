@@ -104,6 +104,17 @@ p{line-height:1.7}
 .desktop-nav a{font-size:1rem;font-weight:600;color:var(--navy);opacity:.8;transition:color .3s,opacity .3s}
 .desktop-nav a:hover,.desktop-nav a.active{opacity:1;color:var(--navy-dark)}
 .desktop-nav a.active{border-bottom:2px solid var(--gold);padding-bottom:2px}
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown>a{display:flex;align-items:center;gap:.35rem;padding-bottom:.5rem;margin-bottom:-.5rem;position:relative;z-index:2}
+.nav-dropdown>a span{pointer-events:none}
+.nav-dropdown>a::after{content:'';width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:0;transition:opacity .25s,transform .25s}
+.nav-dropdown:hover>a::after{opacity:1;transform:rotate(180deg)}
+.dropdown-menu{position:absolute;top:calc(100% + .25rem);left:50%;transform:translateX(-50%);min-width:280px;background:#fff;border-radius:.5rem;box-shadow:0 12px 40px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:all .25s cubic-bezier(.4,0,.2,1);padding:.5rem 0;z-index:100;pointer-events:none}
+.dropdown-menu::before{content:'';position:absolute;top:-12px;left:0;right:0;height:12px;background:transparent;pointer-events:none}
+.dropdown-menu::after{content:'';position:absolute;top:-.375rem;left:50%;transform:translateX(-50%);width:12px;height:12px;background:#fff;rotate:45deg;box-shadow:-2px -2px 4px rgba(0,0,0,.04)}
+.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto}
+.dropdown-menu a{display:block;padding:.75rem 1.25rem;font-size:.875rem;font-weight:500;color:var(--navy);opacity:1;transition:all .2s;border-left:3px solid transparent}
+.dropdown-menu a:hover{background:var(--cream);color:var(--navy);border-left-color:var(--gold)}
 .hamburger{display:flex;align-items:center;justify-content:center;padding:.5rem;background:none;color:var(--navy);cursor:pointer}
 @media(min-width:1024px){.hamburger{display:none}}
 .hamburger svg{width:1.5rem;height:1.5rem}
@@ -136,17 +147,29 @@ p{line-height:1.7}
 /* ============================================================
    STATS
    ============================================================ */
-.stats-section{padding:4rem 0}
-@media(min-width:768px){.stats-section{padding:5rem 0}}
-.stats-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
-@media(min-width:768px){.stats-grid{grid-template-columns:repeat(3,1fr);gap:2rem}}
-.stat-card{background:var(--card);border-radius:1rem;padding:2rem;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.04);border:1px solid rgba(210,220,230,.5)}
-.stat-card .stat-number{font-size:3rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
-@media(min-width:768px){.stat-card .stat-number{font-size:3.75rem}}
-@media(min-width:1024px){.stat-card .stat-number{font-size:4.5rem}}
-.stat-card .stat-label{color:var(--muted-fg);font-size:.875rem;line-height:1.7;margin-bottom:.5rem}
+.stats-section{padding:5rem 0;background:linear-gradient(165deg,hsl(210 50% 15%) 0%,hsl(210 55% 10%) 50%,hsl(210 60% 8%) 100%);position:relative;overflow:hidden}
+@media(min-width:768px){.stats-section{padding:6rem 0}}
+@media(min-width:1024px){.stats-section{padding:7rem 0}}
+.stats-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(212,168,67,.06) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 20% 100%,rgba(23,106,137,.08) 0%,transparent 50%);pointer-events:none}
+.stats-section::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");opacity:.03;pointer-events:none}
+.stats-ekg{position:absolute;top:50%;left:0;right:0;height:60px;transform:translateY(-50%);opacity:.12;pointer-events:none;overflow:hidden}
+.stats-ekg svg{width:200%;height:100%;animation:ekgScroll 12s linear infinite}
+@keyframes ekgScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.stats-grid{display:grid;grid-template-columns:1fr;gap:2rem;position:relative;z-index:2}
+@media(min-width:768px){.stats-grid{grid-template-columns:repeat(3,1fr);gap:3rem}}
+.stat-card{background:rgba(255,255,255,.03);backdrop-filter:blur(8px);border-radius:1rem;padding:2.5rem 2rem;text-align:center;border:1px solid rgba(255,255,255,.06);opacity:0;transform:translateY(40px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1),border-color .3s,background .3s}
+.stat-card:hover{background:rgba(255,255,255,.05);border-color:rgba(212,168,67,.2)}
+.stat-card.visible{opacity:1;transform:translateY(0)}
+.stat-card:nth-child(1){transition-delay:0s}
+.stat-card:nth-child(2){transition-delay:.15s}
+.stat-card:nth-child(3){transition-delay:.3s}
+.stat-card .stat-number{font-size:3.5rem;font-weight:700;color:#fff;margin-bottom:.25rem;line-height:1;letter-spacing:-.03em;display:inline-block;position:relative}
+.stat-card .stat-number::after{content:'';position:absolute;bottom:-.25rem;left:50%;transform:translateX(-50%);width:2.5rem;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:2px}
+@media(min-width:768px){.stat-card .stat-number{font-size:4.5rem}.stat-card .stat-number::after{width:3rem;height:4px;bottom:-.35rem}}
+@media(min-width:1024px){.stat-card .stat-number{font-size:5.5rem}.stat-card .stat-number::after{width:3.5rem;bottom:-.4rem}}
+.stat-card .stat-label{color:rgba(255,255,255,.7);font-size:.875rem;line-height:1.7;margin-top:1.25rem;margin-bottom:.75rem}
 @media(min-width:768px){.stat-card .stat-label{font-size:1rem}}
-.stat-card .stat-source{font-size:.75rem;color:var(--gold);font-weight:500}
+.stat-card .stat-source{font-size:.75rem;color:var(--gold);font-weight:600;letter-spacing:.05em}
 
 /* ============================================================
    WHAT WE DO (Solutions)
@@ -188,22 +211,12 @@ p{line-height:1.7}
 @media(min-width:1024px){.programs-text h2{font-size:3rem}}
 .programs-text p{color:var(--muted-fg);font-size:1rem;line-height:1.7;margin-bottom:1.5rem}
 
-/* ============================================================
-   CREDIBILITY
-   ============================================================ */
-.credibility-section{background:var(--cream);position:relative;overflow:hidden}
-.credibility-grid{display:grid;grid-template-columns:1fr;gap:2rem}
-@media(min-width:768px){.credibility-grid{grid-template-columns:repeat(2,1fr)}}
-.cred-item{display:flex;gap:1.25rem;padding:1.5rem}
-.cred-icon{width:3.5rem;height:3.5rem;border-radius:.75rem;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.cred-icon svg{width:1.75rem;height:1.75rem;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.cred-item h3{font-size:1.25rem;font-weight:600;color:var(--fg);margin-bottom:.5rem}
-.cred-item p{color:var(--muted-fg);font-size:.875rem;line-height:1.7}
 
 /* ============================================================
    ACCELERATOR
    ============================================================ */
-.accelerator-section{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%)}
+.accelerator-section{background:var(--navy)}
+
 .accel-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
 @media(min-width:1024px){.accel-grid{grid-template-columns:1fr 1fr;gap:5rem}}
 .accel-text h2{font-size:1.875rem;font-weight:700;color:var(--primary-fg);margin-bottom:1.5rem}
@@ -271,6 +284,49 @@ p{line-height:1.7}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ============================================================
+   COST OF INACTION
+   ============================================================ */
+.cost-section{background:#fff;position:relative;overflow:hidden}
+.cost-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+@media(min-width:1024px){.cost-grid{grid-template-columns:1fr 1fr;gap:4rem}}
+.cost-text{order:2}
+@media(min-width:1024px){.cost-text{order:1}}
+.cost-text h2{font-size:1.875rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+@media(min-width:768px){.cost-text h2{font-size:2.25rem}}
+@media(min-width:1024px){.cost-text h2{font-size:2.75rem}}
+.cost-text .cost-intro{color:var(--muted-fg);font-size:1rem;line-height:1.7;margin-bottom:1.5rem}
+@media(min-width:768px){.cost-text .cost-intro{font-size:1.125rem}}
+.cost-text .cost-highlight{background:linear-gradient(135deg,hsl(210 50% 96%) 0%,hsl(42 60% 96%) 100%);border-left:4px solid var(--gold);padding:1.25rem 1.5rem;border-radius:0 .75rem .75rem 0;margin-bottom:1.5rem}
+.cost-text .cost-highlight p{color:var(--fg);font-size:1rem;font-weight:500;margin:0;line-height:1.6}
+.cost-text .cost-highlight strong{color:var(--navy);font-weight:700}
+.cost-source{font-size:.75rem;color:var(--muted-fg);font-style:italic}
+.cost-source span{color:var(--gold-dark);font-style:normal;font-weight:600}
+.cost-chart-side{order:1;position:relative}
+@media(min-width:1024px){.cost-chart-side{order:2}}
+.cost-chart-container{position:relative;background:linear-gradient(145deg,hsl(210 40% 98%) 0%,hsl(210 30% 95%) 100%);border:1px solid hsl(210 20% 90%);border-radius:1rem;padding:1.5rem 1rem 1rem;box-shadow:0 4px 24px rgba(0,0,0,.06)}
+@media(min-width:768px){.cost-chart-container{padding:2rem 1.5rem 1.5rem}}
+.cost-chart-labels{display:flex;justify-content:space-between;margin-bottom:.75rem;padding:0 .25rem}
+@media(min-width:768px){.cost-chart-labels{padding:0 .5rem}}
+.cost-chart-label{text-align:center}
+.cost-chart-label .year{font-size:.65rem;color:var(--muted-fg);font-weight:500;letter-spacing:.05em}
+@media(min-width:768px){.cost-chart-label .year{font-size:.75rem}}
+.cost-chart-label .value{font-size:.875rem;font-weight:700;color:var(--navy);margin-top:.25rem;opacity:0;transform:translateY(10px);transition:all .5s cubic-bezier(.4,0,.2,1)}
+@media(min-width:768px){.cost-chart-label .value{font-size:1.125rem}}
+.cost-chart-label.start .value,.cost-chart-label.end .value{font-size:1rem;color:var(--gold-dark)}
+@media(min-width:768px){.cost-chart-label.start .value,.cost-chart-label.end .value{font-size:1.25rem}}
+.cost-chart-label.visible .value{opacity:1;transform:translateY(0)}
+.cost-chart-svg{width:100%;height:140px;overflow:visible}
+@media(min-width:768px){.cost-chart-svg{height:180px}}
+.cost-grid-line{stroke:hsl(210 20% 88%);stroke-width:1}
+.cost-area{fill:url(#costGradient);opacity:0;transition:opacity 1s ease .3s}
+.cost-area.visible{opacity:1}
+.cost-line{fill:none;stroke:url(#costLineGradient);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1000;stroke-dashoffset:1000;filter:drop-shadow(0 2px 4px rgba(212,168,67,.3))}
+.cost-line.visible{stroke-dashoffset:0;transition:stroke-dashoffset 2s cubic-bezier(.4,0,.2,1)}
+.cost-dot{fill:var(--gold-dark);r:0;transition:r .4s cubic-bezier(.34,1.56,.64,1)}
+.cost-dot.visible{r:5}
+.cost-dot.end-dot.visible{r:7}
+
+/* ============================================================
    CTA
    ============================================================ */
 .cta-section{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-dark) 60%,hsl(210 55% 10%) 100%);position:relative;overflow:hidden;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold)}
@@ -330,8 +386,20 @@ p{line-height:1.7}
 
       <nav class="desktop-nav">
         <a href="index.html" class="active">Home</a>
-        <a href="workshops.html">Workshops</a>
-        <a href="accelerator.html">Accelerator Program</a>
+        <a href="consulting.html">Consulting</a>
+        <div class="nav-dropdown">
+          <a href="workshops.html">Workshops</a>
+          <div class="dropdown-menu">
+            <a href="workshops/cultural-competency.html">Cultural Competency &amp; Humility</a>
+            <a href="workshops/health-equity.html">Health Equity Fundamentals</a>
+            <a href="workshops/sdoh.html">Social Determinants of Health</a>
+            <a href="workshops/resilience.html">Building Resilience</a>
+            <a href="workshops/difficult-conversations.html">Difficult Conversations</a>
+            <a href="workshops/communication.html">Communication Skills</a>
+            <a href="workshops/inclusive-leadership.html">Inclusive Leadership</a>
+            <a href="workshops/implicit-bias.html">Overcoming Implicit Bias</a>
+          </div>
+        </div>
         <a href="about.html">About Us</a>
         <a href="contact.html" class="btn btn-gold">Contact Us</a>
       </nav>
@@ -345,8 +413,8 @@ p{line-height:1.7}
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
       <a href="index.html">Home</a>
+      <a href="consulting.html">Consulting</a>
       <a href="workshops.html">Workshops</a>
-      <a href="accelerator.html">Accelerator Program</a>
       <a href="about.html">About Us</a>
       <a href="contact.html" class="btn btn-gold">Contact Us</a>
     </div>
@@ -368,7 +436,7 @@ p{line-height:1.7}
         Redirecting Trends &amp; Elevating Outcomes for Improved
         <span class="text-script text-gold" style="text-transform:none;letter-spacing:0"> Data</span>
       </h1>
-      <p>We are dedicated to building healthcare that works for everyone. Our cutting-edge strategies and culturally responsive programs help organizations address systemic inequities and health disparities. Working together, we enhance outcomes and build more equitable healthcare for all.</p>
+      <p><strong>Elevating Access. Advancing Outcomes. Transforming Care.</strong><br>Health equity strategies designed for today's healthcare systems.</p>
       <a href="contact.html" class="btn btn-gold btn-gold-lg">
         Start the Conversation
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
@@ -381,20 +449,33 @@ p{line-height:1.7}
      STATS
      ============================================================ -->
 <section class="stats-section" id="stats">
+  <!-- Animated EKG heartbeat line -->
+  <div class="stats-ekg">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" fill="none">
+      <path d="M0 30 L100 30 L120 30 L140 30 L155 30 L165 10 L175 50 L185 5 L195 55 L205 25 L215 35 L225 30 L300 30 L320 30 L340 30 L355 30 L365 10 L375 50 L385 5 L395 55 L405 25 L415 35 L425 30 L500 30 L520 30 L540 30 L555 30 L565 10 L575 50 L585 5 L595 55 L605 25 L615 35 L625 30 L700 30 L720 30 L740 30 L755 30 L765 10 L775 50 L785 5 L795 55 L805 25 L815 35 L825 30 L900 30 L920 30 L940 30 L955 30 L965 10 L975 50 L985 5 L995 55 L1005 25 L1015 35 L1025 30 L1100 30 L1120 30 L1140 30 L1155 30 L1165 10 L1175 50 L1185 5 L1195 55 L1200 30" stroke="url(#ekgGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <defs>
+        <linearGradient id="ekgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="rgba(212,168,67,.3)"/>
+          <stop offset="50%" stop-color="rgba(255,255,255,.5)"/>
+          <stop offset="100%" stop-color="rgba(212,168,67,.3)"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
   <div class="container-wide">
     <div class="stats-grid">
-      <div class="stat-card reveal">
-        <div class="stat-number" data-target="93" data-prefix="$" data-suffix="B">93B</div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="93" data-prefix="$" data-suffix="B">$0B</div>
         <p class="stat-label">in excess medical care costs due to health disparities</p>
         <span class="stat-source">(Altarum)</span>
       </div>
-      <div class="stat-card reveal delay-1">
-        <div class="stat-number" data-target="42" data-prefix="$" data-suffix="B">42B</div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="42" data-prefix="$" data-suffix="B">$0B</div>
         <p class="stat-label">in untapped productivity from racial and ethnic disparities</p>
         <span class="stat-source">(Altarum)</span>
       </div>
-      <div class="stat-card reveal delay-2">
-        <div class="stat-number" data-target="1" data-suffix="T+">1T+</div>
+      <div class="stat-card">
+        <div class="stat-number" data-target="1" data-suffix="T+">0T+</div>
         <p class="stat-label">projected annual cost of inaction by 2040</p>
         <span class="stat-source">(Deloitte)</span>
       </div>
@@ -472,81 +553,6 @@ p{line-height:1.7}
 </section>
 
 <!-- ============================================================
-     PROGRAMS OVERVIEW
-     ============================================================ -->
-<section class="programs-section section-padding" id="programs">
-  <div class="container-wide">
-    <div class="programs-grid">
-      <div class="programs-image reveal-left">
-        <img src="images/workshop-corporate.jpg" alt="Corporate training workshop">
-      </div>
-      <div class="programs-text reveal-right">
-        <h2>Our Program and <span class="text-script text-gold">Workshops</span></h2>
-        <p>We deliver customized capacity-building programs and workshops designed to drive meaningful transformation in organizations. Through expert-led training, interactive sessions, and comprehensive learning experiences, we equip professionals with the knowledge and practical strategies needed to advance equity initiatives and improve outcomes.</p>
-        <p>From cutting-edge AI analytics to implementation science, we combine advanced strategies, culturally responsive programming, and evidence-based practices to tackle the root causes of health disparities.</p>
-        <a href="workshops.html" class="btn btn-gold btn-gold-lg">
-          See Workshops
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     CREDIBILITY
-     ============================================================ -->
-<section class="credibility-section section-padding" id="credibility">
-  <div class="healthcare-deco">
-    <svg style="top:2rem;right:0;width:400px;height:96px;opacity:.08" viewBox="0 0 400 80" fill="none"><path d="M0 40 L60 40 L80 40 L100 40 L110 20 L120 60 L130 10 L140 70 L150 35 L160 45 L170 40 L400 40" stroke="hsl(210 50% 25%)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <svg style="top:5rem;left:10%;width:2rem;height:2rem;opacity:.06" viewBox="0 0 24 24" fill="none"><path d="M12 4V20M4 12H20" stroke="hsl(190 45% 40%)" stroke-width="3" stroke-linecap="round"/></svg>
-    <svg style="bottom:25%;right:8%;width:2.5rem;height:2.5rem;opacity:.07" viewBox="0 0 24 24" fill="none"><path d="M12 4V20M4 12H20" stroke="hsl(190 45% 35%)" stroke-width="2.5" stroke-linecap="round"/></svg>
-    <svg style="bottom:0;left:0;width:100%;height:5rem;opacity:.05" viewBox="0 0 1200 80" fill="none" preserveAspectRatio="none"><path d="M0 40 Q100 20 200 40 T400 40 T600 40 T800 40 T1000 40 T1200 40" stroke="hsl(210 50% 30%)" stroke-width="2" fill="none"/><path d="M0 55 Q150 35 300 55 T600 55 T900 55 T1200 55" stroke="hsl(190 45% 40%)" stroke-width="1.5" fill="none"/></svg>
-  </div>
-
-  <div class="container-wide relative-z">
-    <div class="credibility-grid">
-      <div class="cred-item reveal">
-        <div class="cred-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-        </div>
-        <div>
-          <h3>Expertise and Leadership</h3>
-          <p>Our solutions are led by established healthcare experts who bring deep experience in health equity implementation. We combine academic rigor with practical expertise to deliver transformative results.</p>
-        </div>
-      </div>
-      <div class="cred-item reveal delay-1">
-        <div class="cred-icon">
-          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        </div>
-        <div>
-          <h3>Measurable Transformation</h3>
-          <p>Healthcare inequities cost organizations billions annually&mdash;$93B in excess medical costs and $42B in lost productivity. Our data-driven approaches help organizations address these challenges while improving patient outcomes.</p>
-        </div>
-      </div>
-      <div class="cred-item reveal delay-2">
-        <div class="cred-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
-        <div>
-          <h3>Community Partnerships</h3>
-          <p>Success requires strong community connections. We foster meaningful partnerships between healthcare organizations, community leaders, and policymakers to create lasting positive change.</p>
-        </div>
-      </div>
-      <div class="cred-item reveal delay-3">
-        <div class="cred-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        </div>
-        <div>
-          <h3>Comprehensive Evaluation</h3>
-          <p>We develop robust frameworks to measure and track the impact of your equity initiatives. Through continuous monitoring and detailed analytics, we help ensure sustainable progress toward your goals.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
      ACCELERATOR
      ============================================================ -->
 <section class="accelerator-section section-padding" id="accelerator">
@@ -592,6 +598,101 @@ p{line-height:1.7}
             <p>Courage to lead authentically and embrace your role in moving this work forward.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COST OF INACTION
+     ============================================================ -->
+<section class="cost-section section-padding" id="cost-of-inaction">
+  <div class="container-wide">
+    <div class="cost-grid">
+      <div class="cost-text reveal-left">
+        <h2>The Cost of <span class="text-script text-gold">Inaction</span></h2>
+        <p class="cost-intro">Health inequities already cost the U.S. healthcare system hundreds of billions annually. Without meaningful intervention, this burden will continue to accelerate—tripling by 2040.</p>
+        <div class="cost-highlight">
+          <p><strong>Every year we wait</strong>, the cost of addressing health disparities grows exponentially. The time to act is now—before the financial and human toll becomes insurmountable.</p>
+        </div>
+        <p class="cost-source">Source: <span>Bain & Company, 2023</span> — U.S. Healthcare System Analysis</p>
+      </div>
+
+      <div class="cost-chart-side reveal-right">
+        <div class="cost-chart-container">
+          <div class="cost-chart-labels">
+            <div class="cost-chart-label start" data-delay="0">
+              <div class="year">2024</div>
+              <div class="value">$320B</div>
+            </div>
+            <div class="cost-chart-label" data-delay="400">
+              <div class="year">2028</div>
+              <div class="value">$450B</div>
+            </div>
+            <div class="cost-chart-label" data-delay="800">
+              <div class="year">2032</div>
+              <div class="value">$600B</div>
+            </div>
+            <div class="cost-chart-label" data-delay="1200">
+              <div class="year">2036</div>
+              <div class="value">$800B</div>
+            </div>
+            <div class="cost-chart-label end" data-delay="1600">
+              <div class="year">2040</div>
+              <div class="value">$1T+</div>
+            </div>
+          </div>
+
+          <svg class="cost-chart-svg" viewBox="0 0 500 200" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="costGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="rgba(212,168,67,.25)"/>
+                <stop offset="100%" stop-color="rgba(212,168,67,.02)"/>
+              </linearGradient>
+              <linearGradient id="costLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="hsl(38 85% 45%)"/>
+                <stop offset="50%" stop-color="hsl(42 80% 50%)"/>
+                <stop offset="100%" stop-color="hsl(38 85% 45%)"/>
+              </linearGradient>
+            </defs>
+            <!-- Grid lines -->
+            <line class="cost-grid-line" x1="0" y1="50" x2="500" y2="50"/>
+            <line class="cost-grid-line" x1="0" y1="100" x2="500" y2="100"/>
+            <line class="cost-grid-line" x1="0" y1="150" x2="500" y2="150"/>
+            <!-- Area fill -->
+            <path class="cost-area" d="M0,170 C60,165 100,150 125,140 C180,120 220,95 250,75 C300,45 360,25 400,15 C440,5 480,0 500,0 L500,200 L0,200 Z"/>
+            <!-- Line -->
+            <path class="cost-line" d="M0,170 C60,165 100,150 125,140 C180,120 220,95 250,75 C300,45 360,25 400,15 C440,5 480,0 500,0"/>
+            <!-- Data points -->
+            <circle class="cost-dot" cx="0" cy="170" data-delay="0"/>
+            <circle class="cost-dot" cx="125" cy="140" data-delay="400"/>
+            <circle class="cost-dot" cx="250" cy="75" data-delay="800"/>
+            <circle class="cost-dot" cx="375" cy="25" data-delay="1200"/>
+            <circle class="cost-dot end-dot" cx="500" cy="0" data-delay="1600"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROGRAMS OVERVIEW
+     ============================================================ -->
+<section class="programs-section section-padding" id="programs">
+  <div class="container-wide">
+    <div class="programs-grid">
+      <div class="programs-image reveal-left">
+        <img src="images/workshop-corporate.jpg" alt="Corporate training workshop">
+      </div>
+      <div class="programs-text reveal-right">
+        <h2>Our Program and <span class="text-script text-gold">Workshops</span></h2>
+        <p>We deliver customized capacity-building programs and workshops designed to drive meaningful transformation in organizations. Through expert-led training, interactive sessions, and comprehensive learning experiences, we equip professionals with the knowledge and practical strategies needed to advance equity initiatives and improve outcomes.</p>
+        <p>From cutting-edge AI analytics to implementation science, we combine advanced strategies, culturally responsive programming, and evidence-based practices to tackle the root causes of health disparities.</p>
+        <a href="workshops.html" class="btn btn-gold btn-gold-lg">
+          See Workshops
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
     </div>
   </div>
@@ -848,8 +949,8 @@ p{line-height:1.7}
           <h4>Navigation</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
+            <li><a href="consulting.html">Consulting</a></li>
             <li><a href="workshops.html">Workshops</a></li>
-            <li><a href="accelerator.html">Accelerator Program</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
@@ -963,6 +1064,133 @@ p{line-height:1.7}
     });
 
     goTo(0);
+  }
+
+  /* ----------------------------------------------------------
+     STAT CARDS — STAGGERED REVEAL + NUMBER COUNTER
+     ---------------------------------------------------------- */
+  var statCards = document.querySelectorAll('.stat-card');
+
+  function animateCounter(el){
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1600;
+    var frameDuration = 1000 / 60;
+    var totalFrames = Math.round(duration / frameDuration);
+    var frame = 0;
+
+    function easeOutQuart(t){
+      return 1 - Math.pow(1 - t, 4);
+    }
+
+    var counter = setInterval(function(){
+      frame++;
+      var progress = easeOutQuart(frame / totalFrames);
+      var current = Math.round(progress * target);
+      el.textContent = prefix + current + suffix;
+      if(frame === totalFrames){
+        clearInterval(counter);
+        el.textContent = prefix + target + suffix;
+      }
+    }, frameDuration);
+  }
+
+  function resetStats(){
+    statCards.forEach(function(card){
+      card.classList.remove('visible');
+    });
+    document.querySelectorAll('.stat-number').forEach(function(num){
+      var prefix = num.getAttribute('data-prefix') || '';
+      var suffix = num.getAttribute('data-suffix') || '';
+      num.textContent = prefix + '0' + suffix;
+    });
+  }
+
+  function triggerStats(){
+    statCards.forEach(function(card){
+      card.classList.add('visible');
+    });
+    setTimeout(function(){
+      document.querySelectorAll('.stat-number').forEach(function(num){
+        animateCounter(num);
+      });
+    }, 150);
+  }
+
+  if('IntersectionObserver' in window){
+    var statsObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          triggerStats();
+        } else {
+          resetStats();
+        }
+      });
+    },{threshold:0.3});
+
+    var statsSection = document.querySelector('.stats-section');
+    if(statsSection) statsObs.observe(statsSection);
+  } else {
+    statCards.forEach(function(card){ card.classList.add('visible'); });
+  }
+
+  /* ----------------------------------------------------------
+     COST OF INACTION CHART ANIMATION
+     ---------------------------------------------------------- */
+  var costSection = document.querySelector('.cost-section');
+  var costLine = document.querySelector('.cost-line');
+  var costArea = document.querySelector('.cost-area');
+  var costDots = document.querySelectorAll('.cost-dot');
+  var costLabels = document.querySelectorAll('.cost-chart-label');
+  var costAnimated = false;
+
+  function animateCostChart(){
+    if(costAnimated) return;
+    costAnimated = true;
+
+    // Animate line
+    if(costLine) costLine.classList.add('visible');
+    // Animate area
+    if(costArea) costArea.classList.add('visible');
+
+    // Animate dots with staggered delay
+    costDots.forEach(function(dot){
+      var delay = parseInt(dot.getAttribute('data-delay') || 0, 10);
+      setTimeout(function(){
+        dot.classList.add('visible');
+      }, delay + 300);
+    });
+
+    // Animate labels with staggered delay
+    costLabels.forEach(function(label){
+      var delay = parseInt(label.getAttribute('data-delay') || 0, 10);
+      setTimeout(function(){
+        label.classList.add('visible');
+      }, delay + 500);
+    });
+  }
+
+  function resetCostChart(){
+    costAnimated = false;
+    if(costLine) costLine.classList.remove('visible');
+    if(costArea) costArea.classList.remove('visible');
+    costDots.forEach(function(dot){ dot.classList.remove('visible'); });
+    costLabels.forEach(function(label){ label.classList.remove('visible'); });
+  }
+
+  if('IntersectionObserver' in window && costSection){
+    var costObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          animateCostChart();
+        } else {
+          resetCostChart();
+        }
+      });
+    },{threshold:0.3});
+
+    costObs.observe(costSection);
   }
 
 })();

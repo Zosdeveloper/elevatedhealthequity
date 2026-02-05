@@ -105,6 +105,17 @@ p{line-height:1.7}
 .desktop-nav a{font-size:1rem;font-weight:600;color:var(--navy);opacity:.8;transition:color .3s,opacity .3s}
 .desktop-nav a:hover,.desktop-nav a.active{opacity:1;color:var(--navy-dark)}
 .desktop-nav a.active{border-bottom:2px solid var(--gold);padding-bottom:2px}
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown>a{display:flex;align-items:center;gap:.35rem;padding-bottom:.5rem;margin-bottom:-.5rem;position:relative;z-index:2}
+.nav-dropdown>a span{pointer-events:none}
+.nav-dropdown>a::after{content:'';width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:0;transition:opacity .25s,transform .25s}
+.nav-dropdown:hover>a::after{opacity:1;transform:rotate(180deg)}
+.dropdown-menu{position:absolute;top:calc(100% + .25rem);left:50%;transform:translateX(-50%);min-width:280px;background:#fff;border-radius:.5rem;box-shadow:0 12px 40px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:all .25s cubic-bezier(.4,0,.2,1);padding:.5rem 0;z-index:100;pointer-events:none}
+.dropdown-menu::before{content:'';position:absolute;top:-12px;left:0;right:0;height:12px;background:transparent;pointer-events:none}
+.dropdown-menu::after{content:'';position:absolute;top:-.375rem;left:50%;transform:translateX(-50%);width:12px;height:12px;background:#fff;rotate:45deg;box-shadow:-2px -2px 4px rgba(0,0,0,.04)}
+.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto}
+.dropdown-menu a{display:block;padding:.75rem 1.25rem;font-size:.875rem;font-weight:500;color:var(--navy);opacity:1;transition:all .2s;border-left:3px solid transparent}
+.dropdown-menu a:hover{background:var(--cream);color:var(--navy);border-left-color:var(--gold)}
 .hamburger{display:flex;align-items:center;justify-content:center;padding:.5rem;background:none;color:var(--navy);cursor:pointer}
 @media(min-width:1024px){.hamburger{display:none}}
 .hamburger svg{width:1.5rem;height:1.5rem}
@@ -276,8 +287,20 @@ p{line-height:1.7}
 
       <nav class="desktop-nav">
         <a href="index.html">Home</a>
-        <a href="workshops.html">Workshops</a>
-        <a href="accelerator.html" class="active">Accelerator Program</a>
+        <a href="consulting.html">Consulting</a>
+        <div class="nav-dropdown">
+          <a href="workshops.html">Workshops</a>
+          <div class="dropdown-menu">
+            <a href="workshops/cultural-competency.html">Cultural Competency &amp; Humility</a>
+            <a href="workshops/health-equity.html">Health Equity Fundamentals</a>
+            <a href="workshops/sdoh.html">Social Determinants of Health</a>
+            <a href="workshops/resilience.html">Building Resilience</a>
+            <a href="workshops/difficult-conversations.html">Difficult Conversations</a>
+            <a href="workshops/communication.html">Communication Skills</a>
+            <a href="workshops/inclusive-leadership.html">Inclusive Leadership</a>
+            <a href="workshops/implicit-bias.html">Overcoming Implicit Bias</a>
+          </div>
+        </div>
         <a href="about.html">About Us</a>
         <a href="contact.html" class="btn btn-gold">Contact Us</a>
       </nav>
@@ -291,8 +314,8 @@ p{line-height:1.7}
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
       <a href="index.html">Home</a>
+      <a href="consulting.html">Consulting</a>
       <a href="workshops.html">Workshops</a>
-      <a href="accelerator.html">Accelerator Program</a>
       <a href="about.html">About Us</a>
       <a href="contact.html" class="btn btn-gold">Contact Us</a>
     </div>
@@ -309,9 +332,7 @@ p{line-height:1.7}
     <div class="accel-hero-grid">
       <div class="accel-hero-text reveal-left">
         <h1>Health Equity Resilience Accelerator <span class="text-script text-gold" style="text-transform:none;letter-spacing:0">Program</span></h1>
-        <p>Recent legal challenges, political pressures, and public scrutiny have created a climate where well-intentioned equity initiatives can become lightning rods for controversy. Healthcare organizations find themselves in a delicate balancing act, striving to maintain their commitment to providing equitable care to all while ensuring their approaches are legally sound and defensible.</p>
-        <p class="highlight">This is where the <strong class="text-gold">Health Equity Resilience Accelerator</strong> steps in.</p>
-        <p>This 4-week program is designed for Health Equity practitioners who remain dedicated to meeting the needs of all patients but need guidance on how to do so effectively in this unprecedented time in healthcare.</p>
+        <p><strong>Build Resilience. Navigate Change. Lead with Confidence.</strong><br>A 4-week program for health equity practitioners navigating today's complex healthcare landscape.</p>
       </div>
       <div class="accel-hero-img reveal-right">
         <img src="images/accelerator-hero-new.jpeg" alt="Health Equity Resilience Accelerator Program">
@@ -566,8 +587,8 @@ p{line-height:1.7}
           <h4>Navigation</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
+            <li><a href="consulting.html">Consulting</a></li>
             <li><a href="workshops.html">Workshops</a></li>
-            <li><a href="accelerator.html">Accelerator Program</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>

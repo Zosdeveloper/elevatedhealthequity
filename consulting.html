@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Equity Consulting | Elevated Health Equity</title>
+<meta name="description" content="Elevated Health Equity partners with healthcare organizations to embed equity into strategy, operations, and culture—turning intention into measurable, sustainable change.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:hsl(210 40% 15%);line-height:1.6;background:hsl(210 25% 97%);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none}
+h1,h2,h3,h4,h5,h6{font-family:'Montserrat',system-ui,sans-serif;font-weight:600;letter-spacing:-0.025em;line-height:1.2}
+p{line-height:1.7}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --navy:hsl(210 50% 18%);
+  --navy-light:hsl(210 45% 25%);
+  --navy-dark:hsl(210 55% 12%);
+  --gold:hsl(42 90% 55%);
+  --gold-light:hsl(45 100% 70%);
+  --gold-dark:hsl(38 85% 45%);
+  --cream:hsl(203 47% 93%);
+  --cream-dark:hsl(203 40% 88%);
+  --bg:hsl(210 25% 97%);
+  --fg:hsl(210 40% 15%);
+  --muted-fg:hsl(210 15% 45%);
+  --card:hsl(0 0% 100%);
+  --border:hsl(210 20% 88%);
+  --primary-fg:hsl(45 100% 96%);
+  --teal-cta:#176a89;
+  --logo-blue:hsl(203 60% 45%);
+  --radius:0.5rem;
+  --header-h:72px;
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.container-wide{max-width:80rem;margin:0 auto;padding:0 1.5rem}
+@media(min-width:768px){.container-wide{padding:0 2rem}}
+@media(min-width:1024px){.container-wide{padding:0 3rem}}
+.section-padding{padding:5rem 0}
+@media(min-width:768px){.section-padding{padding:7rem 0}}
+@media(min-width:1024px){.section-padding{padding:8rem 0}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:.15s}
+.delay-2{transition-delay:.3s}
+.delay-3{transition-delay:.45s}
+.delay-4{transition-delay:.6s}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+.text-script{font-style:italic;font-weight:500}
+.text-gold{color:var(--gold)}
+.text-navy{color:var(--navy)}
+.text-muted{color:var(--muted-fg)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;white-space:nowrap;border-radius:9999px;font-size:.875rem;font-weight:600;transition:all .3s;cursor:pointer;text-align:center;line-height:1}
+.btn-gold{background:var(--gold);color:var(--navy);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold:hover{background:var(--gold-light);box-shadow:0 8px 24px rgba(212,168,67,.2)}
+.btn-gold-lg{height:3.5rem;padding:0 2.5rem;font-size:1rem}
+.btn-gold-outline{background:transparent;color:var(--gold);border:2px solid var(--gold);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold-outline:hover{background:var(--gold);color:var(--navy)}
+.btn-navy{background:var(--navy);color:#fff;text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-navy:hover{background:var(--navy-light);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.btn svg{width:1rem;height:1rem;flex-shrink:0;transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:.375rem 0}
+@media(min-width:768px){.header-inner{padding:.5rem 0}}
+.header-logo img{height:2.5rem;width:auto}
+@media(min-width:768px){.header-logo img{height:3.5rem}}
+@media(min-width:1024px){.header-logo img{height:4.5rem}}
+.desktop-nav{display:none;align-items:center;gap:2rem}
+@media(min-width:1024px){.desktop-nav{display:flex}}
+.desktop-nav a{font-size:1rem;font-weight:600;color:var(--navy);opacity:.8;transition:color .3s,opacity .3s}
+.desktop-nav a:hover,.desktop-nav a.active{opacity:1;color:var(--navy-dark)}
+.desktop-nav a.active{border-bottom:2px solid var(--gold);padding-bottom:2px}
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown>a{display:flex;align-items:center;gap:.35rem;padding-bottom:.5rem;margin-bottom:-.5rem;position:relative;z-index:2}
+.nav-dropdown>a span{pointer-events:none}
+.nav-dropdown>a::after{content:'';width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:0;transition:opacity .25s,transform .25s}
+.nav-dropdown:hover>a::after{opacity:1;transform:rotate(180deg)}
+.dropdown-menu{position:absolute;top:calc(100% + .25rem);left:50%;transform:translateX(-50%);min-width:280px;background:#fff;border-radius:.5rem;box-shadow:0 12px 40px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:all .25s cubic-bezier(.4,0,.2,1);padding:.5rem 0;z-index:100;pointer-events:none}
+.dropdown-menu::before{content:'';position:absolute;top:-12px;left:0;right:0;height:12px;background:transparent;pointer-events:none}
+.dropdown-menu::after{content:'';position:absolute;top:-.375rem;left:50%;transform:translateX(-50%);width:12px;height:12px;background:#fff;rotate:45deg;box-shadow:-2px -2px 4px rgba(0,0,0,.04)}
+.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto}
+.dropdown-menu a{display:block;padding:.75rem 1.25rem;font-size:.875rem;font-weight:500;color:var(--navy);opacity:1;transition:all .2s;border-left:3px solid transparent}
+.dropdown-menu a:hover{background:var(--cream);color:var(--navy);border-left-color:var(--gold)}
+.hamburger{display:flex;align-items:center;justify-content:center;padding:.5rem;background:none;color:var(--navy);cursor:pointer}
+@media(min-width:1024px){.hamburger{display:none}}
+.hamburger svg{width:1.5rem;height:1.5rem}
+.mobile-nav{display:none;background:#fff;border-top:1px solid #f3f4f6;padding:1.5rem}
+.mobile-nav.open{display:block}
+@media(min-width:1024px){.mobile-nav{display:none!important}}
+.mobile-nav a{display:block;padding:.5rem 0;font-size:1rem;font-weight:500;color:var(--navy);opacity:.8;transition:color .3s}
+.mobile-nav a:hover{color:var(--navy);opacity:1}
+.mobile-nav .btn{width:100%;margin-top:1rem;justify-content:center}
+
+/* ============================================================
+   CONSULTING HERO
+   ============================================================ */
+.consulting-hero{position:relative;min-height:85vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 50%,hsl(210 55% 8%) 100%)}
+.consulting-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 80% 20%,rgba(212,168,67,.08) 0%,transparent 50%),radial-gradient(ellipse 80% 60% at 10% 80%,rgba(23,106,137,.1) 0%,transparent 40%);pointer-events:none}
+.consulting-hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");opacity:.02;pointer-events:none}
+.consulting-hero-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;position:relative;z-index:1}
+@media(min-width:1024px){.consulting-hero-grid{grid-template-columns:1.2fr 1fr;gap:4rem}}
+.consulting-hero-text{padding:2rem 0}
+.consulting-hero-text .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:var(--gold);margin-bottom:1.5rem;padding:.5rem 1rem;background:rgba(212,168,67,.1);border-radius:9999px;border:1px solid rgba(212,168,67,.2)}
+.consulting-hero-text h1{font-size:2.25rem;font-weight:700;color:#fff;line-height:1.1;margin-bottom:1.5rem}
+@media(min-width:768px){.consulting-hero-text h1{font-size:3rem}}
+@media(min-width:1024px){.consulting-hero-text h1{font-size:3.5rem}}
+@media(min-width:1280px){.consulting-hero-text h1{font-size:4rem}}
+.consulting-hero-text h1 .script-line{display:block;margin-top:.25rem}
+.consulting-hero-text p{color:rgba(255,255,255,.8);font-size:1.125rem;line-height:1.7;margin-bottom:2rem;max-width:36rem}
+.consulting-hero-text .hero-ctas{display:flex;flex-wrap:wrap;gap:1rem}
+.consulting-hero-visual{position:relative;display:none}
+@media(min-width:1024px){.consulting-hero-visual{display:block}}
+.hero-framework{position:relative;width:100%;max-width:420px;margin:0 auto}
+.hero-framework-center{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);display:flex;align-items:center;justify-content:center;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 8px 32px rgba(212,168,67,.3);z-index:2}
+.hero-framework-center span{color:var(--navy);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;text-align:center;line-height:1.3}
+.hero-dimension{position:absolute;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.06);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-align:center;padding:.75rem;transition:all .4s cubic-bezier(.4,0,.2,1)}
+.hero-dimension:hover{background:rgba(255,255,255,.12);border-color:rgba(212,168,67,.3);transform:scale(1.08)}
+.hero-dimension span{color:#fff;font-size:.65rem;font-weight:600;line-height:1.3;text-transform:uppercase;letter-spacing:.03em}
+.hero-dimension.d1{top:0;left:50%;transform:translateX(-50%)}
+.hero-dimension.d1:hover{transform:translateX(-50%) scale(1.08)}
+.hero-dimension.d2{top:18%;right:5%}
+.hero-dimension.d3{bottom:18%;right:5%}
+.hero-dimension.d4{bottom:0;left:50%;transform:translateX(-50%)}
+.hero-dimension.d4:hover{transform:translateX(-50%) scale(1.08)}
+.hero-dimension.d5{bottom:18%;left:5%}
+.hero-dimension.d6{top:18%;left:5%}
+.hero-connector{position:absolute;top:50%;left:50%;width:100%;height:100%;pointer-events:none}
+.hero-connector::before{content:'';position:absolute;top:50%;left:50%;width:280px;height:280px;border:1px dashed rgba(212,168,67,.25);border-radius:50%;transform:translate(-50%,-50%);animation:connectorPulse 4s ease-in-out infinite}
+@keyframes connectorPulse{0%,100%{opacity:.25;transform:translate(-50%,-50%) scale(1)}50%{opacity:.4;transform:translate(-50%,-50%) scale(1.02)}}
+
+/* ============================================================
+   CASE FOR EQUITY
+   ============================================================ */
+.case-section{background:var(--cream);position:relative;overflow:hidden}
+.case-section::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(212,168,67,.03));pointer-events:none}
+.case-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+@media(min-width:1024px){.case-grid{grid-template-columns:1fr 1.2fr;gap:4rem}}
+.case-text h2{font-size:1.875rem;font-weight:700;color:var(--navy);margin-bottom:1.5rem}
+@media(min-width:768px){.case-text h2{font-size:2.25rem}}
+@media(min-width:1024px){.case-text h2{font-size:2.75rem}}
+.case-text p{color:var(--muted-fg);font-size:1.0625rem;line-height:1.8;margin-bottom:1.5rem}
+.case-text .takeaway{background:#fff;border-left:4px solid var(--gold);padding:1.5rem;border-radius:0 .75rem .75rem 0;box-shadow:0 4px 16px rgba(0,0,0,.04)}
+.case-text .takeaway p{color:var(--fg);font-weight:500;font-style:italic;margin:0;font-size:1rem}
+.case-stats{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:600px){.case-stats{grid-template-columns:repeat(2,1fr)}}
+.case-stat{background:#fff;border-radius:.75rem;padding:1.75rem;border:1px solid var(--border);transition:all .3s}
+.case-stat:hover{box-shadow:0 8px 24px rgba(0,0,0,.06);border-color:rgba(212,168,67,.3)}
+.case-stat .stat-value{font-size:2.5rem;font-weight:700;color:var(--navy);line-height:1;margin-bottom:.5rem}
+@media(min-width:768px){.case-stat .stat-value{font-size:3rem}}
+.case-stat .stat-value span{color:var(--gold)}
+.case-stat .stat-label{color:var(--muted-fg);font-size:.875rem;line-height:1.5;margin-bottom:.5rem}
+.case-stat .stat-source{font-size:.7rem;color:var(--gold-dark);font-weight:600}
+
+/* ============================================================
+   SERVICES SECTION
+   ============================================================ */
+.services-section{background:#fff;position:relative}
+.services-header{text-align:center;margin-bottom:4rem}
+.services-header h2{font-size:1.875rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+@media(min-width:768px){.services-header h2{font-size:2.25rem}}
+@media(min-width:1024px){.services-header h2{font-size:3rem}}
+.services-header p{color:var(--muted-fg);font-size:1.125rem;max-width:42rem;margin:0 auto}
+.services-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+@media(min-width:768px){.services-grid{grid-template-columns:repeat(2,1fr)}}
+.service-card-lg{background:var(--bg);border-radius:1rem;padding:2rem;border:1px solid var(--border);transition:all .4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+@media(min-width:768px){.service-card-lg{padding:2.5rem}}
+.service-card-lg::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--gold-light));opacity:0;transition:opacity .3s}
+.service-card-lg:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);border-color:transparent;transform:translateY(-4px)}
+.service-card-lg:hover::before{opacity:1}
+.service-card-lg .service-icon-lg{width:4rem;height:4rem;border-radius:.75rem;background:var(--navy);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem}
+.service-card-lg .service-icon-lg svg{width:2rem;height:2rem;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.service-card-lg h3{font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:.75rem}
+@media(min-width:768px){.service-card-lg h3{font-size:1.375rem}}
+.service-card-lg .service-desc{color:var(--muted-fg);font-size:.9375rem;line-height:1.7;margin-bottom:1.25rem}
+.service-card-lg ul{display:flex;flex-direction:column;gap:.5rem}
+.service-card-lg li{display:flex;align-items:flex-start;gap:.5rem;color:var(--fg);font-size:.875rem}
+.service-card-lg li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:.5rem}
+
+/* ============================================================
+   HOW WE ENGAGE
+   ============================================================ */
+.engage-section{background:var(--bg);position:relative}
+.engage-header{text-align:center;margin-bottom:4rem}
+.engage-header h2{font-size:1.875rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+@media(min-width:768px){.engage-header h2{font-size:2.25rem}}
+@media(min-width:1024px){.engage-header h2{font-size:3rem}}
+.engage-header p{color:var(--muted-fg);font-size:1.125rem;max-width:36rem;margin:0 auto}
+.engage-timeline{position:relative;max-width:56rem;margin:0 auto}
+.engage-timeline::before{content:'';position:absolute;top:0;bottom:0;left:50%;width:2px;background:linear-gradient(180deg,var(--gold),var(--gold-light),var(--gold));transform:translateX(-50%);display:none}
+@media(min-width:768px){.engage-timeline::before{display:block}}
+.engage-phase{display:grid;grid-template-columns:1fr;gap:2rem;margin-bottom:3rem;position:relative}
+@media(min-width:768px){.engage-phase{grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center}}
+.engage-phase:last-child{margin-bottom:0}
+.engage-phase .phase-num{display:flex;align-items:center;justify-content:center;width:4rem;height:4rem;border-radius:50%;background:var(--gold);color:var(--navy);font-size:1.25rem;font-weight:700;box-shadow:0 4px 16px rgba(212,168,67,.3);position:relative;z-index:1;order:-1;margin:0 auto 1rem}
+@media(min-width:768px){.engage-phase .phase-num{margin:0;order:0}}
+.engage-phase .phase-content{background:#fff;border-radius:.75rem;padding:2rem;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.04)}
+.engage-phase .phase-content h3{font-size:1.125rem;font-weight:700;color:var(--navy);margin-bottom:.75rem}
+.engage-phase .phase-content ul{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem}
+.engage-phase .phase-content li{color:var(--muted-fg);font-size:.875rem;padding-left:1rem;position:relative}
+.engage-phase .phase-content li::before{content:'';position:absolute;left:0;top:.5rem;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.engage-phase .phase-outcome{font-size:.8125rem;color:var(--gold-dark);font-weight:600;font-style:italic}
+.engage-phase .phase-spacer{display:none}
+@media(min-width:768px){.engage-phase .phase-spacer{display:block}}
+
+/* ============================================================
+   PARTNERS
+   ============================================================ */
+.partners-section{padding:3rem 0;background:var(--cream);overflow:hidden;position:relative}
+.partners-heading{text-align:center;font-size:1.25rem;font-weight:700;color:var(--fg);letter-spacing:.03em;margin-bottom:1.5rem}
+@media(min-width:768px){.partners-heading{font-size:1.5rem}}
+.partners-track{display:flex;animation:scroll 25s linear infinite}
+.partners-track .partner-item{flex-shrink:0;padding:0 2rem;display:flex;align-items:center;justify-content:center;height:10rem}
+@media(min-width:768px){.partners-track .partner-item{padding:0 3rem;height:12rem}}
+.partners-track .partner-item img{height:8rem;width:auto;object-fit:contain}
+@media(min-width:768px){.partners-track .partner-item img{height:10rem}}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ============================================================
+   ACCELERATOR ENTRY POINT
+   ============================================================ */
+.accelerator-entry{background:#fff;position:relative;overflow:hidden}
+.accelerator-entry::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 50%,rgba(212,168,67,.03) 100%);pointer-events:none}
+.accel-entry-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+@media(min-width:1024px){.accel-entry-grid{grid-template-columns:1fr 1fr;gap:4rem}}
+.accel-entry-text .entry-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--gold-dark);margin-bottom:1rem;padding:.5rem 1rem;background:linear-gradient(135deg,rgba(212,168,67,.1),rgba(212,168,67,.05));border-radius:9999px;border:1px solid rgba(212,168,67,.2)}
+.accel-entry-text h2{font-size:1.875rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+@media(min-width:768px){.accel-entry-text h2{font-size:2.25rem}}
+@media(min-width:1024px){.accel-entry-text h2{font-size:2.75rem}}
+.accel-entry-text p{color:var(--muted-fg);font-size:1.0625rem;line-height:1.8;margin-bottom:1.5rem}
+.accel-entry-text .entry-ctas{display:flex;flex-wrap:wrap;gap:1rem}
+.accel-entry-features{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:600px){.accel-entry-features{grid-template-columns:repeat(2,1fr)}}
+.entry-feature{display:flex;gap:1rem;padding:1.25rem;background:var(--bg);border-radius:.75rem;border:1px solid var(--border)}
+.entry-feature .feature-icon{width:2.5rem;height:2.5rem;border-radius:.5rem;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.entry-feature .feature-icon svg{width:1.25rem;height:1.25rem;stroke:var(--gold);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.entry-feature h4{font-size:.9375rem;font-weight:600;color:var(--navy);margin-bottom:.25rem}
+.entry-feature p{font-size:.8125rem;color:var(--muted-fg);line-height:1.5}
+
+/* ============================================================
+   CTA
+   ============================================================ */
+.cta-section{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-dark) 60%,hsl(210 55% 10%) 100%);position:relative;overflow:hidden;border-top:3px solid var(--gold);border-bottom:3px solid var(--gold)}
+.cta-section::before{content:'';position:absolute;top:-40%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,67,.08) 0%,transparent 70%);pointer-events:none}
+.cta-section::after{content:'';position:absolute;bottom:-30%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(212,168,67,.05) 0%,transparent 70%);pointer-events:none}
+.cta-inner{text-align:center;max-width:48rem;margin:0 auto;position:relative;z-index:1}
+.cta-inner h2{font-size:1.875rem;font-weight:700;color:var(--primary-fg);margin-bottom:1.5rem}
+@media(min-width:768px){.cta-inner h2{font-size:2.25rem}}
+@media(min-width:1024px){.cta-inner h2{font-size:3rem}}
+.cta-inner p{color:var(--primary-fg);opacity:.8;font-size:1.125rem;margin-bottom:2.5rem;line-height:1.7}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{background:var(--navy)}
+.footer-inner{padding:5rem 0 1rem}
+@media(min-width:768px){.footer-inner{padding:7rem 0 1rem}}
+@media(min-width:1024px){.footer-inner{padding:8rem 0 1rem}}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem}
+@media(min-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
+.footer-brand{max-width:28rem}
+@media(min-width:1024px){.footer-brand{grid-column:span 1}}
+.footer-brand .brand-name{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
+.footer-brand .brand-name .elevated{font-size:1.5rem;font-weight:700;color:var(--primary-fg);letter-spacing:-.025em}
+.footer-brand .brand-name .he{font-size:1.25rem;color:var(--gold);font-style:italic;font-weight:500}
+.footer-brand p{color:var(--primary-fg);opacity:.7;line-height:1.7;max-width:28rem}
+.footer-col h4{font-size:.875rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.5rem}
+.footer-col ul{display:flex;flex-direction:column;gap:.75rem}
+.footer-col ul a{color:var(--primary-fg);opacity:.7;font-size:.875rem;transition:color .3s}
+.footer-col ul a:hover{color:var(--gold);opacity:1}
+.footer-col .contact-text{color:var(--primary-fg);opacity:.7;font-size:.875rem;margin-bottom:.75rem}
+.footer-col .contact-link{color:var(--gold);font-weight:500;font-size:.875rem;transition:color .3s}
+.footer-col .contact-link:hover{color:var(--gold-light)}
+.footer-bottom{border-top:1px solid var(--navy-light);padding:1rem 0;text-align:center}
+.footer-bottom p{font-size:.875rem;color:var(--primary-fg);opacity:.4}
+
+/* ============================================================
+   HEALTHCARE DECORATIONS
+   ============================================================ */
+.healthcare-deco{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.healthcare-deco svg{position:absolute}
+.relative-z{position:relative;z-index:1}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container-wide">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="consulting.html" class="active">Consulting</a>
+        <div class="nav-dropdown">
+          <a href="workshops.html">Workshops</a>
+          <div class="dropdown-menu">
+            <a href="workshops/cultural-competency.html">Cultural Competency &amp; Humility</a>
+            <a href="workshops/health-equity.html">Health Equity Fundamentals</a>
+            <a href="workshops/sdoh.html">Social Determinants of Health</a>
+            <a href="workshops/resilience.html">Building Resilience</a>
+            <a href="workshops/difficult-conversations.html">Difficult Conversations</a>
+            <a href="workshops/communication.html">Communication Skills</a>
+            <a href="workshops/inclusive-leadership.html">Inclusive Leadership</a>
+            <a href="workshops/implicit-bias.html">Overcoming Implicit Bias</a>
+          </div>
+        </div>
+        <a href="about.html">About Us</a>
+        <a href="contact.html" class="btn btn-gold">Contact Us</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <div class="container-wide">
+      <a href="index.html">Home</a>
+      <a href="consulting.html">Consulting</a>
+      <a href="workshops.html">Workshops</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html" class="btn btn-gold">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top:var(--header-h)">
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="consulting-hero">
+  <div class="container-wide">
+    <div class="consulting-hero-grid">
+      <div class="consulting-hero-text reveal-left">
+        <span class="eyebrow">Health Equity Consulting</span>
+        <h1>Make Equity the <span class="script-line text-script text-gold">Engine of Excellence</span></h1>
+        <p><strong>Strategy. Integration. Transformation.</strong><br>Turning equity from aspiration into measurable, sustainable change.</p>
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn btn-gold btn-gold-lg">
+            Book Discovery Call
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#services" class="btn btn-gold-outline btn-gold-lg">Our Services</a>
+        </div>
+      </div>
+
+      <div class="consulting-hero-visual reveal-right">
+        <div class="hero-framework" style="height:380px">
+          <div class="hero-connector"></div>
+          <div class="hero-framework-center">
+            <span>Equity<br>Framework</span>
+          </div>
+          <div class="hero-dimension d1"><span>Access &amp; Quality of Care</span></div>
+          <div class="hero-dimension d2"><span>Leadership &amp; Governance</span></div>
+          <div class="hero-dimension d3"><span>Community Partnerships</span></div>
+          <div class="hero-dimension d4"><span>Operational Integration</span></div>
+          <div class="hero-dimension d5"><span>Workforce Equity</span></div>
+          <div class="hero-dimension d6"><span>Data Measurement</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE CASE FOR EQUITY
+     ============================================================ -->
+<section class="case-section section-padding" id="case">
+  <div class="container-wide">
+    <div class="case-grid">
+      <div class="case-text reveal-left">
+        <h2>The Case for Equity is Clear—<span class="text-script text-gold">and Urgent</span></h2>
+        <p>Health inequities don't just harm patients—they drain resources, erode trust, and undermine organizational performance. CMS Health Equity Index now links outcomes to reimbursement. Workforce burnout and turnover are 2–3x higher in organizations with low perceived fairness and inclusion.</p>
+        <div class="takeaway">
+          <p>"When equity is operationalized, health systems perform better—clinically, financially, and culturally."</p>
+        </div>
+      </div>
+      <div class="case-stats reveal-right">
+        <div class="case-stat reveal delay-1">
+          <div class="stat-value">$320<span>B</span></div>
+          <div class="stat-label">Annual cost of health inequities to the U.S. healthcare system</div>
+          <div class="stat-source">Bain & Company, 2023</div>
+        </div>
+        <div class="case-stat reveal delay-2">
+          <div class="stat-value">$1<span>T+</span></div>
+          <div class="stat-label">Projected cost by 2040 if disparities remain unaddressed</div>
+          <div class="stat-source">Bain & Company, 2023</div>
+        </div>
+        <div class="case-stat reveal delay-3">
+          <div class="stat-value">2-3<span>x</span></div>
+          <div class="stat-label">Higher workforce burnout & turnover in low-inclusion organizations</div>
+          <div class="stat-source">McKinsey, 2024</div>
+        </div>
+        <div class="case-stat reveal delay-4">
+          <div class="stat-value">CMS</div>
+          <div class="stat-label">Health Equity Index now ties outcomes directly to reimbursement rates</div>
+          <div class="stat-source">Centers for Medicare & Medicaid</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OUR SERVICES
+     ============================================================ -->
+<section class="services-section section-padding" id="services">
+  <div class="container-wide">
+    <div class="services-header reveal">
+      <h2>Our <span class="text-script text-gold">Services</span></h2>
+      <p>Evidence-based, data-driven solutions that translate equity commitments into practical strategies—improving outcomes for patients, strengthening workforce well-being, and building organizational capacity for sustainable change.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card-lg reveal">
+        <div class="service-icon-lg">
+          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 12l4-4 4 4 5-5"/><circle cx="20" cy="7" r="2"/></svg>
+        </div>
+        <h3>Assessments</h3>
+        <p class="service-desc">Comprehensive evaluations that reveal hidden obstacles and opportunities, providing clear visibility into your current state.</p>
+        <ul>
+          <li>Organizational needs analysis</li>
+          <li>Healthcare gap identification</li>
+          <li>Data-driven recommendations</li>
+          <li>Strengths & opportunities mapping</li>
+        </ul>
+      </div>
+
+      <div class="service-card-lg reveal delay-1">
+        <div class="service-icon-lg">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Strategic Consulting</h3>
+        <p class="service-desc">Custom strategy development with implementation roadmaps aligned to your organizational goals and regulatory requirements.</p>
+        <ul>
+          <li>Custom equity strategy development</li>
+          <li>Implementation roadmap design</li>
+          <li>Performance metrics & KPIs</li>
+          <li>Executive advisory services</li>
+        </ul>
+      </div>
+
+      <div class="service-card-lg reveal delay-2">
+        <div class="service-icon-lg">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Capacity Building & Workshops</h3>
+        <p class="service-desc">Skill-building programs and workshops that equip your teams with the knowledge and tools to drive sustainable change.</p>
+        <ul>
+          <li>Training programs & certification</li>
+          <li>Skill enhancement workshops</li>
+          <li>Leadership development</li>
+          <li>Cultural competency training</li>
+        </ul>
+      </div>
+
+      <div class="service-card-lg reveal delay-3">
+        <div class="service-icon-lg">
+          <svg viewBox="0 0 24 24"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.78.77L12 20.64l7.64-7.64.78-.77a5.4 5.4 0 0 0 0-7.65z"/></svg>
+        </div>
+        <h3>Community Initiatives & Strategic Outreach</h3>
+        <p class="service-desc">Building collaborative relationships with diverse stakeholders to strengthen trust and drive community-centered outcomes.</p>
+        <ul>
+          <li>Community health programs</li>
+          <li>Stakeholder engagement</li>
+          <li>Strategic outreach campaigns</li>
+          <li>Partnership development</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW WE ENGAGE
+     ============================================================ -->
+<section class="engage-section section-padding" id="process">
+  <div class="container-wide">
+    <div class="engage-header reveal">
+      <h2>How We <span class="text-script text-gold">Engage</span></h2>
+      <p>A structured approach that meets you where you are and guides you toward sustainable impact.</p>
+    </div>
+
+    <div class="engage-timeline">
+      <!-- Phase 1 -->
+      <div class="engage-phase">
+        <div class="phase-content reveal-left">
+          <h3>Discovery & Insight</h3>
+          <ul>
+            <li>Stakeholder conversations</li>
+            <li>Data + initiative review</li>
+            <li>Strengths, gaps, and opportunities identified</li>
+          </ul>
+          <div class="phase-outcome">Outcome: Clear visibility into your current state.</div>
+        </div>
+        <div class="phase-num reveal">01</div>
+        <div class="phase-spacer"></div>
+      </div>
+
+      <!-- Phase 2 -->
+      <div class="engage-phase">
+        <div class="phase-spacer"></div>
+        <div class="phase-num reveal">02</div>
+        <div class="phase-content reveal-right">
+          <h3>Strategy & Roadmap</h3>
+          <ul>
+            <li>Priority setting</li>
+            <li>Systemwide goals + measures</li>
+            <li>Custom equity roadmap</li>
+          </ul>
+          <div class="phase-outcome">Outcome: A focused plan aligned to organizational goals.</div>
+        </div>
+      </div>
+
+      <!-- Phase 3 -->
+      <div class="engage-phase">
+        <div class="phase-content reveal-left">
+          <h3>Implementation & Capacity Building</h3>
+          <ul>
+            <li>Skill-building + workshops</li>
+            <li>Community engagement support</li>
+            <li>Measurement + advisory guidance</li>
+          </ul>
+          <div class="phase-outcome">Outcome: Sustainable progress and improved outcomes.</div>
+        </div>
+        <div class="phase-num reveal">03</div>
+        <div class="phase-spacer"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PARTNERS
+     ============================================================ -->
+<section class="partners-section" id="partners">
+  <div class="container-wide relative-z" style="margin-bottom:1.5rem">
+    <h2 class="partners-heading reveal">Trusted by Leading Healthcare Organizations</h2>
+  </div>
+  <div class="relative-z">
+    <div class="partners-track">
+      <div class="partner-item"><img src="images/partners/caloptima-health.png" alt="CalOptima Health"></div>
+      <div class="partner-item"><img src="images/partners/alameda-alliance.png" alt="Alameda Alliance for Health"></div>
+      <div class="partner-item"><img src="images/partners/cvs-health.png" alt="CVS Health"></div>
+      <div class="partner-item"><img src="images/partners/island-health-care.png" alt="Island Health Care"></div>
+      <div class="partner-item"><img src="images/partners/mjhs-health.png" alt="MJHS Health System"></div>
+      <div class="partner-item"><img src="images/partners/united-healthcare.png" alt="United Healthcare"></div>
+      <div class="partner-item"><img src="images/partners/spark-therapeutics.png" alt="Spark Therapeutics"></div>
+      <div class="partner-item"><img src="images/partners/abrazo-health.png" alt="Abrazo Health"></div>
+      <div class="partner-item"><img src="images/partners/cdc.png" alt="CDC"></div>
+      <!-- Duplicate for seamless scroll -->
+      <div class="partner-item"><img src="images/partners/caloptima-health.png" alt="CalOptima Health"></div>
+      <div class="partner-item"><img src="images/partners/alameda-alliance.png" alt="Alameda Alliance for Health"></div>
+      <div class="partner-item"><img src="images/partners/cvs-health.png" alt="CVS Health"></div>
+      <div class="partner-item"><img src="images/partners/island-health-care.png" alt="Island Health Care"></div>
+      <div class="partner-item"><img src="images/partners/mjhs-health.png" alt="MJHS Health System"></div>
+      <div class="partner-item"><img src="images/partners/united-healthcare.png" alt="United Healthcare"></div>
+      <div class="partner-item"><img src="images/partners/spark-therapeutics.png" alt="Spark Therapeutics"></div>
+      <div class="partner-item"><img src="images/partners/abrazo-health.png" alt="Abrazo Health"></div>
+      <div class="partner-item"><img src="images/partners/cdc.png" alt="CDC"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ACCELERATOR ENTRY POINT
+     ============================================================ -->
+<section class="accelerator-entry section-padding" id="accelerator">
+  <div class="container-wide">
+    <div class="accel-entry-grid">
+      <div class="accel-entry-text reveal-left">
+        <span class="entry-badge">Entry Point Program</span>
+        <h2>Build Your <span class="text-script text-gold">Foundation First</span></h2>
+        <p>Not ready for a full consulting engagement? Our Health Equity Resilience Accelerator is a focused 4-week program that equips your team with the essential knowledge, tools, and strategies to navigate today's equity challenges—setting the foundation for deeper transformation.</p>
+        <p>Begin with targeted skill-building before scaling to comprehensive consulting. This program is designed for practitioners who want to build confidence and capability in health equity leadership.</p>
+        <div class="entry-ctas">
+          <a href="accelerator.html" class="btn btn-gold btn-gold-lg">
+            Explore the Accelerator
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="contact.html" class="btn btn-navy btn-gold-lg">Schedule a Call</a>
+        </div>
+      </div>
+
+      <div class="accel-entry-features reveal-right">
+        <div class="entry-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div>
+            <h4>Live Workshops</h4>
+            <p>Weekly 90-minute experiential sessions with expert facilitators</p>
+          </div>
+        </div>
+        <div class="entry-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 12 18.469c-1.006 0-1.97.43-2.648 1.082l-.548-.547z"/></svg>
+          </div>
+          <div>
+            <h4>Self-Directed Learning</h4>
+            <p>Self-paced online courses and microlessons</p>
+          </div>
+        </div>
+        <div class="entry-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h4>Group & 1:1 Coaching</h4>
+            <p>Facilitator-led group sessions plus personalized coaching</p>
+          </div>
+        </div>
+        <div class="entry-feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <h4>Resource Center Access</h4>
+            <p>Cutting-edge tools, templates, and frameworks</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA
+     ============================================================ -->
+<section class="cta-section section-padding" id="cta">
+  <!-- Healthcare Decorations -->
+  <div class="healthcare-deco">
+    <svg style="top:2rem;right:0;width:350px;height:80px;opacity:.15" viewBox="0 0 400 80" fill="none"><path d="M0 40 L60 40 L80 40 L100 40 L110 20 L120 60 L130 10 L140 70 L150 35 L160 45 L170 40 L400 40" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg style="bottom:3rem;left:0;width:300px;height:80px;opacity:.12" viewBox="0 0 400 80" fill="none"><path d="M0 40 L60 40 L80 40 L100 40 L110 20 L120 60 L130 10 L140 70 L150 35 L160 45 L170 40 L400 40" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg style="top:40%;left:8%;width:2rem;height:2rem;opacity:.18" viewBox="0 0 24 24" fill="none"><path d="M12 4V20M4 12H20" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>
+    <svg style="bottom:25%;right:10%;width:2.5rem;height:2.5rem;opacity:.15" viewBox="0 0 24 24" fill="none"><path d="M12 4V20M4 12H20" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+  </div>
+
+  <div class="container-wide">
+    <div class="cta-inner reveal">
+      <h2>Ready to Make Equity the <span class="text-script text-gold">Standard of Care</span>?</h2>
+      <p>Partner with us to build healthcare systems where equity drives excellence, trust, and sustainable outcomes for all.</p>
+      <a href="contact.html" class="btn btn-gold btn-gold-lg" style="height:3.5rem;padding:0 2.5rem;font-size:1rem">
+        Start the Conversation
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" id="footer">
+  <div class="container-wide">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-name">
+            <span class="elevated">ELEVATED</span>
+            <span class="he">Health Equity</span>
+          </div>
+          <p>Empowering healthcare organizations to build equitable, high-quality systems where every patient receives the care they deserve.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="consulting.html">Consulting</a></li>
+            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <p class="contact-text">Ready to make equity the engine of excellence?</p>
+          <a href="contact.html" class="contact-link">Contact Us &rarr;</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Elevated Health Equity. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function(){
+  'use strict';
+
+  /* ----------------------------------------------------------
+     MOBILE NAV TOGGLE
+     ---------------------------------------------------------- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  var menuOpen = false;
+
+  hamburger.addEventListener('click', function(){
+    menuOpen = !menuOpen;
+    mobileNav.classList.toggle('open', menuOpen);
+    if(menuOpen){
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    } else {
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    }
+  });
+
+  mobileNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      menuOpen = false;
+      mobileNav.classList.remove('open');
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    });
+  });
+
+  /* ----------------------------------------------------------
+     INTERSECTION OBSERVER — REVEAL ON SCROLL
+     ---------------------------------------------------------- */
+  var reveals = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.12});
+    reveals.forEach(function(el){ obs.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+})();
+</script>
+</body>
+</html>
