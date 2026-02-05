@@ -115,6 +115,20 @@ p{line-height:1.7}
 .mobile-nav .btn{width:100%;margin-top:1rem;justify-content:center}
 
 /* ============================================================
+   NAV DROPDOWN
+   ============================================================ */
+.nav-dropdown{position:relative}
+.nav-dropdown>a{display:flex;align-items:center;gap:.35rem}
+.nav-dropdown>a::after{content:'';width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform .25s}
+.nav-dropdown:hover>a::after{transform:rotate(180deg)}
+.dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:280px;background:#fff;border-radius:.5rem;box-shadow:0 12px 40px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:all .25s cubic-bezier(.4,0,.2,1);padding:.5rem 0;z-index:100}
+.dropdown-menu::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:12px;height:12px;background:#fff;rotate:45deg;box-shadow:-2px -2px 4px rgba(0,0,0,.04)}
+.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dropdown-menu a{display:block;padding:.75rem 1.25rem;font-size:.875rem;font-weight:500;color:var(--navy);opacity:1;transition:all .2s;border-left:3px solid transparent}
+.dropdown-menu a:hover{background:var(--cream);color:var(--navy);border-left-color:var(--gold)}
+.dropdown-menu a.active{border-bottom:none;padding-bottom:.75rem}
+
+/* ============================================================
    HERO (Workshops)
    ============================================================ */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
@@ -149,11 +163,10 @@ p{line-height:1.7}
 .workshop-card-body h3{font-size:1.25rem;font-weight:600;color:var(--navy);margin-bottom:.75rem;transition:color .3s;line-height:1.3}
 .workshop-card:hover .workshop-card-body h3{color:var(--gold)}
 .workshop-card-body p{color:var(--muted-fg);font-size:.875rem;line-height:1.7;margin-bottom:1.25rem}
-.workshop-card-link{display:inline-flex;align-items:center;gap:.5rem;color:var(--gold);font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;transition:gap .3s}
-.workshop-card-link::after{content:'';position:absolute;inset:0;z-index:1}
-.workshop-card-link:hover{gap:.75rem}
-.workshop-card-link svg{width:.875rem;height:.875rem;flex-shrink:0;transition:transform .3s}
-.workshop-card-link:hover svg{transform:translateX(4px)}
+.workshop-card-cta{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--gold);color:var(--navy);font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:.75rem 1.5rem;border-radius:9999px;transition:all .3s;position:relative;z-index:2}
+.workshop-card-cta:hover{background:var(--gold-light);box-shadow:0 6px 20px rgba(212,168,67,.25);transform:translateY(-1px)}
+.workshop-card-cta svg{width:.875rem;height:.875rem;flex-shrink:0;transition:transform .3s}
+.workshop-card-cta:hover svg{transform:translateX(4px)}
 
 /* ============================================================
    FORM SECTION — SPLIT LAYOUT WITH BG IMAGE
@@ -233,7 +246,19 @@ p{line-height:1.7}
 
       <nav class="desktop-nav">
         <a href="index.html">Home</a>
-        <a href="workshops.html" class="active">Workshops</a>
+        <div class="nav-dropdown">
+          <a href="workshops.html" class="active">Workshops</a>
+          <div class="dropdown-menu">
+            <a href="workshops/cultural-competency.html">Cultural Competency &amp; Humility</a>
+            <a href="workshops/health-equity.html">Health Equity Fundamentals</a>
+            <a href="workshops/sdoh.html">Social Determinants of Health</a>
+            <a href="workshops/resilience.html">Building Resilience</a>
+            <a href="workshops/difficult-conversations.html">Difficult Conversations</a>
+            <a href="workshops/communication.html">Communication Skills</a>
+            <a href="workshops/inclusive-leadership.html">Inclusive Leadership</a>
+            <a href="workshops/implicit-bias.html">Overcoming Implicit Bias</a>
+          </div>
+        </div>
         <a href="accelerator.html">Accelerator Program</a>
         <a href="about.html">About Us</a>
         <a href="contact.html" class="btn btn-gold">Contact Us</a>
@@ -248,7 +273,19 @@ p{line-height:1.7}
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
       <a href="index.html">Home</a>
-      <a href="workshops.html">Workshops</a>
+      <div class="nav-dropdown">
+        <a href="workshops.html" class="active">Workshops</a>
+        <div class="dropdown-menu">
+          <a href="workshops/cultural-competency.html">Cultural Competency &amp; Humility</a>
+          <a href="workshops/health-equity.html">Health Equity Fundamentals</a>
+          <a href="workshops/sdoh.html">Social Determinants of Health</a>
+          <a href="workshops/resilience.html">Building Resilience</a>
+          <a href="workshops/difficult-conversations.html">Difficult Conversations</a>
+          <a href="workshops/communication.html">Communication Skills</a>
+          <a href="workshops/inclusive-leadership.html">Inclusive Leadership</a>
+          <a href="workshops/implicit-bias.html">Overcoming Implicit Bias</a>
+        </div>
+      </div>
       <a href="accelerator.html">Accelerator Program</a>
       <a href="about.html">About Us</a>
       <a href="contact.html" class="btn btn-gold">Contact Us</a>
@@ -297,8 +334,8 @@ p{line-height:1.7}
         <div class="workshop-card-body">
           <h3>Navigating with Care: Cultural Competency and Humility in Healthcare</h3>
           <p>Cultural competency and cultural humility play a critical role in shaping effective healthcare interactions and driving equitable outcomes. This workshop provides tools to understand and address the factors influencing cross-cultural communication.</p>
-          <a href="workshops/cultural-competency.html" class="workshop-card-link">
-            Explore More
+          <a href="workshops/cultural-competency.html" class="workshop-card-cta">
+            Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
         </div>
@@ -312,8 +349,8 @@ p{line-height:1.7}
         <div class="workshop-card-body">
           <h3>Health Equity Fundamentals</h3>
           <p>Health equity is essential for ensuring fair access to health and well-being across all communities. This workshop introduces foundational concepts of health equity, exploring its root causes, the impact of social determinants, and strategies to address disparities.</p>
-          <a href="workshops/health-equity.html" class="workshop-card-link">
-            Explore More
+          <a href="workshops/health-equity.html" class="workshop-card-cta">
+            Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
         </div>
@@ -327,8 +364,8 @@ p{line-height:1.7}
         <div class="workshop-card-body">
           <h3>Social Determinants of Health (SDOH)</h3>
           <p>Social determinants of health play a critical role in shaping health outcomes and driving disparities. This workshop provides tools to understand and address the factors influencing health equity, including economic stability, education, healthcare access, and social environments.</p>
-          <a href="workshops/sdoh.html" class="workshop-card-link">
-            Explore More
+          <a href="workshops/sdoh.html" class="workshop-card-cta">
+            Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
         </div>
@@ -342,8 +379,8 @@ p{line-height:1.7}
         <div class="workshop-card-body">
           <h3>Building Resilience in Healthcare Organizations</h3>
           <p>In today&rsquo;s rapidly evolving world, change and uncertainty are constants. This workshop equips individuals with practical strategies to build resilience and thrive amidst volatility.</p>
-          <a href="workshops/resilience.html" class="workshop-card-link">
-            Explore More
+          <a href="workshops/resilience.html" class="workshop-card-cta">
+            Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
         </div>
@@ -357,8 +394,8 @@ p{line-height:1.7}
         <div class="workshop-card-body">
           <h3>Managing Difficult Conversations in Healthcare</h3>
           <p>Navigating difficult conversations can feel overwhelming and stressful. This workshop provides practical strategies to approach these situations with confidence and empathy.</p>
-          <a href="workshops/difficult-conversations.html" class="workshop-card-link">
-            Explore More
+          <a href="workshops/difficult-conversations.html" class="workshop-card-cta">
+            Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
         </div>
@@ -372,8 +409,8 @@ p{line-height:1.7}
         <div class="workshop-card-body">
           <h3>Workplace Communication Skills for Healthcare Teams</h3>
           <p>Managing conflicts can feel overwhelming and stressful. This workshop provides practical strategies to approach these situations with confidence and constructive communication.</p>
-          <a href="workshops/communication.html" class="workshop-card-link">
-            Explore More
+          <a href="workshops/communication.html" class="workshop-card-cta">
+            Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
         </div>
@@ -387,8 +424,8 @@ p{line-height:1.7}
         <div class="workshop-card-body">
           <h3>Inclusive Leadership in Healthcare Organizations</h3>
           <p>Inclusive leadership is crucial for organizational success, yet many struggle to implement it effectively. This workshop equips leaders with practical strategies to foster an environment where all team members feel valued, respected, and heard.</p>
-          <a href="workshops/inclusive-leadership.html" class="workshop-card-link">
-            Explore More
+          <a href="workshops/inclusive-leadership.html" class="workshop-card-cta">
+            Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
         </div>
@@ -402,8 +439,8 @@ p{line-height:1.7}
         <div class="workshop-card-body">
           <h3>Overcoming Implicit Bias in Healthcare</h3>
           <p>Implicit biases can shape our decisions and interactions, often without our awareness, impacting workplace dynamics and culture. This workshop provides practical strategies to recognize and mitigate hidden biases.</p>
-          <a href="workshops/implicit-bias.html" class="workshop-card-link">
-            Explore More
+          <a href="workshops/implicit-bias.html" class="workshop-card-cta">
+            Learn More
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
         </div>
