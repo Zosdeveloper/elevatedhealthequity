@@ -289,7 +289,7 @@ p{line-height:1.7}
    ============================================================ */
 .cost-section{background:#fff;position:relative;overflow:hidden}
 .cost-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
-@media(min-width:1024px){.cost-grid{grid-template-columns:1fr 1fr;gap:4rem}}
+@media(min-width:1024px){.cost-grid{grid-template-columns:5fr 6fr;gap:4rem}}
 .cost-text{order:2}
 @media(min-width:1024px){.cost-text{order:1}}
 .cost-text h2{font-size:1.875rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
@@ -304,28 +304,35 @@ p{line-height:1.7}
 .cost-source span{color:var(--gold-dark);font-style:normal;font-weight:600}
 .cost-chart-side{order:1;position:relative}
 @media(min-width:1024px){.cost-chart-side{order:2}}
-.cost-chart-container{position:relative;background:linear-gradient(145deg,hsl(210 40% 98%) 0%,hsl(210 30% 95%) 100%);border:1px solid hsl(210 20% 90%);border-radius:1rem;padding:1.5rem 1rem 1rem;box-shadow:0 4px 24px rgba(0,0,0,.06)}
-@media(min-width:768px){.cost-chart-container{padding:2rem 1.5rem 1.5rem}}
+.cost-chart-container{position:relative;background:linear-gradient(145deg,hsl(210 40% 98%) 0%,hsl(210 30% 95%) 100%);border:1px solid hsl(210 20% 88%);border-radius:1.25rem;padding:2rem 1.25rem 1.25rem;box-shadow:0 8px 40px rgba(0,0,0,.10),0 2px 8px rgba(0,0,0,.04)}
+@media(min-width:768px){.cost-chart-container{padding:2.5rem 2rem 2rem}}
+@media(min-width:1024px){.cost-chart-container{padding:3rem 2.5rem 2rem}}
 .cost-chart-labels{display:flex;justify-content:space-between;margin-bottom:.75rem;padding:0 .25rem}
 @media(min-width:768px){.cost-chart-labels{padding:0 .5rem}}
 .cost-chart-label{text-align:center}
 .cost-chart-label .year{font-size:.65rem;color:var(--muted-fg);font-weight:500;letter-spacing:.05em}
 @media(min-width:768px){.cost-chart-label .year{font-size:.75rem}}
-.cost-chart-label .value{font-size:.875rem;font-weight:700;color:var(--navy);margin-top:.25rem;opacity:0;transform:translateY(10px);transition:all .5s cubic-bezier(.4,0,.2,1)}
-@media(min-width:768px){.cost-chart-label .value{font-size:1.125rem}}
-.cost-chart-label.start .value,.cost-chart-label.end .value{font-size:1rem;color:var(--gold-dark)}
-@media(min-width:768px){.cost-chart-label.start .value,.cost-chart-label.end .value{font-size:1.25rem}}
+.cost-chart-label .value{font-size:1rem;font-weight:700;color:var(--navy);margin-top:.35rem;opacity:0;transform:translateY(10px);transition:all .5s cubic-bezier(.4,0,.2,1)}
+@media(min-width:768px){.cost-chart-label .value{font-size:1.25rem}}
+.cost-chart-label.start .value,.cost-chart-label.end .value{font-size:1.125rem;color:var(--gold-dark)}
+@media(min-width:768px){.cost-chart-label.start .value,.cost-chart-label.end .value{font-size:1.5rem}}
 .cost-chart-label.visible .value{opacity:1;transform:translateY(0)}
-.cost-chart-svg{width:100%;height:140px;overflow:visible}
-@media(min-width:768px){.cost-chart-svg{height:180px}}
+.cost-chart-svg{width:100%;height:180px;overflow:visible}
+@media(min-width:768px){.cost-chart-svg{height:240px}}
+@media(min-width:1024px){.cost-chart-svg{height:280px}}
 .cost-grid-line{stroke:hsl(210 20% 88%);stroke-width:1}
 .cost-area{fill:url(#costGradient);opacity:0;transition:opacity 1s ease .3s}
 .cost-area.visible{opacity:1}
 .cost-line{fill:none;stroke:url(#costLineGradient);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1000;stroke-dashoffset:1000;filter:drop-shadow(0 2px 4px rgba(212,168,67,.3))}
 .cost-line.visible{stroke-dashoffset:0;transition:stroke-dashoffset 2s cubic-bezier(.4,0,.2,1)}
 .cost-dot{fill:var(--gold-dark);r:0;transition:r .4s cubic-bezier(.34,1.56,.64,1)}
-.cost-dot.visible{r:5}
-.cost-dot.end-dot.visible{r:7}
+.cost-dot.visible{r:6}
+.cost-dot.end-dot.visible{r:9}
+.cost-dot.end-dot.pulse{animation:endDotPulse 2s ease-in-out infinite}
+@keyframes endDotPulse{0%,100%{r:9;filter:drop-shadow(0 0 0 rgba(212,168,67,0))}50%{r:11;filter:drop-shadow(0 0 12px rgba(212,168,67,.6))}}
+.end-dot-glow{fill:none;stroke:var(--gold);stroke-width:2;r:0;opacity:0}
+.end-dot-glow.visible{animation:glowRing 2s ease-in-out infinite}
+@keyframes glowRing{0%,100%{r:14;opacity:.3;stroke-width:2}50%{r:20;opacity:0;stroke-width:1}}
 
 /* ============================================================
    CTA
@@ -342,28 +349,33 @@ p{line-height:1.7}
 /* ============================================================
    FOOTER
    ============================================================ */
-.site-footer{background:var(--navy)}
-.footer-inner{padding:5rem 0 1rem}
-@media(min-width:768px){.footer-inner{padding:7rem 0 1rem}}
-@media(min-width:1024px){.footer-inner{padding:8rem 0 1rem}}
-.footer-grid{display:grid;grid-template-columns:1fr;gap:3rem;margin-bottom:3rem}
-@media(min-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
-@media(min-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
-.footer-brand{max-width:28rem}
-@media(min-width:1024px){.footer-brand{grid-column:span 1}}
-.footer-brand .brand-name{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
-.footer-brand .brand-name .elevated{font-size:1.5rem;font-weight:700;color:var(--primary-fg);letter-spacing:-.025em}
-.footer-brand .brand-name .he{font-size:1.25rem;color:var(--gold);font-style:italic;font-weight:500}
-.footer-brand p{color:var(--primary-fg);opacity:.7;line-height:1.7;max-width:28rem}
-.footer-col h4{font-size:.875rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1.5rem}
-.footer-col ul{display:flex;flex-direction:column;gap:.75rem}
-.footer-col ul a{color:var(--primary-fg);opacity:.7;font-size:.875rem;transition:color .3s}
-.footer-col ul a:hover{color:var(--gold);opacity:1}
-.footer-col .contact-text{color:var(--primary-fg);opacity:.7;font-size:.875rem;margin-bottom:.75rem}
-.footer-col .contact-link{color:var(--gold);font-weight:500;font-size:.875rem;transition:color .3s}
-.footer-col .contact-link:hover{color:var(--gold-light)}
-.footer-bottom{border-top:1px solid var(--navy-light);padding:1rem 0;text-align:center}
-.footer-bottom p{font-size:.875rem;color:var(--primary-fg);opacity:.4}
+.site-footer{background:var(--navy);border-top:3px solid var(--gold)}
+.footer-inner{padding:4rem 0 0}
+@media(min-width:768px){.footer-inner{padding:5rem 0 0}}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;padding-bottom:3.5rem}
+@media(min-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:2.5fr 1fr 1.2fr 1.5fr;gap:3rem}}
+.footer-brand{max-width:22rem}
+.footer-brand img{height:3.5rem;width:auto;margin-bottom:1.25rem;filter:brightness(0) invert(1)}
+.footer-brand p{color:var(--primary-fg);opacity:.6;font-size:.875rem;line-height:1.7}
+.footer-col h4{font-size:.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.25rem;position:relative;padding-bottom:.75rem}
+.footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:1.5rem;height:2px;background:var(--gold);opacity:.4;border-radius:1px}
+.footer-col ul{display:flex;flex-direction:column;gap:.6rem}
+.footer-col ul a{color:var(--primary-fg);opacity:.6;font-size:.875rem;transition:all .25s;display:inline-block}
+.footer-col ul a:hover{color:var(--gold);opacity:1;transform:translateX(3px)}
+.footer-contact-item{display:flex;align-items:flex-start;gap:.625rem;margin-bottom:1rem}
+.footer-contact-item svg{width:1rem;height:1rem;color:var(--gold);flex-shrink:0;margin-top:.2rem;opacity:.8}
+.footer-contact-item span,.footer-contact-item a{color:var(--primary-fg);opacity:.6;font-size:.875rem;line-height:1.5}
+.footer-contact-item a{transition:all .25s}
+.footer-contact-item a:hover{color:var(--gold);opacity:1}
+.footer-cta{margin-top:1.5rem}
+.footer-cta .btn{font-size:.75rem;height:2.5rem;padding:0 1.5rem}
+.footer-bottom{border-top:1px solid hsl(210 45% 22%);padding:1.25rem 0;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+@media(min-width:768px){.footer-bottom{flex-direction:row;justify-content:space-between}}
+.footer-bottom p{font-size:.8rem;color:var(--primary-fg);opacity:.35}
+.footer-bottom-links{display:flex;gap:1.5rem}
+.footer-bottom-links a{font-size:.8rem;color:var(--primary-fg);opacity:.35;transition:all .25s}
+.footer-bottom-links a:hover{opacity:.7;color:var(--gold)}
 
 /* ============================================================
    HEALTHCARE DECORATIONS (SVG overlays)
@@ -386,7 +398,6 @@ p{line-height:1.7}
       </a>
 
       <nav class="desktop-nav">
-        <a href="index.html" class="active">Home</a>
         <a href="consulting.html">Consulting</a>
         <div class="nav-dropdown">
           <a href="workshops.html">Workshops</a>
@@ -413,7 +424,6 @@ p{line-height:1.7}
 
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
-      <a href="index.html">Home</a>
       <a href="consulting.html">Consulting</a>
       <a href="workshops.html" style="font-weight:600">Workshops</a>
       <div style="padding-left:1rem;margin-bottom:.5rem">
@@ -577,7 +587,6 @@ p{line-height:1.7}
             Get Started
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
-          <a href="contact.html#contact-form" class="btn btn-gold-outline btn-gold-lg">Schedule a Call</a>
         </div>
       </div>
 
@@ -634,23 +643,23 @@ p{line-height:1.7}
           <div class="cost-chart-labels">
             <div class="cost-chart-label start" data-delay="0">
               <div class="year">2024</div>
-              <div class="value">$320B</div>
+              <div class="value" data-count="320" data-suffix="B">$0B</div>
             </div>
             <div class="cost-chart-label" data-delay="400">
               <div class="year">2028</div>
-              <div class="value">$450B</div>
+              <div class="value" data-count="450" data-suffix="B">$0B</div>
             </div>
             <div class="cost-chart-label" data-delay="800">
               <div class="year">2032</div>
-              <div class="value">$600B</div>
+              <div class="value" data-count="600" data-suffix="B">$0B</div>
             </div>
             <div class="cost-chart-label" data-delay="1200">
               <div class="year">2036</div>
-              <div class="value">$800B</div>
+              <div class="value" data-count="800" data-suffix="B">$0B</div>
             </div>
             <div class="cost-chart-label end" data-delay="1600">
               <div class="year">2040</div>
-              <div class="value">$1T+</div>
+              <div class="value" data-count="1" data-suffix="T+" data-special="true">$0</div>
             </div>
           </div>
 
@@ -680,6 +689,7 @@ p{line-height:1.7}
             <circle class="cost-dot" cx="250" cy="75" data-delay="800"/>
             <circle class="cost-dot" cx="375" cy="25" data-delay="1200"/>
             <circle class="cost-dot end-dot" cx="500" cy="0" data-delay="1600"/>
+            <circle class="end-dot-glow" cx="500" cy="0"/>
           </svg>
         </div>
       </div>
@@ -694,7 +704,7 @@ p{line-height:1.7}
   <div class="container-wide">
     <div class="programs-grid">
       <div class="programs-image reveal-left">
-        <img src="images/workshop-corporate.jpg" alt="Corporate training workshop">
+        <img src="images/workshop-communication-new.png" alt="Healthcare professionals in a collaborative workshop">
       </div>
       <div class="programs-text reveal-right">
         <h2>Our Program and <span class="text-script text-gold">Workshops</span></h2>
@@ -948,34 +958,55 @@ p{line-height:1.7}
   <div class="container-wide">
     <div class="footer-inner">
       <div class="footer-grid">
+
         <div class="footer-brand">
-          <div class="brand-name">
-            <span class="elevated">ELEVATED</span>
-            <span class="he">Health Equity</span>
-          </div>
+          <img src="images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
           <p>Empowering healthcare organizations to build equitable, high-quality systems where every patient receives the care they deserve.</p>
         </div>
 
         <div class="footer-col">
-          <h4>Navigation</h4>
+          <h4>Company</h4>
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="consulting.html">Consulting</a></li>
-            <li><a href="workshops.html">Workshops</a></li>
+            <li><a href="accelerator.html">Accelerator Program</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html#contact-form">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Workshops</h4>
+          <ul>
+            <li><a href="workshops.html">All Workshops</a></li>
+            <li><a href="workshops.html#cultural">Cultural Competency</a></li>
+            <li><a href="workshops.html#health-equity">Health Equity</a></li>
+            <li><a href="workshops.html#leadership">Inclusive Leadership</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Get in Touch</h4>
-          <p class="contact-text">Ready to make equity the engine of excellence?</p>
-          <a href="contact.html#contact-form" class="contact-link">Contact Us &rarr;</a>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@elevatedhealthequity.com">info@elevatedhealthequity.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>United States</span>
+          </div>
+          <div class="footer-cta">
+            <a href="contact.html#contact-form" class="btn btn-gold">Contact Us</a>
+          </div>
         </div>
+
       </div>
 
       <div class="footer-bottom">
         <p>&copy; 2026 Elevated Health Equity. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1154,7 +1185,22 @@ p{line-height:1.7}
   var costArea = document.querySelector('.cost-area');
   var costDots = document.querySelectorAll('.cost-dot');
   var costLabels = document.querySelectorAll('.cost-chart-label');
+  var endDotGlow = document.querySelector('.end-dot-glow');
   var costAnimated = false;
+
+  function animateCount(el, target, suffix, duration){
+    var start = 0;
+    var startTime = null;
+    function step(ts){
+      if(!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      var ease = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(start + (target - start) * ease);
+      el.textContent = '$' + current + suffix;
+      if(progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
 
   function animateCostChart(){
     if(costAnimated) return;
@@ -1173,11 +1219,23 @@ p{line-height:1.7}
       }, delay + 300);
     });
 
-    // Animate labels with staggered delay
+    // Start pulsing glow on end dot after it appears
+    var endDot = document.querySelector('.cost-dot.end-dot');
+    setTimeout(function(){
+      if(endDot) endDot.classList.add('pulse');
+      if(endDotGlow) endDotGlow.classList.add('visible');
+    }, 1600 + 600);
+
+    // Animate labels with counting
     costLabels.forEach(function(label){
       var delay = parseInt(label.getAttribute('data-delay') || 0, 10);
+      var valueEl = label.querySelector('.value');
+      var target = parseInt(valueEl.getAttribute('data-count') || 0, 10);
+      var suffix = valueEl.getAttribute('data-suffix') || '';
+      var isSpecial = valueEl.getAttribute('data-special') === 'true';
       setTimeout(function(){
         label.classList.add('visible');
+        animateCount(valueEl, target, suffix, isSpecial ? 600 : 900);
       }, delay + 500);
     });
   }
@@ -1186,8 +1244,13 @@ p{line-height:1.7}
     costAnimated = false;
     if(costLine) costLine.classList.remove('visible');
     if(costArea) costArea.classList.remove('visible');
-    costDots.forEach(function(dot){ dot.classList.remove('visible'); });
-    costLabels.forEach(function(label){ label.classList.remove('visible'); });
+    costDots.forEach(function(dot){ dot.classList.remove('visible'); dot.classList.remove('pulse'); });
+    costLabels.forEach(function(label){
+      label.classList.remove('visible');
+      var valueEl = label.querySelector('.value');
+      if(valueEl) valueEl.textContent = '$0' + (valueEl.getAttribute('data-special') === 'true' ? '' : 'B');
+    });
+    if(endDotGlow) endDotGlow.classList.remove('visible');
   }
 
   if('IntersectionObserver' in window && costSection){
