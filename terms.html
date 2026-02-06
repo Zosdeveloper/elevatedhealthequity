@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service | Elevated Health Equity</title>
+<meta name="description" content="Terms of Service for Elevated Health Equity. Review the terms governing your use of our website and services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:hsl(210 40% 15%);line-height:1.6;background:hsl(210 25% 97%);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;outline:none}
+h1,h2,h3,h4,h5,h6{font-family:'Montserrat',system-ui,sans-serif;font-weight:600;letter-spacing:-0.025em;line-height:1.2}
+p{line-height:1.7}
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --navy:hsl(210 50% 18%);
+  --navy-light:hsl(210 45% 25%);
+  --navy-dark:hsl(210 55% 12%);
+  --gold:hsl(42 90% 55%);
+  --gold-light:hsl(45 100% 70%);
+  --gold-dark:hsl(38 85% 45%);
+  --cream:hsl(203 47% 93%);
+  --cream-dark:hsl(203 40% 88%);
+  --bg:hsl(210 25% 97%);
+  --fg:hsl(210 40% 15%);
+  --muted-fg:hsl(210 15% 45%);
+  --card:hsl(0 0% 100%);
+  --border:hsl(210 20% 88%);
+  --primary-fg:hsl(45 100% 96%);
+  --teal-cta:#176a89;
+  --logo-blue:hsl(203 60% 45%);
+  --radius:0.5rem;
+  --header-h:72px;
+}
+
+/* ============================================================
+   UTILITY
+   ============================================================ */
+.container-wide{max-width:80rem;margin:0 auto;padding:0 1.5rem}
+@media(min-width:768px){.container-wide{padding:0 2rem}}
+@media(min-width:1024px){.container-wide{padding:0 3rem}}
+.section-padding{padding:5rem 0}
+@media(min-width:768px){.section-padding{padding:7rem 0}}
+@media(min-width:1024px){.section-padding{padding:8rem 0}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+.text-script{font-style:italic;font-weight:500}
+.text-gold{color:var(--gold)}
+.text-navy{color:var(--navy)}
+.text-muted{color:var(--muted-fg)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;white-space:nowrap;border-radius:9999px;font-size:.875rem;font-weight:600;transition:all .3s;cursor:pointer;text-align:center;line-height:1}
+.btn-gold{background:var(--gold);color:var(--navy);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold:hover{background:var(--gold-light);box-shadow:0 8px 24px rgba(212,168,67,.2)}
+.btn-gold-lg{height:3.5rem;padding:0 2.5rem;font-size:1rem}
+.btn-gold-outline{background:transparent;color:var(--gold);border:2px solid var(--gold);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
+.btn-gold-outline:hover{background:var(--gold);color:var(--navy)}
+.btn svg{width:1rem;height:1rem;flex-shrink:0;transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:.375rem 0}
+@media(min-width:768px){.header-inner{padding:.5rem 0}}
+.header-logo img{height:2.5rem;width:auto}
+@media(min-width:768px){.header-logo img{height:3.5rem}}
+@media(min-width:1024px){.header-logo img{height:4.5rem}}
+.desktop-nav{display:none;align-items:center;gap:2rem}
+@media(min-width:1024px){.desktop-nav{display:flex}}
+.desktop-nav a{font-size:1rem;font-weight:600;color:var(--navy);opacity:.8;transition:color .3s,opacity .3s}
+.desktop-nav a:hover,.desktop-nav a.active{opacity:1;color:var(--navy-dark)}
+.desktop-nav a.active{border-bottom:2px solid var(--gold);padding-bottom:2px}
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown>a{display:flex;align-items:center;gap:.35rem;padding-bottom:.5rem;margin-bottom:-.5rem;position:relative;z-index:2}
+.nav-dropdown>a::after{content:'';width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:0;transition:opacity .25s,transform .25s}
+.nav-dropdown:hover>a::after{opacity:1;transform:rotate(180deg)}
+.dropdown-menu{position:absolute;top:calc(100% + .25rem);left:50%;transform:translateX(-50%);min-width:280px;background:#fff;border-radius:.5rem;box-shadow:0 12px 40px rgba(0,0,0,.15);opacity:0;visibility:hidden;transition:all .25s cubic-bezier(.4,0,.2,1);padding:.5rem 0;z-index:100;pointer-events:none}
+.dropdown-menu::before{content:'';position:absolute;top:-12px;left:0;right:0;height:12px;background:transparent;pointer-events:none}
+.dropdown-menu::after{content:'';position:absolute;top:-.375rem;left:50%;transform:translateX(-50%);width:12px;height:12px;background:#fff;rotate:45deg;box-shadow:-2px -2px 4px rgba(0,0,0,.04)}
+.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto}
+.dropdown-menu a{display:block;padding:.75rem 1.25rem;font-size:.875rem;font-weight:500;color:var(--navy);opacity:1;transition:all .2s;border-left:3px solid transparent}
+.dropdown-menu a:hover{background:var(--cream);color:var(--navy);border-left-color:var(--gold)}
+.hamburger{display:flex;align-items:center;justify-content:center;padding:.5rem;background:none;color:var(--navy);cursor:pointer}
+@media(min-width:1024px){.hamburger{display:none}}
+.hamburger svg{width:1.5rem;height:1.5rem}
+.mobile-nav{display:none;background:#fff;border-top:1px solid #f3f4f6;padding:1.5rem}
+.mobile-nav.open{display:block}
+@media(min-width:1024px){.mobile-nav{display:none!important}}
+.mobile-nav a{display:block;padding:.5rem 0;font-size:1rem;font-weight:500;color:var(--navy);opacity:.8;transition:color .3s}
+.mobile-nav a:hover{color:var(--navy);opacity:1}
+.mobile-nav .btn{width:100%;margin-top:1rem;justify-content:center}
+
+/* ============================================================
+   PAGE HERO (slim)
+   ============================================================ */
+.page-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);padding-top:7rem;padding-bottom:3.5rem;text-align:center}
+@media(min-width:768px){.page-hero{padding-bottom:4.5rem}}
+@media(min-width:1024px){.page-hero{padding-bottom:5rem}}
+.page-hero h1{font-size:2rem;font-weight:700;color:var(--primary-fg);margin-bottom:1rem}
+@media(min-width:768px){.page-hero h1{font-size:2.5rem}}
+@media(min-width:1024px){.page-hero h1{font-size:3rem}}
+.page-hero p{color:var(--primary-fg);opacity:.7;font-size:1rem;max-width:36rem;margin:0 auto}
+@media(min-width:768px){.page-hero p{font-size:1.125rem}}
+
+/* ============================================================
+   LEGAL CONTENT
+   ============================================================ */
+.legal-content{padding:4rem 0;background:#fff}
+@media(min-width:768px){.legal-content{padding:5rem 0}}
+@media(min-width:1024px){.legal-content{padding:6rem 0}}
+.legal-inner{max-width:52rem;margin:0 auto}
+.legal-inner h2{font-size:1.375rem;font-weight:700;color:var(--navy);margin-top:2.5rem;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:2px solid var(--gold);display:inline-block}
+@media(min-width:768px){.legal-inner h2{font-size:1.5rem}}
+.legal-inner h3{font-size:1.125rem;font-weight:600;color:var(--navy);margin-top:1.75rem;margin-bottom:.625rem}
+.legal-inner p{color:var(--fg);font-size:.9375rem;margin-bottom:1rem;line-height:1.8}
+.legal-inner ul{padding-left:1.5rem;margin-bottom:1rem}
+.legal-inner ul li{color:var(--fg);font-size:.9375rem;line-height:1.8;margin-bottom:.5rem;list-style:disc}
+.legal-inner a{color:var(--gold-dark);font-weight:500;text-decoration:underline;text-underline-offset:2px;transition:color .25s}
+.legal-inner a:hover{color:var(--gold)}
+.legal-effective{display:inline-block;background:var(--cream);color:var(--navy);font-size:.8125rem;font-weight:600;padding:.5rem 1rem;border-radius:var(--radius);margin-bottom:2rem;text-transform:uppercase;letter-spacing:.04em}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer{background:var(--navy);border-top:3px solid var(--gold)}
+.footer-inner{padding:4rem 0 0}
+@media(min-width:768px){.footer-inner{padding:5rem 0 0}}
+.footer-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;padding-bottom:3.5rem}
+@media(min-width:768px){.footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+@media(min-width:1024px){.footer-grid{grid-template-columns:2.5fr 1fr 1.2fr 1.5fr;gap:3rem}}
+.footer-brand{max-width:22rem}
+.footer-brand img{height:3.5rem;width:auto;margin-bottom:1.25rem;filter:brightness(0) invert(1)}
+.footer-brand p{color:var(--primary-fg);opacity:.6;font-size:.875rem;line-height:1.7}
+.footer-col h4{font-size:.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.12em;margin-bottom:1.25rem;position:relative;padding-bottom:.75rem}
+.footer-col h4::after{content:'';position:absolute;bottom:0;left:0;width:1.5rem;height:2px;background:var(--gold);opacity:.4;border-radius:1px}
+.footer-col ul{display:flex;flex-direction:column;gap:.6rem}
+.footer-col ul a{color:var(--primary-fg);opacity:.6;font-size:.875rem;transition:all .25s;display:inline-block}
+.footer-col ul a:hover{color:var(--gold);opacity:1;transform:translateX(3px)}
+.footer-contact-item{display:flex;align-items:flex-start;gap:.625rem;margin-bottom:1rem}
+.footer-contact-item svg{width:1rem;height:1rem;color:var(--gold);flex-shrink:0;margin-top:.2rem;opacity:.8}
+.footer-contact-item span,.footer-contact-item a{color:var(--primary-fg);opacity:.6;font-size:.875rem;line-height:1.5}
+.footer-contact-item a{transition:all .25s}
+.footer-contact-item a:hover{color:var(--gold);opacity:1}
+.footer-cta{margin-top:1.5rem}
+.footer-cta .btn{font-size:.75rem;height:2.5rem;padding:0 1.5rem}
+.footer-bottom{border-top:1px solid hsl(210 45% 22%);padding:1.25rem 0;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+@media(min-width:768px){.footer-bottom{flex-direction:row;justify-content:space-between}}
+.footer-bottom p{font-size:.8rem;color:var(--primary-fg);opacity:.35}
+.footer-bottom-links{display:flex;gap:1.5rem}
+.footer-bottom-links a{font-size:.8rem;color:var(--primary-fg);opacity:.35;transition:all .25s}
+.footer-bottom-links a:hover{opacity:.7;color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="siteHeader">
+  <div class="container-wide">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">
+        <img src="images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="consulting.html">Consulting</a>
+        <div class="nav-dropdown">
+          <a href="workshops.html">Workshops</a>
+          <div class="dropdown-menu">
+            <a href="workshops/cultural-competency.html">Cultural Competency &amp; Humility</a>
+            <a href="workshops/health-equity.html">Health Equity Fundamentals</a>
+            <a href="workshops/sdoh.html">Social Determinants of Health</a>
+            <a href="workshops/resilience.html">Building Resilience</a>
+            <a href="workshops/difficult-conversations.html">Difficult Conversations</a>
+            <a href="workshops/communication.html">Communication Skills</a>
+            <a href="workshops/inclusive-leadership.html">Inclusive Leadership</a>
+            <a href="workshops/implicit-bias.html">Overcoming Implicit Bias</a>
+          </div>
+        </div>
+        <a href="about.html">About Us</a>
+        <a href="contact.html#contact-form" class="btn btn-gold">Contact Us</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <div class="container-wide">
+      <a href="consulting.html">Consulting</a>
+      <a href="workshops.html" style="font-weight:600">Workshops</a>
+      <div style="padding-left:1rem;margin-bottom:.5rem">
+        <a href="workshops/cultural-competency.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Cultural Competency &amp; Humility</a>
+        <a href="workshops/health-equity.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Health Equity Fundamentals</a>
+        <a href="workshops/sdoh.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Social Determinants of Health</a>
+        <a href="workshops/resilience.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Building Resilience</a>
+        <a href="workshops/difficult-conversations.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Difficult Conversations</a>
+        <a href="workshops/communication.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Communication Skills</a>
+        <a href="workshops/inclusive-leadership.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Inclusive Leadership</a>
+        <a href="workshops/implicit-bias.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Overcoming Implicit Bias</a>
+      </div>
+      <a href="about.html">About Us</a>
+      <a href="contact.html#contact-form" class="btn btn-gold">Contact Us</a>
+    </div>
+  </div>
+</header>
+
+<main style="padding-top:var(--header-h)">
+
+<!-- ============================================================
+     PAGE HERO
+     ============================================================ -->
+<section class="page-hero">
+  <div class="container-wide">
+    <h1>Terms of Service</h1>
+    <p>The terms governing your use of our website and services</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     LEGAL CONTENT
+     ============================================================ -->
+<section class="legal-content">
+  <div class="container-wide">
+    <div class="legal-inner">
+
+      <div class="legal-effective">Effective Date: February 1, 2026</div>
+
+      <p>Welcome to the Elevated Health Equity website ("Site"). These Terms of Service ("Terms") govern your access to and use of the Site and the services, content, and resources provided by Elevated Health Equity ("we," "us," or "our"). By accessing or using our Site, you agree to be bound by these Terms. If you do not agree, please do not use our Site.</p>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing, browsing, or using this Site, you acknowledge that you have read, understood, and agree to be bound by these Terms, as well as our <a href="privacy-policy.html">Privacy Policy</a>, which is incorporated herein by reference. We reserve the right to modify these Terms at any time. Your continued use of the Site following any changes constitutes acceptance of those changes.</p>
+
+      <h2>2. Description of Services</h2>
+      <p>Elevated Health Equity provides health equity consulting, training, workshops, and organizational development services for healthcare organizations. Through this Site, you may:</p>
+      <ul>
+        <li>Learn about our consulting and training offerings</li>
+        <li>Browse workshop and program descriptions</li>
+        <li>Submit inquiries and schedule strategy sessions via our contact forms</li>
+        <li>Access educational resources and content</li>
+      </ul>
+      <p>The information provided on this Site is for general informational purposes and does not constitute professional medical, legal, or regulatory advice.</p>
+
+      <h2>3. Use of the Site</h2>
+      <p>You agree to use the Site only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+      <ul>
+        <li>Use the Site in any way that violates applicable federal, state, local, or international law or regulation</li>
+        <li>Transmit any material that is defamatory, obscene, fraudulent, or otherwise objectionable</li>
+        <li>Attempt to gain unauthorized access to any part of the Site, other accounts, or computer systems</li>
+        <li>Use any automated system, including bots, crawlers, or scrapers, to access the Site without our written permission</li>
+        <li>Introduce viruses, trojans, worms, or other harmful or disruptive material</li>
+        <li>Interfere with or disrupt the integrity or performance of the Site or its servers</li>
+      </ul>
+
+      <h2>4. Intellectual Property</h2>
+      <p>All content on this Site, including but not limited to text, graphics, logos, images, audio, video, software, and the compilation thereof, is the property of Elevated Health Equity or its content suppliers and is protected by United States and international copyright, trademark, and other intellectual property laws.</p>
+      <p>You may not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any content from our Site without our prior written consent, except as follows:</p>
+      <ul>
+        <li>You may temporarily store copies in RAM incidental to your accessing and viewing those materials</li>
+        <li>You may store files that are automatically cached by your web browser for display purposes</li>
+        <li>You may print or download one copy of a reasonable number of pages for your personal, non-commercial use</li>
+      </ul>
+
+      <h2>5. User Submissions</h2>
+      <p>When you submit information through our contact forms, strategy session requests, or other interactive features, you represent that:</p>
+      <ul>
+        <li>The information you provide is accurate and truthful</li>
+        <li>You have the right to provide such information</li>
+        <li>Your submission does not violate any third-party rights or applicable laws</li>
+      </ul>
+      <p>We may use the information you submit to respond to your inquiries, provide services, and improve our offerings, in accordance with our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+      <h2>6. Disclaimer of Warranties</h2>
+      <p>THE SITE AND ALL CONTENT, MATERIALS, AND SERVICES PROVIDED ON OR THROUGH THE SITE ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO:</p>
+      <ul>
+        <li>Implied warranties of merchantability, fitness for a particular purpose, and non-infringement</li>
+        <li>Warranties that the Site will be uninterrupted, error-free, or free of viruses or other harmful components</li>
+        <li>Warranties regarding the accuracy, reliability, or completeness of any content</li>
+      </ul>
+
+      <h2>7. Limitation of Liability</h2>
+      <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, ELEVATED HEALTH EQUITY, ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, OR GOODWILL, ARISING OUT OF OR IN CONNECTION WITH:</p>
+      <ul>
+        <li>Your access to or use of (or inability to access or use) the Site</li>
+        <li>Any content obtained from the Site</li>
+        <li>Any conduct or content of any third party on the Site</li>
+        <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+      </ul>
+      <p>In no event shall our total liability to you exceed one hundred dollars ($100.00).</p>
+
+      <h2>8. Indemnification</h2>
+      <p>You agree to indemnify, defend, and hold harmless Elevated Health Equity and its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or related to your use of the Site, your violation of these Terms, or your violation of any rights of a third party.</p>
+
+      <h2>9. Third-Party Links</h2>
+      <p>The Site may contain links to third-party websites or services that are not owned or controlled by Elevated Health Equity. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites. Your use of third-party websites is at your own risk, and we encourage you to review the terms and privacy policies of any sites you visit.</p>
+
+      <h2>10. Termination</h2>
+      <p>We reserve the right to terminate or suspend your access to the Site, without prior notice or liability, for any reason, including if you breach these Terms. Upon termination, your right to use the Site will immediately cease. All provisions of these Terms that by their nature should survive termination shall survive, including ownership provisions, warranty disclaimers, and limitations of liability.</p>
+
+      <h2>11. Governing Law</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the United States and the state in which Elevated Health Equity is headquartered, without regard to its conflict of law provisions. Any legal action or proceeding arising under these Terms shall be brought exclusively in the courts located in said jurisdiction.</p>
+
+      <h2>12. Severability</h2>
+      <p>If any provision of these Terms is found to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect. The invalid provision shall be modified to the minimum extent necessary to make it valid and enforceable.</p>
+
+      <h2>13. Entire Agreement</h2>
+      <p>These Terms, together with the <a href="privacy-policy.html">Privacy Policy</a>, constitute the entire agreement between you and Elevated Health Equity regarding your use of the Site and supersede all prior agreements, understandings, and communications, whether written or oral.</p>
+
+      <h2>14. Contact Us</h2>
+      <p>If you have any questions about these Terms of Service, please contact us:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:info@elevatedhealthequity.com">info@elevatedhealthequity.com</a></li>
+        <li><strong>Website:</strong> <a href="contact.html#contact-form">elevatedhealthequity.com/contact</a></li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" id="footer">
+  <div class="container-wide">
+    <div class="footer-inner">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <img src="images/elevated-health-equity-logo.png" alt="Elevated Health Equity">
+          <p>Empowering healthcare organizations to build equitable, high-quality systems where every patient receives the care they deserve.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="consulting.html">Consulting</a></li>
+            <li><a href="accelerator.html">Accelerator Program</a></li>
+            <li><a href="about.html">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Workshops</h4>
+          <ul>
+            <li><a href="workshops.html">All Workshops</a></li>
+            <li><a href="workshops.html#cultural">Cultural Competency</a></li>
+            <li><a href="workshops.html#health-equity">Health Equity</a></li>
+            <li><a href="workshops.html#leadership">Inclusive Leadership</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@elevatedhealthequity.com">info@elevatedhealthequity.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>United States</span>
+          </div>
+          <div class="footer-cta">
+            <a href="contact.html#contact-form" class="btn btn-gold">Contact Us</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Elevated Health Equity. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function(){
+  'use strict';
+
+  /* MOBILE NAV TOGGLE */
+  var hamburger = document.getElementById('hamburger');
+  var mobileNav = document.getElementById('mobileNav');
+  var menuOpen = false;
+
+  hamburger.addEventListener('click', function(){
+    menuOpen = !menuOpen;
+    mobileNav.classList.toggle('open', menuOpen);
+    if(menuOpen){
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+    } else {
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    }
+  });
+
+  mobileNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      menuOpen = false;
+      mobileNav.classList.remove('open');
+      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+    });
+  });
+
+  /* REVEAL ON SCROLL */
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.12});
+    reveals.forEach(function(el){ obs.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+})();
+</script>
+</body>
+</html>
