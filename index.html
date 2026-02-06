@@ -58,8 +58,9 @@ p{line-height:1.7}
   --teal-cta:#176a89;
   --logo-blue:hsl(203 60% 45%);
   --radius:0.5rem;
-  --header-h:72px;
+  --header-h:56px;
 }
+@media(min-width:768px){:root{--header-h:72px}}
 
 /* ============================================================
    UTILITY
@@ -67,7 +68,7 @@ p{line-height:1.7}
 .container-wide{max-width:80rem;margin:0 auto;padding:0 1.5rem}
 @media(min-width:768px){.container-wide{padding:0 2rem}}
 @media(min-width:1024px){.container-wide{padding:0 3rem}}
-.section-padding{padding:5rem 0}
+.section-padding{padding:3.5rem 0}
 @media(min-width:768px){.section-padding{padding:7rem 0}}
 @media(min-width:1024px){.section-padding{padding:8rem 0}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
@@ -133,20 +134,21 @@ p{line-height:1.7}
 .nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto}
 .dropdown-menu a{display:block;padding:.75rem 1.25rem;font-size:.875rem;font-weight:500;color:var(--navy);opacity:1;transition:all .2s;border-left:3px solid transparent}
 .dropdown-menu a:hover{background:var(--cream);color:var(--navy);border-left-color:var(--gold)}
-.hamburger{display:flex;align-items:center;justify-content:center;padding:.5rem;background:none;color:var(--navy);cursor:pointer}
+.hamburger{display:flex;align-items:center;justify-content:center;padding:.75rem;background:none;color:var(--navy);cursor:pointer;min-width:44px;min-height:44px}
 @media(min-width:1024px){.hamburger{display:none}}
 .hamburger svg{width:1.5rem;height:1.5rem}
-.mobile-nav{display:none;background:#fff;border-top:1px solid #f3f4f6;padding:1.5rem}
+.mobile-nav{display:none;background:#fff;border-top:1px solid #f3f4f6;padding:1rem 1.5rem;max-height:calc(100vh - 60px);overflow-y:auto;-webkit-overflow-scrolling:touch}
 .mobile-nav.open{display:block}
 @media(min-width:1024px){.mobile-nav{display:none!important}}
-.mobile-nav a{display:block;padding:.5rem 0;font-size:1rem;font-weight:500;color:var(--navy);opacity:.8;transition:color .3s}
+.mobile-nav a{display:block;padding:.75rem 0;font-size:1rem;font-weight:500;color:var(--navy);opacity:.8;transition:color .3s}
 .mobile-nav a:hover{color:var(--navy);opacity:1}
 .mobile-nav .btn{width:100%;margin-top:1rem;justify-content:center}
 
 /* ============================================================
    HERO
    ============================================================ */
-.hero{position:relative;min-height:72vh;display:flex;align-items:center;overflow:hidden}
+.hero{position:relative;min-height:55vh;display:flex;align-items:center;overflow:hidden}
+@media(min-width:768px){.hero{min-height:72vh}}
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover}
 .hero-bg::after{content:'';position:absolute;inset:0;background:var(--navy);opacity:.6}
@@ -181,7 +183,7 @@ p{line-height:1.7}
 .stat-card:nth-child(1){transition-delay:0s}
 .stat-card:nth-child(2){transition-delay:.15s}
 .stat-card:nth-child(3){transition-delay:.3s}
-.stat-card .stat-number{font-size:3.5rem;font-weight:700;color:#fff;margin-bottom:.25rem;line-height:1;letter-spacing:-.03em;display:inline-block;position:relative}
+.stat-card .stat-number{font-size:2.75rem;font-weight:700;color:#fff;margin-bottom:.25rem;line-height:1;letter-spacing:-.03em;display:inline-block;position:relative}
 .stat-card .stat-number::after{content:'';position:absolute;bottom:-.25rem;left:50%;transform:translateX(-50%);width:2.5rem;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);border-radius:2px}
 @media(min-width:768px){.stat-card .stat-number{font-size:4.5rem}.stat-card .stat-number::after{width:3rem;height:4px;bottom:-.35rem}}
 @media(min-width:1024px){.stat-card .stat-number{font-size:5.5rem}.stat-card .stat-number::after{width:3.5rem;bottom:-.4rem}}
@@ -298,9 +300,9 @@ p{line-height:1.7}
 @media(min-width:768px){.partners-heading{font-size:2.25rem}}
 @media(min-width:1024px){.partners-heading{font-size:2.5rem}}
 .partners-track{display:flex;animation:scroll 25s linear infinite}
-.partners-track .partner-item{flex-shrink:0;padding:0 2.5rem;display:flex;align-items:center;justify-content:center;height:12rem}
+.partners-track .partner-item{flex-shrink:0;padding:0 1.5rem;display:flex;align-items:center;justify-content:center;height:8rem}
 @media(min-width:768px){.partners-track .partner-item{padding:0 4rem;height:16rem}}
-.partners-track .partner-item img{height:10rem;width:auto;object-fit:contain;filter:grayscale(.5);opacity:.75;transition:filter .4s,opacity .4s}
+.partners-track .partner-item img{height:6rem;width:auto;object-fit:contain;filter:grayscale(.5);opacity:.75;transition:filter .4s,opacity .4s}
 @media(min-width:768px){.partners-track .partner-item img{height:14rem}}
 .partners-track .partner-item:hover img{filter:grayscale(0);opacity:1}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -333,9 +335,9 @@ p{line-height:1.7}
 .cost-chart-label{text-align:center}
 .cost-chart-label .year{font-size:.65rem;color:var(--muted-fg);font-weight:500;letter-spacing:.05em}
 @media(min-width:768px){.cost-chart-label .year{font-size:.75rem}}
-.cost-chart-label .value{font-size:1rem;font-weight:700;color:var(--navy);margin-top:.35rem;opacity:0;transform:translateY(10px);transition:all .5s cubic-bezier(.4,0,.2,1)}
+.cost-chart-label .value{font-size:.8rem;font-weight:700;color:var(--navy);margin-top:.35rem;opacity:0;transform:translateY(10px);transition:all .5s cubic-bezier(.4,0,.2,1)}
 @media(min-width:768px){.cost-chart-label .value{font-size:1.25rem}}
-.cost-chart-label.start .value,.cost-chart-label.end .value{font-size:1.125rem;color:var(--gold-dark)}
+.cost-chart-label.start .value,.cost-chart-label.end .value{font-size:.9rem;color:var(--gold-dark)}
 @media(min-width:768px){.cost-chart-label.start .value,.cost-chart-label.end .value{font-size:1.5rem}}
 .cost-chart-label.visible .value{opacity:1;transform:translateY(0)}
 .cost-chart-svg{width:100%;height:180px;overflow:visible}
@@ -543,14 +545,14 @@ p{line-height:1.7}
       <a href="consulting.html">Consulting</a>
       <a href="workshops.html" style="font-weight:600">Workshops</a>
       <div style="padding-left:1rem;margin-bottom:.5rem">
-        <a href="workshops/cultural-competency.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Cultural Competency &amp; Humility</a>
-        <a href="workshops/health-equity.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Health Equity Fundamentals</a>
-        <a href="workshops/sdoh.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Social Determinants of Health</a>
-        <a href="workshops/resilience.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Building Resilience</a>
-        <a href="workshops/difficult-conversations.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Difficult Conversations</a>
-        <a href="workshops/communication.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Communication Skills</a>
-        <a href="workshops/inclusive-leadership.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Inclusive Leadership</a>
-        <a href="workshops/implicit-bias.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Overcoming Implicit Bias</a>
+        <a href="workshops/cultural-competency.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Cultural Competency &amp; Humility</a>
+        <a href="workshops/health-equity.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Health Equity Fundamentals</a>
+        <a href="workshops/sdoh.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Social Determinants of Health</a>
+        <a href="workshops/resilience.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Building Resilience</a>
+        <a href="workshops/difficult-conversations.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Difficult Conversations</a>
+        <a href="workshops/communication.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Communication Skills</a>
+        <a href="workshops/inclusive-leadership.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Inclusive Leadership</a>
+        <a href="workshops/implicit-bias.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Overcoming Implicit Bias</a>
       </div>
       <a href="about.html">About Us</a>
       <a href="contact.html#contact-form" class="btn btn-gold">Contact Us</a>

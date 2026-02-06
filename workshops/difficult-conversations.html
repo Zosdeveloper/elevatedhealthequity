@@ -58,8 +58,9 @@ p{line-height:1.7}
   --teal-cta:#176a89;
   --logo-blue:hsl(203 60% 45%);
   --radius:0.5rem;
-  --header-h:72px;
+  --header-h:56px;
 }
+@media(min-width:768px){:root{--header-h:72px}}
 
 /* ============================================================
    UTILITY
@@ -67,7 +68,7 @@ p{line-height:1.7}
 .container-wide{max-width:80rem;margin:0 auto;padding:0 1.5rem}
 @media(min-width:768px){.container-wide{padding:0 2rem}}
 @media(min-width:1024px){.container-wide{padding:0 3rem}}
-.section-padding{padding:5rem 0}
+.section-padding{padding:3.5rem 0}
 @media(min-width:768px){.section-padding{padding:7rem 0}}
 @media(min-width:1024px){.section-padding{padding:8rem 0}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
@@ -122,7 +123,7 @@ p{line-height:1.7}
 .desktop-nav a{font-size:1rem;font-weight:600;color:var(--navy);opacity:.8;transition:color .3s,opacity .3s}
 .desktop-nav a:hover,.desktop-nav a.active{opacity:1;color:var(--navy-dark)}
 .desktop-nav a.active{border-bottom:2px solid var(--gold);padding-bottom:2px}
-.hamburger{display:flex;align-items:center;justify-content:center;padding:.5rem;background:none;color:var(--navy);cursor:pointer}
+.hamburger{display:flex;align-items:center;justify-content:center;padding:.75rem;background:none;color:var(--navy);cursor:pointer;min-width:44px;min-height:44px}
 @media(min-width:1024px){.hamburger{display:none}}
 .hamburger svg{width:1.5rem;height:1.5rem}
 .nav-dropdown{position:relative;display:flex;align-items:center}
@@ -136,10 +137,10 @@ p{line-height:1.7}
 .nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;pointer-events:auto}
 .dropdown-menu a{display:block;padding:.75rem 1.25rem;font-size:.875rem;font-weight:500;color:var(--navy);opacity:1;transition:all .2s;border-left:3px solid transparent}
 .dropdown-menu a:hover{background:var(--cream);color:var(--navy);border-left-color:var(--gold)}
-.mobile-nav{display:none;background:#fff;border-top:1px solid #f3f4f6;padding:1.5rem}
+.mobile-nav{display:none;background:#fff;border-top:1px solid #f3f4f6;padding:1rem 1.5rem;max-height:calc(100vh - 60px);overflow-y:auto;-webkit-overflow-scrolling:touch}
 .mobile-nav.open{display:block}
 @media(min-width:1024px){.mobile-nav{display:none!important}}
-.mobile-nav a{display:block;padding:.5rem 0;font-size:1rem;font-weight:500;color:var(--navy);opacity:.8;transition:color .3s}
+.mobile-nav a{display:block;padding:.75rem 0;font-size:1rem;font-weight:500;color:var(--navy);opacity:.8;transition:color .3s}
 .mobile-nav a:hover{color:var(--navy);opacity:1}
 .mobile-nav .btn{width:100%;margin-top:1rem;justify-content:center}
 
@@ -186,7 +187,8 @@ p{line-height:1.7}
 /* ============================================================
    WORKSHOP HERO — ENHANCED
    ============================================================ */
-.workshop-hero{position:relative;min-height:85vh;display:flex;align-items:center;overflow:hidden}
+.workshop-hero{position:relative;min-height:60vh;display:flex;align-items:center;overflow:hidden}
+@media(min-width:768px){.workshop-hero{min-height:85vh}}
 .workshop-hero .hero-bg{position:absolute;inset:0;z-index:0}
 .workshop-hero .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
 .workshop-hero .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,28,42,.95) 0%,rgba(23,42,55,.88) 40%,rgba(23,106,137,.6) 100%)}
@@ -420,14 +422,14 @@ p{line-height:1.7}
       <a href="../consulting.html">Consulting</a>
       <a href="../workshops.html" style="font-weight:600">Workshops</a>
       <div style="padding-left:1rem;margin-bottom:.5rem">
-        <a href="cultural-competency.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Cultural Competency &amp; Humility</a>
-        <a href="health-equity.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Health Equity Fundamentals</a>
-        <a href="sdoh.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Social Determinants of Health</a>
-        <a href="resilience.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Building Resilience</a>
-        <a href="difficult-conversations.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Difficult Conversations</a>
-        <a href="communication.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Communication Skills</a>
-        <a href="inclusive-leadership.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Inclusive Leadership</a>
-        <a href="implicit-bias.html" style="font-size:.875rem;opacity:.7;padding:.35rem 0">Overcoming Implicit Bias</a>
+        <a href="cultural-competency.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Cultural Competency &amp; Humility</a>
+        <a href="health-equity.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Health Equity Fundamentals</a>
+        <a href="sdoh.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Social Determinants of Health</a>
+        <a href="resilience.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Building Resilience</a>
+        <a href="difficult-conversations.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Difficult Conversations</a>
+        <a href="communication.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Communication Skills</a>
+        <a href="inclusive-leadership.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Inclusive Leadership</a>
+        <a href="implicit-bias.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Overcoming Implicit Bias</a>
       </div>
       <a href="../about.html">About Us</a>
       <a href="../contact.html#contact-form" class="btn btn-gold">Contact Us</a>
