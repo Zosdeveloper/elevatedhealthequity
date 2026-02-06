@@ -7,17 +7,12 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<title>Thank You | Elevated Health Equity</title>
-<meta name="description" content="Thank you for reaching out to Elevated Health Equity. We'll be in touch soon.">
+<title>Page Not Found | Elevated Health Equity</title>
 <meta name="robots" content="noindex, nofollow">
-<link rel="canonical" href="https://elevatedhealthequity.com/thank-you.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Montserrat',system-ui,sans-serif;font-weight:400;color:hsl(210 40% 15%);line-height:1.6;background:hsl(210 25% 97%);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -28,9 +23,6 @@ button,input,textarea,select{font-family:inherit;font-size:inherit;border:none;o
 h1,h2,h3,h4,h5,h6{font-family:'Montserrat',system-ui,sans-serif;font-weight:600;letter-spacing:-0.025em;line-height:1.2}
 p{line-height:1.7}
 
-/* ============================================================
-   DESIGN TOKENS
-   ============================================================ */
 :root{
   --navy:hsl(210 50% 18%);
   --navy-light:hsl(210 45% 25%);
@@ -39,56 +31,28 @@ p{line-height:1.7}
   --gold-light:hsl(45 100% 70%);
   --gold-dark:hsl(38 85% 45%);
   --cream:hsl(203 47% 93%);
-  --cream-dark:hsl(203 40% 88%);
   --bg:hsl(210 25% 97%);
   --fg:hsl(210 40% 15%);
   --muted-fg:hsl(210 15% 45%);
   --card:hsl(0 0% 100%);
   --border:hsl(210 20% 88%);
   --primary-fg:hsl(45 100% 96%);
-  --teal-cta:#176a89;
-  --logo-blue:hsl(203 60% 45%);
   --radius:0.5rem;
   --header-h:72px;
 }
 
-/* ============================================================
-   UTILITY
-   ============================================================ */
 .container-wide{max-width:80rem;margin:0 auto;padding:0 1.5rem}
 @media(min-width:768px){.container-wide{padding:0 2rem}}
 @media(min-width:1024px){.container-wide{padding:0 3rem}}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 
-/* ============================================================
-   SCROLL ANIMATIONS
-   ============================================================ */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}
-.reveal.visible{opacity:1;transform:translateY(0)}
-
-/* ============================================================
-   TYPOGRAPHY HELPERS
-   ============================================================ */
-.text-script{font-style:italic;font-weight:500}
-.text-gold{color:var(--gold)}
-.text-navy{color:var(--navy)}
-.text-muted{color:var(--muted-fg)}
-
-/* ============================================================
-   BUTTONS
-   ============================================================ */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;white-space:nowrap;border-radius:9999px;font-size:.875rem;font-weight:600;transition:all .3s;cursor:pointer;text-align:center;line-height:1}
 .btn-gold{background:var(--gold);color:var(--navy);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
 .btn-gold:hover{background:var(--gold-light);box-shadow:0 8px 24px rgba(212,168,67,.2)}
-.btn-gold-lg{height:3.5rem;padding:0 2.5rem;font-size:1rem}
 .btn-gold-outline{background:transparent;color:var(--gold);border:2px solid var(--gold);text-transform:uppercase;letter-spacing:.05em;padding:0 2rem;height:3rem}
 .btn-gold-outline:hover{background:var(--gold);color:var(--navy)}
 .btn svg{width:1rem;height:1rem;flex-shrink:0;transition:transform .3s}
 .btn:hover svg{transform:translateX(4px)}
 
-/* ============================================================
-   HEADER
-   ============================================================ */
 .site-header{position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:.375rem 0}
 @media(min-width:768px){.header-inner{padding:.5rem 0}}
@@ -98,8 +62,7 @@ p{line-height:1.7}
 .desktop-nav{display:none;align-items:center;gap:2rem}
 @media(min-width:1024px){.desktop-nav{display:flex}}
 .desktop-nav a{font-size:1rem;font-weight:600;color:var(--navy);opacity:.8;transition:color .3s,opacity .3s}
-.desktop-nav a:hover,.desktop-nav a.active{opacity:1;color:var(--navy-dark)}
-.desktop-nav a.active{border-bottom:2px solid var(--gold);padding-bottom:2px}
+.desktop-nav a:hover{opacity:1;color:var(--navy-dark)}
 .nav-dropdown{position:relative;display:flex;align-items:center}
 .nav-dropdown>a{display:flex;align-items:center;gap:.35rem;padding-bottom:.5rem;margin-bottom:-.5rem;position:relative;z-index:2}
 .nav-dropdown>a::after{content:'';width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;opacity:0;transition:opacity .25s,transform .25s}
@@ -120,37 +83,18 @@ p{line-height:1.7}
 .mobile-nav a:hover{color:var(--navy);opacity:1}
 .mobile-nav .btn{width:100%;margin-top:1rem;justify-content:center}
 
-/* ============================================================
-   THANK YOU SECTION
-   ============================================================ */
-.thankyou-section{min-height:calc(100vh - var(--header-h) - 200px);display:flex;align-items:center;justify-content:center;padding:5rem 0;background:linear-gradient(160deg,var(--navy) 0%,var(--navy-dark) 60%,hsl(210 55% 10%) 100%);position:relative;overflow:hidden}
-.thankyou-section::before{content:'';position:absolute;top:-30%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(212,168,67,.08) 0%,transparent 70%);pointer-events:none}
-.thankyou-section::after{content:'';position:absolute;bottom:-20%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(212,168,67,.05) 0%,transparent 70%);pointer-events:none}
-.thankyou-card{max-width:40rem;margin:0 auto;text-align:center;position:relative;z-index:1}
-.thankyou-icon{width:5rem;height:5rem;border-radius:50%;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);display:flex;align-items:center;justify-content:center;margin:0 auto 2.5rem;box-shadow:0 12px 40px rgba(212,168,67,.25);animation:iconPop .6s cubic-bezier(.34,1.56,.64,1) .3s both}
-@keyframes iconPop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
-.thankyou-icon svg{width:2.5rem;height:2.5rem;color:var(--navy);stroke-width:2.5}
-.thankyou-card h1{font-size:2rem;font-weight:700;color:var(--primary-fg);margin-bottom:1rem}
-@media(min-width:768px){.thankyou-card h1{font-size:2.75rem}}
-@media(min-width:1024px){.thankyou-card h1{font-size:3.25rem}}
-.thankyou-card .subtitle{color:var(--primary-fg);opacity:.8;font-size:1.125rem;margin-bottom:2.5rem;max-width:32rem;margin-left:auto;margin-right:auto;line-height:1.7}
-@media(min-width:768px){.thankyou-card .subtitle{font-size:1.25rem}}
+/* 404 CONTENT */
+.error-section{min-height:calc(100vh - var(--header-h));display:flex;align-items:center;justify-content:center;padding:6rem 1.5rem;text-align:center;background:var(--bg);position:relative;overflow:hidden}
+.error-section::before{content:'';position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(212,168,67,.06) 0%,transparent 70%);pointer-events:none}
+.error-content{position:relative;z-index:1;max-width:36rem}
+.error-code{font-size:8rem;font-weight:700;color:var(--navy);line-height:1;letter-spacing:-.05em;opacity:.12;margin-bottom:-1rem}
+@media(min-width:768px){.error-code{font-size:12rem;margin-bottom:-1.5rem}}
+.error-content h1{font-size:1.75rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+@media(min-width:768px){.error-content h1{font-size:2.25rem}}
+.error-content p{color:var(--muted-fg);font-size:1.0625rem;margin-bottom:2.5rem;line-height:1.7}
+.error-actions{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
 
-.next-steps{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:1rem;padding:2rem;margin-bottom:2.5rem;text-align:left}
-@media(min-width:768px){.next-steps{padding:2.5rem}}
-.next-steps h2{font-size:1.125rem;font-weight:700;color:var(--gold);margin-bottom:1.5rem;text-align:center;text-transform:uppercase;letter-spacing:.06em}
-.step-row{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.25rem}
-.step-row:last-child{margin-bottom:0}
-.step-num{width:2rem;height:2rem;border-radius:50%;background:var(--gold);color:var(--navy);font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.15rem}
-.step-row p{color:var(--primary-fg);opacity:.75;font-size:.9375rem;line-height:1.6}
-.step-row p strong{color:var(--primary-fg);opacity:1;font-weight:600}
-
-.thankyou-actions{display:flex;flex-direction:column;align-items:center;gap:1rem}
-@media(min-width:480px){.thankyou-actions{flex-direction:row;justify-content:center}}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
+/* FOOTER */
 .site-footer{background:var(--navy);border-top:3px solid var(--gold)}
 .footer-inner{padding:4rem 0 0}
 @media(min-width:768px){.footer-inner{padding:5rem 0 0}}
@@ -182,9 +126,6 @@ p{line-height:1.7}
 </head>
 <body>
 
-<!-- ============================================================
-     HEADER
-     ============================================================ -->
 <header class="site-header" id="siteHeader">
   <div class="container-wide">
     <div class="header-inner">
@@ -239,57 +180,23 @@ p{line-height:1.7}
 
 <main style="padding-top:var(--header-h)">
 
-<!-- ============================================================
-     THANK YOU CONTENT
-     ============================================================ -->
-<section class="thankyou-section">
-  <div class="container-wide">
-    <div class="thankyou-card reveal">
-
-      <div class="thankyou-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="20 6 9 17 4 12"/>
-        </svg>
-      </div>
-
-      <h1>Thank You for <span class="text-script text-gold" style="letter-spacing:0">Reaching Out</span></h1>
-      <p class="subtitle">Your message has been received. An Elevated Health Equity representative will be in touch within 1&ndash;2 business days to discuss how we can support your organization.</p>
-
-      <div class="next-steps">
-        <h2>What Happens Next</h2>
-        <div class="step-row">
-          <div class="step-num">1</div>
-          <p><strong>We review your inquiry</strong> &mdash; Our team carefully reviews every submission to understand your organization's unique needs and challenges.</p>
-        </div>
-        <div class="step-row">
-          <div class="step-num">2</div>
-          <p><strong>We connect with you</strong> &mdash; An Elevated representative will reach out to schedule a personalized 30-minute strategy session at your convenience.</p>
-        </div>
-        <div class="step-row">
-          <div class="step-num">3</div>
-          <p><strong>Your custom roadmap</strong> &mdash; Based on our conversation, we'll develop a tailored solution aligned with your organization's objectives.</p>
-        </div>
-      </div>
-
-      <div class="thankyou-actions">
-        <a href="index.html" class="btn btn-gold btn-gold-lg">
-          Back to Home
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
-        </a>
-        <a href="workshops.html" class="btn btn-gold-outline">
-          Explore Workshops
-        </a>
-      </div>
-
+<section class="error-section">
+  <div class="error-content">
+    <div class="error-code">404</div>
+    <h1>Page Not Found</h1>
+    <p>The page you're looking for doesn't exist or has been moved. Let's get you back on track to advancing health equity.</p>
+    <div class="error-actions">
+      <a href="index.html" class="btn btn-gold">
+        Back to Home
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="contact.html#contact-form" class="btn btn-gold-outline">Contact Us</a>
     </div>
   </div>
 </section>
 
 </main>
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
 <footer class="site-footer" id="footer">
   <div class="container-wide">
     <div class="footer-inner">
@@ -349,18 +256,12 @@ p{line-height:1.7}
   </div>
 </footer>
 
-<!-- ============================================================
-     JAVASCRIPT
-     ============================================================ -->
 <script>
 (function(){
   'use strict';
-
-  /* MOBILE NAV TOGGLE */
   var hamburger = document.getElementById('hamburger');
   var mobileNav = document.getElementById('mobileNav');
   var menuOpen = false;
-
   hamburger.addEventListener('click', function(){
     menuOpen = !menuOpen;
     mobileNav.classList.toggle('open', menuOpen);
@@ -371,30 +272,18 @@ p{line-height:1.7}
     }
   });
 
-  mobileNav.querySelectorAll('a').forEach(function(link){
-    link.addEventListener('click', function(){
-      menuOpen = false;
-      mobileNav.classList.remove('open');
-      hamburger.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
-    });
+  /* Sticky header */
+  var header = document.getElementById('siteHeader');
+  var lastY = 0;
+  window.addEventListener('scroll', function(){
+    var y = window.pageYOffset;
+    if(y > 100){
+      header.style.boxShadow = '0 2px 12px rgba(0,0,0,.12)';
+    } else {
+      header.style.boxShadow = '0 1px 3px rgba(0,0,0,.08)';
+    }
+    lastY = y;
   });
-
-  /* REVEAL ON SCROLL */
-  var reveals = document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.classList.add('visible');
-          obs.unobserve(e.target);
-        }
-      });
-    },{threshold:0.12});
-    reveals.forEach(function(el){ obs.observe(el); });
-  } else {
-    reveals.forEach(function(el){ el.classList.add('visible'); });
-  }
-
 })();
 </script>
 </body>

@@ -3,8 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <title>Elevated Health Equity | Make Equity the Engine of Excellence</title>
 <meta name="description" content="Elevated Health Equity helps organizations address systemic inequities and health disparities through cutting-edge strategies and culturally responsive programs.">
+<link rel="canonical" href="https://elevatedhealthequity.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Elevated Health Equity">
+<meta property="og:title" content="Elevated Health Equity | Make Equity the Engine of Excellence">
+<meta property="og:description" content="Elevated Health Equity helps organizations address systemic inequities and health disparities through cutting-edge strategies and culturally responsive programs.">
+<meta property="og:url" content="https://elevatedhealthequity.com/">
+<meta property="og:image" content="https://elevatedhealthequity.com/images/hero-homepage.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Elevated Health Equity | Make Equity the Engine of Excellence">
+<meta name="twitter:description" content="Elevated Health Equity helps organizations address systemic inequities and health disparities through cutting-edge strategies and culturally responsive programs.">
+<meta name="twitter:image" content="https://elevatedhealthequity.com/images/hero-homepage.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
@@ -128,7 +143,7 @@ p{line-height:1.7}
 /* ============================================================
    HERO
    ============================================================ */
-.hero{position:relative;min-height:85vh;display:flex;align-items:center;overflow:hidden}
+.hero{position:relative;min-height:72vh;display:flex;align-items:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;z-index:0}
 .hero-bg img{width:100%;height:100%;object-fit:cover}
 .hero-bg::after{content:'';position:absolute;inset:0;background:var(--navy);opacity:.6}
@@ -393,18 +408,6 @@ p{line-height:1.7}
 .section-heading .heading-bar{width:3rem;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:0 auto}
 
 /* ============================================================
-   DEFINITION BLOCKS
-   ============================================================ */
-.definitions-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;max-width:56rem;margin:0 auto}
-@media(min-width:768px){.definitions-grid{grid-template-columns:repeat(2,1fr)}}
-.definitions-grid.cols-3{max-width:72rem}
-@media(min-width:1024px){.definitions-grid.cols-3{grid-template-columns:repeat(3,1fr)}}
-.definition-card{background:var(--cream);border-radius:.75rem;padding:1.5rem 1.75rem;border-left:4px solid var(--gold);transition:box-shadow .3s}
-.definition-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
-.definition-card dt{font-size:1.0625rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
-.definition-card dd{color:var(--muted-fg);font-size:.875rem;line-height:1.7;margin:0}
-
-/* ============================================================
    FAQ ACCORDION
    ============================================================ */
 .faq-list{max-width:56rem;margin:0 auto;display:flex;flex-direction:column;gap:.75rem}
@@ -452,10 +455,10 @@ p{line-height:1.7}
     },
     {
       "@type": "Question",
-      "name": "What is the Accelerator Program?",
+      "name": "What is the Health Equity Resilience Accelerator?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The Advancing Health Equity Professional Development Program is a focused 4-month program that equips healthcare professionals with essential skills in health equity through expert-led workshops, self-paced learning, and collaborative circles."
+        "text": "The Health Equity Resilience Accelerator is a focused 4-week program for health equity practitioners that combines weekly live workshops, self-paced learning, coaching, and access to the Elevated Resource Center."
       }
     },
     {
@@ -467,6 +470,28 @@ p{line-height:1.7}
       }
     }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Elevated Health Equity",
+  "url": "https://elevatedhealthequity.com",
+  "logo": "https://elevatedhealthequity.com/images/elevated-health-equity-logo.png",
+  "description": "Elevated Health Equity helps healthcare organizations address systemic inequities and health disparities through consulting, workshops, and professional development programs.",
+  "email": "info@elevatedhealthequity.com",
+  "areaServed": "US",
+  "serviceType": ["Health Equity Consulting", "Healthcare Workshops", "Professional Development"],
+  "knowsAbout": ["Health Equity", "Social Determinants of Health", "Health Disparities", "Cultural Competency", "Implicit Bias", "Inclusive Leadership"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Elevated Health Equity",
+  "url": "https://elevatedhealthequity.com"
 }
 </script>
 </head>
@@ -539,7 +564,7 @@ p{line-height:1.7}
   <div class="hero-content">
     <div class="inner reveal">
       <h1>
-        Redirecting Trends &amp; Elevating Outcomes for Improved
+        Redirecting Trends &amp; Elevating Health Equity Outcomes for Improved
         <span class="text-script text-gold" style="text-transform:none;letter-spacing:0"> Data</span>
       </h1>
       <p><strong>Elevating Access. Advancing Outcomes. Transforming Care.</strong><br>Health equity strategies designed for today's healthcare systems.</p>
@@ -659,40 +684,14 @@ p{line-height:1.7}
 </section>
 
 <!-- ============================================================
-     KEY TERMS — DEFINITIONS
-     ============================================================ -->
-<section class="section-padding" style="background:var(--bg)">
-  <div class="container-wide">
-    <div class="section-heading reveal">
-      <h2>Key Terms</h2>
-      <div class="heading-bar"></div>
-    </div>
-    <dl class="definitions-grid cols-3">
-      <div class="definition-card reveal">
-        <dt>Health Equity</dt>
-        <dd>The state in which everyone has a fair and just opportunity to attain their highest level of health, achieved by removing obstacles such as poverty, discrimination, and lack of access to care.</dd>
-      </div>
-      <div class="definition-card reveal delay-1">
-        <dt>Social Determinants of Health (SDOH)</dt>
-        <dd>The conditions in the environments where people are born, live, learn, work, play, and age that affect a wide range of health, functioning, and quality-of-life outcomes and risks.</dd>
-      </div>
-      <div class="definition-card reveal delay-2">
-        <dt>Health Disparities</dt>
-        <dd>Preventable differences in the burden of disease, injury, violence, or opportunities to achieve optimal health experienced by socially disadvantaged populations.</dd>
-      </div>
-    </dl>
-  </div>
-</section>
-
-<!-- ============================================================
      ACCELERATOR
      ============================================================ -->
 <section class="accelerator-section section-padding" id="accelerator">
   <div class="container-wide">
     <div class="accel-grid">
       <div class="accel-text reveal-left">
-        <h2>Advancing Health Equity <span class="text-script text-gold">Professional Development Program</span></h2>
-        <p>This focused 4-month program equips healthcare professionals with essential skills in health equity through expert-led workshops, self-paced learning, and collaborative circles. Participants master key principles in policy development and community engagement while joining a vibrant network of health equity leaders.</p>
+        <h2>Health Equity Resilience <span class="text-script text-gold">Accelerator Program</span></h2>
+        <p>This focused 4-week program equips health equity practitioners with essential skills through weekly live workshops, self-paced learning, and coaching. Participants build resilience, navigate today's complex healthcare landscape, and join a vibrant network of health equity leaders.</p>
         <div class="accel-buttons">
           <a href="accelerator.html" class="btn btn-gold btn-gold-lg">
             Get Started
@@ -1075,11 +1074,11 @@ p{line-height:1.7}
       </div>
       <div class="faq-item reveal delay-3">
         <button class="faq-trigger" aria-expanded="false">
-          What is the Accelerator Program?
+          What is the Health Equity Resilience Accelerator?
           <span class="faq-icon" aria-hidden="true"></span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">The Advancing Health Equity Professional Development Program is a focused 4-month program that equips healthcare professionals with essential skills in health equity through expert-led workshops, self-paced learning, and collaborative circles.</div>
+          <div class="faq-answer-inner">The Health Equity Resilience Accelerator is a focused 4-week program for health equity practitioners that combines weekly live workshops, self-paced learning, coaching, and access to the Elevated Resource Center.</div>
         </div>
       </div>
       <div class="faq-item reveal">
@@ -1176,6 +1175,7 @@ p{line-height:1.7}
         <div class="footer-bottom-links">
           <a href="privacy-policy.html">Privacy Policy</a>
           <a href="terms.html">Terms of Service</a>
+          <a href="glossary.html">Glossary</a>
         </div>
       </div>
     </div>
