@@ -187,6 +187,35 @@ p{line-height:1.7}
 .form-card select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
 .form-card .form-submit{text-align:center;margin-top:1.5rem}
 .form-card .form-submit .btn{width:100%;height:3.5rem;font-size:1rem}
+/* HUBSPOT FORM OVERRIDES */
+#hubspotForm .hs-form{font-family:'Montserrat',system-ui,sans-serif!important}
+#hubspotForm fieldset{border:0!important;padding:0!important;margin:0!important;max-width:100%!important}
+#hubspotForm .hs-form fieldset.form-columns-1 .hs-form-field{width:100%!important}
+#hubspotForm .hs-form fieldset.form-columns-2{display:grid!important;grid-template-columns:1fr 1fr!important;gap:1.25rem!important}
+#hubspotForm .hs-form fieldset.form-columns-2 .hs-form-field{width:100%!important;padding:0!important;float:none!important}
+@media(max-width:599px){#hubspotForm .hs-form fieldset.form-columns-2{grid-template-columns:1fr!important}}
+#hubspotForm .hs-form-field{margin-bottom:1.25rem!important}
+#hubspotForm .hs-form-field .input{margin-right:0!important}
+#hubspotForm .hs-form-field>label{display:block!important;font-size:.8125rem!important;font-weight:600!important;color:var(--navy)!important;margin-bottom:.375rem!important;text-transform:uppercase!important;letter-spacing:.03em!important;font-family:'Montserrat',system-ui,sans-serif!important}
+#hubspotForm .hs-form-required{color:#e53e3e!important}
+#hubspotForm .hs-input,#hubspotForm input[type="text"],#hubspotForm input[type="email"],#hubspotForm input[type="tel"],#hubspotForm input[type="number"],#hubspotForm select,#hubspotForm textarea{width:100%!important;padding:.75rem .875rem!important;border:1px solid var(--border)!important;border-radius:.375rem!important;background:var(--bg)!important;font-size:.875rem!important;font-family:'Montserrat',system-ui,sans-serif!important;color:var(--fg)!important;transition:border-color .3s,box-shadow .3s!important;box-sizing:border-box!important;-webkit-appearance:none!important}
+#hubspotForm .hs-input:focus,#hubspotForm input:focus,#hubspotForm select:focus,#hubspotForm textarea:focus{outline:none!important;border-color:var(--gold)!important;box-shadow:0 0 0 3px rgba(212,168,67,.12)!important;background:#fff!important}
+#hubspotForm .hs-input::placeholder{color:var(--muted-fg)!important;opacity:.6!important}
+#hubspotForm textarea{min-height:100px!important;resize:vertical!important}
+#hubspotForm select{appearance:none!important;-webkit-appearance:none!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:right 1rem center!important;padding-right:2.5rem!important}
+#hubspotForm .hs-error-msgs{list-style:none!important;padding:0!important;margin:.25rem 0 0!important}
+#hubspotForm .hs-error-msgs li label{font-size:.75rem!important;color:#e53e3e!important;text-transform:none!important;letter-spacing:0!important;font-weight:400!important}
+#hubspotForm .hs-field-desc{font-size:.75rem!important;color:var(--muted-fg)!important;margin-top:.25rem!important}
+#hubspotForm .legal-consent-container{margin-top:1rem!important}
+#hubspotForm .legal-consent-container label{text-transform:none!important;letter-spacing:0!important;font-weight:400!important}
+#hubspotForm .legal-consent-container .hs-form-booleancheckbox-display{display:flex!important;align-items:flex-start!important;gap:.5rem!important}
+#hubspotForm .legal-consent-container .hs-form-booleancheckbox-display input[type="checkbox"]{width:1rem!important;height:1rem!important;margin-top:.125rem!important;accent-color:var(--gold)!important;flex-shrink:0!important}
+#hubspotForm .legal-consent-container .hs-form-booleancheckbox-display span,#hubspotForm .legal-consent-container p{font-size:.8125rem!important;color:var(--muted-fg)!important;line-height:1.5!important;font-family:'Montserrat',system-ui,sans-serif!important;text-transform:none!important;letter-spacing:0!important}
+#hubspotForm .hs-richtext{font-size:.8125rem!important;color:var(--muted-fg)!important;line-height:1.5!important;margin-bottom:.75rem!important}
+#hubspotForm .hs-submit{margin-top:1.5rem!important}
+#hubspotForm .hs-submit input[type="submit"],#hubspotForm .hs-button,#hubspotForm .hs-button.primary,#hubspotForm input.hs-button{background:var(--gold)!important;background-color:var(--gold)!important;color:var(--navy)!important;border:none!important;border-radius:9999px!important;font-family:'Montserrat',system-ui,sans-serif!important;font-weight:700!important;font-size:1rem!important;text-transform:uppercase!important;letter-spacing:.05em!important;padding:.875rem 2.5rem!important;height:3.5rem!important;cursor:pointer!important;transition:all .3s!important;width:100%!important}
+#hubspotForm .hs-submit input[type="submit"]:hover,#hubspotForm .hs-button:hover,#hubspotForm .hs-button.primary:hover,#hubspotForm input.hs-button:hover{background:var(--gold-light)!important;background-color:var(--gold-light)!important;box-shadow:0 8px 24px rgba(212,168,67,.2)!important}
+#hubspotForm .submitted-message{text-align:center!important;padding:2rem!important;font-family:'Montserrat',system-ui,sans-serif!important;color:var(--navy)!important;font-size:1.125rem!important;font-weight:600!important}
 
 /* ============================================================
    FOOTER
@@ -343,60 +372,20 @@ p{line-height:1.7}
           <h3>Get in Touch</h3>
           <div class="heading-bar"></div>
         </div>
-        <form id="contactForm" novalidate>
-          <div class="form-grid">
-            <div>
-              <label for="firstName">First Name <span class="required">*</span></label>
-              <input type="text" id="firstName" name="firstName" required placeholder="Your First Name">
-            </div>
-            <div>
-              <label for="lastName">Last Name <span class="required">*</span></label>
-              <input type="text" id="lastName" name="lastName" required placeholder="Your Last Name">
-            </div>
-            <div class="full-width">
-              <label for="email">Business Email <span class="required">*</span></label>
-              <input type="email" id="email" name="email" required placeholder="Your Business Email">
-            </div>
-            <div>
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="Your Phone">
-            </div>
-            <div>
-              <label for="state">State/Region</label>
-              <input type="text" id="state" name="state" placeholder="State or Region">
-            </div>
-            <div>
-              <label for="jobTitle">Job Title</label>
-              <input type="text" id="jobTitle" name="jobTitle" placeholder="Job Title">
-            </div>
-            <div>
-              <label for="company">Company Name</label>
-              <input type="text" id="company" name="company" placeholder="Company Name">
-            </div>
-            <div>
-              <label for="interest">I'm Interested In</label>
-              <select id="interest" name="interest">
-                <option value="" disabled selected>Please Select</option>
-                <option value="Accelerator Program">Accelerator Program</option>
-                <option value="Workshops &amp; Training">Workshops &amp; Training</option>
-                <option value="Consulting Services">Consulting Services</option>
-                <option value="Health Equity Solutions">Health Equity Solutions</option>
-                <option value="Leadership Development">Leadership Development</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="full-width">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us about your organization and how we can help..."></textarea>
-            </div>
-          </div>
-          <div class="form-submit">
-            <button type="submit" class="btn btn-gold btn-gold-lg">
-              Start the Conversation
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
-          </div>
-        </form>
+        <div id="hubspotForm"></div>
+        <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "5440022",
+            formId: "b6339de7-46ce-4160-8186-09fa4e40883f",
+            region: "na1",
+            target: "#hubspotForm",
+            css: '',
+            onFormSubmitted: function() {
+              window.location.href = "thank-you.html";
+            }
+          });
+        </script>
       </div>
     </div>
   </div>
@@ -515,46 +504,6 @@ p{line-height:1.7}
     reveals.forEach(function(el){ el.classList.add('visible'); });
   }
 
-  /* ----------------------------------------------------------
-     FORM VALIDATION & SUBMISSION
-     ---------------------------------------------------------- */
-  var form = document.getElementById('contactForm');
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var valid = true;
-
-    // Clear previous error styles
-    form.querySelectorAll('input,select,textarea').forEach(function(el){
-      el.style.borderColor = '';
-    });
-
-    // First Name
-    var firstName = document.getElementById('firstName');
-    if(!firstName.value.trim()){
-      firstName.style.borderColor = '#e53e3e';
-      valid = false;
-    }
-
-    // Last Name
-    var lastName = document.getElementById('lastName');
-    if(!lastName.value.trim()){
-      lastName.style.borderColor = '#e53e3e';
-      valid = false;
-    }
-
-    // Email
-    var email = document.getElementById('email');
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!email.value.trim() || !emailPattern.test(email.value.trim())){
-      email.style.borderColor = '#e53e3e';
-      valid = false;
-    }
-
-    if(valid){
-      window.location.href = 'thank-you.html';
-    }
-  });
 
 })();
 </script>

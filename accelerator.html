@@ -273,6 +273,35 @@ p{line-height:1.7}
 .form-card select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem}
 .form-card .form-submit{text-align:center;margin-top:1.5rem}
 .form-card .form-submit .btn{width:100%;height:3.5rem;font-size:1rem}
+/* HUBSPOT FORM OVERRIDES */
+#hubspotForm .hs-form{font-family:'Montserrat',system-ui,sans-serif!important}
+#hubspotForm fieldset{border:0!important;padding:0!important;margin:0!important;max-width:100%!important}
+#hubspotForm .hs-form fieldset.form-columns-1 .hs-form-field{width:100%!important}
+#hubspotForm .hs-form fieldset.form-columns-2{display:grid!important;grid-template-columns:1fr 1fr!important;gap:1.25rem!important}
+#hubspotForm .hs-form fieldset.form-columns-2 .hs-form-field{width:100%!important;padding:0!important;float:none!important}
+@media(max-width:599px){#hubspotForm .hs-form fieldset.form-columns-2{grid-template-columns:1fr!important}}
+#hubspotForm .hs-form-field{margin-bottom:1.25rem!important}
+#hubspotForm .hs-form-field .input{margin-right:0!important}
+#hubspotForm .hs-form-field>label{display:block!important;font-size:.8125rem!important;font-weight:600!important;color:var(--navy)!important;margin-bottom:.375rem!important;text-transform:uppercase!important;letter-spacing:.03em!important;font-family:'Montserrat',system-ui,sans-serif!important}
+#hubspotForm .hs-form-required{color:#e53e3e!important}
+#hubspotForm .hs-input,#hubspotForm input[type="text"],#hubspotForm input[type="email"],#hubspotForm input[type="tel"],#hubspotForm input[type="number"],#hubspotForm select,#hubspotForm textarea{width:100%!important;padding:.75rem .875rem!important;border:1px solid var(--border)!important;border-radius:.375rem!important;background:var(--bg)!important;font-size:.875rem!important;font-family:'Montserrat',system-ui,sans-serif!important;color:var(--fg)!important;transition:border-color .3s,box-shadow .3s!important;box-sizing:border-box!important;-webkit-appearance:none!important}
+#hubspotForm .hs-input:focus,#hubspotForm input:focus,#hubspotForm select:focus,#hubspotForm textarea:focus{outline:none!important;border-color:var(--gold)!important;box-shadow:0 0 0 3px rgba(212,168,67,.12)!important;background:#fff!important}
+#hubspotForm .hs-input::placeholder{color:var(--muted-fg)!important;opacity:.6!important}
+#hubspotForm textarea{min-height:100px!important;resize:vertical!important}
+#hubspotForm select{appearance:none!important;-webkit-appearance:none!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E")!important;background-repeat:no-repeat!important;background-position:right 1rem center!important;padding-right:2.5rem!important}
+#hubspotForm .hs-error-msgs{list-style:none!important;padding:0!important;margin:.25rem 0 0!important}
+#hubspotForm .hs-error-msgs li label{font-size:.75rem!important;color:#e53e3e!important;text-transform:none!important;letter-spacing:0!important;font-weight:400!important}
+#hubspotForm .hs-field-desc{font-size:.75rem!important;color:var(--muted-fg)!important;margin-top:.25rem!important}
+#hubspotForm .legal-consent-container{margin-top:1rem!important}
+#hubspotForm .legal-consent-container label{text-transform:none!important;letter-spacing:0!important;font-weight:400!important}
+#hubspotForm .legal-consent-container .hs-form-booleancheckbox-display{display:flex!important;align-items:flex-start!important;gap:.5rem!important}
+#hubspotForm .legal-consent-container .hs-form-booleancheckbox-display input[type="checkbox"]{width:1rem!important;height:1rem!important;margin-top:.125rem!important;accent-color:var(--gold)!important;flex-shrink:0!important}
+#hubspotForm .legal-consent-container .hs-form-booleancheckbox-display span,#hubspotForm .legal-consent-container p{font-size:.8125rem!important;color:var(--muted-fg)!important;line-height:1.5!important;font-family:'Montserrat',system-ui,sans-serif!important;text-transform:none!important;letter-spacing:0!important}
+#hubspotForm .hs-richtext{font-size:.8125rem!important;color:var(--muted-fg)!important;line-height:1.5!important;margin-bottom:.75rem!important}
+#hubspotForm .hs-submit{margin-top:1.5rem!important}
+#hubspotForm .hs-submit input[type="submit"],#hubspotForm .hs-button,#hubspotForm .hs-button.primary,#hubspotForm input.hs-button{background:var(--gold)!important;background-color:var(--gold)!important;color:var(--navy)!important;border:none!important;border-radius:9999px!important;font-family:'Montserrat',system-ui,sans-serif!important;font-weight:700!important;font-size:1rem!important;text-transform:uppercase!important;letter-spacing:.05em!important;padding:.875rem 2.5rem!important;height:3.5rem!important;cursor:pointer!important;transition:all .3s!important;width:100%!important}
+#hubspotForm .hs-submit input[type="submit"]:hover,#hubspotForm .hs-button:hover,#hubspotForm .hs-button.primary:hover,#hubspotForm input.hs-button:hover{background:var(--gold-light)!important;background-color:var(--gold-light)!important;box-shadow:0 8px 24px rgba(212,168,67,.2)!important}
+#hubspotForm .submitted-message{text-align:center!important;padding:2rem!important;font-family:'Montserrat',system-ui,sans-serif!important;color:var(--navy)!important;font-size:1.125rem!important;font-weight:600!important}
 .form-success{display:none;text-align:center;padding:2rem;color:var(--navy)}
 .form-success h3{font-size:1.5rem;font-weight:700;margin-bottom:.5rem}
 .form-success p{color:var(--muted-fg)}
@@ -282,7 +311,80 @@ p{line-height:1.7}
    ============================================================ */
 .healthcare-deco{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .healthcare-deco svg{position:absolute}
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+.section-heading{text-align:center;margin-bottom:3.5rem}
+.section-heading h2{font-size:1.5rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem}
+@media(min-width:768px){.section-heading h2{font-size:1.875rem}}
+.section-heading .heading-bar{width:3rem;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:0 auto}
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+.faq-list{max-width:56rem;margin:0 auto;display:flex;flex-direction:column;gap:.75rem}
+.faq-item{background:#fff;border-radius:.75rem;border:1px solid var(--border);overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.faq-item:hover{border-color:rgba(212,168,67,.3)}
+.faq-item.open{border-color:var(--gold);box-shadow:0 4px 16px rgba(212,168,67,.08)}
+.faq-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;background:none;cursor:pointer;text-align:left;color:var(--navy);font-size:1rem;font-weight:600;line-height:1.4;font-family:inherit}
+.faq-trigger:hover{color:var(--gold-dark)}
+.faq-icon{width:1.5rem;height:1.5rem;flex-shrink:0;position:relative;transition:transform .3s}
+.faq-icon::before,.faq-icon::after{content:'';position:absolute;background:var(--gold-dark);border-radius:2px;transition:transform .3s}
+.faq-icon::before{top:50%;left:25%;right:25%;height:2px;transform:translateY(-50%)}
+.faq-icon::after{left:50%;top:25%;bottom:25%;width:2px;transform:translateX(-50%)}
+.faq-item.open .faq-icon::after{transform:translateX(-50%) scaleY(0)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.faq-answer-inner{padding:0 1.5rem 1.25rem;color:var(--muted-fg);font-size:.9375rem;line-height:1.7}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long is the Accelerator Program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Advancing Health Equity Professional Development Program is a focused 4-month program that combines expert-led workshops, self-paced learning modules, and collaborative peer circles for a comprehensive learning experience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the Accelerator Program available virtually?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the program is designed to be accessible to healthcare professionals nationwide with virtual delivery options, making it convenient for participants regardless of their location."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who should enroll in the Accelerator Program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The program is designed for health equity practitioners, healthcare leaders, and professionals dedicated to meeting the needs of all patients. It is ideal for those who want to deepen their expertise in health equity and lead organizational change."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What outcomes can participants expect?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Participants will gain confidence and empowerment with critical insights and practical tools, health equity leadership readiness to guide their organizations, and the courage to lead authentically in advancing equity commitments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the program address current healthcare challenges?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The program equips participants to navigate the evolving equity landscape, including addressing legal and regulatory challenges, building resilient health equity strategies, and developing sustainable approaches to reducing disparities in care delivery."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -476,6 +578,65 @@ p{line-height:1.7}
 </section>
 
 <!-- ============================================================
+     FREQUENTLY ASKED QUESTIONS
+     ============================================================ -->
+<section class="section-padding" style="background:var(--cream)">
+  <div class="container-wide">
+    <div class="section-heading reveal">
+      <h2>Frequently Asked Questions</h2>
+      <div class="heading-bar"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">
+          How long is the Accelerator Program?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The Advancing Health Equity Professional Development Program is a focused 4-month program that combines expert-led workshops, self-paced learning modules, and collaborative peer circles for a comprehensive learning experience.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal delay-1">
+        <button class="faq-trigger" aria-expanded="false">
+          Is the Accelerator Program available virtually?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes, the program is designed to be accessible to healthcare professionals nationwide with virtual delivery options, making it convenient for participants regardless of their location.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal delay-2">
+        <button class="faq-trigger" aria-expanded="false">
+          Who should enroll in the Accelerator Program?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The program is designed for health equity practitioners, healthcare leaders, and professionals dedicated to meeting the needs of all patients. It is ideal for those who want to deepen their expertise in health equity and lead organizational change.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal delay-3">
+        <button class="faq-trigger" aria-expanded="false">
+          What outcomes can participants expect?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Participants will gain confidence and empowerment with critical insights and practical tools, health equity leadership readiness to guide their organizations, and the courage to lead authentically in advancing equity commitments.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">
+          How does the program address current healthcare challenges?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The program equips participants to navigate the evolving equity landscape, including addressing legal and regulatory challenges, building resilient health equity strategies, and developing sustainable approaches to reducing disparities in care delivery.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      6. CONTACT FORM — SPLIT LAYOUT
      ============================================================ -->
 <section class="workshop-form section-padding" id="strategy-form">
@@ -509,63 +670,20 @@ p{line-height:1.7}
           <h3>Schedule Your Strategy Session</h3>
           <div class="heading-bar"></div>
         </div>
-        <form id="strategyForm" novalidate>
-          <div class="form-grid">
-            <div>
-              <label for="firstName">First Name <span class="required">*</span></label>
-              <input type="text" id="firstName" name="firstName" required placeholder="Your First Name">
-              <span class="error-msg">First name is required.</span>
-            </div>
-            <div>
-              <label for="lastName">Last Name <span class="required">*</span></label>
-              <input type="text" id="lastName" name="lastName" required placeholder="Your Last Name">
-              <span class="error-msg">Last name is required.</span>
-            </div>
-            <div class="full-width">
-              <label for="email">Business Email <span class="required">*</span></label>
-              <input type="email" id="email" name="email" required placeholder="Your Business Email">
-              <span class="error-msg">A valid email is required.</span>
-            </div>
-            <div>
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="Your Phone">
-            </div>
-            <div>
-              <label for="state">State/Region</label>
-              <input type="text" id="state" name="state" placeholder="State or Region">
-            </div>
-            <div>
-              <label for="jobTitle">Job Title</label>
-              <input type="text" id="jobTitle" name="jobTitle" placeholder="Job Title">
-            </div>
-            <div>
-              <label for="company">Company Name</label>
-              <input type="text" id="company" name="company" placeholder="Company Name">
-            </div>
-            <div>
-              <label for="interest">I'm Interested In</label>
-              <select id="interest" name="interest">
-                <option value="" disabled selected>Please Select</option>
-                <option value="Accelerator Program">Accelerator Program</option>
-                <option value="Workshops & Training">Workshops &amp; Training</option>
-                <option value="Consulting Services">Consulting Services</option>
-                <option value="Health Equity Solutions">Health Equity Solutions</option>
-                <option value="Leadership Development">Leadership Development</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div class="full-width">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us about your organization's needs..."></textarea>
-            </div>
-          </div>
-          <div class="form-submit">
-            <button type="submit" class="btn btn-gold btn-gold-lg">
-              Start the Conversation
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
-          </div>
-        </form>
+        <div id="hubspotForm"></div>
+        <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/v2.js"></script>
+        <script>
+          hbspt.forms.create({
+            portalId: "5440022",
+            formId: "b6339de7-46ce-4160-8186-09fa4e40883f",
+            region: "na1",
+            target: "#hubspotForm",
+            css: '',
+            onFormSubmitted: function() {
+              window.location.href = "thank-you.html";
+            }
+          });
+        </script>
         <div class="form-success" id="formSuccess">
           <h3>Thank You!</h3>
           <p>We've received your request and will be in touch within one business day.</p>
@@ -688,61 +806,28 @@ p{line-height:1.7}
     reveals.forEach(function(el){ el.classList.add('visible'); });
   }
 
-  /* ----------------------------------------------------------
-     FORM VALIDATION
-     ---------------------------------------------------------- */
-  var form = document.getElementById('strategyForm');
-  var formSuccess = document.getElementById('formSuccess');
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var valid = true;
-
-    // Clear previous errors
-    form.querySelectorAll('.error').forEach(function(el){ el.classList.remove('error'); });
-    form.querySelectorAll('.error-msg').forEach(function(el){ el.style.display = 'none'; });
-
-    // First Name
-    var firstName = document.getElementById('firstName');
-    if(!firstName.value.trim()){
-      firstName.classList.add('error');
-      firstName.nextElementSibling.style.display = 'block';
-      valid = false;
-    }
-
-    // Last Name
-    var lastName = document.getElementById('lastName');
-    if(!lastName.value.trim()){
-      lastName.classList.add('error');
-      lastName.nextElementSibling.style.display = 'block';
-      valid = false;
-    }
-
-    // Email
-    var email = document.getElementById('email');
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(!email.value.trim() || !emailPattern.test(email.value.trim())){
-      email.classList.add('error');
-      email.nextElementSibling.style.display = 'block';
-      valid = false;
-    }
-
-    if(valid){
-      form.style.display = 'none';
-      formSuccess.style.display = 'block';
-    }
-  });
-
-  // Clear error on input
-  form.querySelectorAll('input, select, textarea').forEach(function(el){
-    el.addEventListener('input', function(){
-      this.classList.remove('error');
-      var errMsg = this.nextElementSibling;
-      if(errMsg && errMsg.classList.contains('error-msg')){
-        errMsg.style.display = 'none';
-      }
+  /* FAQ ACCORDION */
+  (function(){
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function(item){
+      var trigger = item.querySelector('.faq-trigger');
+      var answer = item.querySelector('.faq-answer');
+      trigger.addEventListener('click', function(){
+        var isOpen = item.classList.contains('open');
+        items.forEach(function(other){
+          other.classList.remove('open');
+          other.querySelector('.faq-trigger').setAttribute('aria-expanded','false');
+          other.querySelector('.faq-answer').style.maxHeight = null;
+        });
+        if(!isOpen){
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded','true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
     });
-  });
+  })();
+
 
 })();
 </script>

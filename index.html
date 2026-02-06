@@ -383,7 +383,92 @@ p{line-height:1.7}
 .healthcare-deco{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .healthcare-deco svg,.healthcare-deco .dot{position:absolute}
 .relative-z{position:relative;z-index:1}
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+.section-heading{text-align:center;margin-bottom:3.5rem}
+.section-heading h2{font-size:1.5rem;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem}
+@media(min-width:768px){.section-heading h2{font-size:1.875rem}}
+.section-heading .heading-bar{width:3rem;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));border-radius:2px;margin:0 auto}
+
+/* ============================================================
+   DEFINITION BLOCKS
+   ============================================================ */
+.definitions-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;max-width:56rem;margin:0 auto}
+@media(min-width:768px){.definitions-grid{grid-template-columns:repeat(2,1fr)}}
+.definitions-grid.cols-3{max-width:72rem}
+@media(min-width:1024px){.definitions-grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+.definition-card{background:var(--cream);border-radius:.75rem;padding:1.5rem 1.75rem;border-left:4px solid var(--gold);transition:box-shadow .3s}
+.definition-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.definition-card dt{font-size:1.0625rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.definition-card dd{color:var(--muted-fg);font-size:.875rem;line-height:1.7;margin:0}
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+.faq-list{max-width:56rem;margin:0 auto;display:flex;flex-direction:column;gap:.75rem}
+.faq-item{background:#fff;border-radius:.75rem;border:1px solid var(--border);overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.faq-item:hover{border-color:rgba(212,168,67,.3)}
+.faq-item.open{border-color:var(--gold);box-shadow:0 4px 16px rgba(212,168,67,.08)}
+.faq-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.5rem;background:none;cursor:pointer;text-align:left;color:var(--navy);font-size:1rem;font-weight:600;line-height:1.4;font-family:inherit}
+.faq-trigger:hover{color:var(--gold-dark)}
+.faq-icon{width:1.5rem;height:1.5rem;flex-shrink:0;position:relative;transition:transform .3s}
+.faq-icon::before,.faq-icon::after{content:'';position:absolute;background:var(--gold-dark);border-radius:2px;transition:transform .3s}
+.faq-icon::before{top:50%;left:25%;right:25%;height:2px;transform:translateY(-50%)}
+.faq-icon::after{left:50%;top:25%;bottom:25%;width:2px;transform:translateX(-50%)}
+.faq-item.open .faq-icon::after{transform:translateX(-50%) scaleY(0)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.faq-answer-inner{padding:0 1.5rem 1.25rem;color:var(--muted-fg);font-size:.9375rem;line-height:1.7}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does Elevated Health Equity do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elevated Health Equity helps organizations address systemic inequities and health disparities through cutting-edge strategies, culturally responsive workshops, consulting services, and professional development programs designed specifically for healthcare teams."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who does Elevated Health Equity serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We serve healthcare organizations of all sizes, including hospitals, health systems, community health centers, insurance providers, and public health agencies. Our programs are designed for leaders, managers, frontline staff, and health equity professionals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are your workshops different from other training programs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our workshops are designed specifically for healthcare teams, facilitated by subject-matter experts with deep industry experience, and customized to each organization's unique challenges. We combine evidence-based content with interactive exercises for immediate, practical impact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Accelerator Program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Advancing Health Equity Professional Development Program is a focused 4-month program that equips healthcare professionals with essential skills in health equity through expert-led workshops, self-paced learning, and collaborative circles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do we get started with Elevated Health Equity?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Getting started is simple: share your story through our contact form, connect with an Elevated representative for a personalized 30-minute conversation, and receive a tailored solution based on your organization's unique objectives."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -570,6 +655,32 @@ p{line-height:1.7}
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     KEY TERMS — DEFINITIONS
+     ============================================================ -->
+<section class="section-padding" style="background:var(--bg)">
+  <div class="container-wide">
+    <div class="section-heading reveal">
+      <h2>Key Terms</h2>
+      <div class="heading-bar"></div>
+    </div>
+    <dl class="definitions-grid cols-3">
+      <div class="definition-card reveal">
+        <dt>Health Equity</dt>
+        <dd>The state in which everyone has a fair and just opportunity to attain their highest level of health, achieved by removing obstacles such as poverty, discrimination, and lack of access to care.</dd>
+      </div>
+      <div class="definition-card reveal delay-1">
+        <dt>Social Determinants of Health (SDOH)</dt>
+        <dd>The conditions in the environments where people are born, live, learn, work, play, and age that affect a wide range of health, functioning, and quality-of-life outcomes and risks.</dd>
+      </div>
+      <div class="definition-card reveal delay-2">
+        <dt>Health Disparities</dt>
+        <dd>Preventable differences in the burden of disease, injury, violence, or opportunities to achieve optimal health experienced by socially disadvantaged populations.</dd>
+      </div>
+    </dl>
   </div>
 </section>
 
@@ -926,6 +1037,65 @@ p{line-height:1.7}
 </section>
 
 <!-- ============================================================
+     FREQUENTLY ASKED QUESTIONS
+     ============================================================ -->
+<section class="section-padding" style="background:var(--bg)">
+  <div class="container-wide">
+    <div class="section-heading reveal">
+      <h2>Frequently Asked Questions</h2>
+      <div class="heading-bar"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">
+          What does Elevated Health Equity do?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Elevated Health Equity helps organizations address systemic inequities and health disparities through cutting-edge strategies, culturally responsive workshops, consulting services, and professional development programs designed specifically for healthcare teams.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal delay-1">
+        <button class="faq-trigger" aria-expanded="false">
+          Who does Elevated Health Equity serve?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We serve healthcare organizations of all sizes, including hospitals, health systems, community health centers, insurance providers, and public health agencies. Our programs are designed for leaders, managers, frontline staff, and health equity professionals.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal delay-2">
+        <button class="faq-trigger" aria-expanded="false">
+          How are your workshops different from other training programs?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Our workshops are designed specifically for healthcare teams, facilitated by subject-matter experts with deep industry experience, and customized to each organization's unique challenges. We combine evidence-based content with interactive exercises for immediate, practical impact.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal delay-3">
+        <button class="faq-trigger" aria-expanded="false">
+          What is the Accelerator Program?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The Advancing Health Equity Professional Development Program is a focused 4-month program that equips healthcare professionals with essential skills in health equity through expert-led workshops, self-paced learning, and collaborative circles.</div>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-trigger" aria-expanded="false">
+          How do we get started with Elevated Health Equity?
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Getting started is simple: share your story through our contact form, connect with an Elevated representative for a personalized 30-minute conversation, and receive a tailored solution based on your organization's unique objectives.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      CTA
      ============================================================ -->
 <section class="cta-section section-padding" id="cta">
@@ -1062,6 +1232,28 @@ p{line-height:1.7}
   } else {
     reveals.forEach(function(el){ el.classList.add('visible'); });
   }
+
+  /* FAQ ACCORDION */
+  (function(){
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function(item){
+      var trigger = item.querySelector('.faq-trigger');
+      var answer = item.querySelector('.faq-answer');
+      trigger.addEventListener('click', function(){
+        var isOpen = item.classList.contains('open');
+        items.forEach(function(other){
+          other.classList.remove('open');
+          other.querySelector('.faq-trigger').setAttribute('aria-expanded','false');
+          other.querySelector('.faq-answer').style.maxHeight = null;
+        });
+        if(!isOpen){
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded','true');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  })();
 
   /* ----------------------------------------------------------
      TESTIMONIALS SLIDER
