@@ -22,7 +22,7 @@
 <meta name="twitter:image" content="https://elevatedhealthequity.com/images/hero-homepage.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    RESET & BASE
@@ -77,9 +77,11 @@ p{line-height:1.7}
    ============================================================ */
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-subtle{opacity:0;transform:translateY(16px);transition:opacity .5s ease-out,transform .5s ease-out}
+.reveal-subtle.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
 .reveal-left.visible{opacity:1;transform:translateX(0)}
-.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.reveal-right{opacity:0;transform:translateX(40px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
 .reveal-right.visible{opacity:1;transform:translateX(0)}
 .delay-1{transition-delay:.15s}
 .delay-2{transition-delay:.3s}
@@ -88,10 +90,11 @@ p{line-height:1.7}
 /* ============================================================
    TYPOGRAPHY HELPERS
    ============================================================ */
-.text-script{font-style:italic;font-weight:500}
+.text-script{font-family:'Lora',Georgia,serif;font-style:italic;font-weight:500}
 .text-gold{color:var(--gold)}
 .text-navy{color:var(--navy)}
 .text-muted{color:var(--muted-fg)}
+.text-gold-line{color:var(--gold);background-image:linear-gradient(var(--gold),var(--gold));background-position:0 100%;background-repeat:no-repeat;background-size:100% 2px;padding-bottom:2px}
 
 /* ============================================================
    BUTTONS
@@ -182,7 +185,8 @@ p{line-height:1.7}
 /* ============================================================
    WHAT WE BELIEVE
    ============================================================ */
-.believe-section{background:var(--cream)}
+.believe-section{background:var(--cream);position:relative;overflow:hidden}
+.believe-section::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;z-index:1}
 .believe-heading{text-align:center;max-width:48rem;margin:0 auto 3rem}
 .believe-heading h2{font-size:1.875rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
 @media(min-width:768px){.believe-heading h2{font-size:2.25rem}}
@@ -404,7 +408,7 @@ p{line-height:1.7}
   </div>
   <div class="about-hero-content">
     <div class="inner reveal">
-      <h1>About <span class="text-script text-gold" style="letter-spacing:0">Us</span></h1>
+      <h1>About <span class="text-gold" style="letter-spacing:0">Us</span></h1>
       <p><strong>Mission-Driven. Evidence-Based. Results-Focused.</strong><br>We partner with healthcare organizations to build systems where equity is not a project but a foundational operating principle.</p>
     </div>
   </div>
@@ -448,8 +452,7 @@ p{line-height:1.7}
     <div class="believe-grid">
       <div class="believe-card reveal">
         <div class="believe-icon">
-          <!-- Heart icon -->
-          <svg viewBox="0 0 24 24"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.78.77L12 20.64l7.64-7.64.78-.77a5.4 5.4 0 0 0 0-7.65z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M3 9l3-6 3 6"/><path d="M3 9h6"/><path d="M15 9l3-6 3 6"/><path d="M15 9h6"/><path d="M6 3h12"/></svg>
         </div>
         <h3>Equity as Foundation</h3>
         <p>We believe equity must be embedded into every decision, process, and outcome&#8202;&#8212;&#8202;not treated as an add-on or afterthought.</p>
@@ -463,14 +466,14 @@ p{line-height:1.7}
       </div>
       <div class="believe-card reveal delay-2">
         <div class="believe-icon">
-          <svg viewBox="0 0 24 24"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.78.77L12 20.64l7.64-7.64.78-.77a5.4 5.4 0 0 0 0-7.65z"/></svg>
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
         </div>
         <h3>Data-Driven Action</h3>
         <p>We leverage evidence and analytics to identify disparities, measure progress, and drive informed decisions.</p>
       </div>
       <div class="believe-card reveal delay-3">
         <div class="believe-icon">
-          <svg viewBox="0 0 24 24"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 7.65l.78.77L12 20.64l7.64-7.64.78-.77a5.4 5.4 0 0 0 0-7.65z"/></svg>
+          <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10"/><path d="M20.49 15a9 9 0 0 1-14.85 3.36L1 14"/></svg>
         </div>
         <h3>Sustainable Transformation</h3>
         <p>Quick fixes don't work. We build capacity for lasting change through skill development and systemic solutions.</p>
@@ -485,7 +488,7 @@ p{line-height:1.7}
 <section class="section-padding" id="team" style="background:var(--bg)">
   <div class="container-wide">
     <div class="team-heading reveal">
-      <h2>Our <span class="text-script text-gold">Team</span></h2>
+      <h2>Our <span class="text-gold-line">Team</span></h2>
       <p>Experienced professionals dedicated to transforming healthcare through equity-centered leadership and expertise.</p>
     </div>
     <div class="team-grid">
@@ -678,7 +681,7 @@ p{line-height:1.7}
   /* ----------------------------------------------------------
      INTERSECTION OBSERVER — REVEAL ON SCROLL
      ---------------------------------------------------------- */
-  var reveals = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+  var reveals = document.querySelectorAll('.reveal,.reveal-subtle,.reveal-left,.reveal-right');
   if('IntersectionObserver' in window){
     var obs = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
