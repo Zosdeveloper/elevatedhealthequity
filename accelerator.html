@@ -871,24 +871,18 @@ p{line-height:1.7}
 
   var subnavToggle = document.querySelector('.mobile-subnav-toggle');
   var workshopSubnav = document.getElementById('workshopSubnav');
-  var workshopsRow = document.querySelector('.mobile-workshops-row');
-  function toggleSubnav(e){
-    if(e.target.closest('a')) return;
-    e.preventDefault();
-    var isOpen = workshopSubnav.style.display !== 'none';
-    workshopSubnav.style.display = isOpen ? 'none' : 'block';
-    if(subnavToggle) subnavToggle.style.transform = isOpen ? '' : 'rotate(180deg)';
-  }
   if(subnavToggle && workshopSubnav){
+    var subnavOpen = false;
+    function doToggle(){
+      subnavOpen = !subnavOpen;
+      workshopSubnav.style.display = subnavOpen ? 'block' : 'none';
+      subnavToggle.style.transform = subnavOpen ? 'rotate(180deg)' : '';
+    }
     subnavToggle.addEventListener('click', function(e){
+      e.preventDefault();
       e.stopPropagation();
-      var isOpen = workshopSubnav.style.display !== 'none';
-      workshopSubnav.style.display = isOpen ? 'none' : 'block';
-      subnavToggle.style.transform = isOpen ? '' : 'rotate(180deg)';
+      doToggle();
     });
-  }
-  if(workshopsRow && workshopSubnav){
-    workshopsRow.addEventListener('click', toggleSubnav);
   }
 
   hamburger.addEventListener('click', function(){
