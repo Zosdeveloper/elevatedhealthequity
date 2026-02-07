@@ -421,8 +421,11 @@ p{line-height:1.7}
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
       <a href="../consulting.html">Consulting</a>
-      <a href="../workshops.html" style="font-weight:600">Workshops</a>
-      <div style="padding-left:1rem;margin-bottom:.5rem">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <a href="../workshops.html" style="font-weight:600">Workshops</a>
+        <button class="mobile-subnav-toggle" aria-label="Toggle workshops" style="background:none;border:none;padding:.5rem;cursor:pointer;color:var(--navy);display:flex;align-items:center;transition:transform .3s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+      </div>
+      <div class="mobile-subnav" id="workshopSubnav" style="padding-left:1rem;margin-bottom:.5rem;display:none">
         <a href="cultural-competency.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Cultural Competency &amp; Humility</a>
         <a href="health-equity.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Health Equity Fundamentals</a>
         <a href="sdoh.html" style="font-size:.875rem;opacity:.7;padding:.625rem 0">Social Determinants of Health</a>
