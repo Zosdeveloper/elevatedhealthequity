@@ -497,7 +497,7 @@ p{line-height:1.7}
   <div class="mobile-nav" id="mobileNav">
     <div class="container-wide">
       <a href="../consulting.html">Consulting</a>
-      <div style="display:flex;align-items:center;justify-content:space-between">
+      <div class="mobile-workshops-row" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;-webkit-tap-highlight-color:transparent">
         <a href="../workshops.html" style="font-weight:600">Workshops</a>
         <button class="mobile-subnav-toggle" aria-label="Toggle workshops" style="background:none;border:none;padding:.75rem;cursor:pointer;color:var(--navy);display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;transition:transform .3s;-webkit-tap-highlight-color:transparent"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
       </div>
@@ -900,6 +900,28 @@ p{line-height:1.7}
   var hamburger = document.getElementById('hamburger');
   var mobileNav = document.getElementById('mobileNav');
   var menuOpen = false;
+
+  var subnavToggle = document.querySelector('.mobile-subnav-toggle');
+  var workshopSubnav = document.getElementById('workshopSubnav');
+  var workshopsRow = document.querySelector('.mobile-workshops-row');
+  function toggleSubnav(e){
+    if(e.target.closest('a')) return;
+    e.preventDefault();
+    var isOpen = workshopSubnav.style.display !== 'none';
+    workshopSubnav.style.display = isOpen ? 'none' : 'block';
+    if(subnavToggle) subnavToggle.style.transform = isOpen ? '' : 'rotate(180deg)';
+  }
+  if(subnavToggle && workshopSubnav){
+    subnavToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = workshopSubnav.style.display !== 'none';
+      workshopSubnav.style.display = isOpen ? 'none' : 'block';
+      subnavToggle.style.transform = isOpen ? '' : 'rotate(180deg)';
+    });
+  }
+  if(workshopsRow && workshopSubnav){
+    workshopsRow.addEventListener('click', toggleSubnav);
+  }
 
   hamburger.addEventListener('click', function(){
     menuOpen = !menuOpen;
