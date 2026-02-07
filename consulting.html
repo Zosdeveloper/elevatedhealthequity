@@ -353,6 +353,90 @@ p{line-height:1.7}
 .healthcare-deco{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .healthcare-deco svg{position:absolute}
 .relative-z{position:relative;z-index:1}
+
+/* ============================================================
+   MOBILE RESPONSIVE — max-width:767px
+   ============================================================ */
+@media(max-width:767px){
+  .container-wide{padding:0 1.25rem}
+  .section-padding{padding:2.75rem 0}
+
+  /* — Consulting Hero — */
+  .consulting-hero{min-height:50vh}
+  .consulting-hero-text{padding:1rem 0}
+  .consulting-hero-text .eyebrow{font-size:.65rem;padding:.375rem .75rem;margin-bottom:1rem}
+  .consulting-hero-text h1{font-size:1.75rem;margin-bottom:1rem}
+  .consulting-hero-text p{font-size:1rem;margin-bottom:1.5rem}
+  .consulting-hero-text .hero-ctas{flex-direction:column}
+  .consulting-hero-text .hero-ctas .btn{width:100%;justify-content:center}
+
+  /* — Case for Equity — */
+  .case-text h2{font-size:1.5rem;margin-bottom:1rem}
+  .case-text p{font-size:.9375rem}
+  .case-text .takeaway{padding:1.25rem}
+  .case-stats{gap:1rem}
+  .case-stat{padding:1.25rem}
+  .case-stat .stat-value{font-size:2rem}
+
+  /* — Services — */
+  .services-header{margin-bottom:2.5rem}
+  .services-header h2{font-size:1.5rem}
+  .services-header p{font-size:1rem}
+  .service-card-lg{min-height:280px;padding:1.5rem}
+  .service-card-lg h3{font-size:1.125rem}
+
+  /* — How We Engage — */
+  .engage-section{padding:3rem 0}
+  .engage-header h2{font-size:1.5rem}
+  .engage-header{margin-bottom:2rem}
+  .engage-phase{gap:1rem;margin-bottom:1.25rem}
+  .engage-phase .phase-num{width:3rem;height:3rem;font-size:1rem;margin-bottom:.5rem}
+  .engage-phase .phase-content{padding:1.25rem 1.5rem}
+  .engage-phase .phase-content h3{font-size:1rem}
+
+  /* — Partners — */
+  .partners-section{padding:2rem 0}
+  .partners-heading{font-size:1.25rem;margin-bottom:1.5rem}
+  .partners-track .partner-item{padding:0 1.25rem;height:8rem}
+  .partners-track .partner-item img{height:6rem}
+
+  /* — Accelerator Entry — */
+  .accel-entry-text h2{font-size:1.5rem}
+  .accel-entry-text p{font-size:.9375rem}
+  .accel-entry-text .entry-ctas{flex-direction:column}
+  .accel-entry-text .entry-ctas .btn{width:100%;justify-content:center}
+  .entry-feature{padding:1.25rem;gap:1rem}
+  .entry-feature .feature-icon{width:3rem;height:3rem}
+  .entry-feature .feature-icon svg{width:1.5rem;height:1.5rem}
+  .entry-feature h4{font-size:1rem}
+
+  /* — CTA — */
+  .cta-inner h2{font-size:1.5rem}
+  .cta-inner p{font-size:1rem;margin-bottom:2rem}
+
+  /* — Footer — */
+  .footer-inner{padding:3rem 0 0}
+  .footer-grid{gap:2rem;padding-bottom:2.5rem}
+  .footer-brand img{height:3rem}
+  .footer-bottom{padding:1rem 0}
+
+  /* — Mobile Nav polish — */
+  .mobile-nav{padding:0;border-top:2px solid var(--gold)}
+  .mobile-nav .container-wide{padding:1rem 1.25rem 1.25rem}
+  .mobile-nav a{padding:.75rem 0;border-bottom:1px solid hsl(210 20% 94%);font-size:.9375rem}
+  .mobile-nav a:last-of-type{border-bottom:none}
+
+  /* — Hide decorations — */
+  .healthcare-deco{display:none}
+}
+
+@media(max-width:374px){
+  .container-wide{padding:0 1rem}
+  .consulting-hero-text h1{font-size:1.5rem}
+  .case-stat .stat-value{font-size:1.75rem}
+  .btn-gold{padding:0 1.5rem;font-size:.8125rem}
+  .btn-gold-lg{height:3rem;font-size:.875rem}
+}
 </style>
 <script type="application/ld+json">
 {

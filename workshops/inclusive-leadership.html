@@ -379,6 +379,80 @@ p{line-height:1.7}
 .cream-fade::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(to bottom,transparent,var(--bg));pointer-events:none;z-index:1}
 .section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);max-width:48rem;margin:0 auto}
 
+/* ============================================================
+   MOBILE RESPONSIVE — max-width:767px
+   ============================================================ */
+@media(max-width:767px){
+  .container-wide{padding:0 1.25rem}
+  .section-padding{padding:2.75rem 0}
+
+  /* — Workshop Hero — */
+  .workshop-hero{min-height:50vh}
+  .workshop-hero .hero-content{padding:3.5rem 1.25rem 3rem}
+  .workshop-hero h1{font-size:1.75rem;margin-bottom:.5rem}
+  .workshop-hero .subtitle{font-size:.9375rem}
+  .workshop-hero .desc{font-size:.9375rem;margin-bottom:1.5rem}
+
+  /* — Back to Workshops button — */
+  .back-to-workshops{bottom:1.25rem;left:1.25rem;font-size:.75rem;padding:.5rem 1rem}
+
+  /* — Highlights — */
+  .highlights-grid{gap:1rem}
+  .highlight-card{padding:1.5rem 1.25rem}
+  .highlight-card h3{font-size:1rem}
+  .highlight-card .card-icon{width:2.5rem;height:2.5rem;margin-bottom:1rem}
+
+  /* — Learning Outcomes Timeline — */
+  .outcomes-timeline{padding-left:3rem}
+  .outcomes-timeline::before{left:.875rem}
+  .outcome-num{left:-3rem;width:1.75rem;height:1.75rem;font-size:.75rem}
+  .outcome-item{padding:1rem 0 1.5rem}
+  .outcome-item h3{font-size:1rem}
+  .outcome-item p{font-size:.9375rem}
+
+  /* — Info Cards — */
+  .info-cards{gap:1rem}
+  .info-card{padding:1.5rem 1.25rem}
+  .info-card .card-header h3{font-size:.875rem}
+  .info-card li{font-size:.875rem}
+
+  /* — Impact / Testimonial Carousel — */
+  .impact-heading h2{font-size:1.25rem}
+  .impact-heading p{font-size:.9375rem}
+  .impact-heading{margin-bottom:2rem}
+  .carousel3d-card{padding:1.5rem 1.25rem 1.25rem}
+  .carousel3d-card blockquote{font-size:.8rem;-webkit-line-clamp:4}
+  .carousel3d-btn{width:2.25rem;height:2.25rem}
+
+  /* — Form Section — */
+  .form-info h2{font-size:1.5rem;margin-bottom:1.75rem}
+  .form-card{padding:1.5rem}
+
+  /* — Section Headings — */
+  .section-heading{margin-bottom:2.5rem}
+  .section-heading h2{font-size:1.25rem}
+
+  /* — Footer — */
+  .footer-inner{padding:3rem 0 0}
+  .footer-grid{gap:2rem;padding-bottom:2.5rem}
+  .footer-brand img{height:3rem}
+  .footer-bottom{padding:1rem 0}
+
+  /* — Mobile Nav polish — */
+  .mobile-nav{padding:0;border-top:2px solid var(--gold)}
+  .mobile-nav .container-wide{padding:1rem 1.25rem 1.25rem}
+  .mobile-nav a{padding:.75rem 0;border-bottom:1px solid hsl(210 20% 94%);font-size:.9375rem}
+  .mobile-nav a:last-of-type{border-bottom:none}
+}
+
+@media(max-width:374px){
+  .container-wide{padding:0 1rem}
+  .workshop-hero h1{font-size:1.5rem}
+  .workshop-hero .hero-content{padding:3rem 1rem 2.5rem}
+  .highlight-card{padding:1.25rem 1rem}
+  .outcome-num{width:1.5rem;height:1.5rem;font-size:.7rem}
+  .btn-gold{padding:0 1.5rem;font-size:.8125rem}
+}
 </style>
 </head>
 <body>

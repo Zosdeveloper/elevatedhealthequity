@@ -432,6 +432,124 @@ p{line-height:1.7}
 .faq-item.open .faq-icon::after{transform:translateX(-50%) scaleY(0)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
 .faq-answer-inner{padding:0 1.5rem 1.25rem;color:var(--muted-fg);font-size:.9375rem;line-height:1.7}
+
+/* ============================================================
+   MOBILE RESPONSIVE — max-width:767px
+   ============================================================ */
+@media(max-width:767px){
+  /* — Layout & Spacing — */
+  .container-wide{padding:0 1.25rem}
+  .section-padding{padding:2.75rem 0}
+
+  /* — Hero — */
+  .hero{min-height:50vh}
+  .hero-content{padding:3.5rem 1.25rem 3rem}
+  .hero h1{font-size:1.75rem;margin-bottom:1rem}
+  .hero p{font-size:1rem;margin-bottom:1.5rem}
+
+  /* — Stats — */
+  .stats-section{padding:3rem 0}
+  .stats-grid{gap:1.25rem}
+  .stat-card{padding:1.75rem 1.25rem;border-radius:.75rem}
+  .stat-card .stat-number{font-size:2.25rem}
+  .stat-card .stat-number::after{width:2rem;height:2px;bottom:-.2rem}
+  .stat-card .stat-label{font-size:.8125rem;margin-top:1rem;margin-bottom:.5rem}
+  .stats-ekg{display:none}
+
+  /* — What We Do — */
+  .wwd-top-grid{gap:2rem;margin-bottom:3rem}
+  .wwd-top-grid h2{font-size:1.375rem}
+  .wwd-top-grid .subtitle{font-size:1.375rem}
+  .wwd-top-grid p{font-size:.9375rem}
+  .services-grid{gap:1rem}
+  .service-card{padding:1.25rem;gap:1rem}
+  .service-icon{width:2.5rem;height:2.5rem;border-radius:.375rem}
+  .service-icon svg{width:1.25rem;height:1.25rem}
+  .service-card h3{font-size:1rem}
+
+  /* — Programs — */
+  .programs-text h2{font-size:1.5rem}
+  .programs-grid{gap:2rem}
+
+  /* — Accelerator — */
+  .accel-grid{gap:2rem}
+  .accel-text h2{font-size:1.5rem}
+  .accel-text p{font-size:.9375rem}
+  .accel-buttons{flex-direction:column}
+  .accel-buttons .btn{width:100%;justify-content:center}
+  .outcome-cards{gap:1rem}
+  .outcome-card{padding:1.25rem;gap:1rem}
+
+  /* — Testimonials — */
+  .testimonials-section{padding:2rem 0}
+  .testimonials-header{flex-direction:column;align-items:flex-start;gap:.75rem;margin-bottom:1.25rem}
+  .testimonials-header h2{font-size:1.25rem}
+  .testimonials-nav button{width:2.25rem;height:2.25rem}
+  .tc-quote-side blockquote{font-size:.875rem;padding-top:1.25rem}
+  .tc-quote-side .quote-mark{font-size:3.5rem;top:-1rem}
+  .tc-author-side{flex-direction:row;align-items:center;gap:1rem;padding-top:1rem}
+  .tc-author-side .tc-logo-wrap{width:3.5rem;height:3.5rem}
+  .tc-author-side .author{font-size:.8125rem}
+  .tc-author-side .title{font-size:.65rem}
+  .tc-author-side .org{font-size:.7rem}
+  .tc-progress{margin-top:1.25rem}
+
+  /* — Partners — */
+  .partners-section{padding:2rem 0}
+  .partners-heading{font-size:1.25rem;margin-bottom:1.5rem}
+  .partners-track .partner-item{padding:0 1.25rem;height:8rem}
+  .partners-track .partner-item img{height:6rem}
+
+  /* — Cost of Inaction — */
+  .cost-text h2{font-size:1.5rem}
+  .cost-text .cost-intro{font-size:.9375rem}
+  .cost-text .cost-highlight{padding:1rem 1.25rem}
+  .cost-chart-container{padding:1.5rem 1rem 1rem}
+  .cost-chart-label .year{font-size:.6rem}
+  .cost-chart-label .value{font-size:.75rem}
+  .cost-chart-label.start .value,.cost-chart-label.end .value{font-size:.8rem}
+  .cost-chart-svg{height:150px}
+
+  /* — CTA — */
+  .cta-inner h2{font-size:1.5rem}
+  .cta-inner p{font-size:1rem;margin-bottom:2rem}
+
+  /* — FAQ — */
+  .section-heading{margin-bottom:2.5rem}
+  .section-heading h2{font-size:1.25rem}
+  .faq-trigger{padding:1rem 1.25rem;font-size:.9375rem;gap:.75rem}
+  .faq-answer-inner{padding:0 1.25rem 1rem;font-size:.875rem}
+
+  /* — Footer — */
+  .footer-inner{padding:3rem 0 0}
+  .footer-grid{gap:2rem;padding-bottom:2.5rem}
+  .footer-brand img{height:3rem}
+  .footer-bottom{padding:1rem 0}
+
+  /* — Mobile Nav polish — */
+  .mobile-nav{padding:0;border-top:2px solid var(--gold)}
+  .mobile-nav .container-wide{padding:1rem 1.25rem 1.25rem}
+  .mobile-nav a{padding:.75rem 0;border-bottom:1px solid hsl(210 20% 94%);font-size:.9375rem}
+  .mobile-nav a:last-of-type{border-bottom:none}
+
+  /* — Healthcare deco — hide on mobile for perf — */
+  .healthcare-deco{display:none}
+}
+
+/* ============================================================
+   SMALL PHONES — max-width:374px
+   ============================================================ */
+@media(max-width:374px){
+  .container-wide{padding:0 1rem}
+  .hero h1{font-size:1.5rem}
+  .hero-content{padding:3rem 1rem 2.5rem}
+  .stat-card .stat-number{font-size:2rem}
+  .stat-card{padding:1.5rem 1rem}
+  .cta-inner h2{font-size:1.25rem}
+  .faq-trigger{padding:.875rem 1rem;font-size:.875rem}
+  .btn-gold{padding:0 1.5rem;font-size:.8125rem}
+  .btn-gold-lg{height:3rem;font-size:.875rem}
+}
 </style>
 <script type="application/ld+json">
 {

@@ -357,6 +357,80 @@ p{line-height:1.7}
 .faq-item.open .faq-icon::after{transform:translateX(-50%) scaleY(0)}
 .faq-answer{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
 .faq-answer-inner{padding:0 1.5rem 1.25rem;color:var(--muted-fg);font-size:.9375rem;line-height:1.7}
+
+/* ============================================================
+   MOBILE RESPONSIVE — max-width:767px
+   ============================================================ */
+@media(max-width:767px){
+  .container-wide{padding:0 1.25rem}
+  .section-padding{padding:2.75rem 0}
+
+  /* — Accelerator Hero — */
+  .accel-hero{padding-top:5.5rem;padding-bottom:3rem}
+  .accel-hero-grid{gap:2rem}
+  .accel-hero-text h1{font-size:1.75rem;margin-bottom:1rem}
+  .accel-hero-text p{font-size:1rem;margin-bottom:1rem}
+
+  /* — What We'll Cover — */
+  .cover-heading h2{font-size:1.5rem}
+  .cover-heading{margin-bottom:2rem}
+  .cover-grid{gap:1rem}
+  .cover-card{padding:1.5rem}
+  .cover-card h3{font-size:1rem}
+
+  /* — Program Overview — */
+  .program-overview-heading h2{font-size:1.5rem}
+  .program-overview-subtitle{font-size:1rem;margin-bottom:2rem}
+  .program-grid{gap:1rem}
+  .program-card{padding:1.5rem}
+  .program-card h3{font-size:1rem}
+  .program-cta{margin-top:2rem}
+
+  /* — Outcomes — */
+  .outcomes-text h2{font-size:1.5rem;margin-bottom:1.5rem}
+  .outcomes-grid{gap:2rem}
+  .outcome-item{gap:1rem;margin-bottom:1.5rem}
+  .outcome-check{width:2.25rem;height:2.25rem}
+  .outcome-check svg{width:1.125rem;height:1.125rem}
+  .outcome-item h3{font-size:.9375rem}
+  .outcome-item p{font-size:.875rem}
+
+  /* — Form Section — */
+  .form-info h2{font-size:1.5rem;margin-bottom:1.75rem}
+  .form-card{padding:1.5rem}
+
+  /* — FAQ — */
+  .section-heading{margin-bottom:2.5rem}
+  .section-heading h2{font-size:1.25rem}
+  .faq-trigger{padding:1rem 1.25rem;font-size:.9375rem;gap:.75rem}
+  .faq-answer-inner{padding:0 1.25rem 1rem;font-size:.875rem}
+
+  /* — Footer — */
+  .footer-inner{padding:3rem 0 0}
+  .footer-grid{gap:2rem;padding-bottom:2.5rem}
+  .footer-brand img{height:3rem}
+  .footer-bottom{padding:1rem 0}
+
+  /* — Mobile Nav polish — */
+  .mobile-nav{padding:0;border-top:2px solid var(--gold)}
+  .mobile-nav .container-wide{padding:1rem 1.25rem 1.25rem}
+  .mobile-nav a{padding:.75rem 0;border-bottom:1px solid hsl(210 20% 94%);font-size:.9375rem}
+  .mobile-nav a:last-of-type{border-bottom:none}
+
+  /* — Healthcare deco — */
+  .healthcare-deco{display:none}
+}
+
+@media(max-width:374px){
+  .container-wide{padding:0 1rem}
+  .accel-hero-text h1{font-size:1.5rem}
+  .accel-hero{padding-top:5rem;padding-bottom:2.5rem}
+  .cover-card{padding:1.25rem}
+  .program-card{padding:1.25rem}
+  .btn-gold{padding:0 1.5rem;font-size:.8125rem}
+  .btn-gold-lg{height:3rem;font-size:.875rem}
+  .btn-gold-xl{height:3.25rem;padding:0 2rem;font-size:1rem}
+}
 </style>
 <script type="application/ld+json">
 {

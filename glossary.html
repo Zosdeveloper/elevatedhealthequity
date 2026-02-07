@@ -165,6 +165,32 @@ p{line-height:1.7}
 .footer-bottom-links{display:flex;gap:1.5rem}
 .footer-bottom-links a{font-size:.8rem;color:var(--primary-fg);opacity:.35;transition:all .25s}
 .footer-bottom-links a:hover{opacity:.7;color:var(--gold)}
+
+/* ============================================================
+   MOBILE RESPONSIVE — max-width:767px
+   ============================================================ */
+@media(max-width:767px){
+  .container-wide{padding:0 1.25rem}
+
+  /* — Footer — */
+  .footer-inner{padding:3rem 0 0}
+  .footer-grid{gap:2rem;padding-bottom:2.5rem}
+  .footer-brand img{height:3rem}
+  .footer-bottom{padding:1rem 0}
+
+  /* — Mobile Nav polish — */
+  .mobile-nav{padding:0;border-top:2px solid var(--gold)}
+  .mobile-nav .container-wide{padding:1rem 1.25rem 1.25rem}
+  .mobile-nav a{padding:.75rem 0;border-bottom:1px solid hsl(210 20% 94%);font-size:.9375rem}
+  .mobile-nav a:last-of-type{border-bottom:none}
+
+}
+
+@media(max-width:374px){
+  .container-wide{padding:0 1rem}
+  .btn-gold{padding:0 1.5rem;font-size:.8125rem}
+}
+
 </style>
 <script type="application/ld+json">
 {
