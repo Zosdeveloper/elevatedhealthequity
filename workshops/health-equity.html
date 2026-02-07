@@ -51,7 +51,7 @@ p{line-height:1.7}
   --cream-dark:hsl(203 40% 88%);
   --bg:hsl(210 25% 97%);
   --fg:hsl(210 40% 15%);
-  --muted-fg:hsl(210 15% 45%);
+  --muted-fg:hsl(210 18% 32%);
   --card:hsl(0 0% 100%);
   --border:hsl(210 20% 88%);
   --primary-fg:hsl(45 100% 96%);
@@ -236,10 +236,13 @@ p{line-height:1.7}
 /* ============================================================
    LEARNING OUTCOMES — NUMBERED TIMELINE
    ============================================================ */
+.outcomes-section{padding-top:1.75rem}
+@media(min-width:768px){.outcomes-section{padding-top:3.5rem}}
+@media(min-width:1024px){.outcomes-section{padding-top:4rem}}
 .outcomes-timeline{max-width:56rem;margin:0 auto;position:relative;padding-left:3.5rem}
 @media(min-width:768px){.outcomes-timeline{padding-left:4.5rem}}
 /* Vertical connector line */
-.outcomes-timeline::before{content:'';position:absolute;left:1.125rem;top:1.25rem;bottom:1.25rem;width:2px;background:linear-gradient(180deg,var(--gold),var(--gold-light),var(--gold));border-radius:1px}
+.outcomes-timeline::before{content:'';position:absolute;left:1.125rem;top:1.25rem;bottom:2.5rem;width:2px;background:linear-gradient(180deg,var(--gold),var(--gold-light),var(--gold));border-radius:1px}
 @media(min-width:768px){.outcomes-timeline::before{left:1.625rem}}
 .outcome-item{position:relative;padding:1.25rem 0 2rem}
 .outcome-item:last-child{padding-bottom:0}
@@ -587,7 +590,7 @@ p{line-height:1.7}
 <!-- ============================================================
      LEARNING OUTCOMES — NUMBERED TIMELINE
      ============================================================ -->
-<section class="section-padding" style="background:var(--bg)">
+<section class="section-padding outcomes-section" style="background:var(--bg)">
   <div class="container-wide">
     <div class="section-heading reveal">
       <h2>Learning Outcomes</h2>
