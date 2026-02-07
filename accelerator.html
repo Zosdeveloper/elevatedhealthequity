@@ -320,7 +320,7 @@ p{line-height:1.7}
 #hubspotForm .legal-consent-container .hs-form-booleancheckbox-display span,#hubspotForm .legal-consent-container p{font-size:.8125rem!important;color:var(--muted-fg)!important;line-height:1.5!important;font-family:'Montserrat',system-ui,sans-serif!important;text-transform:none!important;letter-spacing:0!important}
 #hubspotForm .hs-richtext{font-size:.8125rem!important;color:var(--muted-fg)!important;line-height:1.5!important;margin-bottom:.75rem!important}
 #hubspotForm .hs-submit{margin-top:1.5rem!important}
-#hubspotForm .hs-submit input[type="submit"],#hubspotForm .hs-button,#hubspotForm .hs-button.primary,#hubspotForm input.hs-button{background:var(--gold)!important;background-color:var(--gold)!important;color:var(--navy)!important;border:none!important;border-radius:9999px!important;font-family:'Montserrat',system-ui,sans-serif!important;font-weight:700!important;font-size:1rem!important;text-transform:uppercase!important;letter-spacing:.05em!important;padding:.875rem 2.5rem!important;height:3.5rem!important;cursor:pointer!important;transition:all .3s!important;width:100%!important}
+#hubspotForm .hs-submit input[type="submit"],#hubspotForm .hs-button,#hubspotForm .hs-button.primary,#hubspotForm input.hs-button{background:var(--gold)!important;background-color:var(--gold)!important;color:var(--navy)!important;border:none!important;border-radius:9999px!important;font-family:'Montserrat',system-ui,sans-serif!important;font-weight:700!important;font-size:1rem!important;text-transform:uppercase!important;letter-spacing:.05em!important;padding:0 2.5rem!important;height:3.5rem!important;line-height:3.5rem!important;cursor:pointer!important;transition:all .3s!important;width:100%!important}
 #hubspotForm .hs-submit input[type="submit"]:hover,#hubspotForm .hs-button:hover,#hubspotForm .hs-button.primary:hover,#hubspotForm input.hs-button:hover{background:var(--gold-light)!important;background-color:var(--gold-light)!important;box-shadow:0 8px 24px rgba(212,168,67,.2)!important}
 #hubspotForm .submitted-message{text-align:center!important;padding:2rem!important;font-family:'Montserrat',system-ui,sans-serif!important;color:var(--navy)!important;font-size:1.125rem!important;font-weight:600!important}
 .form-success{display:none;text-align:center;padding:2rem;color:var(--navy)}
@@ -791,6 +791,16 @@ p{line-height:1.7}
   var hamburger = document.getElementById('hamburger');
   var mobileNav = document.getElementById('mobileNav');
   var menuOpen = false;
+
+  var subnavToggle = document.querySelector('.mobile-subnav-toggle');
+  var workshopSubnav = document.getElementById('workshopSubnav');
+  if(subnavToggle && workshopSubnav){
+    subnavToggle.addEventListener('click', function(){
+      var isOpen = workshopSubnav.style.display !== 'none';
+      workshopSubnav.style.display = isOpen ? 'none' : 'block';
+      subnavToggle.style.transform = isOpen ? '' : 'rotate(180deg)';
+    });
+  }
 
   hamburger.addEventListener('click', function(){
     menuOpen = !menuOpen;
