@@ -151,10 +151,11 @@ p{line-height:1.7}
 /* ============================================================
    CONSULTING HERO
    ============================================================ */
-.consulting-hero{position:relative;min-height:60vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 50%,hsl(210 55% 8%) 100%)}
+.consulting-hero{position:relative;min-height:60vh;display:flex;align-items:center;overflow:hidden}
 @media(min-width:768px){.consulting-hero{min-height:85vh}}
-.consulting-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 120% 80% at 80% 20%,rgba(212,168,67,.08) 0%,transparent 50%),radial-gradient(ellipse 80% 60% at 10% 80%,rgba(23,106,137,.1) 0%,transparent 40%);pointer-events:none}
-.consulting-hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");opacity:.02;pointer-events:none}
+.consulting-hero-bg{position:absolute;inset:0;z-index:0}
+.consulting-hero-bg img{width:100%;height:100%;object-fit:cover}
+.consulting-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,hsla(210,55%,12%,.93) 0%,hsla(210,50%,18%,.88) 50%,hsla(210,55%,8%,.85) 100%)}
 .consulting-hero-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center;position:relative;z-index:1}
 @media(min-width:1024px){.consulting-hero-grid{grid-template-columns:1.2fr 1fr;gap:4rem}}
 .consulting-hero-text{padding:2rem 0}
@@ -274,11 +275,11 @@ p{line-height:1.7}
 .partners-heading{text-align:center;font-size:1.5rem;font-weight:700;color:var(--navy);letter-spacing:-.025em;margin-bottom:2rem}
 @media(min-width:768px){.partners-heading{font-size:2.25rem}}
 @media(min-width:1024px){.partners-heading{font-size:2.5rem}}
-.partners-track{display:flex;animation:scroll 25s linear infinite}
+.partners-track{display:flex;animation:scroll 15s linear infinite}
+@media(min-width:768px){.partners-track{animation-duration:25s}}
 .partners-track .partner-item{flex-shrink:0;padding:0 2rem;display:flex;align-items:center;justify-content:center;height:12rem}
 @media(min-width:768px){.partners-track .partner-item{padding:0 4rem;height:16rem}}
-.partners-track .partner-item img{height:10rem;width:auto;object-fit:contain;filter:grayscale(.5);opacity:.75;transition:filter .4s,opacity .4s}
-.partners-track .partner-item:hover img{filter:grayscale(0);opacity:1}
+.partners-track .partner-item img{height:10rem;width:auto;object-fit:contain}
 @media(min-width:768px){.partners-track .partner-item img{height:14rem}}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
@@ -433,6 +434,9 @@ p{line-height:1.7}
      HERO
      ============================================================ -->
 <section class="consulting-hero">
+  <div class="consulting-hero-bg">
+    <img src="images/hero-patient-care.jpg" alt="Healthcare professionals collaborating on strategy">
+  </div>
   <div class="container-wide">
     <div class="consulting-hero-grid">
       <div class="consulting-hero-text reveal-left">
