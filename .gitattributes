@@ -1,0 +1,6 @@
+# Force GitHub Linguist to detect this as an HTML project
+*.html linguist-language=HTML
+*.md linguist-documentation
+.planning/** linguist-vendored
+.claude/** linguist-vendored
+DESIGN_SYSTEM_AND_PLAN.md linguist-documentation
